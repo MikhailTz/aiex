@@ -6,40 +6,51 @@
     <title>Aiex | Soluções de Gestão Inteligente</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #0a0f1a; color: #ffffff; line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; background-color: #000000; color: #ffffff; line-height: 1.6; }
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
         
-        /* Header Estilo Aiex */
-        header { text-align: center; padding: 60px 0; border-bottom: 1px solid #1e293b; }
-        .logo { font-size: 3rem; font-weight: 800; letter-spacing: -2px; color: #ffffff; margin-bottom: 10px; }
-        .logo span { color: #22c55e; }
-        .tagline { color: #94a3b8; font-size: 1.1rem; }
+        header { text-align: center; padding: 60px 0; border-bottom: 1px solid #333333; }
+        
+        /* Estilo para a imagem da logo */
+        .logo-img { max-width: 200px; height: auto; margin-bottom: 15px; filter: grayscale(100%) brightness(200%); }
+        
+        /* Texto de fallback sem o ponto verde */
+        .logo-text { font-size: 3rem; font-weight: 800; letter-spacing: -2px; color: #ffffff; margin-bottom: 10px; display: none; }
+        
+        .tagline { color: #aaaaaa; font-size: 1.1rem; }
 
-        /* Seção do Produto */
         .product-card { 
-            background: #111827; border: 1px solid #1e293b; border-radius: 24px; 
+            background: #000000; border: 1px solid #333333; border-radius: 24px; 
             padding: 30px; margin: 40px 0; display: flex; align-items: center; gap: 30px;
             flex-wrap: wrap;
         }
         .product-info { flex: 1; min-width: 300px; }
-        .product-info h2 { color: #22c55e; font-size: 1.8rem; margin-bottom: 15px; }
+        .product-info h2 { color: #ffffff; font-size: 1.8rem; margin-bottom: 15px; }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.1); color: #ffffff; display: inline-block; 
+            padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px;
+            border: 1px solid #444444;
+        }
+
+        /* Botão corrigido com o seu link real */
         .btn { 
-            display: inline-block; background: #22c55e; color: #000; padding: 12px 24px; 
+            display: inline-block; background: #ffffff; color: #000000; padding: 12px 24px; 
             border-radius: 12px; font-weight: bold; text-decoration: none; transition: 0.3s;
         }
-        .btn:hover { background: #16a34a; }
+        .btn:hover { background: #cccccc; }
 
-        /* Política e Legal */
-        .legal-section { margin-top: 60px; padding: 40px; background: #0f172a; border-radius: 16px; font-size: 0.9rem; color: #94a3b8; }
-        .legal-section h3 { color: #f8fafc; margin-bottom: 20px; }
+        .legal-section { margin-top: 60px; padding: 40px; background: #000000; border: 1px solid #333333; border-radius: 16px; font-size: 0.9rem; color: #aaaaaa; }
+        .legal-section h3 { color: #ffffff; margin-bottom: 20px; }
         
-        .footer { text-align: center; margin-top: 60px; color: #475569; font-size: 0.8rem; }
+        .footer { text-align: center; margin-top: 60px; color: #666666; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">AIEX<span>.</span></div>
+        <img src="logo-aiex.png" alt="Aiex Logo" class="logo-img" onerror="document.querySelector('.logo-text').style.display='block'; this.style.display='none';">
+        <div class="logo-text">AIEX</div>
         <p class="tagline">Soluções inteligentes para simplificar sua gestão financeira.</p>
     </header>
 
@@ -47,11 +58,11 @@
         
         <section class="product-card">
             <div class="product-info">
-                <div style="background: #22c55e22; color: #22c55e; display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px;">APP EM DESTAQUE</div>
+                <div class="badge">APP EM DESTAQUE</div>
                 <h2>Organiza+ Controle Financeiro</h2>
                 <p>Desenvolvido para quem vive o empreendedorismo e entende o valor do seu tempo. Tenha suas contas e gestão na palma da mão.</p>
                 <br>
-                <a href="https://play.google.com/store/apps/details?id=com.mikhail.organizaplus" class="btn">Conhecer o App</a>
+                <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn">Conhecer o App</a>
             </div>
         </section>
 
@@ -59,7 +70,7 @@
             <h3>Privacidade e Termos</h3>
             <p>A <strong>Aiex Solutions</strong> preza pela segurança dos seus dados. No aplicativo Organiza+, os dados financeiros inseridos são tratados de forma confidencial e utilizados exclusivamente para gerar os relatórios e funcionalidades do sistema.</p>
             <br>
-            <p>Desenvolvido por Mikhail. Rio de Janeiro, Brasil.</p>
+            <p>Desenvolvido por Mikhail Ayache. Rio de Janeiro, Brasil.</p>
         </section>
 
         <footer class="footer">
