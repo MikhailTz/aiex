@@ -3,57 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organiza+ | Controle Financeiro Inteligente</title>
+    <title>Aiex | Soluções de Gestão Inteligente</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #0f172a; 
-            color: #f8fafc; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            text-align: center;
+        body { font-family: 'Inter', sans-serif; background-color: #0a0f1a; color: #ffffff; line-height: 1.6; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* Header Estilo Aiex */
+        header { text-align: center; padding: 60px 0; border-bottom: 1px solid #1e293b; }
+        .logo { font-size: 3rem; font-weight: 800; letter-spacing: -2px; color: #ffffff; margin-bottom: 10px; }
+        .logo span { color: #22c55e; }
+        .tagline { color: #94a3b8; font-size: 1.1rem; }
+
+        /* Seção do Produto */
+        .product-card { 
+            background: #111827; border: 1px solid #1e293b; border-radius: 24px; 
+            padding: 30px; margin: 40px 0; display: flex; align-items: center; gap: 30px;
+            flex-wrap: wrap;
         }
-        .container { 
-            max-width: 600px; 
-            padding: 2rem; 
-            background: #1e293b; 
-            border-radius: 20px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            border: 1px solid #334155;
+        .product-info { flex: 1; min-width: 300px; }
+        .product-info h2 { color: #22c55e; font-size: 1.8rem; margin-bottom: 15px; }
+        .btn { 
+            display: inline-block; background: #22c55e; color: #000; padding: 12px 24px; 
+            border-radius: 12px; font-weight: bold; text-decoration: none; transition: 0.3s;
         }
-        h1 { color: #22c55e; font-size: 2.5rem; margin-bottom: 10px; }
-        p { color: #94a3b8; line-height: 1.6; margin-bottom: 20px; }
-        .badge {
-            display: inline-block;
-            background: #22c55e;
-            color: #0f172a;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            margin-bottom: 20px;
-        }
-        .footer { font-size: 0.9rem; color: #64748b; margin-top: 30px; }
-        .footer a { color: #22c55e; text-decoration: none; }
-        .footer a:hover { text-decoration: underline; }
+        .btn:hover { background: #16a34a; }
+
+        /* Política e Legal */
+        .legal-section { margin-top: 60px; padding: 40px; background: #0f172a; border-radius: 16px; font-size: 0.9rem; color: #94a3b8; }
+        .legal-section h3 { color: #f8fafc; margin-bottom: 20px; }
+        
+        .footer { text-align: center; margin-top: 60px; color: #475569; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="badge">DISPONÍVEL NA PLAY STORE</div>
-        <h1>Organiza+</h1>
-        <p>A ferramenta definitiva para quem busca clareza financeira e controle total sobre o próprio capital. Desenvolvido para ser simples, rápido e eficiente.</p>
-        
-        <p><i>"A felicidade da sua vida depende da qualidade dos seus pensamentos."</i> — Marcus Aurelius</p>
+    <header>
+        <div class="logo">AIEX<span>.</span></div>
+        <p class="tagline">Soluções inteligentes para simplificar sua gestão financeira.</p>
+    </header>
 
-        <div class="footer">
-            Desenvolvido por <strong>Mikhail</strong><br>
-            <a href="https://play.google.com/store/apps/details?id=com.mikhail.organizaplus" target="_blank">Baixar na Google Play</a>
-        </div>
+    <div class="container">
+        
+        <section class="product-card">
+            <div class="product-info">
+                <div style="background: #22c55e22; color: #22c55e; display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px;">APP EM DESTAQUE</div>
+                <h2>Organiza+ Controle Financeiro</h2>
+                <p>Desenvolvido para quem vive o empreendedorismo e entende o valor do seu tempo. Tenha suas contas e gestão na palma da mão.</p>
+                <br>
+                <a href="https://play.google.com/store/apps/details?id=com.mikhail.organizaplus" class="btn">Conhecer o App</a>
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h3>Privacidade e Termos</h3>
+            <p>A <strong>Aiex Solutions</strong> preza pela segurança dos seus dados. No aplicativo Organiza+, os dados financeiros inseridos são tratados de forma confidencial e utilizados exclusivamente para gerar os relatórios e funcionalidades do sistema.</p>
+            <br>
+            <p>Desenvolvido por Mikhail. Rio de Janeiro, Brasil.</p>
+        </section>
+
+        <footer class="footer">
+            © 2026 Aiex Solutions. Todos os direitos reservados. <br>
+            Aiex - Gestão Inteligente de Negócios.
+        </footer>
     </div>
 
 </body>
