@@ -10,39 +10,37 @@
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
         
         header { text-align: center; padding: 60px 0; border-bottom: 1px solid #333333; }
-        
-        /* Estilo para a imagem da logo */
         .logo-img { max-width: 200px; height: auto; margin-bottom: 15px; filter: grayscale(100%) brightness(200%); }
-        
-        /* Texto de fallback sem o ponto verde */
         .logo-text { font-size: 3rem; font-weight: 800; letter-spacing: -2px; color: #ffffff; margin-bottom: 10px; display: none; }
-        
         .tagline { color: #aaaaaa; font-size: 1.1rem; }
 
+        /* Card do Produto Ajustado para o Ícone */
         .product-card { 
             background: #000000; border: 1px solid #333333; border-radius: 24px; 
-            padding: 30px; margin: 40px 0; display: flex; align-items: center; gap: 30px;
+            padding: 30px; margin: 40px 0; display: flex; align-items: center; gap: 25px;
             flex-wrap: wrap;
         }
+        .app-icon { 
+            width: 80px; height: 80px; border-radius: 18px; 
+            object-fit: cover; border: 1px solid #444444;
+        }
         .product-info { flex: 1; min-width: 300px; }
-        .product-info h2 { color: #ffffff; font-size: 1.8rem; margin-bottom: 15px; }
+        .product-info h2 { color: #ffffff; font-size: 1.8rem; margin-bottom: 10px; }
         
         .badge {
             background: rgba(255, 255, 255, 0.1); color: #ffffff; display: inline-block; 
-            padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px;
-            border: 1px solid #444444;
+            padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; margin-bottom: 15px;
+            border: 1px solid #444444; text-transform: uppercase;
         }
 
-        /* Botão corrigido com o seu link real */
         .btn { 
             display: inline-block; background: #ffffff; color: #000000; padding: 12px 24px; 
-            border-radius: 12px; font-weight: bold; text-decoration: none; transition: 0.3s;
+            border-radius: 12px; font-weight: bold; text-decoration: none; transition: 0.3s; margin-top: 15px;
         }
         .btn:hover { background: #cccccc; }
 
         .legal-section { margin-top: 60px; padding: 40px; background: #000000; border: 1px solid #333333; border-radius: 16px; font-size: 0.9rem; color: #aaaaaa; }
         .legal-section h3 { color: #ffffff; margin-bottom: 20px; }
-        
         .footer { text-align: center; margin-top: 60px; color: #666666; font-size: 0.8rem; }
     </style>
 </head>
@@ -57,11 +55,12 @@
     <div class="container">
         
         <section class="product-card">
+            <img src="icone-app.png" alt="Ícone Organiza+" class="app-icon" onerror="this.style.display='none'">
+            
             <div class="product-info">
-                <div class="badge">APP EM DESTAQUE</div>
+                <div class="badge">App em Destaque</div>
                 <h2>Organiza+ Controle Financeiro</h2>
                 <p>Desenvolvido para quem vive o empreendedorismo e entende o valor do seu tempo. Tenha suas contas e gestão na palma da mão.</p>
-                <br>
                 <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn">Conhecer o App</a>
             </div>
         </section>
@@ -74,7 +73,7 @@
         </section>
 
         <footer class="footer">
-            © 2026 Aiex . Todos os direitos reservados. <br>
+            © 2026 Aiex. Todos os direitos reservados. <br>
             Aiex - Gestão Inteligente de Negócios.
         </footer>
     </div>
