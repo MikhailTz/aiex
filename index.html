@@ -1,132 +1,137 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aiex | Soluções Digitais</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #000000; color: #ffffff; line-height: 1.5; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        
-        /* Header Ajustado - Logo mais próxima da Tagline */
-        header { text-align: center; padding-bottom: 50px; }
-        .logo-img { max-width: 150px; height: auto; filter: brightness(0) invert(1); margin-bottom: 5px; }
-        .logo-text { font-size: 2.5rem; font-weight: 900; letter-spacing: -2px; display: none; margin-bottom: 0; }
-        .tagline { color: #aaaaaa; font-size: 0.9rem; font-weight: 300; letter-spacing: 1px; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiex | Soluções Digitais</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #000000; color: #ffffff; line-height: 1.5; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* Header Ajustado - Logo mais próxima da Tagline */
+        header { text-align: center; padding-bottom: 50px; }
+        .logo-img { max-width: 150px; height: auto; filter: brightness(0) invert(1); margin-bottom: 5px; }
+        .logo-text { font-size: 2.5rem; font-weight: 900; letter-spacing: -2px; display: none; margin-bottom: 0; }
+        .tagline { color: #aaaaaa; font-size: 0.9rem; font-weight: 300; letter-spacing: 1px; }
 
-        /* Categorias */
-        .category-title { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #444; margin: 50px 0 25px; border-bottom: 1px solid #111; padding-bottom: 8px; font-weight: 700; }
+        /* Categorias */
+        .category-title { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #444; margin: 50px 0 25px; border-bottom: 1px solid #111; padding-bottom: 8px; font-weight: 700; }
 
-        /* Grid de Produtos Responsivo */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        /* Grid de Produtos Responsivo */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 
-        /* Estilo dos Cards - Ajustado para Mobile */
-        .card { 
-            background: #000; border: 1px solid #1a1a1a; padding: 30px; border-radius: 4px;
-            display: flex; align-items: flex-start; gap: 20px; transition: 0.4s;
-        }
-        
-        .icon-box { width: 60px; height: 60px; flex-shrink: 0; }
-        .icon-box img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+        /* Estilo dos Cards - Ajustado para Mobile */
+        .card { 
+            background: #000; border: 1px solid #1a1a1a; padding: 30px; border-radius: 4px;
+            display: flex; align-items: flex-start; gap: 20px; transition: 0.4s;
+        }
+        
+        /* Box do ícone estabilizado com fallback de cor */
+        .icon-box { 
+            width: 60px; height: 60px; flex-shrink: 0; 
+            background-color: #111; border-radius: 10px; 
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
+        }
+        .icon-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        .content h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
-        .content p { color: #888; font-size: 0.9rem; margin-bottom: 20px; font-weight: 300; }
+        .content h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .content p { color: #888; font-size: 0.9rem; margin-bottom: 20px; font-weight: 300; }
 
-        /* Botões */
-        .btn { 
-            display: inline-block; padding: 12px 20px; font-size: 0.7rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none;
-            border: 1px solid #333; color: #fff; transition: 0.3s; width: auto; text-align: center;
-        }
-        .btn:hover { background: #fff; color: #000; border-color: #fff; }
-        .btn.disabled { color: #333; border-color: #111; cursor: not-allowed; }
+        /* Botões */
+        .btn { 
+            display: inline-block; padding: 12px 20px; font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none;
+            border: 1px solid #333; color: #fff; transition: 0.3s; width: auto; text-align: center;
+        }
+        .btn:hover { background: #fff; color: #000; border-color: #fff; }
+        .btn.disabled { color: #333; border-color: #111; cursor: not-allowed; }
 
-        /* Ajustes específicos para Celular */
-        @media (max-width: 600px) {
-            .container { padding: 30px 15px; }
-            header { padding-bottom: 40px; }
-            .logo-img { max-width: 130px; }
-            
-            .card { 
-                flex-direction: column; /* Ícone em cima do texto no mobile */
-                padding: 25px;
-                gap: 15px;
-            }
-            .icon-box { width: 50px; height: 50px; }
-            .btn { display: block; width: 100%; } /* Botão ocupa largura toda no mobile */
-            
-            .category-title { margin: 40px 0 20px; }
-        }
+        /* Ajustes específicos para Celular */
+        @media (max-width: 600px) {
+            .container { padding: 30px 15px; }
+            header { padding-bottom: 40px; }
+            .logo-img { max-width: 130px; }
+            
+            .card { 
+                flex-direction: column; 
+                padding: 25px;
+                gap: 15px;
+            }
+            .icon-box { width: 50px; height: 50px; }
+            .btn { display: block; width: 100%; } 
+            
+            .category-title { margin: 40px 0 20px; }
+        }
 
-        /* Footer */
-        .footer { margin-top: 80px; padding-top: 30px; border-top: 1px solid #111; text-align: center; }
-        .footer-info { font-size: 0.75rem; color: #444; margin-bottom: 15px; }
-        .footer-links a { color: #666; text-decoration: none; margin: 0 10px; font-size: 0.7rem; transition: 0.3s; }
-        .footer-links a:hover { color: #fff; }
-    </style>
+        /* Footer */
+        .footer { margin-top: 80px; padding-top: 30px; border-top: 1px solid #111; text-align: center; }
+        .footer-info { font-size: 0.75rem; color: #444; margin-bottom: 15px; }
+        .footer-links a { color: #666; text-decoration: none; margin: 0 10px; font-size: 0.7rem; transition: 0.3s; }
+        .footer-links a:hover { color: #fff; }
+    </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <img src="logo-aiex.png" alt="Aiex" class="logo-img" onerror="this.style.display='none'; document.querySelector('.logo-text').style.display='block';">
-            <div class="logo-text">AIEX</div>
-            <p class="tagline">Soluções Digitais e Inteligentes</p>
-        </header>
+    <div class="container">
+        <header>
+            <img src="logo-aiex.png" alt="Aiex" class="logo-img" onerror="this.style.display='none'; document.querySelector('.logo-text').style.display='block';">
+            <div class="logo-text">AIEX</div>
+            <p class="tagline">Soluções Digitais e Inteligentes</p>
+        </header>
 
-        <h2 class="category-title">Aplicativos Móveis</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="icon-box"><img src="organiza-icon.png" alt="Organiza+"></div>
-                <div class="content">
-                    <h3>Organiza+</h3>
-                    <p>Controle total das suas finanças na palma da mão! Tenha tudo sob controle: orçamento mensal, despesas fixas com alertas de vencimento, geração rápida de boletos e acompanhamento em tempo real dos seus gastos.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn">Baixar Aplicativo</a>
-                </div>
-            </div>
+        <h2 class="category-title">Aplicativos Móveis</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box"><img src="organiza-icon.png" alt="Organiza+" onerror="this.style.display='none';"></div>
+                <div class="content">
+                    <h3>Organiza+</h3>
+                    <p>Controle total das suas finanças na palma da mão! Tenha tudo sob controle: orçamento mensal, despesas fixas com alertas de vencimento, geração rápida de boletos e acompanhamento em tempo real dos seus gastos.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn">Baixar Aplicativo</a>
+                </div>
+            </div>
 
-            <div class="card">
-                <div class="icon-box"><img src="agenda-icon.png" alt="Agenda para Tatuadores"></div>
-                <div class="content">
-                    <h3>Agenda para Tatuadores</h3>
-                    <p>Organize seus agendamentos, registre ganhos e controle gastos com materiais de forma simples. Tenha a visão real do seu lucro líquido e profissionalize seu fluxo de trabalho. Eficiência máxima para quem vive da arte.</p>
-                    <a href="#" class="btn disabled">Em desenvolvimento</a>
-                </div>
-            </div>
-        </div>
+            <div class="card">
+                <div class="icon-box"><img src="agenda-icon.png" alt="Agenda para Tatuadores" onerror="this.style.display='none';"></div>
+                <div class="content">
+                    <h3>Agenda para Tatuadores</h3>
+                    <p>Organize seus agendamentos, registre ganhos e controle gastos com materiais de forma simples. Tenha a visão real do seu lucro líquido e profissionalize seu fluxo de trabalho. Eficiência máxima para quem vive da arte.</p>
+                    <a href="#" class="btn disabled">Em desenvolvimento</a>
+                </div>
+            </div>
+        </div>
 
-        <h2 class="category-title">Soluções para seu Negócio</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="icon-box"><img src="ia-icon.png" alt="Agente IA"></div>
-                <div class="content">
-                    <h3>Agente IA</h3>
-                    <p>Venda mais com uma IA que atende seu WhatsApp 24h por dia de forma humana e automática.</p>
-                    <a href="https://wa.me/SEUNUMERO" class="btn">Consultar Projeto</a>
-                </div>
-            </div>
+        <h2 class="category-title">Soluções para seu Negócio</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box"><img src="ia-icon.png" alt="Agente IA" onerror="this.style.display='none';"></div>
+                <div class="content">
+                    <h3>Agente IA</h3>
+                    <p>Venda mais com uma IA que atende seu WhatsApp 24h por dia de forma humana e automática.</p>
+                    <a href="https://wa.me/SEUNUMERO" class="btn">Consultar Projeto</a>
+                </div>
+            </div>
 
-            <div class="card">
-                <div class="icon-box"><img src="cardapio-icon.png" alt="Cardápio Digital"></div>
-                <div class="content">
-                    <h3>Cardápio Digital</h3>
-                    <p>Site de vendas com cardápio integrado. O cliente escolhe pelo link e o pedido chega pronto no seu WhatsApp.</p>
-                    <a href="https://wa.me/SEUNUMERO" class="btn">Ver Demonstração</a>
-                </div>
-            </div>
-        </div>
+            <div class="card">
+                <div class="icon-box"><img src="cardapio-icon.png" alt="Cardápio Digital" onerror="this.style.display='none';"></div>
+                <div class="content">
+                    <h3>Cardápio Digital</h3>
+                    <p>Site de vendas com cardápio integrado. O cliente escolhe pelo link e o pedido chega pronto no seu WhatsApp.</p>
+                    <a href="https://wa.me/SEUNUMERO" class="btn">Ver Demonstração</a>
+                </div>
+            </div>
+        </div>
 
-        <footer class="footer">
-            <p class="footer-info">© 2026 Aiex | Desenvolvido por Mikhail Ayache</p>
-            <div class="footer-links">
-                <a href="politica_privacidade_organiza+.html">Privacidade</a>
-                <a href="termos_de_uso_organiza+.html">Termos</a>
-            </div>
-        </footer>
-    </div>
+        <footer class="footer">
+            <p class="footer-info">© 2026 Aiex | Desenvolvido por Mikhail Ayache</p>
+            <div class="footer-links">
+                <a href="politica_privacidade_organiza+.html">Privacidade</a>
+                <a href="termos_de_uso_organiza+.html">Termos</a>
+            </div>
+        </footer>
+    </div>
 
 </body>
 </html>
