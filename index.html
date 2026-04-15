@@ -3,47 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aiex | Soluções de Gestão Inteligente</title>
+    <title>Aiex | Soluções Tecnológicas para Negócios</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background-color: #000000; color: #ffffff; line-height: 1.6; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
-        header { text-align: center; padding: 60px 0; border-bottom: 1px solid #333333; }
-        .logo-img { max-width: 200px; height: auto; margin-bottom: 15px; filter: grayscale(100%) brightness(200%); }
-        .logo-text { font-size: 3rem; font-weight: 800; letter-spacing: -2px; color: #ffffff; margin-bottom: 10px; display: none; }
-        .tagline { color: #aaaaaa; font-size: 1.1rem; }
+        header { text-align: center; padding: 80px 0 40px; border-bottom: 1px solid #1a1a1a; }
+        .logo-img { max-width: 220px; height: auto; margin-bottom: 15px; filter: grayscale(100%) brightness(200%); }
+        .logo-text { font-size: 3.5rem; font-weight: 900; letter-spacing: -2px; color: #ffffff; margin-bottom: 10px; display: none; }
+        .tagline { color: #aaaaaa; font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
 
-        /* Card do Produto */
-        .product-card { 
-            background: #000000; border: 1px solid #333333; border-radius: 24px; 
-            padding: 30px; margin: 40px 0; display: flex; align-items: center; gap: 25px;
-            flex-wrap: wrap;
+        .section-title { font-size: 2rem; color: #ffffff; margin: 60px 0 30px; text-align: left; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        /* Grid de Soluções */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
-        .app-icon { 
-            width: 80px; height: 80px; border-radius: 18px; 
-            object-fit: cover; border: 1px solid #444444;
+
+        /* Card Padrão */
+        .card { 
+            background: #0a0a0a; border: 1px solid #222222; border-radius: 16px; 
+            padding: 30px; display: flex; flex-direction: column; transition: all 0.3s ease;
         }
-        .product-info { flex: 1; min-width: 300px; }
-        .product-info h2 { color: #ffffff; font-size: 1.8rem; margin-bottom: 10px; }
+        .card:hover { transform: translateY(-5px); border-color: #555555; box-shadow: 0 10px 30px rgba(255,255,255,0.02); }
+        
+        .card h3 { color: #ffffff; font-size: 1.5rem; margin-bottom: 15px; }
+        .card p { color: #888888; font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1; }
         
         .badge {
-            background: rgba(255, 255, 255, 0.1); color: #ffffff; display: inline-block; 
-            padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; margin-bottom: 15px;
-            border: 1px solid #444444; text-transform: uppercase;
+            align-self: flex-start; background: #ffffff; color: #000000; 
+            padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; margin-bottom: 20px;
+            text-transform: uppercase; letter-spacing: 1px;
         }
+        .badge.outline { background: transparent; color: #ffffff; border: 1px solid #ffffff; }
+        .badge.soon { background: #1a1a1a; color: #666666; border: 1px solid #333333; }
 
+        /* Botões */
         .btn { 
-            display: inline-block; background: #ffffff; color: #000000; padding: 12px 24px; 
-            border-radius: 12px; font-weight: bold; text-decoration: none; transition: 0.3s; margin-top: 15px;
+            display: inline-block; background: #ffffff; color: #000000; padding: 12px 20px; 
+            border-radius: 8px; font-weight: bold; text-decoration: none; text-align: center; transition: 0.3s;
+            font-size: 0.9rem;
         }
         .btn:hover { background: #cccccc; }
+        .btn.secondary { background: transparent; color: #ffffff; border: 1px solid #444444; }
+        .btn.secondary:hover { border-color: #ffffff; }
+        .btn.disabled { background: #1a1a1a; color: #444; cursor: not-allowed; border: 1px solid #222; }
 
-        .legal-section { margin-top: 60px; padding: 40px; background: #000000; border: 1px solid #333333; border-radius: 16px; font-size: 0.9rem; color: #aaaaaa; }
-        .legal-section h3 { color: #ffffff; margin-bottom: 20px; }
+        /* Card Destaque (Organiza+) */
+        .card.featured { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 30px; padding: 40px; background: #050505; border-color: #333; }
+        .card.featured .app-icon { width: 100px; height: 100px; border-radius: 20px; object-fit: cover; border: 1px solid #444; }
+        @media (max-width: 768px) { .card.featured { flex-direction: column; align-items: flex-start; } }
+
+        /* Seção Legal e Rodapé */
+        .legal-section { margin-top: 80px; padding: 40px; background: #050505; border: 1px solid #1a1a1a; border-radius: 16px; font-size: 0.9rem; color: #888888; }
+        .legal-section h4 { color: #ffffff; margin-bottom: 15px; font-size: 1.2rem; }
         
-        /* Links do Rodapé */
-        .footer { text-align: center; margin-top: 60px; color: #666666; font-size: 0.8rem; padding-bottom: 40px; }
+        .footer { text-align: center; margin-top: 60px; color: #555555; font-size: 0.8rem; padding-bottom: 40px; }
         .footer-links { margin-bottom: 15px; }
         .footer-links a { color: #888888; text-decoration: none; margin: 0 10px; transition: 0.3s; }
         .footer-links a:hover { color: #ffffff; }
@@ -54,27 +73,53 @@
     <header>
         <img src="logo-aiex.png" alt="Aiex Logo" class="logo-img" onerror="document.querySelector('.logo-text').style.display='block'; this.style.display='none';">
         <div class="logo-text">AIEX</div>
-        <p class="tagline">Soluções inteligentes para simplificar sua gestão financeira.</p>
+        <p class="tagline">Ecossistema de soluções tecnológicas para escalar o seu negócio e simplificar sua gestão.</p>
     </header>
 
     <div class="container">
         
-        <section class="product-card">
-            <img src="icone-app.png" alt="Ícone Organiza+" class="app-icon" onerror="this.style.display='none'">
+        <h2 class="section-title">Nosso Portfólio</h2>
+
+        <div class="solutions-grid">
             
-            <div class="product-info">
-                <div class="badge">App em Destaque</div>
-                <h2>Organiza+ Controle Financeiro</h2>
-                <p>Desenvolvido por quem vive o empreendedorismo e entende o valor do seu tempo. Tenha suas contas e gestão na palma da mão.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn">Conhecer o App</a>
+            <div class="card featured">
+                <img src="icone-app.png" alt="Ícone Organiza+" class="app-icon" onerror="this.style.display='none'">
+                <div>
+                    <div class="badge">App Oficial</div>
+                    <h3>Organiza+ Controle Financeiro</h3>
+                    <p>Desenvolvido para quem vive o empreendedorismo e entende o valor do seu tempo. Tenha suas contas, fluxo de caixa e gestão na palma da mão, com relatórios precisos.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn" target="_blank">Baixar na Play Store</a>
+                </div>
             </div>
-        </section>
+
+            <div class="card">
+                <div class="badge outline">Automação</div>
+                <h3>Agentes IA para WhatsApp</h3>
+                <p>Atendimento automatizado 24 horas por dia. Implementamos Inteligência Artificial no seu WhatsApp para responder clientes, qualificar leads e fechar vendas enquanto você foca na operação.</p>
+                <a href="#" class="btn secondary">Solicitar Orçamento</a>
+            </div>
+
+            <div class="card">
+                <div class="badge outline">Food Service</div>
+                <h3>Cardápio Digital Delivery</h3>
+                <p>Solução completa para deliveries e restaurantes. Reduza taxas de aplicativos terceiros, automatize o recebimento de pedidos e ofereça uma experiência de compra fluida ao seu cliente.</p>
+                <a href="#" class="btn secondary">Ver Demonstração</a>
+            </div>
+
+            <div class="card">
+                <div class="badge soon">Em Desenvolvimento</div>
+                <h3>Agenda Smart (Tattoo)</h3>
+                <p>Aplicativo focado exclusivamente no ecossistema de estúdios de tatuagem. Gestão de horários, envio de recomendações pré-sessão e controle de retornos de forma 100% otimizada.</p>
+                <a href="#" class="btn disabled" onclick="return false;">Lançamento em Breve</a>
+            </div>
+
+        </div>
 
         <section class="legal-section">
-            <h3>Privacidade e Transparência</h3>
-            <p>A <strong>Aiex</strong> preza pela segurança dos seus dados. No aplicativo Organiza+, os dados financeiros inseridos são tratados de forma confidencial e utilizados exclusivamente para gerar os relatórios e funcionalidades do sistema.</p>
+            <h4>Privacidade e Transparência</h4>
+            <p>A <strong>Aiex</strong> preza pela total segurança dos seus dados e operações. Nossas soluções são desenvolvidas com arquitetura robusta para garantir confidencialidade e alta performance. No aplicativo Organiza+, as informações financeiras são mantidas em ambiente seguro.</p>
             <br>
-            <p>Desenvolvido por <strong>Mikhail Ayache</strong>.</p>
+            <p>Desenvolvido e operado por <strong>Mikhail Ayache</strong>.</p>
         </section>
 
         <footer class="footer">
@@ -82,8 +127,8 @@
                 <a href="politica_privacidade_organiza+.html">Política de Privacidade</a> | 
                 <a href="termos_de_uso_organiza+.html">Termos de Uso</a>
             </div>
-            © 2026 Aiex. Todos os direitos reservados. <br>
-            Aiex - Gestão Inteligente de Negócios.
+            © 2026 Aiex Solutions. Todos os direitos reservados. <br>
+            Rio de Janeiro, Brasil.
         </footer>
     </div>
 
