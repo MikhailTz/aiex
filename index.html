@@ -20,12 +20,12 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
         
         /* Header */
-        header { text-align: center; padding-bottom: 60px; }
+        header { text-align: center; padding-bottom: 50px; }
         .logo-img { max-width: 160px; height: auto; filter: brightness(0) invert(1); margin-bottom: 10px; }
         .logo-text { font-size: 2.8rem; font-weight: 900; letter-spacing: -2px; display: none; margin-bottom: 0; color: #fff; }
         .tagline { color: #888888; font-size: 0.95rem; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* Categorias */
+        /* Categorias & Títulos */
         .category-title { 
             font-size: 0.8rem; 
             letter-spacing: 4px; 
@@ -37,10 +37,31 @@
             font-weight: 700; 
         }
 
-        /* Grid de Produtos */
+        /* Sessão Sobre */
+        .about-section {
+            background: linear-gradient(145deg, #0a0a0a 0%, #030303 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-section p {
+            color: #aaa;
+            font-size: 1.05rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        .about-section strong { color: #fff; font-weight: 600; }
+
+        /* Grid Padrão */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
 
-        /* Estilo dos Cards Premium */
+        /* Estilo dos Cards Premium com Iluminação */
         .card { 
             background: linear-gradient(145deg, #0a0a0a 0%, #030303 100%);
             border: 1px solid rgba(255, 255, 255, 0.05); 
@@ -56,11 +77,11 @@
         
         .card:hover {
             transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.03), inset 0 0 20px rgba(255, 255, 255, 0.02);
         }
 
-        /* Box do ícone */
+        /* Box do ícone com Pulso de Luz */
         .icon-box { 
             width: 65px; height: 65px; flex-shrink: 0; 
             background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
@@ -69,13 +90,19 @@
             display: flex; align-items: center; justify-content: center; overflow: hidden;
             padding: 12px;
             box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+            animation: iconPulse 3s infinite alternate;
         }
         .icon-box img { width: 100%; height: 100%; object-fit: contain; }
+
+        @keyframes iconPulse {
+            0% { box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 0 5px rgba(255, 255, 255, 0.02); }
+            100% { box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 0 20px rgba(255, 255, 255, 0.1); }
+        }
 
         .content h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.5px; color: #fff; }
         .content p { color: #999; font-size: 0.95rem; margin-bottom: 25px; font-weight: 300; line-height: 1.6; }
 
-        /* Botões */
+        /* Botões Gerais */
         .btn { 
             display: inline-block; padding: 14px 24px; font-size: 0.75rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none;
@@ -84,77 +111,102 @@
             color: #fff; border-radius: 6px;
             transition: all 0.3s ease; width: auto; text-align: center;
         }
-        
         .btn:hover { 
             background: #fff; color: #000; 
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
         }
-        
-        .btn.disabled { 
+
+        /* Botão Estilo Play Store */
+        .btn-playstore {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 12px 20px; font-size: 0.8rem; font-weight: 600;
+            text-transform: none; letter-spacing: 0.5px;
+            border-radius: 8px; background: #111;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.3s ease;
+        }
+        .btn-playstore:hover {
+            background: #1a1a1a;
+            border-color: rgba(255,255,255,0.4);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+            color: #fff;
+        }
+        .btn-playstore svg { width: 22px; height: 22px; }
+        .btn-playstore span { display: flex; flex-direction: column; text-align: left; line-height: 1.2; }
+        .btn-playstore span small { font-size: 0.6rem; color: #aaa; text-transform: uppercase; font-weight: 400; }
+
+        /* Botão Desativado */
+        .btn.disabled, .btn-playstore.disabled { 
             color: #555; border-color: rgba(255, 255, 255, 0.05); 
             cursor: not-allowed; background: rgba(255, 255, 255, 0.02);
         }
-        .btn.disabled:hover { background: rgba(255, 255, 255, 0.02); color: #555; box-shadow: none; }
+        .btn.disabled:hover, .btn-playstore.disabled:hover { 
+            background: rgba(255, 255, 255, 0.02); color: #555; box-shadow: none; border-color: rgba(255, 255, 255, 0.05);
+        }
 
-        /* Botão Flutuante do WhatsApp */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
+        /* Grid de Clientes */
+        .clients-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;
+        }
+        .client-card {
+            background: #080808;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 25px 20px;
             text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #888;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 2px 2px 15px rgba(37, 211, 102, 0.3);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
+            min-height: 90px;
         }
-        
-        .whatsapp-float:hover {
-            background-color: #128C7E;
-            transform: scale(1.05);
+        .client-card:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.1);
+            background: #0a0a0a;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.02);
+            transform: translateY(-2px);
         }
+
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
+            background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 2px 2px 15px rgba(37, 211, 102, 0.3); z-index: 1000;
+            transition: all 0.3s ease; animation: wppPulse 2s infinite;
+        }
+        .whatsapp-float:hover { background-color: #128C7E; transform: scale(1.05); }
         
-        @keyframes pulse {
+        @keyframes wppPulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* Ajustes específicos para Celular */
+        /* Ajustes Mobile */
         @media (max-width: 600px) {
             .container { padding: 40px 20px; }
             header { padding-bottom: 40px; }
             .logo-img { max-width: 140px; }
-            
             .card { flex-direction: column; padding: 30px 20px; gap: 20px; }
             .icon-box { width: 55px; height: 55px; }
-            .btn { display: block; width: 100%; } 
-            
+            .btn, .btn-playstore { display: flex; justify-content: center; width: 100%; } 
             .category-title { margin: 50px 0 20px; text-align: center; }
-            
             .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+            .about-section { padding: 30px 20px; }
         }
 
         /* Footer */
         .footer { 
-            margin-top: 100px; padding-top: 40px; 
+            margin-top: 80px; padding-top: 40px; 
             border-top: 1px solid rgba(255, 255, 255, 0.05); 
             text-align: center; 
         }
-        .footer-info { font-size: 0.8rem; color: #666; margin-bottom: 20px; font-weight: 300; }
-        .footer-links a { 
-            color: #888; text-decoration: none; margin: 0 15px; 
-            font-size: 0.75rem; transition: color 0.3s; 
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-        .footer-links a:hover { color: #fff; }
+        .footer-info { font-size: 0.8rem; color: #444; font-weight: 300; }
     </style>
 </head>
 <body>
@@ -166,6 +218,18 @@
             <p class="tagline">Soluções Digitais e Inteligentes</p>
         </header>
 
+        <h2 class="category-title">Sobre a Aiex</h2>
+        <div class="about-section">
+            <p>A <strong>Aiex</strong> nasceu com o propósito de escalar a eficiência operacional de negócios reais através da tecnologia. Somos focados em transformar processos em <strong>soluções digitais otimizadas</strong> — desde o desenvolvimento de aplicativos móveis sob medida e sistemas de gestão inteligente, até agentes de Inteligência Artificial para automação de atendimento. Nós simplificamos a tecnologia para que você foque exclusivamente no crescimento da sua operação.</p>
+        </div>
+
+        <h2 class="category-title">Empresas que Atendemos</h2>
+        <div class="clients-grid">
+            <div class="client-card">Sabor Radical</div>
+            <div class="client-card">Espaço Comari</div>
+            <div class="client-card">O Fera do Lanche</div>
+        </div>
+
         <h2 class="category-title">Aplicativos Móveis</h2>
         <div class="grid">
             <div class="card">
@@ -173,27 +237,44 @@
                 <div class="content">
                     <h3>Organiza+</h3>
                     <p>Controle total das suas finanças na palma da mão! Tenha tudo sob controle: orçamento mensal, despesas fixas com alertas de vencimento, geração rápida de boletos e acompanhamento em tempo real dos seus gastos.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn" target="_blank">Baixar Aplicativo</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn-playstore" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M5.42 3.02L19.46 11.2a1.05 1.05 0 0 1 0 1.83l-14.04 8.18A1.1 1.1 0 0 1 3.8 20.3V3.9a1.1 1.1 0 0 1 1.62-.88z" opacity="0.9"/>
+                        </svg>
+                        <span>
+                            <small>Disponível no</small>
+                            Google Play
+                        </span>
+                    </a>
                 </div>
             </div>
 
             <div class="card">
                 <div class="icon-box"><img src="agenda-icon.png" alt="Agenda para Tatuadores" onerror="this.style.display='none';"></div>
                 <div class="content">
-                    <h3>Agenda para Tatuadores</h3>
+                    <h3>InkControl / Agenda</h3>
                     <p>Organize seus agendamentos, registre ganhos e controle gastos com materiais de forma simples. Tenha a visão real do seu lucro líquido e profissionalize seu fluxo de trabalho. Eficiência máxima para quem vive da arte.</p>
-                    <a href="#" class="btn disabled" onclick="return false;">Em desenvolvimento</a>
+                    <a href="#" class="btn-playstore disabled" onclick="return false;">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="12" r="10" opacity="0.3" />
+                            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span>
+                            <small>Status</small>
+                            Em Desenvolvimento
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <h2 class="category-title">Soluções para seu Negócio</h2>
+        <h2 class="category-title">Soluções de Automação para Negócios</h2>
         <div class="grid">
             <div class="card">
                 <div class="icon-box"><img src="ia-icon.png" alt="Agente IA" onerror="this.style.display='none';"></div>
                 <div class="content">
-                    <h3>Agente IA</h3>
-                    <p>Venda mais com uma IA que atende seu WhatsApp 24h por dia de forma humana e automática.</p>
+                    <h3>Agente de IA</h3>
+                    <p>Escale o seu atendimento comercial e suporte com uma IA treinada que atende seu WhatsApp 24 horas por dia, de forma humanizada e totalmente automática, integrando pedidos direto ao seu sistema.</p>
                     <a href="https://wa.me/SEUNUMERO" class="btn" target="_blank">Consultar Projeto</a>
                 </div>
             </div>
@@ -201,19 +282,15 @@
             <div class="card">
                 <div class="icon-box"><img src="cardapio-icon.png" alt="Cardápio Digital" onerror="this.style.display='none';"></div>
                 <div class="content">
-                    <h3>Cardápio Digital</h3>
-                    <p>Site de vendas com cardápio integrado. O cliente escolhe pelo link e o pedido chega pronto no seu WhatsApp.</p>
+                    <h3>Cardápio Digital Integrado</h3>
+                    <p>Site de vendas com catálogo digital focado em conversão. O cliente monta o pedido pelo link e as informações chegam formatadas e prontas para a produção direto no seu WhatsApp.</p>
                     <a href="https://wa.me/SEUNUMERO" class="btn" target="_blank">Ver Demonstração</a>
                 </div>
             </div>
         </div>
 
         <footer class="footer">
-            <p class="footer-info">© 2026 Aiex | Desenvolvido por Mikhail Ayache</p>
-            <div class="footer-links">
-                <a href="politica_privacidade_organiza+.html">Privacidade</a>
-                <a href="termos_de_uso_organiza+.html">Termos</a>
-            </div>
+            <p class="footer-info">© 2026 Aiex Soluções Digitais | Desenvolvido por Mikhail Ayache</p>
         </footer>
     </div>
 
