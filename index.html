@@ -19,89 +19,91 @@
 
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
         
-        header { text-align: center; padding-bottom: 40px; }
+        /* Header */
+        header { text-align: center; padding-bottom: 30px; }
         .logo-img { max-width: 150px; filter: brightness(0) invert(1); margin-bottom: 8px; }
         .tagline { color: #555; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; }
 
+        /* Destaques Iniciais */
+        .highlights {
+            display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; flex-wrap: wrap;
+        }
+        .high-item { font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 1px; border: 1px solid #1a1a1a; padding: 5px 15px; border-radius: 20px; }
+
+        /* Categorias */
         .category-title { 
-            font-size: 0.75rem; 
-            letter-spacing: 3px; 
-            text-transform: uppercase; 
-            color: #444; 
-            margin: 50px 0 25px; 
-            display: flex; align-items: center; gap: 15px; font-weight: 700;
+            font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; 
+            color: #444; margin: 50px 0 25px; display: flex; align-items: center; gap: 15px; font-weight: 700;
         }
         .category-title::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.05); }
 
-        /* Grid de Depoimentos/Empresas */
-        .feedback-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        
+        /* Grid de Depoimentos */
+        .feedback-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
         .feedback-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 20px;
-            border-radius: 20px;
-            text-align: center;
-            transition: 0.3s;
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
+            padding: 20px; border-radius: 20px; text-align: center; transition: 0.3s;
         }
-        
         .client-thumb {
-            width: 80px; height: 80px;
-            margin: 0 auto 15px;
-            border-radius: 20px; /* Arredondado conforme pedido */
-            overflow: hidden;
-            background: #fff;
-            border: 2px solid rgba(255,255,255,0.1);
+            width: 70px; height: 70px; margin: 0 auto 12px; border-radius: 18px; 
+            overflow: hidden; background: #fff; border: 1px solid rgba(255,255,255,0.1);
         }
-        .client-thumb img { width: 100%; height: 100%; object-fit: cover; }
-
-        .stars { color: #FFD700; font-size: 0.8rem; margin-bottom: 10px; }
-        .feedback-card h4 { font-size: 0.9rem; color: #fff; margin-bottom: 5px; }
-        .feedback-card p { font-size: 0.75rem; color: #777; line-height: 1.4; }
-        .service-tag { 
-            display: inline-block; margin-top: 10px; font-size: 0.65rem; 
-            color: #aaa; background: rgba(255,255,255,0.05); 
-            padding: 2px 8px; border-radius: 4px;
-        }
-
-        /* Seção O Que Saber */
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .info-box {
-            background: linear-gradient(145deg, #0d0d0d, #050505);
-            padding: 25px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.03);
-        }
-        .info-box h3 { font-size: 1rem; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-        .info-box p { font-size: 0.85rem; color: #888; font-weight: 300; }
+        .client-thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; }
+        .stars { color: #FFD700; font-size: 0.7rem; margin-bottom: 8px; }
+        .feedback-card h4 { font-size: 0.85rem; color: #fff; margin-bottom: 5px; }
+        .feedback-card p { font-size: 0.75rem; color: #666; line-height: 1.4; font-style: italic; }
+        .service-tag { display: inline-block; margin-top: 10px; font-size: 0.6rem; color: #aaa; background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 4px; }
 
         /* Cards de Produtos */
         .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .card { 
-            background: #0a0a0a; border: 1px solid rgba(255, 255, 255, 0.05); 
+            background: linear-gradient(145deg, #0a0a0a, #030303); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
             padding: 25px; border-radius: 22px; display: flex; gap: 20px; transition: 0.3s;
         }
         .icon-box { 
-            width: 70px; height: 70px; flex-shrink: 0; border-radius: 18px; 
+            width: 75px; height: 75px; flex-shrink: 0; border-radius: 18px; 
             overflow: hidden; background: #111; border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center;
         }
         .icon-box img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; }
-        
-        .status-label {
+        .icon-font { font-size: 1.8rem; }
+
+        .content h3 { font-size: 1.1rem; color: #fff; margin-bottom: 8px; }
+        .content p { color: #888; font-size: 0.9rem; margin-bottom: 18px; font-weight: 300; }
+
+        /* Botão Play Store Estilizado */
+        .btn-play {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #fff; color: #000; text-decoration: none;
+            padding: 10px 18px; border-radius: 10px; font-size: 0.8rem; font-weight: 800;
+            transition: 0.3s;
+        }
+        .btn-play:hover { transform: scale(1.03); background: #f0f0f0; }
+
+        .status-badge {
             display: inline-block; padding: 6px 12px; font-size: 0.65rem; font-weight: 800;
-            text-transform: uppercase; background: rgba(255,255,255,0.03); color: #444; border-radius: 6px;
+            text-transform: uppercase; background: rgba(255,255,255,0.03); color: #444; border: 1px solid rgba(255,255,255,0.05); border-radius: 6px;
         }
 
-        .about-section { background: rgba(255,255,255,0.02); padding: 30px; border-radius: 20px; margin-top: 40px; }
-        .about-section p { color: #999; font-size: 0.95rem; line-height: 1.8; }
+        /* Sobre */
+        .about-card {
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);
+            padding: 30px; border-radius: 22px; margin-top: 20px;
+        }
+        .about-card h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; color: #fff; margin-bottom: 15px; }
+        .about-card p { color: #999; font-size: 0.95rem; line-height: 1.8; font-weight: 300; }
+        .about-card strong { color: #fff; }
 
         /* Mobile */
         @media (max-width: 600px) {
             .feedback-grid { grid-template-columns: 1fr; }
-            .card { flex-direction: column; }
-            .info-grid { grid-template-columns: 1fr; }
+            .card { flex-direction: column; text-align: center; align-items: center; }
+            .btn-play { width: 100%; justify-content: center; }
+            .highlights { gap: 10px; }
         }
 
-        .footer { margin-top: 80px; padding: 40px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; }
-        .footer-info { font-size: 0.75rem; color: #444; text-transform: uppercase; letter-spacing: 1px; }
+        .footer { margin-top: 60px; padding: 40px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; }
+        .footer-info { font-size: 0.75rem; color: #444; letter-spacing: 1px; }
     </style>
 </head>
 <body>
@@ -112,20 +114,10 @@
             <p class="tagline">Soluções Digitais e Inteligentes</p>
         </header>
 
-        <h2 class="category-title">O que você precisa saber</h2>
-        <div class="info-grid">
-            <div class="info-box">
-                <h3><span>01.</span> O Conceito</h3>
-                <p>A Aiex não vende apenas software, vende tempo. Automatizamos tarefas repetitivas para que você foque na estratégia do seu negócio.</p>
-            </div>
-            <div class="info-box">
-                <h3><span>02.</span> Integração</h3>
-                <p>Nossas soluções conversam diretamente com o seu WhatsApp. O cliente não precisa baixar nada, e você recebe tudo organizado.</p>
-            </div>
-            <div class="info-box">
-                <h3><span>03.</span> Resultados</h3>
-                <p>Redução de erros em pedidos, atendimento instantâneo 24h e controle financeiro rigoroso. É a tecnologia trabalhando para você.</p>
-            </div>
+        <div class="highlights">
+            <span class="high-item">Gestão Eficiente</span>
+            <span class="high-item">Automação Real</span>
+            <span class="high-item">Tecnologia Aplicada</span>
         </div>
 
         <h2 class="category-title">Casos de Sucesso</h2>
@@ -134,64 +126,77 @@
                 <div class="client-thumb"><img src="logo-sabor-radical.png" alt="Sabor Radical" onerror="this.style.display='none'"></div>
                 <div class="stars">★★★★★</div>
                 <h4>Sabor Radical</h4>
-                <p>"Processos de produção e vendas 100% otimizados."</p>
+                <p>"Automação que mudou nossa produção."</p>
                 <span class="service-tag">Agente IA + Cardápio</span>
             </div>
             <div class="feedback-card">
                 <div class="client-thumb"><img src="logo-comari.png" alt="Espaço Comari" onerror="this.style.display='none'"></div>
                 <div class="stars">★★★★★</div>
                 <h4>Espaço Comari</h4>
-                <p>"Atendimento automático que não deixa o cliente esperando."</p>
+                <p>"Atendimento rápido e sem falhas."</p>
                 <span class="service-tag">Agente IA</span>
             </div>
             <div class="feedback-card">
                 <div class="client-thumb"><img src="logo-fera-lanche.png" alt="O Fera do Lanche" onerror="this.style.display='none'"></div>
                 <div class="stars">★★★★★</div>
                 <h4>O Fera do Lanche</h4>
-                <p>"Pedidos chegando limpos e organizados no WhatsApp."</p>
+                <p>"Pedidos organizados via WhatsApp."</p>
                 <span class="service-tag">Cardápio Digital</span>
             </div>
         </div>
 
-        <h2 class="category-title">Produtos & Apps</h2>
+        <h2 class="category-title">Aplicativos Móveis</h2>
         <div class="grid">
             <div class="card">
                 <div class="icon-box"><img src="organiza-icon.png" alt="Organiza+"></div>
                 <div class="content">
                     <h3>Organiza+</h3>
-                    <p>Controle financeiro completo. Gestão de gastos, alertas de vencimento e fluxo de caixa pensado para o dia a dia.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.fincontrol" style="background:#fff; color:#000; text-decoration:none; padding:10px 20px; border-radius:8px; font-size:0.8rem; font-weight:700;">Play Store</a>
+                    <p>Controle total das suas finanças na palma da mão! Gestão de orçamento, despesas fixas com alertas e acompanhamento em tempo real.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn-play">Baixar na Play Store</a>
                 </div>
             </div>
-
             <div class="card">
-                <div class="icon-box"><span style="font-size:2rem; display:block; margin-top:12px; text-align:center;">🤖</span></div>
+                <div class="icon-box"><img src="agenda-icon.png" alt="InkControl"></div>
                 <div class="content">
-                    <h3>Agente IA</h3>
-                    <p>Venda mais com uma IA que atende seu WhatsApp 24h por dia de forma humana e automática. Escale seu atendimento comercial.</p>
-                    <span class="status-label">Indisponível</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="icon-box"><span style="font-size:2rem; display:block; margin-top:12px; text-align:center;">📋</span></div>
-                <div class="content">
-                    <h3>Cardápio Digital</h3>
-                    <p>O cliente escolhe pelo link e o pedido chega pronto no seu WhatsApp, otimizando o fluxo da sua cozinha e vendas.</p>
-                    <span class="status-label">Indisponível</span>
+                    <h3>InkControl</h3>
+                    <p>Organize seus agendamentos e controle gastos com materiais. A ferramenta ideal para profissionalizar o fluxo de trabalho de tatuadores.</p>
+                    <span class="status-badge">Em Desenvolvimento</span>
                 </div>
             </div>
         </div>
 
-        <div class="about-section">
+        <h2 class="category-title">Soluções para Negócios</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box"><span class="icon-font">🤖</span></div>
+                <div class="content">
+                    <h3>Agente IA</h3>
+                    <p>Venda mais com uma IA que atende seu WhatsApp 24h por dia de forma humana e automática. Escale seu atendimento comercial.</p>
+                    <span class="status-badge">Indisponível</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon-box"><span class="icon-font">📋</span></div>
+                <div class="content">
+                    <h3>Cardápio Digital</h3>
+                    <p>Site de vendas com cardápio integrado. O cliente escolhe pelo link e o pedido chega pronto no seu WhatsApp.</p>
+                    <span class="status-badge">Indisponível</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <h2>Sobre a Aiex</h2>
             <p>
-                Desenvolvida por <strong>Mikhail Ayache</strong>, empreendedor e estudante de Administração, a <strong>Aiex</strong> nasceu para facilitar o cotidiano operacional. 
-                Utilizo minha vivência na gestão de fábrica para desenvolver soluções que resolvem as dores reais de quem empreende, simplificando processos para potencializar resultados.
+                Fundada por <strong>Mikhail Ayache</strong>, empreendedor e acadêmico de Administração, a Aiex une a visão de gestão à execução tecnológica. 
+                Desenvolvemos ferramentas focadas em <strong>automação e eficiência</strong>, testadas na prática para garantir que o seu tempo seja investido no crescimento do seu negócio. 
+                O objetivo é simplificar processos complexos através de tecnologia acessível e inteligente.
             </p>
         </div>
 
         <footer class="footer">
-            <p class="footer-info">© 2026 AIEX | MIKHAIL AYACHE</p>
+            <p class="footer-info">© 2026 AIEX | DESENVOLVIDO POR MIKHAIL AYACHE</p>
         </footer>
     </div>
 
