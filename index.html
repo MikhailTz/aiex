@@ -49,8 +49,8 @@
         .process-card h4 { font-size: 1rem; color: #fff; margin-bottom: 10px; position: relative; z-index: 2; }
         .process-card p { font-size: 0.85rem; color: #777; position: relative; z-index: 2; line-height: 1.5; }
 
-        /* Carrossel de Empresas Atendidas */
-        .carousel-container { position: relative; overflow: hidden; padding: 0 45px; }
+        /* Carrossel de Empresas Atendidas - Corrigido o corte da animação (Padding 20px no topo/baixo) */
+        .carousel-container { position: relative; overflow: hidden; padding: 20px 45px; margin: -20px 0; }
         .carousel-track { display: flex; gap: 15px; width: 100%; transition: transform 0.4s ease-in-out; }
         
         .feedback-card {
@@ -59,7 +59,7 @@
             padding: 25px 20px; border-radius: 20px; text-align: center; flex-shrink: 0; transition: 0.3s;
             display: flex; flex-direction: column; align-items: center; justify-content: space-between;
         }
-        .feedback-card:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); transform: translateY(-5px); }
+        .feedback-card:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
         
         .client-thumb {
             width: 70px; height: 70px; margin: 0 auto 10px; border-radius: 18px; 
@@ -134,7 +134,7 @@
         .faq-answer { padding: 0 25px 25px; color: #888; font-size: 0.9rem; line-height: 1.6; border-top: 1px solid transparent; }
         .faq-item[open] .faq-answer { border-top-color: rgba(255,255,255,0.05); padding-top: 20px; }
 
-        /* Nossa Base - Mais Neutra e Profissional */
+        /* Nossa Base */
         .about-card {
             background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%); border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.4);
@@ -145,9 +145,20 @@
         .about-text p { color: #999; font-size: 0.95rem; line-height: 1.7; font-weight: 300; margin-bottom: 15px; }
         .about-text strong { color: #fff; font-weight: 600; }
 
+        /* Citação Estoica */
+        .quote-section {
+            text-align: center; max-width: 650px; margin: 60px auto 10px; padding: 0 20px;
+        }
+        .quote-section p.quote-text {
+            color: #777; font-size: 1.1rem; font-style: italic; line-height: 1.7; font-weight: 300;
+        }
+        .quote-section p.quote-author {
+            color: #555; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; margin-top: 15px; font-weight: 600;
+        }
+
         /* Rodapé Profissional */
         .footer { 
-            margin-top: 80px; padding: 50px 20px 30px; 
+            margin-top: 50px; padding: 50px 20px 30px; 
             border-top: 1px solid rgba(255, 255, 255, 0.05); 
             display: flex; flex-direction: column; align-items: center; text-align: center;
         }
@@ -168,6 +179,7 @@
 
         @media (max-width: 768px) {
             .process-grid { grid-template-columns: 1fr; }
+            .carousel-container { padding: 20px 35px; }
             .feedback-card { width: 100%; }
             .card { flex-direction: column; text-align: center; }
             .about-card { grid-template-columns: 1fr; gap: 20px; text-align: center; padding: 30px 20px; }
@@ -234,7 +246,7 @@
                     <h4 style="color: #fff; font-size: 0.95rem;">Sabor Radical</h4>
                     <div class="stars">★★★★★</div>
                     <p class="client-quote">"Mudou a operação. Processo de produção e vendas 100% otimizados e sem falhas."</p>
-                    <span class="service-tag">Integração Total</span>
+                    <span class="service-tag">Cardápio Digital + Agente de IA</span>
                 </div>
 
                 <div class="feedback-card">
@@ -256,7 +268,7 @@
                     <h4 style="color: #fff; font-size: 0.95rem;">Sabor Radical</h4>
                     <div class="stars">★★★★★</div>
                     <p class="client-quote">"Mudou a operação. Processo de produção e vendas 100% otimizados e sem falhas."</p>
-                    <span class="service-tag">Integração Total</span>
+                    <span class="service-tag">Cardápio Digital + Agente de IA</span>
                 </div>
 
             </div>
@@ -332,6 +344,11 @@
                     Toda solução de automação, desde o controle financeiro do Organiza+ até a lógica dos Agentes de IA, nasceu da vivência prática no cotidiano de negócios reais. A missão é aplicar a <strong>ciência da Administração</strong> através da <strong>agilidade do Software</strong> para escalar operações de forma sólida.
                 </p>
             </div>
+        </div>
+
+        <div class="quote-section">
+            <p class="quote-text">"A maior parte do que fazemos não é essencial. Se você eliminar isso, terá mais tempo e mais tranquilidade."</p>
+            <p class="quote-author">— Marco Aurélio</p>
         </div>
 
         <footer class="footer">
