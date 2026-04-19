@@ -154,7 +154,7 @@
         .faq-answer { padding: 0 25px 25px; color: #888; font-size: 0.9rem; line-height: 1.6; border-top: 1px solid transparent; }
         .faq-item[open] .faq-answer { border-top-color: rgba(255,255,255,0.05); padding-top: 20px; }
 
-        /* Nossa Base com Citação de Sêneca */
+        /* Sobre a Aiex */
         .about-card {
             background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%); border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.4);
@@ -162,20 +162,43 @@
         }
         .about-header h2 { color: #fff; font-size: 1.6rem; letter-spacing: -1px; margin-bottom: 10px; line-height: 1.2; }
         .about-header p { color: #555; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; margin-bottom: 20px; }
-        .quote-box { border-left: 2px solid #333; padding-left: 20px; margin-bottom: 30px; font-style: italic; color: #666; font-size: 0.9rem; }
         .about-text p { color: #999; font-size: 0.95rem; line-height: 1.7; font-weight: 300; margin-bottom: 15px; }
         .about-text strong { color: #fff; font-weight: 600; }
 
+        /* Citação de Sêneca Isolada */
+        .standalone-quote {
+            text-align: center;
+            padding: 70px 20px 40px;
+            margin: 0 auto;
+            max-width: 700px;
+        }
+        .standalone-quote p {
+            font-size: 1.2rem;
+            color: #888;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .standalone-quote span {
+            display: block;
+            color: #555;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
         /* Rodapé Ajustado */
         .footer-premium {
-            margin-top: 80px; padding: 60px 20px 20px;
+            padding: 60px 20px 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             background-color: #030303;
         }
         .footer-container {
             max-width: 900px; margin: 0 auto; display: grid;
             grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px;
-            align-items: start; /* Alinha o topo de todas as colunas */
+            align-items: start;
         }
         .brand-col { display: flex; flex-direction: column; padding-top: 0; }
         .brand-col .footer-logo { max-width: 120px; filter: brightness(0) invert(1); margin-bottom: 15px; margin-top: -5px; }
@@ -229,6 +252,7 @@
             .social-icons { justify-content: center; }
             .contact-col ul li { justify-content: center; }
             .footer-bottom-bar { flex-direction: column; text-align: center; }
+            .standalone-quote { padding: 50px 20px 30px; }
         }
     </style>
 </head>
@@ -373,12 +397,8 @@
 
         <div class="about-card">
             <div class="about-header">
-                <p>Nossa Base</p>
-                <h2>Administração encontra Tecnologia.</h2>
-                <div class="quote-box">
-                    "A sorte é o que acontece quando a preparação encontra a oportunidade."<br>
-                    — Sêneca
-                </div>
+                <p>Sobre a Aiex</p>
+                <h2>Tecnologia guiada pela realidade dos negócios.</h2>
             </div>
             <div class="about-text">
                 <p>
@@ -389,6 +409,12 @@
                 </p>
             </div>
         </div>
+
+        <div class="standalone-quote">
+            <p>"A sorte é o que acontece quando a preparação encontra a oportunidade."</p>
+            <span>— Sêneca</span>
+        </div>
+
     </div>
 
     <footer class="footer-premium">
@@ -428,7 +454,7 @@
         </div>
         
         <div class="footer-bottom-bar">
-            <p>© 2026 Aiex. Mikhail Ayache.</p>
+            <p>© 2026 Aiex. Todos os direitos reservados. Desenvolvido por Mikhail Ayache.</p>
             <div class="legal-links">
                 <a href="legal/politica_privacidade_organiza+.html">Política de Privacidade</a>
                 <a href="legal/termos_de_uso_organiza+.html">Termos de Uso</a>
