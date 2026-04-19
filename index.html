@@ -23,35 +23,45 @@
         .logo-img { max-width: 150px; filter: brightness(0) invert(1); margin-bottom: 8px; }
         .tagline { color: #888; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
 
+        /* Propósito */
         .intro-box {
-            text-align: center;
-            background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 35px; border-radius: 20px; margin-top: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center; background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08); padding: 35px; border-radius: 20px; 
+            margin-top: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .intro-box h2 { font-size: 1.1rem; color: #fff; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
         .intro-box p { color: #aaa; font-size: 0.95rem; font-weight: 300; line-height: 1.7; }
 
         .category-title { 
             font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; 
-            color: #fff; margin: 60px 0 30px; display: flex; align-items: center; gap: 15px; font-weight: 900;
+            color: #fff; margin: 70px 0 30px; display: flex; align-items: center; gap: 15px; font-weight: 900;
         }
         .category-title::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
 
-        /* Carrossel Infinito Corrigido */
+        /* Metodologia de Trabalho */
+        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .process-card {
+            background: transparent; border: 1px solid rgba(255,255,255,0.05);
+            padding: 30px 25px; border-radius: 20px; position: relative; transition: 0.3s;
+        }
+        .process-card:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.02); transform: translateY(-5px); }
+        .process-num { font-size: 2.5rem; font-weight: 900; color: rgba(255,255,255,0.05); position: absolute; top: 15px; right: 20px; }
+        .process-card h4 { font-size: 1rem; color: #fff; margin-bottom: 10px; position: relative; z-index: 2; }
+        .process-card p { font-size: 0.85rem; color: #777; position: relative; z-index: 2; line-height: 1.5; }
+
+        /* Carrossel de Empresas Atendidas (ESTRATÉGICO) */
         .carousel-container { position: relative; overflow: hidden; padding: 0 45px; }
         .carousel-track { display: flex; gap: 15px; width: 100%; transition: transform 0.4s ease-in-out; }
         
         .feedback-card {
-            width: calc(33.333% - 10px); /* Exibe 3 por vez no PC */
+            width: calc(33.333% - 10px); /* 3 por vez no PC */
             background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
-            padding: 20px; border-radius: 20px; text-align: center; flex-shrink: 0; transition: 0.3s;
+            padding: 25px 20px; border-radius: 20px; text-align: center; flex-shrink: 0; transition: 0.3s;
         }
-        .feedback-card:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); }
+        .feedback-card:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); transform: translateY(-5px); }
         
         .client-thumb {
-            width: 70px; height: 70px; margin: 0 auto 12px; border-radius: 18px; 
+            width: 75px; height: 75px; margin: 0 auto 15px; border-radius: 18px; 
             overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center;
         }
         .client-thumb img { width: 100%; height: auto; }
@@ -65,7 +75,7 @@
         .btn-left { left: 0; }
         .btn-right { right: 0; }
 
-        /* Cards Gerais */
+        /* Cards de Apps e Soluções */
         .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .card { 
             background: #0a0a0a; border: 1px solid rgba(255, 255, 255, 0.05); 
@@ -79,9 +89,7 @@
             display: flex; align-items: center; justify-content: center;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .card:hover .icon-box { 
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.15); border-color: rgba(255,255,255,0.4); transform: translateY(-5px);
-        }
+        .card:hover .icon-box { box-shadow: 0 0 25px rgba(255, 255, 255, 0.15); border-color: rgba(255,255,255,0.4); transform: translateY(-5px); }
         .icon-box img { width: 100%; height: 100%; border-radius: 22px; }
 
         .content h3 { font-size: 1.2rem; color: #fff; margin-bottom: 8px; font-weight: 700; }
@@ -102,21 +110,33 @@
             border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; margin-top: 15px; cursor: default;
         }
 
+        /* FAQ Sanfona */
         .faq-item {
-            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
-            padding: 25px; margin-bottom: 15px; border-radius: 18px; transition: 0.3s;
+            background: #0a0a0a; border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px; margin-bottom: 15px; transition: 0.3s;
         }
-        .faq-item:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); }
-        .faq-item h4 { font-size: 1rem; color: #fff; margin-bottom: 10px; font-weight: 700; }
-        .faq-item p { font-size: 0.9rem; color: #888; font-weight: 300; }
+        .faq-item:hover { border-color: rgba(255,255,255,0.2); }
+        .faq-item summary {
+            padding: 22px 25px; font-size: 1rem; color: #fff; font-weight: 600; cursor: pointer;
+            list-style: none; display: flex; justify-content: space-between; align-items: center;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: '+'; font-size: 1.5rem; color: #555; transition: 0.3s transform; font-weight: 300; }
+        .faq-item[open] summary::after { content: '−'; transform: rotate(180deg); color: #fff; }
+        .faq-answer { padding: 0 25px 25px; color: #888; font-size: 0.9rem; line-height: 1.6; border-top: 1px solid transparent; }
+        .faq-item[open] .faq-answer { border-top-color: rgba(255,255,255,0.05); padding-top: 20px; }
 
+        /* Nossa Base */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
         .about-card {
             background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%); border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 40px; border-radius: 25px; margin-top: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
         }
-        .about-card h2 { color: #fff; font-size: 1.1rem; margin-bottom: 15px; letter-spacing: 2px; text-transform: uppercase; }
-        .about-card p { color: #999; font-size: 0.95rem; line-height: 1.7; font-weight: 300; }
-        .about-card strong { color: #fff; font-weight: 600; }
+        .about-header h2 { color: #fff; font-size: 1.6rem; letter-spacing: -1px; margin-bottom: 10px; }
+        .about-header p { color: #555; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; }
+        .about-text p { color: #999; font-size: 0.95rem; line-height: 1.7; font-weight: 300; margin-bottom: 15px; }
+        .about-text strong { color: #fff; font-weight: 600; }
 
         .wpp-float {
             position: fixed; bottom: 30px; right: 30px; background: #25D366; 
@@ -127,10 +147,11 @@
         .wpp-float:hover { transform: scale(1.1); background: #1ebd5c; }
         .wpp-float svg { width: 32px; height: 32px; fill: #fff; }
 
-        /* Ajustes Mobile */
-        @media (max-width: 600px) {
-            .feedback-card { width: 100%; } /* Exibe 1 por vez no celular */
+        @media (max-width: 768px) {
+            .process-grid { grid-template-columns: 1fr; }
+            .feedback-card { width: 100%; } /* 1 por vez no Mobile */
             .card { flex-direction: column; text-align: center; }
+            .about-card { grid-template-columns: 1fr; gap: 20px; text-align: center; padding: 30px 20px; }
             .btn-play { width: 100%; justify-content: center; }
             .wpp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
         }
@@ -154,39 +175,58 @@
             </p>
         </section>
 
+        <h2 class="category-title">Como Trabalhamos</h2>
+        <div class="process-grid">
+            <div class="process-card">
+                <span class="process-num">01</span>
+                <h4>Mapeamento</h4>
+                <p>Analisamos os gargalos operacionais da sua empresa, focando exatamente onde você perde tempo e dinheiro.</p>
+            </div>
+            <div class="process-card">
+                <span class="process-num">02</span>
+                <h4>Desenvolvimento</h4>
+                <p>Criamos fluxos de automação, IA ou aplicativos sob medida, unindo código limpo à estratégia de negócios.</p>
+            </div>
+            <div class="process-card">
+                <span class="process-num">03</span>
+                <h4>Escala</h4>
+                <p>Implementamos a tecnologia na sua rotina. Sua equipe foca em vender, enquanto os sistemas fazem o trabalho duro.</p>
+            </div>
+        </div>
+
         <h2 class="category-title">Operações Atendidas</h2>
         <div class="carousel-container">
             <button class="carousel-btn btn-left" onclick="moveSlide(-1)">❮</button>
             <div class="carousel-track" id="track">
                 <div class="feedback-card">
                     <div class="client-thumb"><img src="img/logo-fera-lanche.png" alt="O Fera do Lanche" onerror="this.parentNode.innerHTML='FL'"></div>
-                    <h4 style="color: #fff; font-size: 0.9rem; margin-bottom: 5px;">O Fera do Lanche</h4>
-                    <p style="font-size:0.75rem; color:#666;">"Gestão de pedidos simplificada."</p>
+                    <h4 style="color: #fff; font-size: 1rem; margin-bottom: 5px;">O Fera do Lanche</h4>
+                    <p style="font-size:0.8rem; color:#666;">Solução: Cardápio Digital</p>
                 </div>
                 <div class="feedback-card">
                     <div class="client-thumb"><img src="img/logo-comari.png" alt="Espaço Comari" onerror="this.parentNode.innerHTML='EC'"></div>
-                    <h4 style="color: #fff; font-size: 0.9rem; margin-bottom: 5px;">Espaço Comari</h4>
-                    <p style="font-size:0.75rem; color:#666;">"Atendimento ágil no WhatsApp."</p>
+                    <h4 style="color: #fff; font-size: 1rem; margin-bottom: 5px;">Espaço Comari</h4>
+                    <p style="font-size:0.8rem; color:#666;">Solução: Agente de IA</p>
                 </div>
                 <div class="feedback-card">
                     <div class="client-thumb"><img src="img/logo-sabor-radical.png" alt="Sabor Radical" onerror="this.parentNode.innerHTML='SR'"></div>
-                    <h4 style="color: #fff; font-size: 0.9rem; margin-bottom: 5px;">Sabor Radical</h4>
-                    <p style="font-size:0.75rem; color:#666;">"Automação de produção completa."</p>
+                    <h4 style="color: #fff; font-size: 1rem; margin-bottom: 5px;">Sabor Radical</h4>
+                    <p style="font-size:0.8rem; color:#666;">Solução: Ecossistema de Automação</p>
                 </div>
                 <div class="feedback-card">
                     <div class="client-thumb"><img src="img/logo-fera-lanche.png" alt="O Fera do Lanche" onerror="this.parentNode.innerHTML='FL'"></div>
-                    <h4 style="color: #fff; font-size: 0.9rem; margin-bottom: 5px;">O Fera do Lanche</h4>
-                    <p style="font-size:0.75rem; color:#666;">"Gestão de pedidos simplificada."</p>
+                    <h4 style="color: #fff; font-size: 1rem; margin-bottom: 5px;">O Fera do Lanche</h4>
+                    <p style="font-size:0.8rem; color:#666;">Solução: Cardápio Digital</p>
                 </div>
                 <div class="feedback-card">
                     <div class="client-thumb"><img src="img/logo-comari.png" alt="Espaço Comari" onerror="this.parentNode.innerHTML='EC'"></div>
-                    <h4 style="color: #fff; font-size: 0.9rem; margin-bottom: 5px;">Espaço Comari</h4>
-                    <p style="font-size:0.75rem; color:#666;">"Atendimento ágil no WhatsApp."</p>
+                    <h4 style="color: #fff; font-size: 1rem; margin-bottom: 5px;">Espaço Comari</h4>
+                    <p style="font-size:0.8rem; color:#666;">Solução: Agente de IA</p>
                 </div>
                 <div class="feedback-card">
                     <div class="client-thumb"><img src="img/logo-sabor-radical.png" alt="Sabor Radical" onerror="this.parentNode.innerHTML='SR'"></div>
-                    <h4 style="color: #fff; font-size: 0.9rem; margin-bottom: 5px;">Sabor Radical</h4>
-                    <p style="font-size:0.75rem; color:#666;">"Automação de produção completa."</p>
+                    <h4 style="color: #fff; font-size: 1rem; margin-bottom: 5px;">Sabor Radical</h4>
+                    <p style="font-size:0.8rem; color:#666;">Solução: Ecossistema de Automação</p>
                 </div>
             </div>
             <button class="carousel-btn btn-right" onclick="moveSlide(1)">❯</button>
@@ -224,23 +264,43 @@
             </div>
         </div>
 
-        <h2 class="category-title">Perguntas Frequentes</h2>
-        <div class="faq-list">
-            <div class="faq-item">
-                <h4>O que é necessário para o Cardápio Digital?</h4>
-                <p>Apenas o seu cardápio base e um número de WhatsApp. O sistema cria o link onde o cliente acessa, visualiza e faz o pedido sozinho.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Como funciona o Agente de IA?</h4>
-                <p>Nós treinamos a inteligência artificial com os dados da sua operação. Ela passa a responder dúvidas, consultar preços e vender por você 24 horas por dia.</p>
-            </div>
+        <h2 class="category-title">Dúvidas Frequentes</h2>
+        <div class="faq-accordion">
+            <details class="faq-item">
+                <summary>O que é necessário para ter o Cardápio Digital?</summary>
+                <div class="faq-answer">Apenas o seu cardápio base (produtos, descrições, preços) e um número de WhatsApp. Nossa equipe estrutura o catálogo e cria o link final para você divulgar aos seus clientes. O pedido cai formatado direto no seu chat.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Como o Agente de IA conversa com os clientes?</summary>
+                <div class="faq-answer">Nós treinamos a inteligência artificial exclusivamente com as regras, preços e tom de voz da sua empresa. Ela lê o contexto da conversa, entende a dúvida do cliente e responde de forma natural, como se fosse um vendedor humano.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Preciso saber programação para usar as soluções?</summary>
+                <div class="faq-answer">De forma alguma. O foco da Aiex é justamente simplificar. Nós cuidamos de toda a infraestrutura tecnológica pesada nos bastidores. Para você e sua equipe, o uso é totalmente visual, prático e integrado ao WhatsApp.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Em quanto tempo vejo retorno na automação?</summary>
+                <div class="faq-answer">Imediatamente após a implementação. Negócios que implementam nossos sistemas relatam o fim de erros em pedidos e o ganho instantâneo de horas livres diárias, já que a equipe de vendas deixa de fazer trabalho braçal repetitivo.</div>
+            </details>
+            <details class="faq-item">
+                <summary>O aplicativo Organiza+ é seguro e privado?</summary>
+                <div class="faq-answer">Sim, segurança é nossa prioridade técnica. O Organiza+ foi desenvolvido seguindo protocolos rígidos. Os dados financeiros são processados localmente e criptografados, garantindo que apenas você tenha acesso ao seu patrimônio.</div>
+            </details>
         </div>
 
         <div class="about-card">
-            <h2>Nossa Base</h2>
-            <p>
-                A <strong>Aiex</strong>, liderada por <strong>Mikhail Ayache</strong>, une a ciência da <strong>Administração</strong> à agilidade da <strong>Programação</strong>. Nossas automações são desenhadas para resolver problemas reais porque nasceram e foram testadas no chão de fábrica e no cotidiano do empreendedor.
-            </p>
+            <div class="about-header">
+                <p>Nossa Base</p>
+                <h2>Administração encontra Tecnologia.</h2>
+            </div>
+            <div class="about-text">
+                <p>
+                    A <strong>Aiex</strong> é liderada por <strong>Mikhail Ayache</strong>. Nossa diferença no mercado é simples: não somos apenas programadores escrevendo linhas de código, somos gestores de negócios resolvendo gargalos reais.
+                </p>
+                <p>
+                    Toda solução de automação, do Organiza+ aos Agentes de IA, nasceu da vivência prática no chão de fábrica e na logística do empreendedorismo. Unimos a <strong>ciência da Administração</strong> à <strong>agilidade do Software</strong> para escalar operações de forma inteligente.
+                </p>
+            </div>
         </div>
 
         <footer class="footer">
@@ -248,7 +308,7 @@
         </footer>
     </div>
 
-    <a href="https://wa.me/SEUNUMERO" class="wpp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+    <a href="https://wa.me/5521973124106" class="wpp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
@@ -263,25 +323,25 @@
             // Pega a largura do card + o espaço (gap)
             const cardWidth = cards[0].offsetWidth + 15; 
             
-            if (direction === 1) { // Próximo (Seta Direita)
+            if (direction === 1) { // Seta Direita
                 track.style.transition = 'transform 0.4s ease-in-out';
                 track.style.transform = `translateX(-${cardWidth}px)`;
                 
                 setTimeout(() => {
                     track.style.transition = 'none';
-                    track.appendChild(track.firstElementChild); // Joga o primeiro pro final
+                    track.appendChild(track.firstElementChild);
                     track.style.transform = 'translateX(0)';
-                }, 400); // Aguarda o fim da transição CSS
+                }, 400); 
                 
-            } else { // Anterior (Seta Esquerda)
+            } else { // Seta Esquerda
                 track.style.transition = 'none';
-                track.prepend(track.lastElementChild); // Puxa o último pro começo
+                track.prepend(track.lastElementChild);
                 track.style.transform = `translateX(-${cardWidth}px)`;
                 
                 setTimeout(() => {
                     track.style.transition = 'transform 0.4s ease-in-out';
                     track.style.transform = 'translateX(0)';
-                }, 10); // Um pequeno atraso pro navegador entender a troca
+                }, 10);
             }
         }
     </script>
