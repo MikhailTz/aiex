@@ -7,7 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
         
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
         
         body { 
             font-family: 'Inter', sans-serif; 
@@ -34,11 +34,11 @@
 
         .category-title { 
             font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; 
-            color: #fff; margin: 70px 0 30px; display: flex; align-items: center; gap: 15px; font-weight: 900;
+            color: #fff; margin: 60px 0 30px; display: flex; align-items: center; gap: 15px; font-weight: 900;
         }
         .category-title::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
 
-        /* Metodologia de Trabalho */
+        /* Metodologia */
         .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .process-card {
             background: transparent; border: 1px solid rgba(255,255,255,0.05);
@@ -49,7 +49,7 @@
         .process-card h4 { font-size: 1rem; color: #fff; margin-bottom: 10px; position: relative; z-index: 2; }
         .process-card p { font-size: 0.85rem; color: #777; position: relative; z-index: 2; line-height: 1.5; }
 
-        /* Carrossel de Empresas Atendidas */
+        /* Carrossel */
         .carousel-container { position: relative; overflow: hidden; padding: 0 45px; }
         .carousel-track { display: flex; gap: 15px; width: 100%; transition: transform 0.4s ease-in-out; align-items: stretch; }
         
@@ -85,7 +85,7 @@
         .btn-left { left: 0; }
         .btn-right { right: 0; }
 
-        /* Cards de Apps e Soluções */
+        /* Grid */
         .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .card { 
             background: #0a0a0a; border: 1px solid rgba(255, 255, 255, 0.05); 
@@ -120,7 +120,7 @@
             border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; margin-top: 15px; cursor: default;
         }
 
-        /* Call To Action - Fale com Especialista */
+        /* CTA */
         .cta-specialist {
             background: linear-gradient(145deg, #111, #080808);
             border: 1px solid rgba(37, 211, 102, 0.3);
@@ -138,7 +138,7 @@
         .btn-whatsapp:hover { background: #1ebd5c; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
         .btn-whatsapp svg { width: 20px; height: 20px; fill: #fff; }
 
-        /* FAQ Sanfona */
+        /* FAQ */
         .faq-item {
             background: #0a0a0a; border: 1px solid rgba(255,255,255,0.05);
             border-radius: 16px; margin-bottom: 15px; transition: 0.3s;
@@ -154,18 +154,19 @@
         .faq-answer { padding: 0 25px 25px; color: #888; font-size: 0.9rem; line-height: 1.6; border-top: 1px solid transparent; }
         .faq-item[open] .faq-answer { border-top-color: rgba(255,255,255,0.05); padding-top: 20px; }
 
-        /* Nossa Base */
+        /* Nossa Base com Citação de Sêneca */
         .about-card {
             background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%); border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-            margin-top: 40px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center;
+            margin-top: 40px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: start;
         }
         .about-header h2 { color: #fff; font-size: 1.6rem; letter-spacing: -1px; margin-bottom: 10px; line-height: 1.2; }
-        .about-header p { color: #555; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; }
+        .about-header p { color: #555; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; margin-bottom: 20px; }
+        .quote-box { border-left: 2px solid #333; padding-left: 20px; margin-bottom: 30px; font-style: italic; color: #666; font-size: 0.9rem; }
         .about-text p { color: #999; font-size: 0.95rem; line-height: 1.7; font-weight: 300; margin-bottom: 15px; }
         .about-text strong { color: #fff; font-weight: 600; }
 
-        /* RODAPÉ PREMIUM (Estilo Agência) */
+        /* Rodapé Ajustado */
         .footer-premium {
             margin-top: 80px; padding: 60px 20px 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -174,8 +175,10 @@
         .footer-container {
             max-width: 900px; margin: 0 auto; display: grid;
             grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px;
+            align-items: start; /* Alinha o topo de todas as colunas */
         }
-        .brand-col .footer-logo { max-width: 130px; filter: brightness(0) invert(1); margin-bottom: 15px; }
+        .brand-col { display: flex; flex-direction: column; padding-top: 0; }
+        .brand-col .footer-logo { max-width: 120px; filter: brightness(0) invert(1); margin-bottom: 15px; margin-top: -5px; }
         .brand-col p { color: #888; font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px; max-width: 280px; }
         
         .social-icons { display: flex; gap: 12px; }
@@ -186,13 +189,13 @@
         .social-icons a:hover { background: #fff; color: #000; }
         .social-icons svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-        .links-col h4, .contact-col h4 { color: #fff; font-size: 1rem; margin-bottom: 20px; font-weight: 700; }
+        .links-col h4, .contact-col h4 { color: #fff; font-size: 0.9rem; margin-bottom: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         .footer-col ul { list-style: none; }
         .footer-col ul li { margin-bottom: 12px; }
         .footer-col ul li a { color: #888; text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
         .footer-col ul li a:hover { color: #fff; }
 
-        .contact-col ul li { display: flex; align-items: center; gap: 10px; color: #888; font-size: 0.85rem; }
+        .contact-col ul li { display: flex; align-items: center; gap: 10px; color: #888; font-size: 0.85rem; margin-bottom: 12px; }
         .contact-col ul li svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
         .footer-bottom-bar {
@@ -200,12 +203,11 @@
             border-top: 1px solid rgba(255,255,255,0.05);
             display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;
         }
-        .footer-bottom-bar p { color: #666; font-size: 0.75rem; }
+        .footer-bottom-bar p { color: #555; font-size: 0.75rem; }
         .legal-links { display: flex; gap: 20px; }
-        .legal-links a { color: #666; font-size: 0.75rem; text-decoration: none; transition: 0.3s; }
+        .legal-links a { color: #555; font-size: 0.75rem; text-decoration: none; transition: 0.3s; }
         .legal-links a:hover { color: #fff; text-decoration: underline; }
 
-        /* WhatsApp Flutuante */
         .wpp-float {
             position: fixed; bottom: 30px; right: 30px; background: #25D366; 
             width: 60px; height: 60px; border-radius: 50%; display: flex; 
@@ -221,15 +223,12 @@
             .card { flex-direction: column; text-align: center; }
             .about-card { grid-template-columns: 1fr; gap: 20px; text-align: center; padding: 30px 20px; }
             .btn-play, .btn-whatsapp { width: 100%; justify-content: center; }
-            .wpp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
-            
-            /* Footer Mobile */
             .footer-container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
             .brand-col .footer-logo { margin: 0 auto 15px; }
             .brand-col p { margin: 0 auto 20px; }
             .social-icons { justify-content: center; }
             .contact-col ul li { justify-content: center; }
-            .footer-bottom-bar { flex-direction: column; text-align: center; justify-content: center; }
+            .footer-bottom-bar { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -244,7 +243,7 @@
         <section class="intro-box">
             <h2>Nosso Propósito</h2>
             <p>
-                A <strong>Aiex</strong> é um laboratório de tecnologia focado em simplificar a rotina. Desenvolvemos soluções financeiras para <strong>pessoas</strong> que exigem controle absoluto sobre suas contas, e criamos sistemas de automação para <strong>empresas</strong> que buscam parar de perder tempo com tarefas operacionais.
+                A <strong>Aiex</strong> é um laboratório de tecnologia focado em simplificar a rotina. Desenvolvemos soluções financeiras para <strong>pessoas</strong> que exigem controle absoluto sobre suas contas, e criamos sistemas de automação para <strong>empresas</strong> que precisam parar de perder tempo com tarefas operacionais.
             </p>
         </section>
 
@@ -319,7 +318,7 @@
             </div>
         </div>
 
-        <h2 class="category-title">Soluções para Negócios</h2>
+        <h2 id="solucoes" class="category-title">Soluções para Negócios</h2>
         <div class="grid">
             <div class="card">
                 <div class="icon-box"><span style="font-size:2.5rem;">🤖</span></div>
@@ -376,6 +375,10 @@
             <div class="about-header">
                 <p>Nossa Base</p>
                 <h2>Administração encontra Tecnologia.</h2>
+                <div class="quote-box">
+                    "A sorte é o que acontece quando a preparação encontra a oportunidade."<br>
+                    — Sêneca
+                </div>
             </div>
             <div class="about-text">
                 <p>
@@ -386,7 +389,9 @@
                 </p>
             </div>
         </div>
-    </div> <footer class="footer-premium">
+    </div>
+
+    <footer class="footer-premium">
         <div class="footer-container">
             <div class="footer-col brand-col">
                 <img src="img/logo-aiex.png" alt="Aiex Logo" class="footer-logo" onerror="this.style.display='none'; document.getElementById('alt-logo').style.display='block';">
@@ -403,7 +408,7 @@
                 <ul>
                     <li><a href="#">Início</a></li>
                     <li><a href="#">Aplicativos</a></li>
-                    <li><a href="#">Soluções B2B</a></li>
+                    <li><a href="#solucoes">Soluções</a></li>
                 </ul>
             </div>
             
@@ -411,7 +416,7 @@
                 <h4>Contato</h4>
                 <ul>
                     <li>
-                        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                         <span>(21) 97312-4106</span>
                     </li>
                     <li>
@@ -423,7 +428,7 @@
         </div>
         
         <div class="footer-bottom-bar">
-            <p>© 2026 Aiex. Todos os direitos reservados. Desenvolvido por Mikhail Ayache.</p>
+            <p>© 2026 Aiex. Mikhail Ayache.</p>
             <div class="legal-links">
                 <a href="legal/politica_privacidade_organiza+.html">Política de Privacidade</a>
                 <a href="legal/termos_de_uso_organiza+.html">Termos de Uso</a>
