@@ -189,7 +189,7 @@
             letter-spacing: 3px;
         }
 
-        /* Rodapé Ajustado */
+        /* Rodapé Premium */
         .footer-premium {
             padding: 60px 20px 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -198,10 +198,10 @@
         .footer-container {
             max-width: 900px; margin: 0 auto; display: grid;
             grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px;
-            align-items: start;
+            align-items: center; /* Centraliza as listas verticalmente com o bloco da esquerda */
         }
-        .brand-col { display: flex; flex-direction: column; padding-top: 0; }
-        .brand-col .footer-logo { max-width: 120px; filter: brightness(0) invert(1); margin-bottom: 15px; margin-top: -5px; }
+        .brand-col { display: flex; flex-direction: column; }
+        .brand-col .footer-logo { max-width: 120px; filter: brightness(0) invert(1); margin-bottom: 15px; }
         .brand-col p { color: #888; font-size: 0.85rem; line-height: 1.6; max-width: 280px; }
         
         .links-col h4, .contact-col h4 { color: #fff; font-size: 0.9rem; margin-bottom: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
@@ -236,14 +236,13 @@
             .card { flex-direction: column; text-align: center; }
             .about-card { grid-template-columns: 1fr; gap: 20px; text-align: center; padding: 30px 20px; }
             .btn-play, .btn-whatsapp { width: 100%; justify-content: center; }
-            .footer-container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+            .footer-container { grid-template-columns: 1fr; gap: 30px; text-align: center; align-items: start; }
             .brand-col .footer-logo { margin: 0 auto 15px; }
             .brand-col p { margin: 0 auto; }
             .contact-col ul li, .contact-col ul li a { justify-content: center; }
             .standalone-quote { padding: 50px 20px 30px; }
             .wpp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
             
-            /* Ajustes do Carrossel Mobile */
             .carousel-container { padding: 25px 0; }
             .carousel-track { padding-left: 10vw; padding-right: 10vw; gap: 15px; }
             .feedback-card { width: 80vw; }
@@ -441,7 +440,7 @@
                     <li>
                         <a href="https://www.instagram.com/aiexbr/" target="_blank">
                             <svg viewBox="0 0 24 24" style="fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                            <span>@aiexbr</span>
+                            <span>Instagram</span>
                         </a>
                     </li>
                     <li>
