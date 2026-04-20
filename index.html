@@ -7,7 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
         
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         body { 
             font-family: 'Inter', sans-serif; 
@@ -34,11 +34,11 @@
 
         .category-title { 
             font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; 
-            color: #fff; margin: 60px 0 30px; display: flex; align-items: center; gap: 15px; font-weight: 900;
+            color: #fff; margin: 70px 0 30px; display: flex; align-items: center; gap: 15px; font-weight: 900;
         }
         .category-title::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
 
-        /* Metodologia */
+        /* Metodologia de Trabalho */
         .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .process-card {
             background: transparent; border: 1px solid rgba(255,255,255,0.05);
@@ -49,17 +49,20 @@
         .process-card h4 { font-size: 1rem; color: #fff; margin-bottom: 10px; position: relative; z-index: 2; }
         .process-card p { font-size: 0.85rem; color: #777; position: relative; z-index: 2; line-height: 1.5; }
 
-        /* Carrossel */
-        .carousel-container { position: relative; overflow: hidden; padding: 0 45px; }
+        /* Carrossel de Empresas Atendidas Corrigido */
+        .carousel-container { 
+            position: relative; overflow: hidden; 
+            padding: 25px 45px; /* Padding de 25px no topo/fundo evita o corte da imagem ao dar hover */
+        }
         .carousel-track { display: flex; gap: 15px; width: 100%; transition: transform 0.4s ease-in-out; align-items: stretch; }
         
         .feedback-card {
-            width: calc(33.333% - 10px); 
+            width: calc(33.333% - 10px); flex-shrink: 0;
             background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
-            padding: 25px 20px; border-radius: 20px; text-align: center; flex-shrink: 0; transition: 0.3s;
+            padding: 25px 20px; border-radius: 20px; text-align: center; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, background 0.3s;
             display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
         }
-        .feedback-card:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); transform: translateY(-5px); }
+        .feedback-card:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); transform: translateY(-8px); }
         
         .client-thumb {
             width: 70px; height: 70px; margin: 0 auto 10px; border-radius: 18px; 
@@ -69,6 +72,7 @@
         .stars { color: #FFD700; font-size: 0.8rem; margin-bottom: 10px; letter-spacing: 2px; }
         .client-quote { font-size: 0.85rem; color: #888; font-style: italic; margin-bottom: 20px; line-height: 1.5; flex-grow: 1; }
         
+        /* Sistema de Tags Separadas */
         .tags-wrapper { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: auto; }
         .service-tag { 
             display: inline-block; font-size: 0.65rem; color: #fff; 
@@ -85,7 +89,7 @@
         .btn-left { left: 0; }
         .btn-right { right: 0; }
 
-        /* Grid */
+        /* Cards de Apps e Soluções */
         .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .card { 
             background: #0a0a0a; border: 1px solid rgba(255, 255, 255, 0.05); 
@@ -120,7 +124,7 @@
             border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; margin-top: 15px; cursor: default;
         }
 
-        /* CTA */
+        /* Call To Action - Fale com Especialista */
         .cta-specialist {
             background: linear-gradient(145deg, #111, #080808);
             border: 1px solid rgba(37, 211, 102, 0.3);
@@ -138,7 +142,7 @@
         .btn-whatsapp:hover { background: #1ebd5c; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
         .btn-whatsapp svg { width: 20px; height: 20px; fill: #fff; }
 
-        /* FAQ */
+        /* FAQ Sanfona */
         .faq-item {
             background: #0a0a0a; border: 1px solid rgba(255,255,255,0.05);
             border-radius: 16px; margin-bottom: 15px; transition: 0.3s;
@@ -154,76 +158,28 @@
         .faq-answer { padding: 0 25px 25px; color: #888; font-size: 0.9rem; line-height: 1.6; border-top: 1px solid transparent; }
         .faq-item[open] .faq-answer { border-top-color: rgba(255,255,255,0.05); padding-top: 20px; }
 
-        /* Sobre a Aiex */
+        /* Nossa Base */
         .about-card {
             background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%); border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-            margin-top: 40px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: start;
+            margin-top: 40px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: center;
         }
         .about-header h2 { color: #fff; font-size: 1.6rem; letter-spacing: -1px; margin-bottom: 10px; line-height: 1.2; }
-        .about-header p { color: #555; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; margin-bottom: 20px; }
+        .about-header p { color: #555; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; }
         .about-text p { color: #999; font-size: 0.95rem; line-height: 1.7; font-weight: 300; margin-bottom: 15px; }
         .about-text strong { color: #fff; font-weight: 600; }
 
-        /* Citação de Sêneca Isolada */
-        .standalone-quote {
-            text-align: center;
-            padding: 70px 20px 40px;
-            margin: 0 auto;
-            max-width: 700px;
+        /* Rodapé Profissional */
+        .footer { 
+            margin-top: 80px; padding: 50px 20px 30px; 
+            border-top: 1px solid rgba(255, 255, 255, 0.05); 
+            display: flex; flex-direction: column; align-items: center; text-align: center;
         }
-        .standalone-quote p {
-            font-size: 1.2rem;
-            color: #888;
-            font-style: italic;
-            font-weight: 300;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        .standalone-quote span {
-            display: block;
-            color: #555;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        /* Rodapé Ajustado */
-        .footer-premium {
-            padding: 60px 20px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background-color: #030303;
-        }
-        .footer-container {
-            max-width: 900px; margin: 0 auto; display: grid;
-            grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px;
-            align-items: start;
-        }
-        .brand-col { display: flex; flex-direction: column; padding-top: 0; }
-        .brand-col .footer-logo { max-width: 120px; filter: brightness(0) invert(1); margin-bottom: 15px; margin-top: -5px; }
-        .brand-col p { color: #888; font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px; max-width: 280px; }
-
-        .links-col h4, .contact-col h4 { color: #fff; font-size: 0.9rem; margin-bottom: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        
-        .links-col ul li a { color: #888; text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
-        .links-col ul li a:hover { color: #fff; }
-
-        /* Ajuste para ícones do Contato ficarem alinhados */
-        .contact-col ul li { display: flex; align-items: center; gap: 10px; color: #888; font-size: 0.85rem; margin-bottom: 12px; }
-        .contact-col ul li svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-        
-        .contact-col ul li a { display: flex; align-items: center; gap: 10px; color: #888; text-decoration: none; transition: 0.3s; }
-        .contact-col ul li a:hover { color: #fff; }
-
-        .footer-bottom-bar {
-            max-width: 900px; margin: 0 auto; padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            display: flex; justify-content: center; align-items: center;
-        }
-        .footer-bottom-bar p { color: #555; font-size: 0.75rem; text-align: center; }
+        .footer-brand { margin-bottom: 25px; }
+        .footer-brand h3 { font-size: 1.8rem; font-weight: 900; letter-spacing: -1px; color: #fff; margin-bottom: 5px; }
+        .footer-brand p { color: #555; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); width: 100%; max-width: 400px; padding-top: 20px; }
+        .footer-bottom p { color: #444; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         .wpp-float {
             position: fixed; bottom: 30px; right: 30px; background: #25D366; 
@@ -234,18 +190,21 @@
         .wpp-float:hover { transform: scale(1.1); background: #1ebd5c; }
         .wpp-float svg { width: 32px; height: 32px; fill: #fff; }
 
+        /* Ajustes Mobile Finos */
         @media (max-width: 768px) {
             .process-grid { grid-template-columns: 1fr; }
-            .feedback-card { width: 100%; }
             .card { flex-direction: column; text-align: center; }
             .about-card { grid-template-columns: 1fr; gap: 20px; text-align: center; padding: 30px 20px; }
             .btn-play, .btn-whatsapp { width: 100%; justify-content: center; }
-            .footer-container { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-            .brand-col .footer-logo { margin: 0 auto 15px; }
-            .brand-col p { margin: 0 auto 20px; }
-            .contact-col ul li { justify-content: center; }
-            .contact-col ul li a { justify-content: center; }
-            .standalone-quote { padding: 50px 20px 30px; }
+            .wpp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+            
+            /* Correção do Carrossel Mobile para centralizar 1 e mostrar os das bordas */
+            .carousel-container { padding: 25px 0; }
+            .carousel-track { padding-left: 12.5vw; padding-right: 12.5vw; }
+            .feedback-card { width: 75vw; }
+            .carousel-btn { width: 34px; height: 34px; font-size: 0.8rem; }
+            .btn-left { left: 8px; }
+            .btn-right { right: 8px; }
         }
     </style>
 </head>
@@ -260,7 +219,7 @@
         <section class="intro-box">
             <h2>Nosso Propósito</h2>
             <p>
-                A <strong>Aiex</strong> é um laboratório de tecnologia focado em simplificar a rotina. Desenvolvemos soluções financeiras para <strong>pessoas</strong> que exigem controle absoluto sobre suas contas, e criamos sistemas de automação para <strong>empresas</strong> que precisam parar de perder tempo com tarefas operacionais.
+                A <strong>Aiex</strong> é um laboratório de tecnologia focado em simplificar a rotina. Desenvolvemos soluções financeiras para <strong>pessoas</strong> que exigem controle absoluto sobre suas contas, e criamos sistemas de automação para <strong>empresas</strong> que buscam parar de perder tempo com tarefas operacionais.
             </p>
         </section>
 
@@ -302,7 +261,7 @@
                     <div class="client-thumb"><img src="img/logo-comari.png" alt="Espaço Comari" onerror="this.parentNode.innerHTML='EC'"></div>
                     <h4 style="color: #fff; font-size: 1rem;">Espaço Comari</h4>
                     <div class="stars">★★★★★</div>
-                    <p class="client-quote">"Agilizou muito o salão de festas! As pessoas perguntam sobre pacotes e a IA já responde na hora."</p>
+                    <p class="client-quote">"Agilizou muito o salão de festas! Os clientes perguntam sobre os pacotes e a IA já responde na hora."</p>
                     <div class="tags-wrapper">
                         <span class="service-tag">Agente de IA</span>
                     </div>
@@ -335,7 +294,7 @@
             </div>
         </div>
 
-        <h2 id="solucoes" class="category-title">Soluções para Negócios</h2>
+        <h2 class="category-title">Soluções para Negócios</h2>
         <div class="grid">
             <div class="card">
                 <div class="icon-box"><span style="font-size:2.5rem;">🤖</span></div>
@@ -357,7 +316,7 @@
 
         <div class="cta-specialist">
             <h3>Pronto para escalar a sua operação?</h3>
-            <p>Descubra como a tecnologia pode eliminar processos repetitivos e aumentar o lucro do seu negócio hoje mesmo.</p>
+            <p>Descubra como a tecnologia pode eliminar processos manuais repetitivos e aumentar o lucro do seu negócio hoje mesmo.</p>
             <a href="https://wa.me/5521973124106" class="btn-whatsapp" target="_blank">
                 <svg viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
                 Falar com Desenvolvedor
@@ -372,7 +331,7 @@
             </details>
             <details class="faq-item">
                 <summary>Como o Agente de IA conversa com os clientes?</summary>
-                <div class="faq-answer">A inteligência artificial é configurada exclusivamente com as regras, preços e tom de voz da sua empresa. Ela lê o contexto da conversa, entende a dúvida do cliente e responde de forma natural, focado em conversão.</div>
+                <div class="faq-answer">A inteligência artificial é configurada exclusivamente com as regras, preços e tom de voz da sua empresa. Ela lê o contexto da conversa, entende a dúvida do cliente e responde de forma natural, focada em conversão.</div>
             </details>
             <details class="faq-item">
                 <summary>Preciso de conhecimento técnico para usar as soluções?</summary>
@@ -390,68 +349,29 @@
 
         <div class="about-card">
             <div class="about-header">
-                <p>Sobre a Aiex</p>
-                <h2>Tecnologia guiada pela realidade dos negócios.</h2>
+                <p>Nossa Base</p>
+                <h2>Administração encontra Tecnologia.</h2>
             </div>
             <div class="about-text">
                 <p>
-                    A essência da <strong>Aiex</strong> baseia-se na vivência prática do empreendedorismo. O diferencial dos sistemas é que não são linhas de código genéricas, mas ferramentas pensadas por quem entende as dores reais da gestão.
+                    A essência da <strong>Aiex</strong> reflete a visão de seu criador, <strong>Mikhail Ayache</strong>. O diferencial dos sistemas é que não são linhas de código genéricas, mas ferramentas pensadas por quem entende as dores da gestão.
                 </p>
                 <p>
-                    Toda solução de automação, desde o aplicativo Organiza+ até a lógica de IAs, nasceu da necessidade cotidiana de negócios reais. A tecnologia atua como a ferramenta principal para escalar operações de forma sólida e definitiva.
+                    Toda solução de automação, desde o aplicativo Organiza+ até a lógica das IAs, nasceu da vivência prática no cotidiano de negócios reais. A tecnologia atua como a ferramenta principal para escalar operações de forma sólida e definitiva.
                 </p>
             </div>
         </div>
 
-        <div class="standalone-quote">
-            <p>"Não é que temos pouco tempo, mas que o desperdiçamos muito com aquilo que não importa."</p>
-            <span>— Sêneca</span>
-        </div>
-
+        <footer class="footer">
+            <div class="footer-brand">
+                <h3>AIEX</h3>
+                <p>Soluções Digitais e Inteligentes</p>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 AIEX | Desenvolvido por Mikhail Ayache</p>
+            </div>
+        </footer>
     </div>
-
-    <footer class="footer-premium">
-        <div class="footer-container">
-            <div class="footer-col brand-col">
-                <img src="img/logo-aiex.png" alt="Aiex Logo" class="footer-logo" onerror="this.style.display='none'; document.getElementById('alt-logo').style.display='block';">
-                <h3 id="alt-logo" style="display:none; color:#fff; font-size:1.8rem; letter-spacing:-1px; margin-bottom:15px;">AIEX</h3>
-                <p>Transformando processos operacionais em soluções digitais inteligentes para impulsionar o seu negócio.</p>
-            </div>
-            
-            <div class="footer-col links-col">
-                <h4>Links</h4>
-                <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Aplicativos</a></li>
-                    <li><a href="#solucoes">Soluções</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col contact-col">
-                <h4>Contato</h4>
-                <ul>
-                    <li>
-                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        <span>(21) 97312-4106</span>
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span>Rio de Janeiro, RJ</span>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                            <span>Instagram</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom-bar">
-            <p>© 2026 Aiex. Todos os direitos reservados. Desenvolvido por Mikhail Ayache.</p>
-        </div>
-    </footer>
 
     <a href="https://wa.me/5521973124106" class="wpp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -464,18 +384,24 @@
             const track = document.getElementById('track');
             const originalCards = Array.from(track.children);
             
+            // Multiplica os cards escondido no código para a roda girar infinito no PC
             originalCards.forEach(card => {
                 let clone = card.cloneNode(true);
                 track.appendChild(clone);
             });
         });
 
+        let isAnimating = false; // Trava de segurança para clique rápido
+
         function moveSlide(direction) {
+            if (isAnimating) return; // Se a animação estiver rodando, ignora o novo clique
+            isAnimating = true;
+
             const track = document.getElementById('track');
             const cards = track.children;
             if (cards.length === 0) return;
             
-            const cardWidth = cards[0].offsetWidth + 15; 
+            const cardWidth = cards[0].offsetWidth + 15; // 15px é o gap entre os cards
             
             if (direction === 1) { 
                 track.style.transition = 'transform 0.4s ease-in-out';
@@ -485,6 +411,7 @@
                     track.style.transition = 'none';
                     track.appendChild(track.firstElementChild);
                     track.style.transform = 'translateX(0)';
+                    isAnimating = false; // Libera o próximo clique
                 }, 400); 
                 
             } else { 
@@ -496,6 +423,10 @@
                     track.style.transition = 'transform 0.4s ease-in-out';
                     track.style.transform = 'translateX(0)';
                 }, 10);
+
+                setTimeout(() => {
+                    isAnimating = false; // Libera o próximo clique
+                }, 410);
             }
         }
     </script>
