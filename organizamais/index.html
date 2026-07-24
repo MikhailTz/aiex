@@ -6,8 +6,8 @@
     
     <!-- Otimização de SEO Forte para a página do App -->
     <title>Organiza+ | Substitua suas Planilhas de Controle Financeiro</title>
-    <meta name="description" content="Conheça o Organiza+, o aplicativo definitivo para controle financeiro pessoal. Substitua planilhas complexas por um gestor financeiro de bolso simples, rápido e seguro. Baixe na Play Store.">
-    <meta name="keywords" content="aplicativo de finanças, controle financeiro, substituir planilhas, gestor financeiro, orçamento pessoal, app financeiro play store">
+    <meta name="description" content="O Organiza+ transforma sua planilha financeira em um app prático. Controle contas fixas, limite mensal, compras de mercado, abastecimento e evolução financeira.">
+    <meta name="keywords" content="aplicativo de finanças, controle financeiro, substituir planilhas, contas fixas, metas mensais, gestão de veículo, app financeiro play store">
     
     <script type="application/ld+json">
     {
@@ -28,7 +28,6 @@
     }
     </script>
 
-    <!-- CORREÇÃO: ../ adicionado para puxar a imagem da pasta anterior -->
     <link rel="icon" type="image/png" href="../img/favicon.png?v=2">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
@@ -53,7 +52,7 @@
         header { text-align: center; padding-bottom: 30px; }
         .app-icon { width: 100px; height: 100px; border-radius: 25px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(255,255,255,0.1); }
         .app-title { font-size: 2.5rem; font-weight: 900; color: #fff; letter-spacing: -1px; margin-bottom: 10px; }
-        .app-subtitle { color: #aaa; font-size: 1.1rem; font-weight: 300; max-width: 600px; margin: 0 auto; line-height: 1.5; }
+        .app-subtitle { color: #aaa; font-size: 1.1rem; font-weight: 300; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 
         /* Destaque / Call to Action Principal */
         .hero-action { margin: 40px 0; text-align: center; }
@@ -81,22 +80,22 @@
         .vs-bad h3 { color: #ff6b6b; }
         .vs-good h3 { color: #25D366; }
         .vs-list { list-style: none; color: #aaa; font-size: 0.95rem; }
-        .vs-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 8px; }
+        .vs-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
 
-        /* Features */
-        .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        /* Features Otimizadas em Grid 2x2 */
+        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .card { 
             background: #0a0a0a; border: 1px solid rgba(255, 255, 255, 0.05); 
-            padding: 30px; border-radius: 25px; display: flex; gap: 25px; align-items: center; transition: 0.3s;
+            padding: 30px; border-radius: 25px; display: flex; flex-direction: column; gap: 20px; transition: 0.3s;
         }
         .card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-3px); }
         .icon-box { 
-            width: 75px; height: 75px; flex-shrink: 0; border-radius: 20px; 
+            width: 65px; height: 65px; flex-shrink: 0; border-radius: 18px; 
             background: #111; border: 1px solid rgba(255,255,255,0.1);
-            display: flex; align-items: center; justify-content: center; font-size: 2rem;
+            display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
         }
-        .content h3 { font-size: 1.2rem; color: #fff; margin-bottom: 8px; font-weight: 700; }
-        .content p { color: #888; font-size: 0.95rem; line-height: 1.5; }
+        .content h3 { font-size: 1.1rem; color: #fff; margin-bottom: 8px; font-weight: 700; }
+        .content p { color: #888; font-size: 0.9rem; line-height: 1.5; }
 
         /* FAQ Otimizado para SEO */
         .faq-item {
@@ -126,7 +125,7 @@
 
         @media (max-width: 768px) {
             .vs-grid { grid-template-columns: 1fr; }
-            .card { flex-direction: column; text-align: center; }
+            .features-grid { grid-template-columns: 1fr; }
             .app-title { font-size: 2rem; }
         }
     </style>
@@ -135,17 +134,15 @@
 
     <div class="container">
         
-        <!-- CORREÇÃO: ../ adicionado para forçar a volta para a raiz do site -->
         <a href="../index.html" class="nav-back">
             <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
             Voltar para Aiex
         </a>
 
         <header>
-            <!-- CORREÇÃO: ../ adicionado para puxar a imagem da pasta anterior -->
             <img src="../img/organiza-icon.png" alt="Ícone Organiza+" class="app-icon" onerror="this.style.display='none';">
             <h1 class="app-title">Organiza+</h1>
-            <p class="app-subtitle">O controle financeiro total na palma da sua mão. Esqueça as fórmulas complexas e assuma o controle do seu dinheiro de um jeito que você realmente entende.</p>
+            <p class="app-subtitle">Nascido da ideia de transformar planilhas complexas em uma experiência muito mais prática. Reúna tudo em um só lugar de forma simples e intuitiva.</p>
         </header>
 
         <div class="hero-action">
@@ -158,48 +155,56 @@
         <h2 class="category-title">A Evolução da Gestão Financeira</h2>
         <div class="vs-grid">
             <div class="vs-card vs-bad">
-                <h3>Planilhas Manuais</h3>
+                <h3>Planilhas de Controle</h3>
                 <ul class="vs-list">
-                    <li>❌ Exigem tempo para abrir, formatar e atualizar.</li>
-                    <li>❌ Fórmulas que quebram facilmente.</li>
-                    <li>❌ Difícil de visualizar e usar pelo celular.</li>
-                    <li>❌ Você acaba esquecendo de anotar os gastos.</li>
+                    <li>❌ Precisam ser editadas e formatadas constantemente.</li>
+                    <li>❌ Fórmulas complexas que quebram facilmente.</li>
+                    <li>❌ Difícil de visualizar os dados pelo celular.</li>
+                    <li>❌ Você acaba esquecendo de atualizar os gastos diários.</li>
                 </ul>
             </div>
             <div class="vs-card vs-good">
                 <h3>Com o Organiza+</h3>
                 <ul class="vs-list">
-                    <li>✅ Lançamento de despesas em poucos segundos.</li>
-                    <li>✅ Cálculos automáticos e à prova de erros.</li>
-                    <li>✅ Interface limpa, projetada 100% para o celular.</li>
-                    <li>✅ Gráficos instantâneos para saber para onde o dinheiro vai.</li>
+                    <li>✅ Todas as vantagens da planilha, com mais praticidade.</li>
+                    <li>✅ Interface limpa, 100% projetada para o celular.</li>
+                    <li>✅ Sem fórmulas manuais, tudo é calculado automaticamente.</li>
+                    <li>✅ Você foca apenas em acompanhar sua evolução financeira.</li>
                 </ul>
             </div>
         </div>
 
-        <h2 class="category-title">Recursos Pensados para a Vida Real</h2>
-        <div class="grid">
+        <h2 class="category-title">Controle Absoluto no Dia a Dia</h2>
+        <div class="features-grid">
             <div class="card">
-                <div class="icon-box">📊</div>
+                <div class="icon-box">💸</div>
                 <div class="content">
-                    <h3>Visão Geral Descomplicada</h3>
-                    <p>Acompanhe suas receitas, despesas e saldo atual em um painel intuitivo. Sem jargões contábeis, apenas os números que importam para o seu bolso.</p>
+                    <h3>Contas e Dívidas</h3>
+                    <p>Controle preciso de contas fixas e gestão de dívidas. Saiba exatamente o que já foi pago e o que ainda está pendente no seu mês.</p>
                 </div>
             </div>
             
             <div class="card">
-                <div class="icon-box">💸</div>
+                <div class="icon-box">🎯</div>
                 <div class="content">
-                    <h3>Registro Rápido de Gastos</h3>
-                    <p>Substitua o caderninho. Categorize seus gastos com poucos toques logo após a compra. Quanto mais fácil for anotar, maior o seu controle.</p>
+                    <h3>Categorias com Limite</h3>
+                    <p>Defina categorias com limites mensais de gastos e mantenha seu orçamento sob controle, evitando estourar os gastos não planejados.</p>
                 </div>
             </div>
 
             <div class="card">
-                <div class="icon-box">🔒</div>
+                <div class="icon-box">🛒</div>
                 <div class="content">
-                    <h3>Privacidade Total</h3>
-                    <p>Sua vida financeira é apenas sua. O aplicativo processa seus dados com segurança, focando em entregar performance sem comprometer a sua privacidade.</p>
+                    <h3>Mercado e Veículo</h3>
+                    <p>Módulos específicos integrados para gerenciar suas compras de mercado, abastecimentos e manutenções do seu veículo com facilidade.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon-box">📊</div>
+                <div class="content">
+                    <h3>Relatórios e Evolução</h3>
+                    <p>Geração automática de relatórios inteligentes para você visualizar de forma simples sua evolução financeira no dia a dia.</p>
                 </div>
             </div>
         </div>
@@ -208,11 +213,11 @@
         <div class="faq-accordion">
             <details class="faq-item">
                 <summary>Por que o Organiza+ é melhor que uma planilha financeira?</summary>
-                <div class="faq-answer">As planilhas exigem manutenção constante e não são práticas para uso móvel. O Organiza+ automatiza a categorização e o cálculo, permitindo que você lance uma despesa na mesma hora em que ela acontece, direto pelo celular, evitando esquecimentos e erros matemáticos.</div>
+                <div class="faq-answer">As planilhas exigem manutenção constante e não são práticas para uso móvel. O objetivo do Organiza+ é reunir tudo em um só lugar, oferecendo todas as vantagens matemáticas de uma planilha, mas com mais organização e rapidez diretamente no seu celular.</div>
             </details>
             <details class="faq-item">
-                <summary>O aplicativo é complexo de usar?</summary>
-                <div class="faq-answer">Não. Desenvolvemos o Organiza+ justamente para quem não entende de finanças avançadas ou contabilidade. A interface é limpa, focada no essencial: quanto entrou, quanto saiu e quanto sobrou.</div>
+                <summary>Consigo controlar as despesas do meu carro?</summary>
+                <div class="faq-answer">Sim. O aplicativo conta com recursos dedicados para registrar abastecimentos e agendar manutenções do veículo, integrando tudo ao seu orçamento geral.</div>
             </details>
             <details class="faq-item">
                 <summary>Preciso de internet para lançar um gasto?</summary>
