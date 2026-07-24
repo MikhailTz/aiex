@@ -3,22 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aiex | Soluções Digitais</title>
-
+    
+    <!-- Otimização de SEO Forte para a página do App -->
+    <title>Organiza+ | Substitua suas Planilhas de Controle Financeiro</title>
+    <meta name="description" content="Conheça o Organiza+, o aplicativo definitivo para controle financeiro pessoal. Substitua planilhas complexas por um gestor financeiro de bolso simples, rápido e seguro. Baixe na Play Store.">
+    <meta name="keywords" content="aplicativo de finanças, controle financeiro, substituir planilhas, gestor financeiro, orçamento pessoal, app financeiro play store">
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Aiex",
-      "url": "https://aiexbrasil.com.br/"
+      "@type": "SoftwareApplication",
+      "name": "Organiza+",
+      "operatingSystem": "Android",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Aiex"
+      }
     }
     </script>
-    <meta property="og:site_name" content="Aiex" />
 
     <link rel="icon" type="image/png" href="img/favicon.png?v=2">
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png?v=2">
-    <link rel="apple-touch-icon" href="img/favicon.png?v=2">
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
         
@@ -34,18 +44,26 @@
 
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
         
-        header { text-align: center; padding-bottom: 20px; }
-        .logo-img { max-width: 150px; filter: brightness(0) invert(1); margin-bottom: 8px; }
-        .tagline { color: #888; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
+        /* Navbar Simples para voltar ao site principal */
+        .nav-back { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; text-decoration: none; color: #888; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
+        .nav-back:hover { color: #fff; }
+        .nav-back svg { width: 18px; height: 18px; fill: currentColor; }
 
-        /* Propósito */
-        .intro-box {
-            text-align: center; background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08); padding: 35px; border-radius: 20px; 
-            margin-top: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        header { text-align: center; padding-bottom: 30px; }
+        .app-icon { width: 100px; height: 100px; border-radius: 25px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(255,255,255,0.1); }
+        .app-title { font-size: 2.5rem; font-weight: 900; color: #fff; letter-spacing: -1px; margin-bottom: 10px; }
+        .app-subtitle { color: #aaa; font-size: 1.1rem; font-weight: 300; max-width: 600px; margin: 0 auto; line-height: 1.5; }
+
+        /* Destaque / Call to Action Principal */
+        .hero-action { margin: 40px 0; text-align: center; }
+        .btn-playstore {
+            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+            background: linear-gradient(145deg, #25D366, #1ebd5c); color: #fff; 
+            text-decoration: none; padding: 18px 35px; border-radius: 15px; 
+            font-size: 1.1rem; font-weight: 900; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); transition: 0.3s;
         }
-        .intro-box h2 { font-size: 1.1rem; color: #fff; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
-        .intro-box p { color: #aaa; font-size: 0.95rem; font-weight: 300; line-height: 1.7; }
+        .btn-playstore:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5); }
+        .btn-playstore svg { width: 24px; height: 24px; fill: #fff; }
 
         .category-title { 
             font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; 
@@ -53,107 +71,33 @@
         }
         .category-title::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
 
-        /* Metodologia */
-        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .process-card {
-            background: transparent; border: 1px solid rgba(255,255,255,0.05);
-            padding: 30px 25px; border-radius: 20px; position: relative; transition: 0.3s;
-        }
-        .process-card:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.02); transform: translateY(-5px); }
-        .process-num { font-size: 2.5rem; font-weight: 900; color: rgba(255,255,255,0.05); position: absolute; top: 15px; right: 20px; }
-        .process-card h4 { font-size: 1rem; color: #fff; margin-bottom: 10px; position: relative; z-index: 2; }
-        .process-card p { font-size: 0.85rem; color: #777; position: relative; z-index: 2; line-height: 1.5; }
+        /* Grid de Comparação (Problema vs Solução) */
+        .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+        .vs-card { padding: 35px; border-radius: 20px; border: 1px solid; }
+        .vs-bad { background: rgba(255, 50, 50, 0.05); border-color: rgba(255, 50, 50, 0.1); }
+        .vs-good { background: rgba(37, 211, 102, 0.05); border-color: rgba(37, 211, 102, 0.2); }
+        .vs-card h3 { font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .vs-bad h3 { color: #ff6b6b; }
+        .vs-good h3 { color: #25D366; }
+        .vs-list { list-style: none; color: #aaa; font-size: 0.95rem; }
+        .vs-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 8px; }
 
-        /* Carrossel */
-        .carousel-container { position: relative; overflow: hidden; padding: 25px 45px; }
-        .carousel-track { display: flex; gap: 15px; width: 100%; transition: transform 0.4s ease-in-out; align-items: stretch; }
-        
-        .feedback-card {
-            width: calc(33.333% - 10px); 
-            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
-            padding: 25px 20px; border-radius: 20px; text-align: center; flex-shrink: 0; transition: 0.3s;
-            display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-        }
-        .feedback-card:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); transform: translateY(-8px); }
-        
-        .client-thumb {
-            width: 70px; height: 70px; margin: 0 auto 10px; border-radius: 18px; 
-            overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-        }
-        .client-thumb img { width: 100%; height: auto; }
-        .stars { color: #FFD700; font-size: 0.8rem; margin-bottom: 10px; letter-spacing: 2px; }
-        .client-quote { font-size: 0.85rem; color: #888; font-style: italic; margin-bottom: 20px; line-height: 1.5; flex-grow: 1; }
-        
-        .tags-wrapper { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: auto; }
-        .service-tag { 
-            display: inline-block; font-size: 0.65rem; color: #fff; 
-            background: rgba(255,255,255,0.08); padding: 6px 10px; 
-            border-radius: 6px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;
-        }
-        
-        .carousel-btn {
-            background: #111; border: 1px solid rgba(255,255,255,0.1); color: #fff; 
-            width: 38px; height: 38px; border-radius: 50%; cursor: pointer; position: absolute; z-index: 10; 
-            top: 50%; transform: translateY(-50%); transition: 0.3s; display: flex; align-items: center; justify-content: center; font-size: 1rem;
-        }
-        .carousel-btn:hover { background: #fff; color: #000; transform: translateY(-50%) scale(1.1); }
-        .btn-left { left: 0; }
-        .btn-right { right: 0; }
-
-        /* Grid */
+        /* Features */
         .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .card { 
             background: #0a0a0a; border: 1px solid rgba(255, 255, 255, 0.05); 
             padding: 30px; border-radius: 25px; display: flex; gap: 25px; align-items: center; transition: 0.3s;
         }
-        .card:hover { border-color: rgba(255,255,255,0.15); }
-        
+        .card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-3px); }
         .icon-box { 
-            width: 85px; height: 85px; flex-shrink: 0; border-radius: 22px; 
+            width: 75px; height: 75px; flex-shrink: 0; border-radius: 20px; 
             background: #111; border: 1px solid rgba(255,255,255,0.1);
-            display: flex; align-items: center; justify-content: center;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex; align-items: center; justify-content: center; font-size: 2rem;
         }
-        .card:hover .icon-box { box-shadow: 0 0 25px rgba(255, 255, 255, 0.15); border-color: rgba(255,255,255,0.4); transform: translateY(-5px); }
-        .icon-box img { width: 100%; height: 100%; border-radius: 22px; }
-
         .content h3 { font-size: 1.2rem; color: #fff; margin-bottom: 8px; font-weight: 700; }
         .content p { color: #888; font-size: 0.95rem; line-height: 1.5; }
 
-        .btn-play {
-            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
-            background: linear-gradient(145deg, #ffffff, #e0e0e0); color: #000; 
-            text-decoration: none; padding: 14px 28px; border-radius: 15px; 
-            font-size: 0.9rem; font-weight: 900; margin-top: 15px;
-            box-shadow: 0 4px 15px rgba(255,255,255,0.1); transition: 0.3s;
-        }
-        .btn-play:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255,255,255,0.25); }
-
-        .status-button {
-            display: inline-block; padding: 10px 20px; font-size: 0.75rem; font-weight: 800;
-            text-transform: uppercase; background: rgba(255,255,255,0.03); color: #444; 
-            border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; margin-top: 15px; cursor: default;
-        }
-
-        /* CTA */
-        .cta-specialist {
-            background: linear-gradient(145deg, #111, #080808);
-            border: 1px solid rgba(37, 211, 102, 0.3);
-            border-radius: 20px; padding: 40px 30px; text-align: center;
-            margin: 40px 0; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.05);
-        }
-        .cta-specialist h3 { color: #fff; font-size: 1.3rem; margin-bottom: 10px; }
-        .cta-specialist p { color: #aaa; font-size: 0.95rem; margin-bottom: 25px; }
-        .btn-whatsapp {
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            background: #25D366; color: #fff; text-decoration: none; font-weight: 800;
-            padding: 15px 30px; border-radius: 12px; font-size: 0.9rem;
-            transition: 0.3s; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
-        }
-        .btn-whatsapp:hover { background: #1ebd5c; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
-        .btn-whatsapp svg { width: 20px; height: 20px; fill: #fff; }
-
-        /* FAQ */
+        /* FAQ Otimizado para SEO */
         .faq-item {
             background: #0a0a0a; border: 1px solid rgba(255,255,255,0.05);
             border-radius: 16px; margin-bottom: 15px; transition: 0.3s;
@@ -169,446 +113,123 @@
         .faq-answer { padding: 0 25px 25px; color: #888; font-size: 0.9rem; line-height: 1.6; border-top: 1px solid transparent; }
         .faq-item[open] .faq-answer { border-top-color: rgba(255,255,255,0.05); padding-top: 20px; }
 
-        /* Sobre a Aiex */
-        .about-card {
-            background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%); border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-            margin-top: 40px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: start;
+        /* Banner Final */
+        .cta-specialist {
+            background: linear-gradient(145deg, #111, #080808);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px; padding: 40px 30px; text-align: center;
+            margin: 60px 0 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-        .about-header h2 { color: #fff; font-size: 1.6rem; letter-spacing: -1px; margin-bottom: 10px; line-height: 1.2; }
-        .about-header p { color: #555; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; margin-bottom: 20px; }
-        
-        /* Classe para o ícone da aba na seção sobre */
-        .about-favicon {
-            max-width: 60px; /* Tamanho menor para o ícone */
-            margin-top: 20px;
-            display: block;
-        }
+        .cta-specialist h3 { color: #fff; font-size: 1.4rem; margin-bottom: 10px; }
+        .cta-specialist p { color: #aaa; font-size: 0.95rem; margin-bottom: 25px; }
 
-        .about-text p { color: #999; font-size: 0.95rem; line-height: 1.7; font-weight: 300; margin-bottom: 15px; }
-        .about-text strong { color: #fff; font-weight: 600; }
-
-        /* Citação de Sêneca Isolada */
-        .standalone-quote {
-            text-align: center;
-            padding: 70px 20px 40px;
-            margin: 0 auto;
-            max-width: 700px;
-        }
-        .standalone-quote p {
-            font-size: 1.2rem;
-            color: #888;
-            font-style: italic;
-            font-weight: 300;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        .standalone-quote span {
-            display: block;
-            color: #555;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        /* Rodapé Premium */
-        .footer-premium {
-            padding: 60px 20px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background-color: #030303;
-        }
-        .footer-container {
-            max-width: 900px; margin: 0 auto; display: grid;
-            grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px;
-            align-items: center; 
-        }
-        .brand-col { display: flex; flex-direction: column; }
-        .brand-col .footer-logo { max-width: 120px; filter: brightness(0) invert(1); margin-bottom: 15px; }
-        .brand-col p { color: #888; font-size: 0.85rem; line-height: 1.6; max-width: 280px; }
-        
-        .links-col h4, .contact-col h4 { color: #fff; font-size: 0.9rem; margin-bottom: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { color: #888; text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
-        .footer-col ul li a:hover { color: #fff; }
-
-        .contact-col ul li { display: flex; align-items: center; gap: 10px; color: #888; font-size: 0.85rem; margin-bottom: 12px; }
-        .contact-col ul li a { display: flex; align-items: center; gap: 10px; color: #888; font-size: 0.85rem; text-decoration: none; transition: 0.3s; }
-        .contact-col ul li a:hover { color: #fff; }
-        .contact-col ul li svg, .contact-col ul li a svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-
-        .footer-bottom-bar {
-            max-width: 900px; margin: 0 auto; padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            display: flex; justify-content: center; align-items: center; text-align: center;
-        }
-        .footer-bottom-bar p { color: #555; font-size: 0.75rem; }
-
-        .wpp-float {
-            position: fixed; bottom: 30px; right: 30px; background: #25D366; 
-            width: 60px; height: 60px; border-radius: 50%; display: flex; 
-            align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 1000; transition: 0.3s; text-decoration: none;
-        }
-        .wpp-float:hover { transform: scale(1.1); background: #1ebd5c; }
-        .wpp-float svg { width: 32px; height: 32px; fill: #fff; }
-
-        /* Ajustes Finais do Mobile */
         @media (max-width: 768px) {
-            .process-grid { grid-template-columns: 1fr; }
+            .vs-grid { grid-template-columns: 1fr; }
             .card { flex-direction: column; text-align: center; }
-            .about-card { grid-template-columns: 1fr; gap: 20px; text-align: center; padding: 30px 20px; }
-            .about-favicon { margin: 20px auto 0; } /* Centraliza o ícone no mobile */
-            .btn-play, .btn-whatsapp { width: 100%; justify-content: center; }
-            .footer-container { grid-template-columns: 1fr; gap: 30px; text-align: center; align-items: start; }
-            .brand-col .footer-logo { margin: 0 auto 15px; }
-            .brand-col p { margin: 0 auto; }
-            .contact-col ul li, .contact-col ul li a { justify-content: center; }
-            .standalone-quote { padding: 50px 20px 30px; }
-            .wpp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
-            
-            /* Correção Milimétrica do Carrossel */
-            .carousel-container { 
-                margin-left: -20px; 
-                margin-right: -20px; 
-                width: calc(100% + 40px); 
-                padding: 25px 0; 
-            }
-            .carousel-track { 
-                padding-left: 10vw; 
-                padding-right: 10vw; 
-                gap: 15px; 
-            }
-            .feedback-card { 
-                width: 80vw; 
-            }
-            .carousel-btn { width: 34px; height: 34px; font-size: 0.8rem; top: 43%; } 
-            .btn-left { left: 10px; } 
-            .btn-right { right: 10px; }
+            .app-title { font-size: 2rem; }
         }
     </style>
 </head>
-<body id="inicio">
+<body>
 
     <div class="container">
+        
+        <a href="index.html" class="nav-back">
+            <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
+            Voltar para Aiex
+        </a>
+
         <header>
-            <img src="img/logo-aiex.png" alt="Aiex" class="logo-img" onerror="this.style.display='none';">
-            <p class="tagline">Soluções Digitais e Inteligentes</p>
+            <img src="img/organiza-icon.png" alt="Ícone Organiza+" class="app-icon" onerror="this.style.display='none';">
+            <h1 class="app-title">Organiza+</h1>
+            <p class="app-subtitle">O controle financeiro total na palma da sua mão. Esqueça as fórmulas complexas e assuma o controle do seu dinheiro de um jeito que você realmente entende.</p>
         </header>
 
-        <section class="intro-box">
-            <h2>Nosso Propósito</h2>
-            <p>
-                Simplificar a sua rotina com tecnologia. Criamos soluções financeiras e sistemas que colocam você no controle e eliminam processos desnecessários.
-            </p>
-        </section>
+        <div class="hero-action">
+            <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn-playstore" target="_blank">
+                <svg viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+                Baixar na Play Store
+            </a>
+        </div>
 
-        <h2 class="category-title">Como Trabalhamos</h2>
-        <div class="process-grid">
-            <div class="process-card">
-                <span class="process-num">01</span>
-                <h4>Mapeamento</h4>
-                <p>O foco principal é analisar os gargalos operacionais do negócio, identificando exatamente onde há perda de tempo e dinheiro.</p>
+        <h2 class="category-title">A Evolução da Gestão Financeira</h2>
+        <div class="vs-grid">
+            <div class="vs-card vs-bad">
+                <h3>Planilhas Manuais</h3>
+                <ul class="vs-list">
+                    <li>❌ Exigem tempo para abrir, formatar e atualizar.</li>
+                    <li>❌ Fórmulas que quebram facilmente.</li>
+                    <li>❌ Difícil de visualizar e usar pelo celular.</li>
+                    <li>❌ Você acaba esquecendo de anotar os gastos.</li>
+                </ul>
             </div>
-            <div class="process-card">
-                <span class="process-num">02</span>
-                <h4>Desenvolvimento</h4>
-                <p>Sistemas de automação, IA ou aplicativos são configurados sob medida, unindo a programação à estratégia direta de vendas.</p>
-            </div>
-            <div class="process-card">
-                <span class="process-num">03</span>
-                <h4>Escala</h4>
-                <p>A tecnologia é implementada na rotina. O empreendedor foca em pensar o negócio, enquanto as ferramentas executam o trabalho duro.</p>
+            <div class="vs-card vs-good">
+                <h3>Com o Organiza+</h3>
+                <ul class="vs-list">
+                    <li>✅ Lançamento de despesas em poucos segundos.</li>
+                    <li>✅ Cálculos automáticos e à prova de erros.</li>
+                    <li>✅ Interface limpa, projetada 100% para o celular.</li>
+                    <li>✅ Gráficos instantâneos para saber para onde o dinheiro vai.</li>
+                </ul>
             </div>
         </div>
 
-        <h2 class="category-title">Operações Atendidas</h2>
-        <div class="carousel-container">
-            <button class="carousel-btn btn-left" onclick="moveSlide(-1)">❮</button>
-            <div class="carousel-track" id="track">
-                
-                <div class="feedback-card">
-                    <div class="client-thumb"><img src="img/logo-fera-lanche.png" alt="O Fera do Lanche" onerror="this.parentNode.innerHTML='FL'"></div>
-                    <h4 style="color: #fff; font-size: 1rem;">O Fera do Lanche</h4>
-                    <div class="stars">★★★★★</div>
-                    <p class="client-quote">"Nossos pedidos agora chegam totalmente limpos e organizados no WhatsApp, melhorou muito a operação."</p>
-                    <div class="tags-wrapper">
-                        <span class="service-tag">Cardápio Digital</span>
-                    </div>
-                </div>
-
-                <div class="feedback-card">
-                    <div class="client-thumb"><img src="img/logo-lucao-corte.png" alt="Lucão du Corte" onerror="this.parentNode.innerHTML='LC'"></div>
-                    <h4 style="color: #fff; font-size: 1rem;">Lucão du Corte</h4>
-                    <div class="stars">★★★★★</div>
-                    <p class="client-quote">"Estou ganhando muitas avaliações todos os dias. A visibilidade no Google aumentou demais com esse cartão!"</p>
-                    <div class="tags-wrapper">
-                        <span class="service-tag">Cartão Avaliação</span>
-                    </div>
-                </div>
-                
-                <div class="feedback-card">
-                    <div class="client-thumb"><img src="img/logo-comari.png" alt="Espaço Comari" onerror="this.parentNode.innerHTML='EC'"></div>
-                    <h4 style="color: #fff; font-size: 1rem;">Espaço Comari</h4>
-                    <div class="stars">★★★★★</div>
-                    <p class="client-quote">"Não perdemos mais tempo nem cliente. A IA tira todas as dúvidas na hora e a gente só foca em organizar a festa. Prático e rápido."</p>
-                    <div class="tags-wrapper">
-                        <span class="service-tag">Agente de IA</span>
-                    </div>
-                </div>
-                
-                <div class="feedback-card">
-                    <div class="client-thumb"><img src="img/logo-sabor-radical.png" alt="Sabor Radical" onerror="this.parentNode.innerHTML='SR'"></div>
-                    <h4 style="color: #fff; font-size: 1rem;">Sabor Radical</h4>
-                    <div class="stars">★★★★★</div>
-                    <p class="client-quote">"Automatizou a fábrica em geral. Processos de produção e vendas 100% integrados e sem falhas."</p>
-                    <div class="tags-wrapper">
-                        <span class="service-tag">Cardápio Digital</span>
-                        <span class="service-tag">Agente de IA</span>
-                    </div>
-                </div>
-
-            </div>
-            <button class="carousel-btn btn-right" onclick="moveSlide(1)">❯</button>
-        </div>
-
-        <h2 id="aplicativos" class="category-title">Aplicativos Móveis</h2>
+        <h2 class="category-title">Recursos Pensados para a Vida Real</h2>
         <div class="grid">
             <div class="card">
-                <div class="icon-box"><img src="img/organiza-icon.png" alt="Organiza+" onerror="this.style.display='none'"></div>
+                <div class="icon-box">📊</div>
                 <div class="content">
-                    <h3>Organiza+</h3>
-                    <p>Controle financeiro total. Orçamento, despesas monitorados em tempo real de um jeito que qualquer pessoa entende.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn-play">Download na Play Store</a>
-                </div>
-            </div>
-        </div>
-
-        <h2 id="automacao" class="category-title">Soluções Digitais</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="icon-box"><span style="font-size:2.5rem;">🤖</span></div>
-                <div class="content">
-                    <h3>Agente IA</h3>
-                    <p>Atendimento humano e automático no WhatsApp. A IA interage de forma fluida e natural, como se fosse você mesmo digitando.</p>
-                    <div class="status-button">Indisponível</div>
+                    <h3>Visão Geral Descomplicada</h3>
+                    <p>Acompanhe suas receitas, despesas e saldo atual em um painel intuitivo. Sem jargões contábeis, apenas os números que importam para o seu bolso.</p>
                 </div>
             </div>
             
             <div class="card">
-                <div class="icon-box"><span style="font-size:2.5rem;">📋</span></div>
+                <div class="icon-box">💸</div>
                 <div class="content">
-                    <h3>Cardápio Digital</h3>
-                    <p>Interface rápida e intuitiva. O cliente seleciona os produtos com facilidade e você recebe o pedido totalmente pronto para a produção direto no seu WhatsApp.</p>
-                    <a href="https://wa.me/5521973124106?text=Tenho%20interesse%20no%20card%C3%A1pio%20digital%20em%20saber%20mais%20sobre%20o%20card%C3%A1pio%20digital" class="btn-play" target="_blank">Tenho interesse</a>
-                </div>
-            </div>
-        </div>
-
-        <h2 id="nfc" class="category-title">Tecnologia NFC</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="icon-box"><span style="font-size:2.5rem;">💳</span></div>
-                <div class="content">
-                    <h3>Cartão Avaliação</h3>
-                    <p>Cartão físico com tecnologia NFC e QR Code. O cliente aproxima o celular e é direcionado para avaliar seu negócio no Google, multiplicando sua reputação e visibilidade nas buscas.</p>
-                    <a href="https://wa.me/5521973124106?text=Tenho%20interesse%20no%20cart%C3%A3o%20de%20avalia%C3%A7%C3%A3o" class="btn-play" target="_blank">Tenho interesse</a>
+                    <h3>Registro Rápido de Gastos</h3>
+                    <p>Substitua o caderninho. Categorize seus gastos com poucos toques logo após a compra. Quanto mais fácil for anotar, maior o seu controle.</p>
                 </div>
             </div>
 
             <div class="card">
-                <div class="icon-box"><span style="font-size:2.5rem;">🏷️</span></div>
+                <div class="icon-box">🔒</div>
                 <div class="content">
-                    <h3>Tag NFC Inteligente</h3>
-                    <p>Versão compacta e altamente personalizável do cartão. Cole em mesas ou balcões e direcione clientes instantaneamente ao seu Instagram, cardápio digital ou outras plataformas com apenas uma aproximação do celular.</p>
-                    <a href="https://wa.me/5521973124106?text=Tenho%20interesse%20na%20Tag%20NFC" class="btn-play" target="_blank">Tenho interesse</a>
+                    <h3>Privacidade Total</h3>
+                    <p>Sua vida financeira é apenas sua. O aplicativo processa seus dados com segurança, focando em entregar performance sem comprometer a sua privacidade.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="cta-specialist">
-            <h3>Pronto para escalar a sua operação?</h3>
-            <p>Descubra como a tecnologia pode eliminar processos repetitivos e aumentar o lucro do seu negócio hoje mesmo.</p>
-            <a href="https://wa.me/5521973124106?text=Ol%C3%A1%20vim%20pelo%20site%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es" class="btn-whatsapp" target="_blank">
-                <svg viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
-                Falar com a Aiex
-            </a>
         </div>
 
         <h2 class="category-title">Dúvidas Frequentes</h2>
         <div class="faq-accordion">
             <details class="faq-item">
-                <summary>O que é necessário para ter o Cardápio Digital?</summary>
-                <div class="faq-answer">Apenas o seu cardápio base (produtos, descrições, preços) e um número de WhatsApp. O catálogo é estruturado e o link final é gerado para você divulgar aos seus clientes. O pedido cai formatado direto no seu chat, pronto para produção.</div>
+                <summary>Por que o Organiza+ é melhor que uma planilha financeira?</summary>
+                <div class="faq-answer">As planilhas exigem manutenção constante e não são práticas para uso móvel. O Organiza+ automatiza a categorização e o cálculo, permitindo que você lance uma despesa na mesma hora em que ela acontece, direto pelo celular, evitando esquecimentos e erros matemáticos.</div>
             </details>
             <details class="faq-item">
-                <summary>Como o Agente de IA conversa com os clientes?</summary>
-                <div class="faq-answer">A inteligência artificial é configurada exclusivamente com as regras, preços e tom de voz da sua empresa. Ela lê o contexto da conversa, entende a dúvida do cliente e responde de forma natural, focado em conversão.</div>
+                <summary>O aplicativo é complexo de usar?</summary>
+                <div class="faq-answer">Não. Desenvolvemos o Organiza+ justamente para quem não entende de finanças avançadas ou contabilidade. A interface é limpa, focada no essencial: quanto entrou, quanto saiu e quanto sobrou.</div>
             </details>
             <details class="faq-item">
-                <summary>Preciso de conhecimento técnico para usar as soluções?</summary>
-                <div class="faq-answer">De forma alguma. O ecossistema da Aiex é construído para quem precisa de agilidade. Toda a infraestrutura tecnológica pesada fica nos bastidores. Para o seu dia a dia, o uso é totalmente prático e integrado ao seu WhatsApp.</div>
-            </details>
-            
-            <details class="faq-item">
-                <summary>Como funciona a Tag NFC e onde posso usá-la?</summary>
-                <div class="faq-answer">A Tag NFC é um pequeno adesivo ou display inteligente que funciona por aproximação. Ao encostar o celular, o cliente é direcionado automaticamente para o link que você definir (seu Instagram, cardápio digital, Google ou múltiplos links). É ideal para colar em mesas, balcões de atendimento ou até mesmo no verso do seu próprio celular.</div>
-            </details>
-
-            <details class="faq-item">
-                <summary>Em quanto tempo o negócio percebe o retorno?</summary>
-                <div class="faq-answer">O ganho de eficiência é imediato após a implementação. Negócios relatam o fim drástico de erros em pedidos e o ganho instantâneo de horas livres diárias, já que as ferramentas assumem as tarefas repetitivas.</div>
+                <summary>Preciso de internet para lançar um gasto?</summary>
+                <div class="faq-answer">O app é otimizado para funcionar na sua rotina diária. Você pode utilizar as principais funções de registro e consulta diretamente do seu aparelho com rapidez e fluidez.</div>
             </details>
             <details class="faq-item">
-                <summary>Os dados financeiros no Organiza+ estão seguros?</summary>
-                <div class="faq-answer">Absolutamente. Segurança é o pilar do aplicativo. O Organiza+ foi desenvolvido com protocolos rígidos, garantindo total privacidade sobre o seu controle financeiro no seu dispositivo.</div>
+                <summary>Ele está disponível para quais dispositivos?</summary>
+                <div class="faq-answer">Atualmente, o Organiza+ está disponível exclusivamente para dispositivos Android, e pode ser baixado de forma segura e oficial através da Google Play Store.</div>
             </details>
         </div>
 
-        <div class="about-card">
-            <div class="about-header">
-                <p>Sobre a Aiex</p>
-                <h2>Tecnologia guiada pela realidade dos negócios.</h2>
-                
-                <img src="img/favicon.png" alt="Ícone Aiex" class="about-favicon" onerror="this.style.display='none';">
-                
-            </div>
-            <div class="about-text">
-                <p>
-                    A <strong>Aiex</strong> surgiu da necessidade de resolver problemas reais e reduzir custos operacionais. Antes de chegarmos ao mercado, desenvolvemos tecnologia para organizar nossas próprias operações, movidos pela busca por automação e economia. Entendemos quem empreende, porque vivemos e sentimos as dores da gestão no dia a dia.
-                </p>
-            </div>
-        </div>
-
-        <div class="standalone-quote">
-            <p>"Não é que temos pouco tempo, mas que o desperdiçamos muito com aquilo que não importa."</p>
-            <span>— Sêneca</span>
+        <div class="cta-specialist">
+            <h3>Assuma o controle do seu dinheiro hoje</h3>
+            <p>Junte-se às pessoas que já abandonaram as planilhas pesadas e trouxeram inteligência para a própria carteira.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn-playstore" target="_blank" style="margin-top: 10px;">
+                Download Gratuito
+            </a>
         </div>
 
     </div>
-
-    <footer class="footer-premium">
-        <div class="footer-container">
-            <div class="footer-col brand-col">
-                <img src="img/logo-aiex.png" alt="Aiex Logo" class="footer-logo" onerror="this.style.display='none'; document.getElementById('alt-logo').style.display='block';">
-                <h3 id="alt-logo" style="display:none; color:#fff; font-size:1.8rem; letter-spacing:-1px; margin-bottom:15px;">AIEX</h3>
-                <p>Transformando processos operacionais em soluções digitais inteligentes para impulsionar o seu negócio.</p>
-            </div>
-            
-            <div class="footer-col links-col">
-                <h4>Links</h4>
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#aplicativos">Aplicativos</a></li>
-                    <li><a href="#automacao">Automação</a></li>
-                    <li><a href="#nfc">Soluções NFC</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col contact-col">
-                <h4>Contato</h4>
-                <ul>
-                    <li>
-                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        <span>(21) 97312-4106</span>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/aiexbr/" target="_blank">
-                            <svg viewBox="0 0 24 24" style="fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                            <span>Instagram</span>
-                        </a>
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span>Rio de Janeiro, RJ</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom-bar">
-            <p>© 2026 Aiex. Todos os direitos reservados. Desenvolvido por Mikhail Ayache.</p>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/5521973124106?text=Ol%C3%A1%20vim%20pelo%20site%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es" class="wpp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
-    </a>
-
-    <script>
-        let isAnimating = false;
-        let autoPlayTimer; // Variável para controlar o tempo do giro
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const track = document.getElementById('track');
-            const originalCards = Array.from(track.children);
-            
-            // Clona os cards para garantir o loop infinito
-            originalCards.forEach(card => {
-                let clone = card.cloneNode(true);
-                track.appendChild(clone);
-            });
-
-            // Inicia o giro automático assim que o site carrega
-            startAutoPlay();
-        });
-
-        function startAutoPlay() {
-            // Configura para girar a cada 3 segundos (3000 milissegundos)
-            autoPlayTimer = setInterval(() => {
-                moveSlide(1);
-            }, 3000);
-        }
-
-        function resetAutoPlay() {
-            // Zera o cronômetro se o usuário clicar na seta, para não dar conflito
-            clearInterval(autoPlayTimer);
-            startAutoPlay();
-        }
-
-        function moveSlide(direction) {
-            if (isAnimating) return;
-            isAnimating = true;
-
-            const track = document.getElementById('track');
-            const cards = track.children;
-            if (cards.length === 0) return;
-            
-            const cardWidth = cards[0].offsetWidth + 15; 
-            
-            if (direction === 1) { 
-                track.style.transition = 'transform 0.4s ease-in-out';
-                track.style.transform = `translateX(-${cardWidth}px)`;
-                
-                setTimeout(() => {
-                    track.style.transition = 'none';
-                    track.appendChild(track.firstElementChild);
-                    track.style.transform = 'translateX(0)';
-                    isAnimating = false;
-                }, 400); 
-                
-            } else { 
-                track.style.transition = 'none';
-                track.prepend(track.lastElementChild);
-                track.style.transform = `translateX(-${cardWidth}px)`;
-                
-                setTimeout(() => {
-                    track.style.transition = 'transform 0.4s ease-in-out';
-                    track.style.transform = 'translateX(0)';
-                }, 10);
-
-                setTimeout(() => {
-                    isAnimating = false;
-                }, 410);
-            }
-
-            // Reinicia a contagem toda vez que um slide roda
-            resetAutoPlay();
-        }
-    </script>
 
 </body>
 </html>
