@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Otimização de SEO Forte para a página do App -->
+    <title>Organiza+ | Substitua suas Planilhas de Controle Financeiro</title>
+    <meta name="description" content="Conheça o Organiza+, o aplicativo definitivo para controle financeiro pessoal. Substitua planilhas complexas por um gestor financeiro de bolso simples, rápido e seguro. Baixe na Play Store.">
+    <meta name="keywords" content="aplicativo de finanças, controle financeiro, substituir planilhas, gestor financeiro, orçamento pessoal, app financeiro play store">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Organiza+",
+      "operatingSystem": "Android",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Aiex"
+      }
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="img/favicon.png?v=2">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #050505; 
+            color: #f0f0f0; 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* Navbar Simples para voltar ao site principal */
+        .nav-back { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; text-decoration: none; color: #888; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
+        .nav-back:hover { color: #fff; }
+        .nav-back svg { width: 18px; height: 18px; fill: currentColor; }
+
+        header { text-align: center; padding-bottom: 30px; }
+        .app-icon { width: 100px; height: 100px; border-radius: 25px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(255,255,255,0.1); }
+        .app-title { font-size: 2.5rem; font-weight: 900; color: #fff; letter-spacing: -1px; margin-bottom: 10px; }
+        .app-subtitle { color: #aaa; font-size: 1.1rem; font-weight: 300; max-width: 600px; margin: 0 auto; line-height: 1.5; }
+
+        /* Destaque / Call to Action Principal */
+        .hero-action { margin: 40px 0; text-align: center; }
+        .btn-playstore {
+            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+            background: linear-gradient(145deg, #25D366, #1ebd5c); color: #fff; 
+            text-decoration: none; padding: 18px 35px; border-radius: 15px; 
+            font-size: 1.1rem; font-weight: 900; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); transition: 0.3s;
+        }
+        .btn-playstore:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5); }
+        .btn-playstore svg { width: 24px; height: 24px; fill: #fff; }
+
+        .category-title { 
+            font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; 
+            color: #fff; margin: 60px 0 30px; display: flex; align-items: center; gap: 15px; font-weight: 900;
+        }
+        .category-title::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+
+        /* Grid de Comparação (Problema vs Solução) */
+        .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+        .vs-card { padding: 35px; border-radius: 20px; border: 1px solid; }
+        .vs-bad { background: rgba(255, 50, 50, 0.05); border-color: rgba(255, 50, 50, 0.1); }
+        .vs-good { background: rgba(37, 211, 102, 0.05); border-color: rgba(37, 211, 102, 0.2); }
+        .vs-card h3 { font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .vs-bad h3 { color: #ff6b6b; }
+        .vs-good h3 { color: #25D366; }
+        .vs-list { list-style: none; color: #aaa; font-size: 0.95rem; }
+        .vs-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 8px; }
+
+        /* Features */
+        .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .card { 
+            background: #0a0a0a; border: 1px solid rgba(255, 255, 255, 0.05); 
+            padding: 30px; border-radius: 25px; display: flex; gap: 25px; align-items: center; transition: 0.3s;
+        }
+        .card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-3px); }
+        .icon-box { 
+            width: 75px; height: 75px; flex-shrink: 0; border-radius: 20px; 
+            background: #111; border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center; font-size: 2rem;
+        }
+        .content h3 { font-size: 1.2rem; color: #fff; margin-bottom: 8px; font-weight: 700; }
+        .content p { color: #888; font-size: 0.95rem; line-height: 1.5; }
+
+        /* FAQ Otimizado para SEO */
+        .faq-item {
+            background: #0a0a0a; border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px; margin-bottom: 15px; transition: 0.3s;
+        }
+        .faq-item:hover { border-color: rgba(255,255,255,0.2); }
+        .faq-item summary {
+            padding: 22px 25px; font-size: 1rem; color: #fff; font-weight: 600; cursor: pointer;
+            list-style: none; display: flex; justify-content: space-between; align-items: center;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: '+'; font-size: 1.5rem; color: #555; transition: 0.3s transform; font-weight: 300; }
+        .faq-item[open] summary::after { content: '−'; transform: rotate(180deg); color: #fff; }
+        .faq-answer { padding: 0 25px 25px; color: #888; font-size: 0.9rem; line-height: 1.6; border-top: 1px solid transparent; }
+        .faq-item[open] .faq-answer { border-top-color: rgba(255,255,255,0.05); padding-top: 20px; }
+
+        /* Banner Final */
+        .cta-specialist {
+            background: linear-gradient(145deg, #111, #080808);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px; padding: 40px 30px; text-align: center;
+            margin: 60px 0 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .cta-specialist h3 { color: #fff; font-size: 1.4rem; margin-bottom: 10px; }
+        .cta-specialist p { color: #aaa; font-size: 0.95rem; margin-bottom: 25px; }
+
+        @media (max-width: 768px) {
+            .vs-grid { grid-template-columns: 1fr; }
+            .card { flex-direction: column; text-align: center; }
+            .app-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <a href="index.html" class="nav-back">
+            <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>
+            Voltar para Aiex
+        </a>
+
+        <header>
+            <img src="img/organiza-icon.png" alt="Ícone Organiza+" class="app-icon" onerror="this.style.display='none';">
+            <h1 class="app-title">Organiza+</h1>
+            <p class="app-subtitle">O controle financeiro total na palma da sua mão. Esqueça as fórmulas complexas e assuma o controle do seu dinheiro de um jeito que você realmente entende.</p>
+        </header>
+
+        <div class="hero-action">
+            <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn-playstore" target="_blank">
+                <svg viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+                Baixar na Play Store
+            </a>
+        </div>
+
+        <h2 class="category-title">A Evolução da Gestão Financeira</h2>
+        <div class="vs-grid">
+            <div class="vs-card vs-bad">
+                <h3>Planilhas Manuais</h3>
+                <ul class="vs-list">
+                    <li>❌ Exigem tempo para abrir, formatar e atualizar.</li>
+                    <li>❌ Fórmulas que quebram facilmente.</li>
+                    <li>❌ Difícil de visualizar e usar pelo celular.</li>
+                    <li>❌ Você acaba esquecendo de anotar os gastos.</li>
+                </ul>
+            </div>
+            <div class="vs-card vs-good">
+                <h3>Com o Organiza+</h3>
+                <ul class="vs-list">
+                    <li>✅ Lançamento de despesas em poucos segundos.</li>
+                    <li>✅ Cálculos automáticos e à prova de erros.</li>
+                    <li>✅ Interface limpa, projetada 100% para o celular.</li>
+                    <li>✅ Gráficos instantâneos para saber para onde o dinheiro vai.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="category-title">Recursos Pensados para a Vida Real</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon-box">📊</div>
+                <div class="content">
+                    <h3>Visão Geral Descomplicada</h3>
+                    <p>Acompanhe suas receitas, despesas e saldo atual em um painel intuitivo. Sem jargões contábeis, apenas os números que importam para o seu bolso.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="icon-box">💸</div>
+                <div class="content">
+                    <h3>Registro Rápido de Gastos</h3>
+                    <p>Substitua o caderninho. Categorize seus gastos com poucos toques logo após a compra. Quanto mais fácil for anotar, maior o seu controle.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="icon-box">🔒</div>
+                <div class="content">
+                    <h3>Privacidade Total</h3>
+                    <p>Sua vida financeira é apenas sua. O aplicativo processa seus dados com segurança, focando em entregar performance sem comprometer a sua privacidade.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="category-title">Dúvidas Frequentes</h2>
+        <div class="faq-accordion">
+            <details class="faq-item">
+                <summary>Por que o Organiza+ é melhor que uma planilha financeira?</summary>
+                <div class="faq-answer">As planilhas exigem manutenção constante e não são práticas para uso móvel. O Organiza+ automatiza a categorização e o cálculo, permitindo que você lance uma despesa na mesma hora em que ela acontece, direto pelo celular, evitando esquecimentos e erros matemáticos.</div>
+            </details>
+            <details class="faq-item">
+                <summary>O aplicativo é complexo de usar?</summary>
+                <div class="faq-answer">Não. Desenvolvemos o Organiza+ justamente para quem não entende de finanças avançadas ou contabilidade. A interface é limpa, focada no essencial: quanto entrou, quanto saiu e quanto sobrou.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Preciso de internet para lançar um gasto?</summary>
+                <div class="faq-answer">O app é otimizado para funcionar na sua rotina diária. Você pode utilizar as principais funções de registro e consulta diretamente do seu aparelho com rapidez e fluidez.</div>
+            </details>
+            <details class="faq-item">
+                <summary>Ele está disponível para quais dispositivos?</summary>
+                <div class="faq-answer">Atualmente, o Organiza+ está disponível exclusivamente para dispositivos Android, e pode ser baixado de forma segura e oficial através da Google Play Store.</div>
+            </details>
+        </div>
+
+        <div class="cta-specialist">
+            <h3>Assuma o controle do seu dinheiro hoje</h3>
+            <p>Junte-se às pessoas que já abandonaram as planilhas pesadas e trouxeram inteligência para a própria carteira.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.fincontrol" class="btn-playstore" target="_blank" style="margin-top: 10px;">
+                Download Gratuito
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
