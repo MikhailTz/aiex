@@ -102,7 +102,7 @@
 
     .hero { position: relative; padding: 96px 0 78px; }
     .hero-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 68px; align-items: center; }
-    .hero h1 { max-width: 780px; font-size: clamp(3rem, 7.2vw, 6.1rem); line-height: .98; letter-spacing: -.07em; }
+    .hero h1 { max-width: 780px; padding: .03em 0 .09em; font-size: clamp(3rem, 7.2vw, 6.1rem); line-height: 1.04; letter-spacing: -.065em; overflow: visible; }
     .hero-copy { max-width: 690px; margin: 26px 0 32px; color: #aeb7c5; font-size: clamp(1rem, 2vw, 1.18rem); }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 22px; border: 1px solid transparent; border-radius: 14px; text-decoration: none; font-size: .9rem; font-weight: 800; transition: transform .25s, box-shadow .25s, border-color .25s; }
@@ -189,12 +189,14 @@
 
     .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
     .service-card { position: relative; overflow: hidden; display: flex; gap: 23px; min-height: 230px; padding: 32px; border-radius: var(--radius); box-shadow: 0 16px 40px rgba(0,0,0,.2); transition: .3s; }
+    .service-card > div:last-child { min-width: 0; }
     .service-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(var(--blue),var(--cyan)); }
-    .service-icon { flex: 0 0 68px; height: 68px; display: grid; place-items: center; border: 1px solid rgba(75,169,255,.34); border-radius: 19px; color: var(--blue-light); background: linear-gradient(145deg,rgba(66,165,255,.16),rgba(66,165,255,.045)); box-shadow: inset 0 1px rgba(255,255,255,.08),0 10px 25px rgba(0,0,0,.18); font-size: 1.35rem; font-weight: 800; }
-    .service-card h3 { margin-bottom: 10px; font-size: 1.2rem; }
-    .service-card p { color: #a3adbb; font-size: .9rem; }
+    .service-icon { flex: 0 0 82px; width: 82px; height: 72px; display: grid; place-items: center; border: 1px solid rgba(75,169,255,.28); border-radius: 19px; color: var(--blue-light); background: linear-gradient(145deg,rgba(66,165,255,.13),rgba(66,165,255,.035)); box-shadow: inset 0 1px rgba(255,255,255,.07),0 10px 25px rgba(0,0,0,.16); font-size: 1.4rem; font-weight: 900; letter-spacing: -.05em; }
+    .service-number { display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; }
+    .service-card h3 { margin-bottom: 10px; overflow-wrap: anywhere; font-size: 1.2rem; line-height: 1.3; }
+    .service-card p { color: #a3adbb; font-size: .9rem; overflow-wrap: break-word; }
     .service-card.featured-all { grid-column: 1 / -1; min-height: 250px; align-items: center; padding: 38px; border-color: rgba(66,165,255,.28); background: radial-gradient(circle at 95% 20%,rgba(66,165,255,.13),transparent 32%),linear-gradient(145deg,rgba(17,28,43,.94),rgba(8,12,18,.9)); }
-    .featured-all .service-icon { flex-basis: 74px; height: 74px; font-size: 1.5rem; }
+    .featured-all .service-icon { flex-basis: 82px; height: 74px; font-size: 1.5rem; }
     .service-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
     .service-chip { padding: 7px 10px; border: 1px solid rgba(80,174,255,.18); border-radius: 9px; color: #a9d7ff; background: rgba(66,165,255,.06); font-size: .67rem; font-weight: 800; }
     .service-link, .status-label { display: inline-flex; margin-top: 17px; color: var(--blue-light); font-size: .75rem; font-weight: 800; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
@@ -292,8 +294,10 @@
       .hero h1 { font-size: clamp(2.85rem,15vw,4.4rem); }
       .hero-actions, .hero-actions .btn { width: 100%; }
       .hero-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-      .tech-panel { min-height: 480px; padding: 20px; }
-      .hero-device { width: 260px; height: 470px; }
+      .tech-panel { min-height: 520px; padding: 0; overflow: visible; }
+      .hero-device { top: 50%; width: 285px; height: 515px; transform: translate(-50%,-50%) scale(.9); transform-origin: center; }
+      .hero-screen { padding: 62px 18px 20px; }
+      .creation-notification { min-height: 70px; padding: 13px; }
       .system-card { left: 20px; right: 20px; bottom: 20px; }
       .featured-service { padding: 28px 21px; }
       .feature-visual { min-height: 280px; transform: scale(.9); }
@@ -388,11 +392,11 @@
       <div class="container">
         <div class="section-head"><span class="eyebrow">Ecossistema Aiex</span><h2>Tudo o que podemos <span class="gradient-text">criar para você.</span></h2><p>Desenvolvimento, automação e produtos digitais reunidos em um só lugar.</p></div>
         <div class="services-grid">
-          <article class="service-card featured-all"><div class="service-icon" aria-hidden="true">&lt;/&gt;</div><div><h3>Aplicativos, sistemas e sites</h3><p>Transformamos sua ideia em uma solução digital completa, pensada para facilitar sua rotina, atender seus clientes e ajudar seu negócio a crescer.</p><div class="service-chips"><span class="service-chip">Aplicativos móveis</span><span class="service-chip">Sistemas web</span><span class="service-chip">Sites</span><span class="service-chip">Plataformas digitais</span><span class="service-chip">Integrações</span></div><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20uma%20ideia%20para%20um%20projeto%20digital." target="_blank" rel="noopener">Conte sua ideia →</a></div></article>
-          <article class="service-card"><div class="service-icon" aria-hidden="true">✦</div><div><h3>Agente de IA</h3><p>Atendimento inteligente e natural no WhatsApp, configurado com as regras, informações e o tom de voz da sua empresa.</p><span class="status-label">Em evolução</span></div></article>
-          <article class="service-card"><div class="service-icon" aria-hidden="true">☷</div><div><h3>Cardápio Digital</h3><p>Uma experiência rápida para o cliente escolher, montar e enviar pedidos completos e organizados direto para o seu WhatsApp.</p><a class="service-link" href="https://wa.me/5521970656726?text=Tenho%20interesse%20em%20saber%20mais%20sobre%20o%20Card%C3%A1pio%20Digital." target="_blank" rel="noopener">Tenho interesse →</a></div></article>
-          <article class="service-card"><div class="service-icon" aria-hidden="true">★</div><div><h3>Cartão de Avaliação NFC</h3><p>Cartão físico com NFC e QR Code que leva o cliente diretamente à avaliação da sua empresa no Google, fortalecendo reputação e visibilidade.</p><a class="service-link" href="https://wa.me/5521970656726?text=Tenho%20interesse%20no%20Cart%C3%A3o%20de%20Avalia%C3%A7%C3%A3o%20NFC." target="_blank" rel="noopener">Tenho interesse →</a></div></article>
-          <article class="service-card"><div class="service-icon" aria-hidden="true">⌁</div><div><h3>Tag NFC Inteligente</h3><p>Uma solução compacta e personalizável para direcionar clientes ao Instagram, cardápio, Google ou qualquer experiência digital com uma aproximação.</p><a class="service-link" href="https://wa.me/5521970656726?text=Tenho%20interesse%20na%20Tag%20NFC%20Inteligente." target="_blank" rel="noopener">Tenho interesse →</a></div></article>
+          <article class="service-card featured-all"><div class="service-icon service-number" aria-hidden="true">01</div><div><h3>Aplicativos, sistemas e sites</h3><p>Transformamos sua ideia em uma solução digital completa, pensada para facilitar sua rotina, atender seus clientes e ajudar seu negócio a crescer.</p><div class="service-chips"><span class="service-chip">Aplicativos móveis</span><span class="service-chip">Sistemas web</span><span class="service-chip">Sites</span><span class="service-chip">Plataformas digitais</span><span class="service-chip">Integrações</span></div><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20uma%20ideia%20para%20um%20projeto%20digital." target="_blank" rel="noopener">Conte sua ideia →</a></div></article>
+          <article class="service-card"><div class="service-icon service-number" aria-hidden="true">02</div><div><h3>Agente de IA</h3><p>Atendimento inteligente e natural no WhatsApp, configurado com as regras, informações e o tom de voz da sua empresa.</p><span class="status-label">Em evolução</span></div></article>
+          <article class="service-card"><div class="service-icon service-number" aria-hidden="true">03</div><div><h3>Cardápio Digital</h3><p>Uma experiência rápida para o cliente escolher, montar e enviar pedidos completos e organizados direto para o seu WhatsApp.</p><a class="service-link" href="https://wa.me/5521970656726?text=Tenho%20interesse%20em%20saber%20mais%20sobre%20o%20Card%C3%A1pio%20Digital." target="_blank" rel="noopener">Tenho interesse →</a></div></article>
+          <article class="service-card"><div class="service-icon service-number" aria-hidden="true">04</div><div><h3>Cartão de Avaliação NFC</h3><p>Cartão físico com NFC e QR Code que leva o cliente diretamente à avaliação da sua empresa no Google, fortalecendo reputação e visibilidade.</p><a class="service-link" href="https://wa.me/5521970656726?text=Tenho%20interesse%20no%20Cart%C3%A3o%20de%20Avalia%C3%A7%C3%A3o%20NFC." target="_blank" rel="noopener">Tenho interesse →</a></div></article>
+          <article class="service-card"><div class="service-icon service-number" aria-hidden="true">05</div><div><h3>Tag NFC Inteligente</h3><p>Uma solução compacta e personalizável para direcionar clientes ao Instagram, cardápio, Google ou qualquer experiência digital com uma aproximação.</p><a class="service-link" href="https://wa.me/5521970656726?text=Tenho%20interesse%20na%20Tag%20NFC%20Inteligente." target="_blank" rel="noopener">Tenho interesse →</a></div></article>
         </div>
       </div>
     </section>
