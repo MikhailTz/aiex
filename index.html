@@ -1,617 +1,532 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aiex | Soluções Digitais</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="theme-color" content="#05070b">
+  <meta name="description" content="A Aiex desenvolve sistemas, aplicativos, automações e soluções digitais sob medida para transformar operações e acelerar negócios.">
+  <meta property="og:title" content="Aiex | Sistemas, Aplicativos e Soluções Digitais">
+  <meta property="og:description" content="Tecnologia sob medida para operações mais simples, inteligentes e escaláveis.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aiexbrasil.com.br/">
+  <meta property="og:site_name" content="Aiex">
+  <title>Aiex | Sistemas, Aplicativos e Soluções Digitais</title>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Aiex",
-      "url": "https://aiexbrasil.com.br/"
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Aiex",
+    "url": "https://aiexbrasil.com.br/",
+    "description": "Desenvolvimento de sistemas, aplicativos, automações e soluções digitais sob medida.",
+    "sameAs": ["https://www.instagram.com/aiexbr/"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/favicon.png?v=3">
+  <link rel="apple-touch-icon" href="img/favicon.png?v=3">
+
+  <style>
+    :root {
+      --bg: #05070b;
+      --bg-soft: #090d13;
+      --surface: rgba(13, 18, 27, .82);
+      --surface-strong: #0d121b;
+      --line: rgba(255,255,255,.09);
+      --line-blue: rgba(74, 163, 255, .28);
+      --text: #f6f8fb;
+      --muted: #939cab;
+      --blue: #42a5ff;
+      --blue-light: #8bd4ff;
+      --cyan: #32e6d2;
+      --purple: #8b5cf6;
+      --purple-light: #c4b5fd;
+      --green: #25d366;
+      --radius: 24px;
+      --shadow: 0 24px 70px rgba(0,0,0,.38);
     }
-    </script>
-    <meta property="og:site_name" content="Aiex" />
 
-    <link rel="icon" type="image/png" href="img/favicon.png?v=2">
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png?v=2">
-    <link rel="apple-touch-icon" href="img/favicon.png?v=2">
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      min-width: 320px;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% 5%, rgba(20,112,255,.14), transparent 28rem),
+        radial-gradient(circle at 94% 24%, rgba(36,224,206,.08), transparent 24rem),
+        var(--bg);
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: "";
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .25;
+      background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, #000, transparent 72%);
+    }
+    a { color: inherit; }
+    button { font: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .section { padding: 96px 0; }
+    .section-sm { padding: 64px 0; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px; margin-bottom: 18px;
+      color: var(--blue-light); font-size: .74rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 15px var(--cyan); }
+    .section-head { max-width: 720px; margin-bottom: 42px; }
+    .section-head h2 { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.08; letter-spacing: -.045em; }
+    .section-head p { margin-top: 18px; max-width: 650px; color: var(--muted); font-size: 1.02rem; }
+    .gradient-text { color: transparent; background: linear-gradient(100deg, #fff 10%, var(--blue-light) 55%, var(--cyan)); background-clip: text; -webkit-background-clip: text; }
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #050505; 
-            color: #f0f0f0; 
-            line-height: 1.6; 
-            -webkit-font-smoothing: antialiased;
-        }
+    .topbar {
+      position: sticky; top: 0; z-index: 100; background: rgba(5,7,11,.78);
+      border-bottom: 1px solid rgba(255,255,255,.06); backdrop-filter: blur(18px);
+    }
+    .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 26px; }
+    .brand { display: inline-flex; align-items: center; text-decoration: none; }
+    .brand img { width: 112px; filter: brightness(0) invert(1); }
+    .brand-fallback { display: none; font-size: 1.15rem; font-weight: 900; letter-spacing: .16em; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: #b8c0cb; text-decoration: none; font-size: .83rem; font-weight: 600; transition: .25s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { padding: 10px 16px; color: #fff !important; border: 1px solid var(--line-blue); border-radius: 11px; background: rgba(66,165,255,.1); }
+    .menu-btn { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 12px; color: #fff; background: var(--surface); cursor: pointer; }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        
-        header { text-align: center; padding-bottom: 20px; }
-        .logo-img { max-width: 150px; filter: brightness(0) invert(1); margin-bottom: 8px; }
-        .tagline { color: #888; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
+    .hero { position: relative; padding: 96px 0 78px; }
+    .hero-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 68px; align-items: center; }
+    .hero h1 { max-width: 780px; font-size: clamp(3rem, 7.2vw, 6.1rem); line-height: .98; letter-spacing: -.07em; }
+    .hero-copy { max-width: 690px; margin: 26px 0 32px; color: #aeb7c5; font-size: clamp(1rem, 2vw, 1.18rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 22px; border: 1px solid transparent; border-radius: 14px; text-decoration: none; font-size: .9rem; font-weight: 800; transition: transform .25s, box-shadow .25s, border-color .25s; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary { color: #04111d; background: linear-gradient(120deg, #fff, #9bdcff 72%, #77f4e5); box-shadow: 0 10px 30px rgba(72,169,255,.2); }
+    .btn-secondary { border-color: var(--line); background: rgba(255,255,255,.035); }
+    .btn-whatsapp { color: #fff; background: var(--green); box-shadow: 0 10px 30px rgba(37,211,102,.18); }
+    .btn-whatsapp:hover { box-shadow: 0 14px 34px rgba(37,211,102,.32); }
+    .hero-metrics { display: flex; gap: 34px; margin-top: 48px; }
+    .metric strong { display: block; font-size: 1.2rem; }
+    .metric span { color: #727c8a; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; }
 
-        /* Propósito */
-        .intro-box {
-            text-align: center; background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08); padding: 35px; border-radius: 20px; 
-            margin-top: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .intro-box h2 { font-size: 1.1rem; color: #fff; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
-        .intro-box p { color: #aaa; font-size: 0.95rem; font-weight: 300; line-height: 1.7; }
+    .tech-panel {
+      position: relative; min-height: 540px; padding: 25px; overflow: hidden;
+      border: 0; border-radius: 0;
+      background: transparent; box-shadow: none;
+    }
+    .tech-panel::after { display: none; }
+    .window-bar { display: flex; align-items: center; gap: 7px; padding-bottom: 21px; border-bottom: 1px solid var(--line); }
+    .window-bar i { width: 8px; height: 8px; border-radius: 50%; background: #2c3542; }
+    .window-bar i:first-child { background: var(--blue); }
+    .code-line { height: 8px; margin-top: 22px; border-radius: 10px; background: linear-gradient(90deg, rgba(77,172,255,.9), rgba(49,231,210,.48)); opacity: .72; }
+    .code-line:nth-child(3) { width: 78%; opacity: .35; }
+    .code-line:nth-child(4) { width: 55%; margin-left: 12%; opacity: .24; }
+    .code-line:nth-child(5) { width: 70%; margin-left: 12%; opacity: .3; }
+    .code-line:nth-child(6) { width: 42%; margin-left: 24%; opacity: .2; }
+    .system-card { position: absolute; left: 25px; right: 25px; bottom: 25px; z-index: 2; padding: 23px; border: 1px solid rgba(255,255,255,.11); border-radius: 20px; background: rgba(6,10,15,.82); backdrop-filter: blur(12px); }
+    .system-card small { color: var(--cyan); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .system-card h3 { margin: 8px 0; font-size: 1.35rem; }
+    .system-card p { color: var(--muted); font-size: .86rem; }
+    .status { display: flex; align-items: center; gap: 8px; margin-top: 17px; color: #aeb8c5; font-size: .76rem; }
+    .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+    .hero-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 17px; }
+    .hero-option { padding: 10px 7px; border: 1px solid rgba(79,173,255,.16); border-radius: 10px; color: #c6d5e7; background: rgba(66,165,255,.055); font-size: .68rem; font-weight: 800; text-align: center; }
+    .hero-device { position: absolute; left: 50%; top: 50%; width: 285px; height: 515px; padding: 12px; border: 2px solid #394454; border-radius: 47px; background: #06080c; box-shadow: 0 24px 55px rgba(0,0,0,.58); transform: translate(-50%,-50%); }
+    .hero-device::before { content: ""; position: absolute; top: 10px; left: 50%; z-index: 3; width: 76px; height: 20px; border-radius: 20px; background: #05070a; transform: translateX(-50%); }
+    .hero-screen { position: relative; height: 100%; overflow: hidden; padding: 62px 18px 20px; border-radius: 34px; background: radial-gradient(circle at 50% 15%, rgba(68,164,255,.22), transparent 35%), linear-gradient(160deg,#15253a,#080d14); }
+    .hero-screen small { color: #8290a3; font-size: .65rem; }
+    .hero-screen h3 { margin: 5px 0 24px; font-size: 1.25rem; }
+    .notification-list { display: grid; gap: 10px; }
+    .creation-notification { position: relative; display: flex; align-items: center; gap: 12px; min-height: 70px; padding: 13px; opacity: 0; border: 1px solid rgba(255,255,255,.16); border-radius: 16px; background: rgba(8,13,21,.96); box-shadow: 0 12px 28px rgba(0,0,0,.32); }
+    .hero-device.notifications-active .creation-notification { animation: notificationStackIn .7s cubic-bezier(.22,.75,.25,1) forwards; }
+    .creation-notification::after { content: ""; position: absolute; top: 11px; right: 11px; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+    .creation-notification:nth-child(2) { animation-delay: .55s !important; background: rgba(17,13,30,.96); }
+    .creation-notification:nth-child(3) { animation-delay: 1.1s !important; background: rgba(8,21,23,.96); }
+    .creation-notification:nth-child(4) { animation-delay: 1.65s !important; background: rgba(12,18,28,.96); }
+    .creation-notification i { width: 38px; height: 38px; flex: 0 0 38px; display: grid; place-items: center; border-radius: 11px; color: #07101b; background: linear-gradient(135deg,var(--blue-light),var(--cyan)); font-size: .61rem; font-style: normal; font-weight: 900; }
+    .creation-notification:nth-child(2) i { color: #170c2d; background: linear-gradient(135deg,#d8b4fe,#8b5cf6); }
+    .creation-notification:nth-child(3) i { color: #061b17; background: linear-gradient(135deg,#6ee7d8,#22c55e); }
+    .creation-notification:nth-child(4) i { color: #101827; background: linear-gradient(135deg,#fde68a,#f59e0b); }
+    .creation-notification strong { display: block; padding-right: 8px; color: #f7faff; font-size: .79rem; line-height: 1.3; }
+    .creation-notification span { display: block; margin-top: 3px; color: #98a5b6; font-size: .61rem; line-height: 1.35; }
+    @keyframes notificationStackIn { from { opacity: 0; transform: translateY(-16px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-        .category-title { 
-            font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; 
-            color: #fff; margin: 60px 0 30px; display: flex; align-items: center; gap: 15px; font-weight: 900;
-        }
-        .category-title::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+    .featured-service { position: relative; overflow: hidden; display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; align-items: center; padding: clamp(30px, 5vw, 58px); border: 1px solid rgba(139,92,246,.38); border-radius: 32px; background: linear-gradient(135deg, rgba(34,21,58,.94), rgba(12,9,20,.92)); box-shadow: 0 24px 70px rgba(45,20,90,.32); }
+    .featured-service::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 8% 8%, rgba(139,92,246,.22), transparent 35%); }
+    .feature-visual { position: relative; min-height: 330px; display: grid; place-items: center; }
+    .orbit { position: absolute; border: 1px solid rgba(196,181,253,.22); border-radius: 50%; }
+    .orbit.one { width: 310px; height: 310px; }
+    .orbit.two { width: 220px; height: 220px; }
+    .core { position: relative; z-index: 2; width: 130px; height: 130px; display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(196,181,253,.5); border-radius: 31px; color: var(--purple-light); background: linear-gradient(145deg,#37205c,#120b20); box-shadow: 0 0 80px rgba(139,92,246,.32); font-size: 2.8rem; font-weight: 800; }
+    .core img { width: 100%; height: 100%; object-fit: cover; }
+    .orbit-dot { position: absolute; z-index: 3; padding: 8px 11px; border: 1px solid rgba(196,181,253,.2); border-radius: 10px; color: #ded5ff; background: #160e25; font-size: .66rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+    .featured-service .eyebrow { color: var(--purple-light); }
+    .featured-service .eyebrow::before { background: var(--purple); box-shadow: 0 0 15px var(--purple); }
+    .featured-service .gradient-text { background-image: linear-gradient(100deg, #fff, var(--purple-light), #a78bfa); }
+    .orbit-dot.web { top: 16%; right: 5%; }
+    .orbit-dot.app { bottom: 17%; left: 3%; }
+    .orbit-dot.api { bottom: 8%; right: 13%; }
+    .featured-copy { position: relative; z-index: 2; }
+    .featured-copy h2 { font-size: clamp(2.1rem, 4vw, 3.6rem); line-height: 1.05; letter-spacing: -.05em; }
+    .featured-copy > p { margin: 20px 0 24px; color: #a8b2c0; }
+    .check-list { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-bottom: 28px; list-style: none; }
+    .check-list li { display: flex; align-items: center; gap: 9px; color: #cad1db; font-size: .83rem; }
+    .check-list li::before { content: "✓"; color: var(--cyan); font-weight: 900; }
 
-        /* Metodologia */
-        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .process-card {
-            background: transparent; border: 1px solid rgba(255,255,255,0.05);
-            padding: 30px 25px; border-radius: 20px; position: relative; transition: 0.3s;
-        }
-        .process-card:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.02); transform: translateY(-5px); }
-        .process-num { font-size: 2.5rem; font-weight: 900; color: rgba(255,255,255,0.05); position: absolute; top: 15px; right: 20px; }
-        .process-card h4 { font-size: 1rem; color: #fff; margin-bottom: 10px; position: relative; z-index: 2; }
-        .process-card p { font-size: 0.85rem; color: #777; position: relative; z-index: 2; line-height: 1.5; }
+    .process-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .process-card, .service-card, .feedback-card, .faq-item { border: 1px solid var(--line); background: linear-gradient(145deg, rgba(15,21,31,.84), rgba(8,11,17,.84)); }
+    .process-card { min-height: 240px; padding: 30px; border-radius: var(--radius); transition: .3s; }
+    .process-card:hover, .service-card:hover { transform: translateY(-5px); border-color: var(--line-blue); }
+    .process-num { color: rgba(119,194,255,.24); font-size: 2.7rem; font-weight: 900; letter-spacing: -.08em; }
+    .process-card h3 { margin: 28px 0 8px; }
+    .process-card p { color: var(--muted); font-size: .89rem; }
 
-        /* Carrossel */
-        .carousel-container { position: relative; overflow: hidden; padding: 25px 45px; }
-        .carousel-track { display: flex; gap: 15px; width: 100%; transition: transform 0.4s ease-in-out; align-items: stretch; }
-        
-        .feedback-card {
-            width: calc(33.333% - 10px); 
-            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
-            padding: 25px 20px; border-radius: 20px; text-align: center; flex-shrink: 0; transition: 0.3s;
-            display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-        }
-        .feedback-card:hover { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); transform: translateY(-8px); }
-        
-        .client-thumb {
-            width: 70px; height: 70px; margin: 0 auto 10px; border-radius: 18px; 
-            overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-        }
-        .client-thumb img { width: 100%; height: auto; }
-        .stars { color: #FFD700; font-size: 0.8rem; margin-bottom: 10px; letter-spacing: 2px; }
-        .client-quote { font-size: 0.85rem; color: #888; font-style: italic; margin-bottom: 20px; line-height: 1.5; flex-grow: 1; }
-        
-        .tags-wrapper { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: auto; }
-        .service-tag { 
-            display: inline-block; font-size: 0.65rem; color: #fff; 
-            background: rgba(255,255,255,0.08); padding: 6px 10px; 
-            border-radius: 6px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;
-        }
-        
-        .carousel-btn {
-            background: #111; border: 1px solid rgba(255,255,255,0.1); color: #fff; 
-            width: 38px; height: 38px; border-radius: 50%; cursor: pointer; position: absolute; z-index: 10; 
-            top: 50%; transform: translateY(-50%); transition: 0.3s; display: flex; align-items: center; justify-content: center; font-size: 1rem;
-        }
-        .carousel-btn:hover { background: #fff; color: #000; transform: translateY(-50%) scale(1.1); }
-        .btn-left { left: 0; }
-        .btn-right { right: 0; }
+    .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .service-card { position: relative; overflow: hidden; display: flex; gap: 23px; min-height: 230px; padding: 32px; border-radius: var(--radius); box-shadow: 0 16px 40px rgba(0,0,0,.2); transition: .3s; }
+    .service-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: linear-gradient(var(--blue),var(--cyan)); }
+    .service-icon { flex: 0 0 68px; height: 68px; display: grid; place-items: center; border: 1px solid rgba(75,169,255,.34); border-radius: 19px; color: var(--blue-light); background: linear-gradient(145deg,rgba(66,165,255,.16),rgba(66,165,255,.045)); box-shadow: inset 0 1px rgba(255,255,255,.08),0 10px 25px rgba(0,0,0,.18); font-size: 1.35rem; font-weight: 800; }
+    .service-card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+    .service-card p { color: #a3adbb; font-size: .9rem; }
+    .service-card.featured-all { grid-column: 1 / -1; min-height: 250px; align-items: center; padding: 38px; border-color: rgba(66,165,255,.28); background: radial-gradient(circle at 95% 20%,rgba(66,165,255,.13),transparent 32%),linear-gradient(145deg,rgba(17,28,43,.94),rgba(8,12,18,.9)); }
+    .featured-all .service-icon { flex-basis: 74px; height: 74px; font-size: 1.5rem; }
+    .service-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .service-chip { padding: 7px 10px; border: 1px solid rgba(80,174,255,.18); border-radius: 9px; color: #a9d7ff; background: rgba(66,165,255,.06); font-size: .67rem; font-weight: 800; }
+    .service-link, .status-label { display: inline-flex; margin-top: 17px; color: var(--blue-light); font-size: .75rem; font-weight: 800; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
+    .service-link:hover { color: #fff; }
+    .status-label { color: #5f6874; }
 
-        /* Grid */
-        .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .card { 
-            background: #0a0a0a; border: 1px solid rgba(255, 255, 255, 0.05); 
-            padding: 30px; border-radius: 25px; display: flex; gap: 25px; align-items: center; transition: 0.3s;
-        }
-        .card:hover { border-color: rgba(255,255,255,0.15); }
-        
-        .icon-box { 
-            width: 85px; height: 85px; flex-shrink: 0; border-radius: 22px; 
-            background: #111; border: 1px solid rgba(255,255,255,0.1);
-            display: flex; align-items: center; justify-content: center;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .card:hover .icon-box { box-shadow: 0 0 25px rgba(255, 255, 255, 0.15); border-color: rgba(255,255,255,0.4); transform: translateY(-5px); }
-        .icon-box img { width: 100%; height: 100%; border-radius: 22px; }
+    .app-card { overflow: hidden; display: grid; grid-template-columns: 1fr .92fr; min-height: 400px; border: 1px solid rgba(255,255,255,.1); border-radius: 30px; background: linear-gradient(135deg,#0c121b,#080b10); box-shadow: var(--shadow); }
+    .app-copy { padding: clamp(32px,6vw,62px); }
+    .app-copy h2 { font-size: clamp(2.4rem,5vw,4.5rem); line-height: 1; letter-spacing: -.06em; }
+    .app-copy p { max-width: 520px; margin: 20px 0 28px; color: var(--muted); }
+    .app-visual { position: relative; min-height: 380px; display: grid; place-items: end center; overflow: hidden; background: radial-gradient(circle at 50% 65%,rgba(43,170,255,.22),transparent 52%); }
+    .phone { position: absolute; bottom: -48px; width: 225px; height: 410px; padding: 13px; border: 2px solid #3b4655; border-radius: 40px; background: #080a0e; box-shadow: 0 25px 70px #000; transform: rotate(5deg); }
+    .phone-screen { height: 100%; padding: 35px 17px; border-radius: 29px; background: linear-gradient(160deg,#17263a,#0a1018); }
+    .app-mark { width: 50px; height: 50px; display: grid; place-items: center; border-radius: 14px; background: linear-gradient(135deg,var(--blue),var(--cyan)); color: #03121a; font-size: 1.3rem; font-weight: 900; }
+    .phone-screen h4 { margin-top: 22px; font-size: 1.2rem; }
+    .balance { margin: 23px 0; padding: 16px; border: 1px solid rgba(255,255,255,.08); border-radius: 15px; background: rgba(255,255,255,.035); }
+    .balance small { color: #758194; }
+    .balance strong { display: block; margin-top: 4px; font-size: 1.3rem; }
+    .mini-bars { display: flex; height: 75px; align-items: flex-end; gap: 7px; }
+    .mini-bars i { flex: 1; border-radius: 5px 5px 2px 2px; background: linear-gradient(var(--blue),rgba(66,165,255,.12)); }
+    .mini-bars i:nth-child(1){height:38%}.mini-bars i:nth-child(2){height:70%}.mini-bars i:nth-child(3){height:52%}.mini-bars i:nth-child(4){height:87%}.mini-bars i:nth-child(5){height:65%}
+    .solution-options { display: grid; gap: 10px; margin-top: 20px; }
+    .solution-option { display: flex; align-items: center; gap: 11px; padding: 12px; border: 1px solid rgba(255,255,255,.08); border-radius: 13px; background: rgba(255,255,255,.035); }
+    .solution-option span { width: 32px; height: 32px; flex: 0 0 32px; display: grid; place-items: center; border-radius: 9px; color: var(--blue-light); background: rgba(66,165,255,.11); font-size: .72rem; font-weight: 900; }
+    .solution-option strong { display: block; font-size: .78rem; }
+    .solution-option small { display: block; color: #788497; font-size: .59rem; }
 
-        .content h3 { font-size: 1.2rem; color: #fff; margin-bottom: 8px; font-weight: 700; }
-        .content p { color: #888; font-size: 0.95rem; line-height: 1.5; }
+    .carousel-shell { position: relative; }
+    .carousel-viewport { overflow: hidden; }
+    .carousel-track { display: flex; gap: 18px; transition: transform .5s cubic-bezier(.22,.75,.25,1); touch-action: pan-y; }
+    .feedback-card { flex: 0 0 calc((100% - 36px)/3); display: flex; flex-direction: column; min-height: 310px; padding: 27px; border-radius: var(--radius); }
+    .client-head { display: flex; align-items: center; gap: 13px; }
+    .client-thumb { width: 54px; height: 54px; flex: 0 0 54px; display: grid; place-items: center; overflow: hidden; border-radius: 14px; color: #0a0c10; background: #fff; font-size: .75rem; font-weight: 900; }
+    .client-thumb img { width: 100%; height: 100%; object-fit: contain; }
+    .client-head h3 { font-size: .96rem; }
+    .stars { color: #ffd35a; font-size: .72rem; letter-spacing: .12em; }
+    .client-quote { flex: 1; margin: 23px 0; color: #9ba5b3; font-size: .88rem; font-style: italic; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag { padding: 6px 9px; border: 1px solid rgba(102,189,255,.18); border-radius: 8px; color: #9bcfff; background: rgba(66,165,255,.06); font-size: .61rem; font-weight: 800; text-transform: uppercase; }
+    .carousel-controls { display: flex; justify-content: flex-end; gap: 9px; margin-top: 20px; }
+    .carousel-btn { width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 13px; color: #fff; background: var(--surface); cursor: pointer; transition: .25s; }
+    .carousel-btn:hover { border-color: var(--line-blue); background: rgba(66,165,255,.1); }
 
-        .btn-play {
-            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
-            background: linear-gradient(145deg, #ffffff, #e0e0e0); color: #000; 
-            text-decoration: none; padding: 14px 28px; border-radius: 15px; 
-            font-size: 0.9rem; font-weight: 900; margin-top: 15px;
-            box-shadow: 0 4px 15px rgba(255,255,255,0.1); transition: 0.3s;
-        }
-        .btn-play:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255,255,255,0.25); }
+    .cta { position: relative; overflow: hidden; padding: clamp(36px,7vw,72px); border: 1px solid rgba(37,211,102,.23); border-radius: 32px; text-align: center; background: linear-gradient(145deg,rgba(13,24,24,.92),rgba(8,11,15,.95)); }
+    .cta::before { content: ""; position: absolute; width: 300px; height: 300px; left: 50%; bottom: -240px; border-radius: 50%; background: var(--green); filter: blur(90px); opacity: .2; transform: translateX(-50%); }
+    .cta h2 { position: relative; font-size: clamp(2rem,5vw,3.5rem); line-height: 1.08; letter-spacing: -.045em; }
+    .cta p { position: relative; max-width: 620px; margin: 18px auto 28px; color: var(--muted); }
+    .cta .btn { position: relative; }
 
-        .status-button {
-            display: inline-block; padding: 10px 20px; font-size: 0.75rem; font-weight: 800;
-            text-transform: uppercase; background: rgba(255,255,255,0.03); color: #444; 
-            border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; margin-top: 15px; cursor: default;
-        }
+    .faq-list { display: grid; gap: 13px; }
+    .faq-item { border-radius: 17px; overflow: hidden; }
+    .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 24px; cursor: pointer; list-style: none; font-size: .94rem; font-weight: 700; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; color: var(--blue-light); font-size: 1.35rem; font-weight: 300; }
+    .faq-item[open] summary::after { content: "−"; }
+    .faq-answer { padding: 0 24px 23px; color: var(--muted); font-size: .88rem; }
 
-        /* CTA */
-        .cta-specialist {
-            background: linear-gradient(145deg, #111, #080808);
-            border: 1px solid rgba(37, 211, 102, 0.3);
-            border-radius: 20px; padding: 40px 30px; text-align: center;
-            margin: 40px 0; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.05);
-        }
-        .cta-specialist h3 { color: #fff; font-size: 1.3rem; margin-bottom: 10px; }
-        .cta-specialist p { color: #aaa; font-size: 0.95rem; margin-bottom: 25px; }
-        .btn-whatsapp {
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            background: #25D366; color: #fff; text-decoration: none; font-weight: 800;
-            padding: 15px 30px; border-radius: 12px; font-size: 0.9rem;
-            transition: 0.3s; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
-        }
-        .btn-whatsapp:hover { background: #1ebd5c; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
-        .btn-whatsapp svg { width: 20px; height: 20px; fill: #fff; }
+    .about { display: grid; grid-template-columns: .65fr 1.35fr; gap: 60px; padding: 50px; border: 1px solid var(--line); border-radius: 30px; background: rgba(10,14,21,.7); }
+    .about-brand img { width: 62px; margin-top: 25px; }
+    .about-brand h2 { font-size: 2.25rem; line-height: 1.08; letter-spacing: -.04em; }
+    .about-copy p { margin-bottom: 18px; color: #a2acb9; }
+    .quote { max-width: 760px; margin: 72px auto 0; text-align: center; }
+    .quote p { color: #a1aab6; font-size: clamp(1.1rem,2.5vw,1.5rem); font-style: italic; }
+    .quote span { display: block; margin-top: 15px; color: #606b79; font-size: .7rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
 
-        /* FAQ */
-        .faq-item {
-            background: #0a0a0a; border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 16px; margin-bottom: 15px; transition: 0.3s;
-        }
-        .faq-item:hover { border-color: rgba(255,255,255,0.2); }
-        .faq-item summary {
-            padding: 22px 25px; font-size: 1rem; color: #fff; font-weight: 600; cursor: pointer;
-            list-style: none; display: flex; justify-content: space-between; align-items: center;
-        }
-        .faq-item summary::-webkit-details-marker { display: none; }
-        .faq-item summary::after { content: '+'; font-size: 1.5rem; color: #555; transition: 0.3s transform; font-weight: 300; }
-        .faq-item[open] summary::after { content: '−'; transform: rotate(180deg); color: #fff; }
-        .faq-answer { padding: 0 25px 25px; color: #888; font-size: 0.9rem; line-height: 1.6; border-top: 1px solid transparent; }
-        .faq-item[open] .faq-answer { border-top-color: rgba(255,255,255,0.05); padding-top: 20px; }
+    footer { padding: 66px 0 28px; border-top: 1px solid rgba(255,255,255,.06); background: #030508; }
+    .footer-grid { display: grid; grid-template-columns: 1.7fr 1fr 1.2fr; gap: 50px; }
+    .footer-logo { width: 110px; margin-bottom: 17px; filter: brightness(0) invert(1); }
+    .footer-brand p { max-width: 330px; color: #737d8b; font-size: .84rem; }
+    footer h3 { margin-bottom: 17px; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
+    footer ul { display: grid; gap: 10px; list-style: none; }
+    footer li, footer a { color: #7e8896; font-size: .82rem; text-decoration: none; }
+    footer a:hover { color: #fff; }
+    .copyright { margin-top: 48px; padding-top: 23px; border-top: 1px solid rgba(255,255,255,.06); color: #4e5865; font-size: .72rem; text-align: center; }
+    .wpp-float { position: fixed; right: 24px; bottom: 24px; z-index: 90; width: 58px; height: 58px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; color: #fff; background: var(--green); box-shadow: 0 10px 30px rgba(37,211,102,.3); text-decoration: none; font-size: 1.35rem; transition: .25s; }
+    .wpp-float:hover { transform: scale(1.08); }
 
-        /* Sobre a Aiex */
-        .about-card {
-            background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%); border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-            margin-top: 40px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: start;
-        }
-        .about-header h2 { color: #fff; font-size: 1.6rem; letter-spacing: -1px; margin-bottom: 10px; line-height: 1.2; }
-        .about-header p { color: #555; text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; font-weight: 700; margin-bottom: 20px; }
-        
-        /* Classe para o ícone da aba na seção sobre */
-        .about-favicon {
-            max-width: 60px; /* Tamanho menor para o ícone */
-            margin-top: 20px;
-            display: block;
-        }
+    @media (max-width: 900px) {
+      .nav-links { position: absolute; top: 76px; left: 20px; right: 20px; display: none; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(8,12,18,.97); box-shadow: var(--shadow); }
+      .nav-links.open { display: grid; }
+      .nav-links a { display: block; padding: 8px; }
+      .menu-btn { display: block; }
+      .hero-grid, .featured-service, .app-card { grid-template-columns: 1fr; }
+      .hero { padding-top: 70px; }
+      .tech-panel { min-height: 500px; }
+      .featured-copy { order: -1; }
+      .services-grid { grid-template-columns: 1fr; }
+      .feedback-card { flex-basis: calc((100% - 18px)/2); }
+      .about { grid-template-columns: 1fr; gap: 30px; }
+    }
 
-        .about-text p { color: #999; font-size: 0.95rem; line-height: 1.7; font-weight: 300; margin-bottom: 15px; }
-        .about-text strong { color: #fff; font-weight: 600; }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px,1120px); }
+      .section { padding: 72px 0; }
+      .hero h1 { font-size: clamp(2.85rem,15vw,4.4rem); }
+      .hero-actions, .hero-actions .btn { width: 100%; }
+      .hero-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+      .tech-panel { min-height: 480px; padding: 20px; }
+      .hero-device { width: 260px; height: 470px; }
+      .system-card { left: 20px; right: 20px; bottom: 20px; }
+      .featured-service { padding: 28px 21px; }
+      .feature-visual { min-height: 280px; transform: scale(.9); }
+      .check-list, .process-grid { grid-template-columns: 1fr; }
+      .service-card { display: block; }
+      .service-card.featured-all { padding: 28px; }
+      .service-icon { margin-bottom: 18px; }
+      .app-visual { min-height: 350px; }
+      .feedback-card { flex-basis: 100%; }
+      .about { padding: 30px 23px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 34px; text-align: center; }
+      .footer-logo { margin-inline: auto; }
+      .footer-brand p { margin-inline: auto; }
+      .wpp-float { right: 17px; bottom: 17px; width: 54px; height: 54px; }
+    }
 
-        /* Citação de Sêneca Isolada */
-        .standalone-quote {
-            text-align: center;
-            padding: 70px 20px 40px;
-            margin: 0 auto;
-            max-width: 700px;
-        }
-        .standalone-quote p {
-            font-size: 1.2rem;
-            color: #888;
-            font-style: italic;
-            font-weight: 300;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        .standalone-quote span {
-            display: block;
-            color: #555;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        /* Rodapé Premium */
-        .footer-premium {
-            padding: 60px 20px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background-color: #030303;
-        }
-        .footer-container {
-            max-width: 900px; margin: 0 auto; display: grid;
-            grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px;
-            align-items: center; 
-        }
-        .brand-col { display: flex; flex-direction: column; }
-        .brand-col .footer-logo { max-width: 120px; filter: brightness(0) invert(1); margin-bottom: 15px; }
-        .brand-col p { color: #888; font-size: 0.85rem; line-height: 1.6; max-width: 280px; }
-        
-        .links-col h4, .contact-col h4 { color: #fff; font-size: 0.9rem; margin-bottom: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { color: #888; text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
-        .footer-col ul li a:hover { color: #fff; }
-
-        .contact-col ul li { display: flex; align-items: center; gap: 10px; color: #888; font-size: 0.85rem; margin-bottom: 12px; }
-        .contact-col ul li a { display: flex; align-items: center; gap: 10px; color: #888; font-size: 0.85rem; text-decoration: none; transition: 0.3s; }
-        .contact-col ul li a:hover { color: #fff; }
-        .contact-col ul li svg, .contact-col ul li a svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-
-        .footer-bottom-bar {
-            max-width: 900px; margin: 0 auto; padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            display: flex; justify-content: center; align-items: center; text-align: center;
-        }
-        .footer-bottom-bar p { color: #555; font-size: 0.75rem; }
-
-        .wpp-float {
-            position: fixed; bottom: 30px; right: 30px; background: #25D366; 
-            width: 60px; height: 60px; border-radius: 50%; display: flex; 
-            align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 1000; transition: 0.3s; text-decoration: none;
-        }
-        .wpp-float:hover { transform: scale(1.1); background: #1ebd5c; }
-        .wpp-float svg { width: 32px; height: 32px; fill: #fff; }
-
-        /* Ajustes Finais do Mobile */
-        @media (max-width: 768px) {
-            .process-grid { grid-template-columns: 1fr; }
-            .card { flex-direction: column; text-align: center; }
-            .about-card { grid-template-columns: 1fr; gap: 20px; text-align: center; padding: 30px 20px; }
-            .about-favicon { margin: 20px auto 0; } /* Centraliza o ícone no mobile */
-            .btn-play, .btn-whatsapp { width: 100%; justify-content: center; }
-            .footer-container { grid-template-columns: 1fr; gap: 30px; text-align: center; align-items: start; }
-            .brand-col .footer-logo { margin: 0 auto 15px; }
-            .brand-col p { margin: 0 auto; }
-            .contact-col ul li, .contact-col ul li a { justify-content: center; }
-            .standalone-quote { padding: 50px 20px 30px; }
-            .wpp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
-            
-            /* Correção Milimétrica do Carrossel */
-            .carousel-container { 
-                margin-left: -20px; 
-                margin-right: -20px; 
-                width: calc(100% + 40px); 
-                padding: 25px 0; 
-            }
-            .carousel-track { 
-                padding-left: 10vw; 
-                padding-right: 10vw; 
-                gap: 15px; 
-            }
-            .feedback-card { 
-                width: 80vw; 
-            }
-            .carousel-btn { width: 34px; height: 34px; font-size: 0.8rem; top: 43%; } 
-            .btn-left { left: 10px; } 
-            .btn-right { right: 10px; }
-        }
-    </style>
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
 </head>
+
 <body id="inicio">
+  <header class="topbar">
+    <nav class="nav container" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="Aiex, início">
+        <img src="img/logo-aiex.png" alt="Aiex" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="brand-fallback">AIEX</span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#servicos">Soluções</a></li>
+        <li><a href="#destaque">Organiza+</a></li>
+        <li><a href="#cases">Resultados</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a class="nav-cta" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Aiex%20e%20gostaria%20de%20conversar%20sobre%20uma%20solu%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar com a Aiex</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="container">
-        <header>
-            <img src="img/logo-aiex.png" alt="Aiex" class="logo-img" onerror="this.style.display='none';">
-            <p class="tagline">Soluções Digitais e Inteligentes</p>
-        </header>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Tecnologia que move negócios</span>
+          <h1>Ideias viram <span class="gradient-text">sistemas que escalam.</span></h1>
+          <p class="hero-copy">A Aiex desenvolve aplicativos, sistemas, automações e experiências digitais sob medida para simplificar operações, reduzir custos e abrir novas possibilidades para o seu negócio.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#destaque">Conhecer nossas soluções <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20quero%20tirar%20uma%20ideia%20do%20papel%20com%20a%20Aiex." target="_blank" rel="noopener">Tirar uma ideia do papel</a>
+          </div>
+        </div>
+        <div class="tech-panel" aria-label="Celular exibindo exemplos de soluções criadas pela Aiex">
+          <div class="hero-device"><div class="hero-screen"><div class="notification-list"><div class="creation-notification"><i>APP</i><div><strong>Seu aplicativo está pronto! 🚀</strong><span>Pronto para você e seus usuários aproveitarem.</span></div></div><div class="creation-notification"><i>WEB</i><div><strong>Seu novo site entrou no ar ✨</strong><span>Sua marca já está pronta para ser encontrada.</span></div></div><div class="creation-notification"><i>SYS</i><div><strong>Seu sistema já está funcionando ⚡</strong><span>Mais organização e mais tempo para você.</span></div></div><div class="creation-notification"><i>AUTO</i><div><strong>Sua automação está ativa! 🎯</strong><span>A tarefa repetitiva agora acontece sozinha.</span></div></div></div></div></div>
+        </div>
+      </div>
+    </section>
 
-        <section class="intro-box">
-            <h2>Nosso Propósito</h2>
-            <p>
-                Simplificar a sua rotina com tecnologia. Criamos soluções financeiras e sistemas que colocam você no controle e eliminam processos desnecessários.
-            </p>
-        </section>
+    <section class="section" id="destaque">
+      <div class="container">
+        <article class="featured-service">
+          <div class="feature-visual" aria-hidden="true">
+            <div class="orbit one"></div><div class="orbit two"></div>
+            <div class="core"><img src="img/organiza-icon.png" alt="Ícone do Organiza+" onerror="this.style.display='none';this.parentElement.textContent='O+'"></div>
+            <span class="orbit-dot web">Finanças</span><span class="orbit-dot app">Despesas</span><span class="orbit-dot api">Controle</span>
+          </div>
+          <div class="featured-copy">
+            <span class="eyebrow">Aplicativo em destaque</span>
+            <h2>Organiza<span class="gradient-text">+</span></h2>
+            <p>Seu aplicativo de controle financeiro pessoal. Organize seu orçamento, acompanhe despesas, contas, compras e gastos do veículo de um jeito simples, tudo na palma da sua mão.</p>
+            <ul class="check-list">
+              <li>Orçamento mensal</li><li>Controle de despesas</li><li>Alertas de vencimento</li><li>Listas de compras</li><li>Gestão do veículo</li><li>Visão financeira clara</li>
+            </ul>
+            <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.fincontrol" target="_blank" rel="noopener">Baixar na Play Store <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <h2 class="category-title">Como Trabalhamos</h2>
+    <section class="section" id="processo">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Nosso processo</span><h2>Como <span class="gradient-text">trabalhamos.</span></h2></div>
         <div class="process-grid">
-            <div class="process-card">
-                <span class="process-num">01</span>
-                <h4>Mapeamento</h4>
-                <p>O foco principal é analisar os gargalos operacionais do negócio, identificando exatamente onde há perda de tempo e dinheiro.</p>
-            </div>
-            <div class="process-card">
-                <span class="process-num">02</span>
-                <h4>Desenvolvimento</h4>
-                <p>Sistemas de automação, IA ou aplicativos são configurados sob medida, unindo a programação à estratégia direta de vendas.</p>
-            </div>
-            <div class="process-card">
-                <span class="process-num">03</span>
-                <h4>Escala</h4>
-                <p>A tecnologia é implementada na rotina. O empreendedor foca em pensar o negócio, enquanto as ferramentas executam o trabalho duro.</p>
-            </div>
+          <article class="process-card"><span class="process-num">01</span><h3>Mapeamento</h3><p>Entendemos a operação, identificamos gargalos e definimos o que realmente precisa ser transformado.</p></article>
+          <article class="process-card"><span class="process-num">02</span><h3>Desenvolvimento</h3><p>Criamos e validamos a solução sob medida, combinando produto, tecnologia e experiência de uso.</p></article>
+          <article class="process-card"><span class="process-num">03</span><h3>Implementação e escala</h3><p>Colocamos a solução na rotina, acompanhamos a evolução e preparamos a tecnologia para crescer com você.</p></article>
         </div>
+      </div>
+    </section>
 
-        <h2 class="category-title">Operações Atendidas</h2>
-        <div class="carousel-container">
-            <button class="carousel-btn btn-left" onclick="moveSlide(-1)">❮</button>
-            <div class="carousel-track" id="track">
-                
-                <div class="feedback-card">
-                    <div class="client-thumb"><img src="img/logo-fera-lanche.png" alt="O Fera do Lanche" onerror="this.parentNode.innerHTML='FL'"></div>
-                    <h4 style="color: #fff; font-size: 1rem;">O Fera do Lanche</h4>
-                    <div class="stars">★★★★★</div>
-                    <p class="client-quote">"Nossos pedidos agora chegam totalmente limpos e organizados no WhatsApp, melhorou muito a operação."</p>
-                    <div class="tags-wrapper">
-                        <span class="service-tag">Cardápio Digital</span>
-                    </div>
-                </div>
-
-                <div class="feedback-card">
-                    <div class="client-thumb"><img src="img/logo-lucao-corte.png" alt="Lucão du Corte" onerror="this.parentNode.innerHTML='LC'"></div>
-                    <h4 style="color: #fff; font-size: 1rem;">Lucão du Corte</h4>
-                    <div class="stars">★★★★★</div>
-                    <p class="client-quote">"Estou ganhando muitas avaliações todos os dias. A visibilidade no Google aumentou demais com esse cartão!"</p>
-                    <div class="tags-wrapper">
-                        <span class="service-tag">Cartão Avaliação</span>
-                    </div>
-                </div>
-                
-                <div class="feedback-card">
-                    <div class="client-thumb"><img src="img/logo-comari.png" alt="Espaço Comari" onerror="this.parentNode.innerHTML='EC'"></div>
-                    <h4 style="color: #fff; font-size: 1rem;">Espaço Comari</h4>
-                    <div class="stars">★★★★★</div>
-                    <p class="client-quote">"Não perdemos mais tempo nem cliente. A IA tira todas as dúvidas na hora e a gente só foca em organizar a festa. Prático e rápido."</p>
-                    <div class="tags-wrapper">
-                        <span class="service-tag">Agente de IA</span>
-                    </div>
-                </div>
-                
-                <div class="feedback-card">
-                    <div class="client-thumb"><img src="img/logo-sabor-radical.png" alt="Sabor Radical" onerror="this.parentNode.innerHTML='SR'"></div>
-                    <h4 style="color: #fff; font-size: 1rem;">Sabor Radical</h4>
-                    <div class="stars">★★★★★</div>
-                    <p class="client-quote">"Automatizou a fábrica em geral. Processos de produção e vendas 100% integrados e sem falhas."</p>
-                    <div class="tags-wrapper">
-                        <span class="service-tag">Cardápio Digital</span>
-                        <span class="service-tag">Agente de IA</span>
-                    </div>
-                </div>
-
-            </div>
-            <button class="carousel-btn btn-right" onclick="moveSlide(1)">❯</button>
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Ecossistema Aiex</span><h2>Tudo o que podemos <span class="gradient-text">criar para você.</span></h2><p>Desenvolvimento, automação e produtos digitais reunidos em um só lugar.</p></div>
+        <div class="services-grid">
+          <article class="service-card featured-all"><div class="service-icon" aria-hidden="true">&lt;/&gt;</div><div><h3>Aplicativos, sistemas e sites</h3><p>Transformamos sua ideia em uma solução digital completa, pensada para facilitar sua rotina, atender seus clientes e ajudar seu negócio a crescer.</p><div class="service-chips"><span class="service-chip">Aplicativos móveis</span><span class="service-chip">Sistemas web</span><span class="service-chip">Sites</span><span class="service-chip">Plataformas digitais</span><span class="service-chip">Integrações</span></div><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20uma%20ideia%20para%20um%20projeto%20digital." target="_blank" rel="noopener">Conte sua ideia →</a></div></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">✦</div><div><h3>Agente de IA</h3><p>Atendimento inteligente e natural no WhatsApp, configurado com as regras, informações e o tom de voz da sua empresa.</p><span class="status-label">Em evolução</span></div></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">☷</div><div><h3>Cardápio Digital</h3><p>Uma experiência rápida para o cliente escolher, montar e enviar pedidos completos e organizados direto para o seu WhatsApp.</p><a class="service-link" href="https://wa.me/5521970656726?text=Tenho%20interesse%20em%20saber%20mais%20sobre%20o%20Card%C3%A1pio%20Digital." target="_blank" rel="noopener">Tenho interesse →</a></div></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">★</div><div><h3>Cartão de Avaliação NFC</h3><p>Cartão físico com NFC e QR Code que leva o cliente diretamente à avaliação da sua empresa no Google, fortalecendo reputação e visibilidade.</p><a class="service-link" href="https://wa.me/5521970656726?text=Tenho%20interesse%20no%20Cart%C3%A3o%20de%20Avalia%C3%A7%C3%A3o%20NFC." target="_blank" rel="noopener">Tenho interesse →</a></div></article>
+          <article class="service-card"><div class="service-icon" aria-hidden="true">⌁</div><div><h3>Tag NFC Inteligente</h3><p>Uma solução compacta e personalizável para direcionar clientes ao Instagram, cardápio, Google ou qualquer experiência digital com uma aproximação.</p><a class="service-link" href="https://wa.me/5521970656726?text=Tenho%20interesse%20na%20Tag%20NFC%20Inteligente." target="_blank" rel="noopener">Tenho interesse →</a></div></article>
         </div>
+      </div>
+    </section>
 
-        <h2 id="aplicativos" class="category-title">Aplicativos Móveis</h2>
-        <div class="grid">
-            <!-- Link envelopando todo o card do app Organiza+ -->
-            <a href="/organizamais" style="text-decoration: none; color: inherit; display: block;">
-                <div class="card" style="cursor: pointer;">
-                    <div class="icon-box"><img src="img/organiza-icon.png" alt="Organiza+" onerror="this.style.display='none'"></div>
-                    <div class="content">
-                        <h3>Organiza+</h3>
-                        <p>Controle financeiro total. Orçamento, despesas monitorados em tempo real de um jeito que qualquer pessoa entende.</p>
-                        <span class="btn-play">Ver detalhes do App</span>
-                    </div>
-                </div>
-            </a>
+    <section class="section" id="cases">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Operações atendidas</span><h2>Relatos de quem usa <span class="gradient-text">nossos serviços.</span></h2></div>
+        <div class="carousel-shell">
+          <div class="carousel-viewport"><div class="carousel-track" id="track">
+            <article class="feedback-card"><div class="client-head"><div class="client-thumb"><img src="img/logo-fera-lanche.png" alt="O Fera do Lanche" onerror="this.remove();this.parentElement.textContent='FL'"></div><div><h3>O Fera do Lanche</h3><div class="stars" aria-label="5 estrelas">★★★★★</div></div></div><p class="client-quote">“Nossos pedidos agora chegam totalmente limpos e organizados no WhatsApp. Melhorou muito a operação.”</p><div class="tags"><span class="tag">Cardápio Digital</span></div></article>
+            <article class="feedback-card"><div class="client-head"><div class="client-thumb"><img src="img/logo-lucao-corte.png" alt="Lucão du Corte" onerror="this.remove();this.parentElement.textContent='LC'"></div><div><h3>Lucão du Corte</h3><div class="stars" aria-label="5 estrelas">★★★★★</div></div></div><p class="client-quote">“Estou ganhando muitas avaliações todos os dias. A visibilidade no Google aumentou demais com esse cartão!”</p><div class="tags"><span class="tag">Cartão Avaliação</span></div></article>
+            <article class="feedback-card"><div class="client-head"><div class="client-thumb"><img src="img/logo-comari.png" alt="Espaço Comari" onerror="this.remove();this.parentElement.textContent='EC'"></div><div><h3>Espaço Comari</h3><div class="stars" aria-label="5 estrelas">★★★★★</div></div></div><p class="client-quote">“Atendimento mais ágil com inteligência artificial e um aplicativo personalizado para organizar a operação.”</p><div class="tags"><span class="tag">Agente de IA</span><span class="tag">Aplicativo personalizado</span></div></article>
+            <article class="feedback-card"><div class="client-head"><div class="client-thumb"><img src="img/logo-sabor-radical.png" alt="Sabor Radical" onerror="this.remove();this.parentElement.textContent='SR'"></div><div><h3>Sabor Radical</h3><div class="stars" aria-label="5 estrelas">★★★★★</div></div></div><p class="client-quote">“Atendimento, pedidos e gestão conectados em uma solução digital criada para a realidade da empresa.”</p><div class="tags"><span class="tag">Agente de IA</span><span class="tag">Cardápio Digital</span><span class="tag">Aplicativo personalizado</span></div></article>
+          </div></div>
+          <div class="carousel-controls"><button class="carousel-btn" type="button" id="prevBtn" aria-label="Ver depoimentos anteriores">←</button><button class="carousel-btn" type="button" id="nextBtn" aria-label="Ver próximos depoimentos">→</button></div>
         </div>
+      </div>
+    </section>
 
-        <h2 id="automacao" class="category-title">Soluções Digitais</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="icon-box"><span style="font-size:2.5rem;">🤖</span></div>
-                <div class="content">
-                    <h3>Agente IA</h3>
-                    <p>Atendimento humano e automático no WhatsApp. A IA interage de forma fluida e natural, como se fosse você mesmo digitando.</p>
-                    <div class="status-button">Indisponível</div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="icon-box"><span style="font-size:2.5rem;">📋</span></div>
-                <div class="content">
-                    <h3>Cardápio Digital</h3>
-                    <p>Interface rápida e intuitiva. O cliente seleciona os produtos com facilidade e você recebe o pedido totalmente pronto para a produção direto no seu WhatsApp.</p>
-                    <a href="https://wa.me/5521973124106?text=Tenho%20interesse%20no%20card%C3%A1pio%20digital%20em%20saber%20mais%20sobre%20o%20card%C3%A1pio%20digital" class="btn-play" target="_blank">Tenho interesse</a>
-                </div>
-            </div>
+    <section class="section-sm"><div class="container"><div class="cta"><h2>Pronto para transformar sua ideia em <span class="gradient-text">tecnologia real?</span></h2><p>Converse com a Aiex e descubra como um sistema, aplicativo ou automação sob medida pode simplificar sua operação e acelerar seus resultados.</p><a class="btn btn-whatsapp" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">✦ Falar com a Aiex</a></div></div></section>
+
+    <section class="section" id="faq">
+      <div class="container"><div class="section-head"><span class="eyebrow">Central de informações</span><h2>Dúvidas <span class="gradient-text">frequentes.</span></h2></div>
+        <div class="faq-list">
+          <details class="faq-item"><summary>Que tipos de sistemas e aplicativos a Aiex desenvolve?</summary><div class="faq-answer">Desenvolvemos sistemas de gestão, plataformas web, aplicativos móveis, painéis, portais, integrações e outras soluções digitais. O projeto nasce da necessidade da sua operação, por isso o escopo é definido sob medida.</div></details>
+          <details class="faq-item"><summary>Como começa um projeto sob medida?</summary><div class="faq-answer">A primeira etapa é uma conversa de diagnóstico. Entendemos o problema, os usuários, os processos envolvidos e o objetivo do negócio. Depois, estruturamos a melhor proposta de solução, com etapas e prioridades claras.</div></details>
+          <details class="faq-item"><summary>O que é necessário para ter o Cardápio Digital?</summary><div class="faq-answer">Basta enviar o cardápio base, com produtos, descrições e preços, e informar o número de WhatsApp. Estruturamos o catálogo e geramos o link para divulgação. O pedido chega formatado no chat, pronto para produção.</div></details>
+          <details class="faq-item"><summary>Como o Agente de IA conversa com os clientes?</summary><div class="faq-answer">A IA é configurada com as regras, preços, informações e tom de voz da empresa. Ela interpreta o contexto da conversa e responde de forma natural, com foco em agilidade e conversão.</div></details>
+          <details class="faq-item"><summary>Preciso de conhecimento técnico para usar as soluções?</summary><div class="faq-answer">Não. A tecnologia complexa fica nos bastidores. As soluções são construídas para serem práticas, intuitivas e integradas à rotina da sua equipe.</div></details>
+          <details class="faq-item"><summary>Como funciona a Tag NFC e onde posso usá-la?</summary><div class="faq-answer">A Tag NFC funciona por aproximação. Ao encostar o celular, o cliente é direcionado ao link escolhido, como Instagram, cardápio, Google ou uma página com múltiplos links. Pode ser instalada em mesas, balcões, displays e outros pontos de contato.</div></details>
+          <details class="faq-item"><summary>Os dados financeiros no Organiza+ estão seguros?</summary><div class="faq-answer">Sim. Segurança e privacidade são pilares do aplicativo. O Organiza+ foi desenvolvido para oferecer controle financeiro com proteção dos dados e uma experiência simples no dispositivo.</div></details>
         </div>
+      </div>
+    </section>
 
-        <h2 id="nfc" class="category-title">Tecnologia NFC</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="icon-box"><span style="font-size:2.5rem;">💳</span></div>
-                <div class="content">
-                    <h3>Cartão Avaliação</h3>
-                    <p>Cartão físico com tecnologia NFC e QR Code. O cliente aproxima o celular e é direcionado para avaliar seu negócio no Google, multiplicando sua reputação e visibilidade nas buscas.</p>
-                    <a href="https://wa.me/5521973124106?text=Tenho%20interesse%20no%20cart%C3%A3o%20de%20avalia%C3%A7%C3%A3o" class="btn-play" target="_blank">Tenho interesse</a>
-                </div>
-            </div>
+    <section class="section" id="sobre"><div class="container"><article class="about"><div class="about-brand"><span class="eyebrow">Sobre a Aiex</span><h2>Tecnologia guiada pela realidade dos negócios.</h2><img src="img/favicon.png" alt="Ícone Aiex" onerror="this.style.display='none'"></div><div class="about-copy"><p>A Aiex surgiu para resolver problemas reais e reduzir custos operacionais. Antes de chegar ao mercado, desenvolvemos tecnologia para organizar nossas próprias operações, movidos pela busca por automação, eficiência e economia.</p><p>Entendemos quem empreende porque vivemos as dores da gestão no dia a dia. É essa experiência que orienta cada aplicativo, sistema e solução que construímos: <strong>tecnologia útil, acessível e conectada a resultados.</strong></p></div></article><blockquote class="quote"><p>“Não é que temos pouco tempo, mas que o desperdiçamos muito com aquilo que não importa.”</p><span>Sêneca</span></blockquote></div></section>
+  </main>
 
-            <div class="card">
-                <div class="icon-box"><span style="font-size:2.5rem;">🏷️</span></div>
-                <div class="content">
-                    <h3>Tag NFC Inteligente</h3>
-                    <p>Versão compacta e altamente personalizável do cartão. Cole em mesas ou balcões e direcione clientes instantaneamente ao seu Instagram, cardápio digital ou outras plataformas com apenas uma aproximação do celular.</p>
-                    <a href="https://wa.me/5521973124106?text=Tenho%20interesse%20na%20Tag%20NFC" class="btn-play" target="_blank">Tenho interesse</a>
-                </div>
-            </div>
-        </div>
+  <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><img class="footer-logo" src="img/logo-aiex.png" alt="Aiex" onerror="this.style.display='none'"><p>Transformando processos operacionais em sistemas, aplicativos e soluções digitais inteligentes.</p></div><div><h3>Links</h3><ul><li><a href="#inicio">Início</a></li><li><a href="#destaque">Organiza+</a></li><li><a href="#processo">Como trabalhamos</a></li><li><a href="#servicos">Nossas soluções</a></li></ul></div><div><h3>Contato</h3><ul><li><a href="https://wa.me/5521970656726" target="_blank" rel="noopener">(21) 97065-6726</a></li><li><a href="https://www.instagram.com/aiexbr/" target="_blank" rel="noopener">Instagram</a></li><li>Rio de Janeiro, RJ</li></ul></div></div><p class="copyright">© <span id="year"></span> Aiex. Todos os direitos reservados. Desenvolvido por Mikhail Ayache.</p></div></footer>
 
-        <div class="cta-specialist">
-            <h3>Pronto para escalar a sua operação?</h3>
-            <p>Descubra como a tecnologia pode eliminar processos repetitivos e aumentar o lucro do seu negócio hoje mesmo.</p>
-            <a href="https://wa.me/5521973124106?text=Ol%C3%A1%20vim%20pelo%20site%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es" class="btn-whatsapp" target="_blank">
-                <svg viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
-                Falar com a Aiex
-            </a>
-        </div>
+  <a class="wpp-float" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" aria-label="Falar com a Aiex pelo WhatsApp">✆</a>
 
-        <h2 class="category-title">Dúvidas Frequentes</h2>
-        <div class="faq-accordion">
-            <details class="faq-item">
-                <summary>O que é necessário para ter o Cardápio Digital?</summary>
-                <div class="faq-answer">Apenas o seu cardápio base (produtos, descrições, preços) e um número de WhatsApp. O catálogo é estruturado e o link final é gerado para você divulgar aos seus clientes. O pedido cai formatado direto no seu chat, pronto para produção.</div>
-            </details>
-            <details class="faq-item">
-                <summary>Como o Agente de IA conversa com os clientes?</summary>
-                <div class="faq-answer">A inteligência artificial é configurada exclusivamente com as regras, preços e tom de voz da sua empresa. Ela lê o contexto da conversa, entende a dúvida do cliente e responde de forma natural, focado em conversão.</div>
-            </details>
-            <details class="faq-item">
-                <summary>Preciso de conhecimento técnico para usar as soluções?</summary>
-                <div class="faq-answer">De forma alguma. O ecossistema da Aiex é construído para quem precisa de agilidade. Toda a infraestrutura tecnológica pesada fica nos bastidores. Para o seu dia a dia, o uso é totalmente prático e integrado ao seu WhatsApp.</div>
-            </details>
-            
-            <details class="faq-item">
-                <summary>Como funciona a Tag NFC e onde posso usá-la?</summary>
-                <div class="faq-answer">A Tag NFC é um pequeno adesivo ou display inteligente que funciona por aproximação. Ao encostar o celular, o cliente é direcionado automaticamente para o link que você definir (seu Instagram, cardápio digital, Google ou múltiplos links). É ideal para colar em mesas, balcões de atendimento ou até mesmo no verso do seu próprio celular.</div>
-            </details>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = '☰';
+    }));
 
-            <details class="faq-item">
-                <summary>Em quanto tempo o negócio percebe o retorno?</summary>
-                <div class="faq-answer">O ganho de eficiência é imediato após a implementação. Negócios relatam o fim drástico de erros em pedidos e o ganho instantâneo de horas livres diárias, já que as ferramentas assumem as tarefas repetitivas.</div>
-            </details>
-            <details class="faq-item">
-                <summary>Os dados financeiros no Organiza+ estão seguros?</summary>
-                <div class="faq-answer">Absolutamente. Segurança é o pilar do aplicativo. O Organiza+ foi desenvolvido com protocolos rígidos, garantindo total privacidade sobre o seu controle financeiro no seu dispositivo.</div>
-            </details>
-        </div>
+    const heroDevice = document.querySelector('.hero-device');
+    const notificationObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        heroDevice.classList.toggle('notifications-active', entry.isIntersecting);
+      });
+    }, { threshold: .35 });
+    notificationObserver.observe(heroDevice);
 
-        <div class="about-card">
-            <div class="about-header">
-                <p>Sobre a Aiex</p>
-                <h2>Tecnologia guiada pela realidade dos negócios.</h2>
-                
-                <img src="img/favicon.png" alt="Ícone Aiex" class="about-favicon" onerror="this.style.display='none';">
-                
-            </div>
-            <div class="about-text">
-                <p>
-                    A <strong>Aiex</strong> surgiu da necessidade de resolver problemas reais e reduzir custos operacionais. Antes de chegarmos ao mercado, desenvolvemos tecnologia para organizar nossas próprias operações, movidos pela busca por automação e economia. Entendemos quem empreende, porque vivemos e sentimos as dores da gestão no dia a dia.
-                </p>
-            </div>
-        </div>
-
-        <div class="standalone-quote">
-            <p>"Não é que temos pouco tempo, mas que o desperdiçamos muito com aquilo que não importa."</p>
-            <span>— Sêneca</span>
-        </div>
-
-    </div>
-
-    <footer class="footer-premium">
-        <div class="footer-container">
-            <div class="footer-col brand-col">
-                <img src="img/logo-aiex.png" alt="Aiex Logo" class="footer-logo" onerror="this.style.display='none'; document.getElementById('alt-logo').style.display='block';">
-                <h3 id="alt-logo" style="display:none; color:#fff; font-size:1.8rem; letter-spacing:-1px; margin-bottom:15px;">AIEX</h3>
-                <p>Transformando processos operacionais em soluções digitais inteligentes para impulsionar o seu negócio.</p>
-            </div>
-            
-            <div class="footer-col links-col">
-                <h4>Links</h4>
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#aplicativos">Aplicativos</a></li>
-                    <li><a href="#automacao">Automação</a></li>
-                    <li><a href="#nfc">Soluções NFC</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col contact-col">
-                <h4>Contato</h4>
-                <ul>
-                    <li>
-                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        <span>(21) 97312-4106</span>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/aiexbr/" target="_blank">
-                            <svg viewBox="0 0 24 24" style="fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                            <span>Instagram</span>
-                        </a>
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span>Rio de Janeiro, RJ</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom-bar">
-            <p>© 2026 Aiex. Todos os direitos reservados. Desenvolvido por Mikhail Ayache.</p>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/5521973124106?text=Ol%C3%A1%20vim%20pelo%20site%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es" class="wpp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
-    </a>
-
-    <script>
-        let isAnimating = false;
-        let autoPlayTimer; // Variável para controlar o tempo do giro
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const track = document.getElementById('track');
-            const originalCards = Array.from(track.children);
-            
-            // Clona os cards para garantir o loop infinito
-            originalCards.forEach(card => {
-                let clone = card.cloneNode(true);
-                track.appendChild(clone);
-            });
-
-            // Inicia o giro automático assim que o site carrega
-            startAutoPlay();
-        });
-
-        function startAutoPlay() {
-            // Configura para girar a cada 3 segundos (3000 milissegundos)
-            autoPlayTimer = setInterval(() => {
-                moveSlide(1);
-            }, 3000);
-        }
-
-        function resetAutoPlay() {
-            // Zera o cronômetro se o usuário clicar na seta, para não dar conflito
-            clearInterval(autoPlayTimer);
-            startAutoPlay();
-        }
-
-        function moveSlide(direction) {
-            if (isAnimating) return;
-            isAnimating = true;
-
-            const track = document.getElementById('track');
-            const cards = track.children;
-            if (cards.length === 0) return;
-            
-            const cardWidth = cards[0].offsetWidth + 15; 
-            
-            if (direction === 1) { 
-                track.style.transition = 'transform 0.4s ease-in-out';
-                track.style.transform = `translateX(-${cardWidth}px)`;
-                
-                setTimeout(() => {
-                    track.style.transition = 'none';
-                    track.appendChild(track.firstElementChild);
-                    track.style.transform = 'translateX(0)';
-                    isAnimating = false;
-                }, 400); 
-                
-            } else { 
-                track.style.transition = 'none';
-                track.prepend(track.lastElementChild);
-                track.style.transform = `translateX(-${cardWidth}px)`;
-                
-                setTimeout(() => {
-                    track.style.transition = 'transform 0.4s ease-in-out';
-                    track.style.transform = 'translateX(0)';
-                }, 10);
-
-                setTimeout(() => {
-                    isAnimating = false;
-                }, 410);
-            }
-
-            // Reinicia a contagem toda vez que um slide roda
-            resetAutoPlay();
-        }
-    </script>
-
+    const track = document.getElementById('track');
+    const originalCards = Array.from(track.children);
+    const originalCount = originalCards.length;
+    originalCards.forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+    let index = 0;
+    let startX = 0;
+    let autoPlay;
+    function visibleCards() {
+      if (window.innerWidth <= 640) return 1;
+      if (window.innerWidth <= 900) return 2;
+      return 3;
+    }
+    function updateCarousel(animate = true) {
+      const visible = visibleCards();
+      const gap = 18;
+      const cardWidth = (track.parentElement.clientWidth - gap * (visible - 1)) / visible;
+      track.style.transition = animate ? 'transform .5s cubic-bezier(.22,.75,.25,1)' : 'none';
+      track.style.transform = `translateX(-${index * (cardWidth + gap)}px)`;
+    }
+    function nextSlide() {
+      index += 1;
+      updateCarousel(true);
+    }
+    function previousSlide() {
+      if (index <= 0) {
+        index = originalCount;
+        updateCarousel(false);
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          index -= 1;
+          updateCarousel(true);
+        }));
+        return;
+      }
+      index -= 1;
+      updateCarousel(true);
+    }
+    track.addEventListener('transitionend', () => {
+      if (index >= originalCount) {
+        index -= originalCount;
+        updateCarousel(false);
+      }
+    });
+    document.getElementById('nextBtn').addEventListener('click', nextSlide);
+    document.getElementById('prevBtn').addEventListener('click', previousSlide);
+    function startAutoPlay() {
+      clearInterval(autoPlay);
+      autoPlay = setInterval(() => {
+        nextSlide();
+      }, 3200);
+    }
+    function stopAutoPlay() { clearInterval(autoPlay); }
+    const carousel = document.querySelector('.carousel-shell');
+    track.addEventListener('touchstart', event => { startX = event.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', event => {
+      const delta = event.changedTouches[0].clientX - startX;
+      if (Math.abs(delta) < 45) return;
+      delta < 0 ? nextSlide() : previousSlide();
+    }, { passive: true });
+    window.addEventListener('resize', () => {
+      index %= originalCount;
+      updateCarousel(false);
+    });
+    document.addEventListener('visibilitychange', () => document.hidden ? stopAutoPlay() : startAutoPlay());
+    document.getElementById('year').textContent = new Date().getFullYear();
+    updateCarousel(false);
+    startAutoPlay();
+  </script>
 </body>
 </html>
