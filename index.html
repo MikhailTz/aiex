@@ -238,8 +238,10 @@
     .site-photo { align-self: center; height: 82%; border: 1px solid rgba(99,181,255,.24); border-radius: 9px; background: linear-gradient(160deg,rgba(66,165,255,.7),rgba(8,16,28,.95)); box-shadow: inset 0 0 24px rgba(139,212,255,.16),0 8px 24px rgba(0,0,0,.3); }
     .site-photo::before { content: "www"; height: 100%; display: grid; place-items: center; color: rgba(255,255,255,.82); font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
     .app-home { padding: 15px 11px 10px; }
+    .app-home::before { content: "Meu App"; display: block; margin-bottom: 8px; color: #dff5ff; font-size: .48rem; font-weight: 800; text-align: center; }
     .app-logo-demo { width: 34px; height: 34px; margin: 3px auto 15px; display: grid; place-items: center; border-radius: 11px; color: #04111d; background: linear-gradient(135deg,var(--blue-light),var(--cyan)); box-shadow: 0 8px 20px rgba(66,165,255,.24); font-size: .52rem; font-weight: 900; }
     .app-widget { height: 42px; margin-bottom: 9px; border: 1px solid rgba(255,255,255,.09); border-radius: 10px; background: linear-gradient(135deg,rgba(66,165,255,.28),rgba(50,230,210,.08)); }
+    .app-widget::before { content: "Resumo do dia"; display: block; padding: 7px; color: rgba(255,255,255,.72); font-size: .36rem; font-weight: 700; }
     .app-grid-demo { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; }
     .app-grid-demo i { display: block; aspect-ratio: 1; border-radius: 7px; background: rgba(139,203,255,.14); }
     .type-app { grid-template-columns: auto auto; gap: 12px; }
@@ -249,13 +251,14 @@
     .system-window-demo i:nth-child(2) { width: 72%; opacity: .7; }
     .system-window-demo i:nth-child(3) { width: 88%; height: 22px; opacity: .28; }
     .system-window-demo b { position: absolute; left: 10px; top: 24px; color: var(--blue-light); font-size: .43rem; letter-spacing: .08em; text-transform: uppercase; }
+    .system-window-demo::after { content: "● Online"; position: absolute; right: 8px; bottom: 6px; color: var(--cyan); font-size: .34rem; font-weight: 800; }
     .type-menu .preview-ui { grid-template-columns: 1fr 1fr; }
     .type-menu .preview-ui i { width: 100%; height: 54px; opacity: .42; }
     .restaurant-menu { position: relative; z-index: 2; width: 78%; height: 78%; padding: 14px; border: 1px solid rgba(142,203,255,.24); border-radius: 5px; background: linear-gradient(145deg,#152031,#0b111b); box-shadow: 8px 10px 0 rgba(66,165,255,.08),0 16px 36px rgba(0,0,0,.34); transform: rotate(-2deg); }
     .restaurant-menu h4 { padding-bottom: 7px; border-bottom: 1px solid rgba(255,255,255,.12); color: var(--blue-light); font-family: Georgia,serif; font-size: .72rem; letter-spacing: .16em; text-align: center; }
     .restaurant-item { display: grid; grid-template-columns: 1fr auto; gap: 6px; padding: 7px 0; border-bottom: 1px dotted rgba(255,255,255,.13); color: #d9e4ef; font-size: .48rem; }
     .restaurant-item b { color: var(--cyan); }
-    .restaurant-order { margin-top: 7px; padding: 5px 6px; border: 1px solid rgba(50,230,210,.24); border-radius: 6px; color: #06121c; background: linear-gradient(120deg,var(--blue-light),var(--cyan)); font-size: .42rem; font-weight: 900; text-align: center; }
+    .restaurant-order { width: fit-content; margin: 6px auto 0; padding: 3px 7px; border: 1px solid rgba(50,230,210,.22); border-radius: 5px; color: #bff9f1; background: rgba(50,230,210,.08); font-size: .34rem; font-weight: 800; text-align: center; }
     .type-ai .preview-window { width: 76%; height: 76%; }
     .type-ai .preview-ui i { height: 34px; width: 78%; border-radius: 14px 14px 14px 4px; }
     .type-ai .preview-ui i:nth-child(even) { margin-left: auto; background: linear-gradient(90deg,rgba(139,92,246,.7),rgba(66,165,255,.45)); border-radius: 14px 14px 4px 14px; }
@@ -500,8 +503,9 @@
       .service-card:nth-child(3n) .service-info { border-top: 1px solid rgba(50,230,210,.13); }
       .service-badge { top: 5px; right: 5px; max-width: calc(100% - 10px); padding: 3px 5px; overflow: hidden; font-size: .36rem; text-overflow: ellipsis; white-space: nowrap; }
       .service-face--front .service-info { height: 32px; display: grid; place-items: center; padding: 0 3px; text-align: center; }
+      .service-face--front .service-copy { width: 100%; min-width: 0; }
       .service-mark { display: none; }
-      .service-face--front h3 { min-height: 0; margin: 0; overflow: hidden; font-size: clamp(.44rem,1.8vw,.56rem); line-height: 1.15; text-wrap: nowrap; white-space: nowrap; word-break: normal; text-overflow: clip; hyphens: none; }
+      .service-face--front h3 { width: 100%; max-width: 100%; min-height: 0; margin: 0; overflow: visible; font-size: clamp(.4rem,1.55vw,.5rem); line-height: 1.15; letter-spacing: -.015em; text-align: center; text-wrap: nowrap; white-space: nowrap; word-break: normal; hyphens: none; }
       .service-card p { display: none; }
       .service-face--front .service-link { display: none; }
       .preview-window { width: 90%; }
@@ -513,12 +517,14 @@
       .type-site .site-name-demo span { margin-top: 3px; font-size: .32rem; }
       .type-site .site-name-demo b { margin-top: 5px; padding: 3px 5px; font-size: .27rem; }
       .type-app .preview-window { width: 62px; height: 116px; border-radius: 16px; }
-      .type-app { gap: 4px; }
-      .type-app .system-window-demo { width: 56px; height: 66px; padding: 19px 6px 5px; border-radius: 7px; }
+      .type-app { gap: 2px; background: radial-gradient(circle at 30% 35%,rgba(50,230,210,.20),transparent 38%),radial-gradient(circle at 72% 60%,rgba(139,92,246,.24),transparent 42%),linear-gradient(145deg,#111a2a,#080b12); }
+      .type-app .preview-window { transform: rotate(-4deg); box-shadow: 0 13px 30px rgba(0,0,0,.46),0 0 20px rgba(50,230,210,.12); }
+      .type-app .system-window-demo { width: 58px; height: 68px; padding: 19px 6px 5px; border-color: rgba(196,181,253,.28); border-radius: 7px; background: linear-gradient(145deg,#19162b,#0d1320); box-shadow: 0 12px 26px rgba(0,0,0,.40),0 0 18px rgba(139,92,246,.14); transform: rotate(4deg); }
       .type-app .system-window-demo::before { height: 14px; padding-left: 5px; font-size: .38rem; line-height: 11px; }
       .type-app .system-window-demo i { height: 4px; margin-bottom: 4px; }
       .type-app .system-window-demo i:nth-child(3) { height: 15px; }
       .type-app .system-window-demo b { left: 6px; top: 17px; font-size: .3rem; }
+      .type-app .system-window-demo::after { right: 5px; bottom: 4px; font-size: .24rem; }
       .type-app .preview-window::before { width: 30px; height: 7px; margin-top: 4px; }
       .app-home { padding: 5px 6px; }
       .app-logo-demo { width: 20px; height: 20px; margin: 2px auto 6px; border-radius: 6px; }
@@ -531,7 +537,7 @@
       .restaurant-menu { width: 88%; height: 85%; padding: 8px; }
       .restaurant-menu h4 { padding-bottom: 3px; font-size: .48rem; }
       .restaurant-item { padding: 4px 0; font-size: .34rem; }
-      .restaurant-order { margin-top: 4px; padding: 3px 4px; font-size: .3rem; }
+      .restaurant-order { margin-top: 3px; padding: 2px 5px; font-size: .25rem; }
       .chat-demo { width: 94%; gap: 3px; }
       .chat-title { gap: 3px; font-size: .38rem; }
       .bot-avatar { width: 17px; height: 15px; }
@@ -695,14 +701,14 @@
           </article>
           <article class="service-card">
             <div class="service-preview type-app"><span class="service-badge">Apps e sistemas</span><div class="preview-window"><div class="app-home"><div class="app-logo-demo">APP</div><div class="app-widget"></div><div class="app-grid-demo"><i></i><i></i><i></i></div></div></div><div class="system-window-demo" aria-hidden="true"><b>Sistema</b><i></i><i></i><i></i></div></div>
-            <div class="service-info"><div class="service-mark">APP/SYS</div><div class="service-copy"><h3>Apps e sistemas sob medida</h3><p>Aplicativos e sistemas personalizados, criados do jeito que sua empresa precisa para organizar rotinas, atender clientes e transformar ideias em soluções práticas.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20aplicativo%20ou%20sistema%20personalizado." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
+            <div class="service-info"><div class="service-mark">A+S</div><div class="service-copy"><h3>Apps e sistemas sob medida</h3><p>Aplicativos e sistemas personalizados, criados do jeito que sua empresa precisa para organizar rotinas, atender clientes e transformar ideias em soluções práticas.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20aplicativo%20ou%20sistema%20personalizado." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
-            <div class="service-preview type-menu"><span class="service-badge">Pedidos</span><div class="restaurant-menu"><h4>MENU</h4><div class="restaurant-item"><span>Prato especial</span><b>R$ 28</b></div><div class="restaurant-item"><span>Hambúrguer</span><b>R$ 22</b></div><div class="restaurant-item"><span>Sobremesa</span><b>R$ 14</b></div><div class="restaurant-order">Enviar pedido para a loja</div></div></div>
+            <div class="service-preview type-menu"><span class="service-badge">Pedidos</span><div class="restaurant-menu"><h4>MENU</h4><div class="restaurant-item"><span>Prato especial</span><b>R$ 28</b></div><div class="restaurant-item"><span>Hambúrguer</span><b>R$ 22</b></div><div class="restaurant-item"><span>Sobremesa</span><b>R$ 14</b></div><div class="restaurant-order">Enviar pedido</div></div></div>
             <div class="service-info"><div class="service-mark">MENU</div><div class="service-copy"><h3>Cardápio digital</h3><p>Catálogo simples para o cliente escolher produtos e enviar o pedido completo e organizado diretamente no WhatsApp.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Card%C3%A1pio%20Digital." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
-            <div class="service-preview type-ai"><span class="service-badge">Inteligência artificial</span><div class="chat-demo"><div class="chat-line client"><small>CLIENTE</small>Oi! Vocês atendem hoje?</div><div class="chat-line bot"><small>ATENDENTE IA</small>Olá! Atendemos sim 😊 Quer que eu encontre o melhor horário para você?</div><div class="chat-line client"><small>CLIENTE</small>Quero para às 15h.</div><div class="chat-line bot"><small>ATENDENTE IA</small>Perfeito! Vou verificar agora.</div></div></div>
+            <div class="service-preview type-ai"><span class="service-badge">Inteligência artificial</span><div class="chat-demo"><div class="chat-line client"><small>CLIENTE</small>Oi! Vocês atendem hoje?</div><div class="chat-line bot"><small>ATENDENTE IA</small>Sim 😊 Qual horário você prefere?</div><div class="chat-line client"><small>CLIENTE</small>Quero para às 15h.</div><div class="chat-line bot"><small>ATENDENTE IA</small>Perfeito! Horário confirmado.</div></div></div>
             <div class="service-info"><div class="service-mark">IA</div><div class="service-copy"><h3>Agente de IA</h3><p>Atendimento inteligente configurado com as informações, regras e o jeito de falar da sua empresa.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20Agente%20de%20IA." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
@@ -719,7 +725,7 @@
 
     <section class="section" id="cases">
       <div class="container">
-        <div class="section-head"><span class="eyebrow">Experiências reais</span><h2>Resultados de quem <span class="gradient-text">confia na Aiex.</span></h2><p>Experiências de empresas que modernizaram suas operações com nossas soluções.</p></div>
+        <div class="section-head"><span class="eyebrow">Clientes que já atendemos</span><h2>Veja o que dizem sobre a <span class="gradient-text">experiência com a Aiex.</span></h2><p>Relatos reais de empresas que já contaram com nossas soluções para modernizar suas operações.</p></div>
         <div class="carousel-shell">
           <div class="carousel-viewport"><div class="carousel-track" id="track">
             <article class="feedback-card"><div class="client-head"><div class="client-thumb"><img src="img/logo-fera-lanche.png" alt="O Fera do Lanche" onerror="this.remove();this.parentElement.textContent='FL'"></div><div><h3>O Fera do Lanche</h3><div class="stars" aria-label="5 estrelas">★★★★★</div></div></div><p class="client-quote">“Nossos pedidos agora chegam totalmente limpos e organizados no WhatsApp. Melhorou muito a operação.”</p></article>
@@ -747,7 +753,7 @@
       </div>
     </section>
 
-    <section class="section" id="sobre"><div class="container"><article class="about"><div class="about-brand"><span class="eyebrow">Sobre a Aiex</span><h2>Automação guiada pela realidade dos negócios.</h2><img src="img/favicon.png" alt="Ícone Aiex" onerror="this.style.display='none'"></div><div class="about-copy"><p>A Aiex surgiu para resolver problemas reais, eliminar tarefas repetitivas e reduzir custos operacionais. Antes de chegar ao mercado, automatizamos nossas próprias operações em busca de mais eficiência, controle e economia.</p><p>Entendemos quem empreende porque vivemos as dores da gestão no dia a dia. É essa experiência que orienta cada automação e solução que implementamos: <strong>tecnologia útil, acessível e conectada a resultados.</strong></p></div></article><blockquote class="quote"><p>“Não é que temos pouco tempo, mas que o desperdiçamos muito com aquilo que não importa.”</p><span>Sêneca</span></blockquote></div></section>
+    <section class="section" id="sobre"><div class="container"><div class="section-head"><span class="eyebrow">Sobre a Aiex</span></div><article class="about"><div class="about-brand"><h2>Automação guiada pela realidade dos negócios.</h2><img src="img/favicon.png" alt="Ícone Aiex" onerror="this.style.display='none'"></div><div class="about-copy"><p>A Aiex surgiu para resolver problemas reais, eliminar tarefas repetitivas e reduzir custos operacionais. Antes de chegar ao mercado, automatizamos nossas próprias operações em busca de mais eficiência, controle e economia.</p><p>Entendemos quem empreende porque vivemos as dores da gestão no dia a dia. É essa experiência que orienta cada automação e solução que implementamos: <strong>tecnologia útil, acessível e conectada a resultados.</strong></p></div></article><blockquote class="quote"><p>“Não é que temos pouco tempo, mas que o desperdiçamos muito com aquilo que não importa.”</p><span>Sêneca</span></blockquote></div></section>
   </main>
 
   <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><img class="footer-logo" src="img/logo-aiex.png" alt="Aiex" onerror="this.style.display='none'"><p>Automatizando processos para empresas mais eficientes, integradas e preparadas para crescer.</p></div><div><h3>Links</h3><ul><li><a href="#inicio">Início</a></li><li><a href="#destaque">Organiza+</a></li><li><a href="#processo">Como trabalhamos</a></li><li><a href="#servicos">Nossas soluções</a></li></ul></div><div><h3>Contato</h3><ul><li><a href="https://wa.me/5521970656726" target="_blank" rel="noopener">(21) 97065-6726</a></li><li><a href="https://www.instagram.com/aiexbr/" target="_blank" rel="noopener">Instagram</a></li><li>Rio de Janeiro, RJ</li><li>Atendimento online em todo o Brasil</li></ul></div></div><p class="copyright">© <span id="year"></span> Aiex. Todos os direitos reservados. Desenvolvido por Mikhail Ayache.</p></div></footer>
