@@ -412,12 +412,11 @@
       .hero-screen { padding: 62px 18px 20px; }
       .creation-notification { min-height: 70px; padding: 13px; }
       .system-card { left: 20px; right: 20px; bottom: 20px; }
-      .featured-service { grid-template-columns: minmax(0,1.05fr) minmax(0,.95fr); gap: 10px; padding: 18px 14px; border-radius: 20px; }
+      .featured-service { grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr); gap: 10px; padding: 18px 14px; border-radius: 20px; }
       .featured-copy { display: contents; }
       .featured-copy h2 { grid-column: 1 / -1; grid-row: 1; font-size: 1.65rem; }
       .featured-copy > p { grid-column: 1 / -1; grid-row: 2; margin: 2px 0 6px; font-size: .75rem; }
-      .feature-visual { grid-column: 1; grid-row: 3; width: 100%; min-height: 190px; overflow: visible; transform: scale(.43); transform-origin: center; margin: -16px 0; }
-      .feature-visual .orbit, .feature-visual .orbit-dot { display: none; }
+      .feature-visual { grid-column: 1; grid-row: 3; width: 100%; min-height: 190px; overflow: visible; transform: scale(.46); transform-origin: center; margin: -16px 0; }
       .feature-actions { grid-column: 2; grid-row: 3; z-index: 6; align-self: center; min-width: 0; }
       .feature-actions .btn { width: 100%; min-height: 38px; padding: 7px 5px; font-size: .54rem; line-height: 1.2; text-align: center; }
       .check-list {
@@ -433,8 +432,8 @@
       .check-list li { min-width: 0; min-height: 0; padding: 2px 0; border: 0; background: transparent; font-size: .56rem; line-height: 1.3; }
       .process-grid {
         display: grid;
-        grid-template-columns: repeat(2,minmax(0,1fr));
-        gap: 10px;
+        grid-template-columns: repeat(3,minmax(0,1fr));
+        gap: 8px;
         margin-inline: 0;
         padding: 0;
         overflow: visible;
@@ -446,8 +445,8 @@
       .process-card p { display: -webkit-box; overflow: hidden; font-size: .58rem; line-height: 1.45; -webkit-box-orient: vertical; -webkit-line-clamp: 7; }
       .services-grid {
         display: grid;
-        grid-template-columns: repeat(3,minmax(0,1fr));
-        gap: 8px;
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        gap: 10px;
         margin-inline: 0;
         padding: 0;
         overflow: visible;
@@ -473,7 +472,13 @@
       .service-card p { display: none; }
       .service-link { margin-top: 7px; font-size: .46rem; }
       .preview-window { width: 90%; }
-      .type-app .preview-window { width: 86px; height: 126px; border-radius: 17px; }
+      .type-site .preview-window { width: 92%; height: 74%; }
+      .type-site .site-url { left: 22px; font-size: .38rem; }
+      .type-site .site-layout { gap: 5px; padding: 7px; }
+      .type-site .site-name-demo { font-size: .55rem; }
+      .type-site .site-name-demo span { margin-top: 3px; font-size: .32rem; }
+      .type-site .site-name-demo b { margin-top: 5px; padding: 3px 5px; font-size: .27rem; }
+      .type-app .preview-window { width: 72px; height: 126px; border-radius: 17px; }
       .type-app .preview-window::before { width: 30px; height: 7px; margin-top: 4px; }
       .app-home { padding: 5px 6px; }
       .app-logo-demo { width: 20px; height: 20px; margin: 2px auto 6px; border-radius: 6px; }
@@ -487,8 +492,8 @@
       .chat-line { padding: 3px 5px; font-size: .34rem; line-height: 1.25; }
       .chat-line small { font-size: .28rem; }
       .google-scene { gap: 3px; transform: scale(.72); }
-      .nfc-tags { transform: scale(.72); }
-      .review-card-demo { transform: rotate(-3deg) scale(.72); }
+      .nfc-tags { transform: scale(.66); transform-origin: center; }
+      .review-card-demo { transform: rotate(-3deg) scale(.66); transform-origin: center; }
       .physical-products-head { display: block; }
       .physical-products-head p { margin-top: 7px; text-align: left; }
       .physical-products-grid {
