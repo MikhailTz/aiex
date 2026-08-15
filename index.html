@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=1200, maximum-scale=5, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#05070b">
   <meta name="description" content="A Aiex automatiza processos empresariais para reduzir tarefas manuais, integrar operações, economizar tempo e acelerar resultados.">
   <meta property="og:title" content="Aiex | Automação Empresarial e Inteligência Artificial">
@@ -335,6 +336,22 @@
       .check-list, .process-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .service-card { min-height: 420px; }
+      .services-grid {
+        display: flex;
+        gap: 14px;
+        margin-inline: -20px;
+        padding: 4px 20px 18px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        overscroll-behavior-inline: contain;
+      }
+      .services-grid::-webkit-scrollbar { display: none; }
+      .service-card {
+        flex: 0 0 min(86vw, 360px);
+        min-height: 420px;
+        scroll-snap-align: center;
+      }
       .service-preview { height: 245px; }
       .app-visual { min-height: 350px; }
       .feedback-card { flex-basis: 100%; }
