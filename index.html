@@ -255,6 +255,7 @@
     .restaurant-menu h4 { padding-bottom: 7px; border-bottom: 1px solid rgba(255,255,255,.12); color: var(--blue-light); font-family: Georgia,serif; font-size: .72rem; letter-spacing: .16em; text-align: center; }
     .restaurant-item { display: grid; grid-template-columns: 1fr auto; gap: 6px; padding: 7px 0; border-bottom: 1px dotted rgba(255,255,255,.13); color: #d9e4ef; font-size: .48rem; }
     .restaurant-item b { color: var(--cyan); }
+    .restaurant-order { margin-top: 7px; padding: 5px 6px; border: 1px solid rgba(50,230,210,.24); border-radius: 6px; color: #06121c; background: linear-gradient(120deg,var(--blue-light),var(--cyan)); font-size: .42rem; font-weight: 900; text-align: center; }
     .type-ai .preview-window { width: 76%; height: 76%; }
     .type-ai .preview-ui i { height: 34px; width: 78%; border-radius: 14px 14px 14px 4px; }
     .type-ai .preview-ui i:nth-child(even) { margin-left: auto; background: linear-gradient(90deg,rgba(139,92,246,.7),rgba(66,165,255,.45)); border-radius: 14px 14px 4px 14px; }
@@ -500,7 +501,7 @@
       .service-badge { top: 5px; right: 5px; max-width: calc(100% - 10px); padding: 3px 5px; overflow: hidden; font-size: .36rem; text-overflow: ellipsis; white-space: nowrap; }
       .service-face--front .service-info { height: 32px; display: grid; place-items: center; padding: 0 3px; text-align: center; }
       .service-mark { display: none; }
-      .service-card h3 { min-height: 0; margin: 0; font-size: .66rem; line-height: 1.16; text-wrap: balance; white-space: normal; word-break: normal; overflow-wrap: normal; hyphens: none; }
+      .service-face--front h3 { min-height: 0; margin: 0; overflow: hidden; font-size: clamp(.44rem,1.8vw,.56rem); line-height: 1.15; text-wrap: nowrap; white-space: nowrap; word-break: normal; text-overflow: clip; hyphens: none; }
       .service-card p { display: none; }
       .service-face--front .service-link { display: none; }
       .preview-window { width: 90%; }
@@ -530,6 +531,7 @@
       .restaurant-menu { width: 88%; height: 85%; padding: 8px; }
       .restaurant-menu h4 { padding-bottom: 3px; font-size: .48rem; }
       .restaurant-item { padding: 4px 0; font-size: .34rem; }
+      .restaurant-order { margin-top: 4px; padding: 3px 4px; font-size: .3rem; }
       .chat-demo { width: 94%; gap: 3px; }
       .chat-title { gap: 3px; font-size: .38rem; }
       .bot-avatar { width: 17px; height: 15px; }
@@ -696,11 +698,11 @@
             <div class="service-info"><div class="service-mark">APP/SYS</div><div class="service-copy"><h3>Apps e sistemas sob medida</h3><p>Aplicativos e sistemas personalizados, criados do jeito que sua empresa precisa para organizar rotinas, atender clientes e transformar ideias em soluções práticas.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20aplicativo%20ou%20sistema%20personalizado." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
-            <div class="service-preview type-menu"><span class="service-badge">Pedidos</span><div class="restaurant-menu"><h4>MENU</h4><div class="restaurant-item"><span>Prato especial</span><b>R$ 28</b></div><div class="restaurant-item"><span>Hambúrguer</span><b>R$ 22</b></div><div class="restaurant-item"><span>Sobremesa</span><b>R$ 14</b></div></div></div>
+            <div class="service-preview type-menu"><span class="service-badge">Pedidos</span><div class="restaurant-menu"><h4>MENU</h4><div class="restaurant-item"><span>Prato especial</span><b>R$ 28</b></div><div class="restaurant-item"><span>Hambúrguer</span><b>R$ 22</b></div><div class="restaurant-item"><span>Sobremesa</span><b>R$ 14</b></div><div class="restaurant-order">Enviar pedido para a loja</div></div></div>
             <div class="service-info"><div class="service-mark">MENU</div><div class="service-copy"><h3>Cardápio digital</h3><p>Catálogo simples para o cliente escolher produtos e enviar o pedido completo e organizado diretamente no WhatsApp.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Card%C3%A1pio%20Digital." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
-            <div class="service-preview type-ai"><span class="service-badge">Inteligência artificial</span><div class="chat-demo"><div class="chat-title"><div class="bot-avatar"></div>Assistente virtual online</div><div class="chat-line client"><small>CLIENTE</small>Oi! Vocês atendem hoje?</div><div class="chat-line bot"><small>ASSISTENTE</small>Olá! Atendemos sim 😊 Quer que eu encontre o melhor horário para você?</div><div class="chat-line client"><small>CLIENTE</small>Quero para às 15h.</div><div class="chat-line bot"><small>ASSISTENTE</small>Perfeito! Vou verificar agora.</div></div></div>
+            <div class="service-preview type-ai"><span class="service-badge">Inteligência artificial</span><div class="chat-demo"><div class="chat-line client"><small>CLIENTE</small>Oi! Vocês atendem hoje?</div><div class="chat-line bot"><small>ATENDENTE IA</small>Olá! Atendemos sim 😊 Quer que eu encontre o melhor horário para você?</div><div class="chat-line client"><small>CLIENTE</small>Quero para às 15h.</div><div class="chat-line bot"><small>ATENDENTE IA</small>Perfeito! Vou verificar agora.</div></div></div>
             <div class="service-info"><div class="service-mark">IA</div><div class="service-copy"><h3>Agente de IA</h3><p>Atendimento inteligente configurado com as informações, regras e o jeito de falar da sua empresa.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20Agente%20de%20IA." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
