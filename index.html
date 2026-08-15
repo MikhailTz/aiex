@@ -248,6 +248,7 @@
     .system-window-demo i { display: block; height: 7px; margin-bottom: 7px; border-radius: 5px; background: linear-gradient(90deg,var(--blue),rgba(50,230,210,.35)); }
     .system-window-demo i:nth-child(2) { width: 72%; opacity: .7; }
     .system-window-demo i:nth-child(3) { width: 88%; height: 22px; opacity: .28; }
+    .system-window-demo b { position: absolute; left: 10px; top: 24px; color: var(--blue-light); font-size: .43rem; letter-spacing: .08em; text-transform: uppercase; }
     .type-menu .preview-ui { grid-template-columns: 1fr 1fr; }
     .type-menu .preview-ui i { width: 100%; height: 54px; opacity: .42; }
     .restaurant-menu { position: relative; z-index: 2; width: 78%; height: 78%; padding: 14px; border: 1px solid rgba(142,203,255,.24); border-radius: 5px; background: linear-gradient(145deg,#152031,#0b111b); box-shadow: 8px 10px 0 rgba(66,165,255,.08),0 16px 36px rgba(0,0,0,.34); transform: rotate(-2deg); }
@@ -499,7 +500,7 @@
       .service-badge { top: 5px; right: 5px; max-width: calc(100% - 10px); padding: 3px 5px; overflow: hidden; font-size: .36rem; text-overflow: ellipsis; white-space: nowrap; }
       .service-face--front .service-info { height: 32px; display: grid; place-items: center; padding: 0 3px; text-align: center; }
       .service-mark { display: none; }
-      .service-card h3 { min-height: 0; margin: 0; font-size: .74rem; line-height: 1.2; }
+      .service-card h3 { min-height: 0; margin: 0; font-size: .66rem; line-height: 1.16; text-wrap: balance; white-space: normal; word-break: normal; overflow-wrap: normal; hyphens: none; }
       .service-card p { display: none; }
       .service-face--front .service-link { display: none; }
       .preview-window { width: 90%; }
@@ -516,9 +517,15 @@
       .type-app .system-window-demo::before { height: 14px; padding-left: 5px; font-size: .38rem; line-height: 11px; }
       .type-app .system-window-demo i { height: 4px; margin-bottom: 4px; }
       .type-app .system-window-demo i:nth-child(3) { height: 15px; }
+      .type-app .system-window-demo b { left: 6px; top: 17px; font-size: .3rem; }
       .type-app .preview-window::before { width: 30px; height: 7px; margin-top: 4px; }
       .app-home { padding: 5px 6px; }
       .app-logo-demo { width: 20px; height: 20px; margin: 2px auto 6px; border-radius: 6px; }
+      .type-app .app-logo-demo { width: 25px; height: 25px; color: #06121c; background: linear-gradient(135deg,#fff,var(--blue-light) 48%,var(--cyan)); box-shadow: 0 5px 14px rgba(50,230,210,.25); font-size: .42rem; }
+      .type-app .app-widget { background: linear-gradient(135deg,rgba(66,165,255,.48),rgba(139,92,246,.20)); }
+      .type-app .app-grid-demo i:nth-child(1) { background: rgba(50,230,210,.28); }
+      .type-app .app-grid-demo i:nth-child(2) { background: rgba(139,92,246,.28); }
+      .type-app .app-grid-demo i:nth-child(3) { background: rgba(66,165,255,.28); }
       .app-widget { height: 20px; margin-bottom: 5px; }
       .restaurant-menu { width: 88%; height: 85%; padding: 8px; }
       .restaurant-menu h4 { padding-bottom: 3px; font-size: .48rem; }
@@ -685,8 +692,8 @@
             <div class="service-info"><div class="service-mark">WEB</div><div class="service-copy"><h3>Criação de sites</h3><p>Sites profissionais, rápidos e adaptados ao celular para apresentar sua empresa, seus serviços e seus canais de contato.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20cria%C3%A7%C3%A3o%20de%20um%20site." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
-            <div class="service-preview type-app"><span class="service-badge">Apps e sistemas</span><div class="preview-window"><div class="app-home"><div class="app-logo-demo">A</div><div class="app-widget"></div><div class="app-grid-demo"><i></i><i></i><i></i></div></div></div><div class="system-window-demo" aria-hidden="true"><i></i><i></i><i></i></div></div>
-            <div class="service-info"><div class="service-mark">APP/SYS</div><div class="service-copy"><h3>Aplicativos e sistemas sob demanda</h3><p>Aplicativos e sistemas personalizados, criados do jeito que sua empresa precisa para organizar rotinas, atender clientes e transformar ideias em soluções práticas.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20aplicativo%20ou%20sistema%20personalizado." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
+            <div class="service-preview type-app"><span class="service-badge">Apps e sistemas</span><div class="preview-window"><div class="app-home"><div class="app-logo-demo">APP</div><div class="app-widget"></div><div class="app-grid-demo"><i></i><i></i><i></i></div></div></div><div class="system-window-demo" aria-hidden="true"><b>Sistema</b><i></i><i></i><i></i></div></div>
+            <div class="service-info"><div class="service-mark">APP/SYS</div><div class="service-copy"><h3>Apps e sistemas sob medida</h3><p>Aplicativos e sistemas personalizados, criados do jeito que sua empresa precisa para organizar rotinas, atender clientes e transformar ideias em soluções práticas.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20aplicativo%20ou%20sistema%20personalizado." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
             <div class="service-preview type-menu"><span class="service-badge">Pedidos</span><div class="restaurant-menu"><h4>MENU</h4><div class="restaurant-item"><span>Prato especial</span><b>R$ 28</b></div><div class="restaurant-item"><span>Hambúrguer</span><b>R$ 22</b></div><div class="restaurant-item"><span>Sobremesa</span><b>R$ 14</b></div></div></div>
@@ -741,7 +748,7 @@
     <section class="section" id="sobre"><div class="container"><article class="about"><div class="about-brand"><span class="eyebrow">Sobre a Aiex</span><h2>Automação guiada pela realidade dos negócios.</h2><img src="img/favicon.png" alt="Ícone Aiex" onerror="this.style.display='none'"></div><div class="about-copy"><p>A Aiex surgiu para resolver problemas reais, eliminar tarefas repetitivas e reduzir custos operacionais. Antes de chegar ao mercado, automatizamos nossas próprias operações em busca de mais eficiência, controle e economia.</p><p>Entendemos quem empreende porque vivemos as dores da gestão no dia a dia. É essa experiência que orienta cada automação e solução que implementamos: <strong>tecnologia útil, acessível e conectada a resultados.</strong></p></div></article><blockquote class="quote"><p>“Não é que temos pouco tempo, mas que o desperdiçamos muito com aquilo que não importa.”</p><span>Sêneca</span></blockquote></div></section>
   </main>
 
-  <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><img class="footer-logo" src="img/logo-aiex.png" alt="Aiex" onerror="this.style.display='none'"><p>Automatizando processos para empresas mais eficientes, integradas e preparadas para crescer.</p></div><div><h3>Links</h3><ul><li><a href="#inicio">Início</a></li><li><a href="#destaque">Organiza+</a></li><li><a href="#processo">Como trabalhamos</a></li><li><a href="#servicos">Nossas soluções</a></li></ul></div><div><h3>Contato</h3><ul><li><a href="https://wa.me/5521970656726" target="_blank" rel="noopener">(21) 97065-6726</a></li><li><a href="https://www.instagram.com/aiexbr/" target="_blank" rel="noopener">Instagram</a></li><li>Rio de Janeiro, RJ</li></ul></div></div><p class="copyright">© <span id="year"></span> Aiex. Todos os direitos reservados. Desenvolvido por Mikhail Ayache.</p></div></footer>
+  <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><img class="footer-logo" src="img/logo-aiex.png" alt="Aiex" onerror="this.style.display='none'"><p>Automatizando processos para empresas mais eficientes, integradas e preparadas para crescer.</p></div><div><h3>Links</h3><ul><li><a href="#inicio">Início</a></li><li><a href="#destaque">Organiza+</a></li><li><a href="#processo">Como trabalhamos</a></li><li><a href="#servicos">Nossas soluções</a></li></ul></div><div><h3>Contato</h3><ul><li><a href="https://wa.me/5521970656726" target="_blank" rel="noopener">(21) 97065-6726</a></li><li><a href="https://www.instagram.com/aiexbr/" target="_blank" rel="noopener">Instagram</a></li><li>Rio de Janeiro, RJ</li><li>Atendimento online em todo o Brasil</li></ul></div></div><p class="copyright">© <span id="year"></span> Aiex. Todos os direitos reservados. Desenvolvido por Mikhail Ayache.</p></div></footer>
 
   <a class="wpp-float" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" aria-label="Falar com a Aiex pelo WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.21c-.26-.13-1.54-.76-1.78-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.82 1.02-.15.17-.3.2-.56.07-.26-.13-1.09-.4-2.08-1.28-.77-.69-1.29-1.53-1.44-1.79-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.33-.02-.46-.07-.13-.59-1.41-.8-1.93-.21-.51-.43-.44-.59-.45h-.5c-.17 0-.46.07-.69.33-.24.26-.91.89-.91 2.17s.93 2.52 1.06 2.69c.13.17 1.83 2.8 4.44 3.93.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3zM16.04 5.33c-5.85 0-10.61 4.75-10.61 10.6 0 1.87.49 3.7 1.42 5.31l-1.51 5.51 5.64-1.48a10.57 10.57 0 0 0 5.06 1.29h.01c5.85 0 10.61-4.76 10.61-10.61S21.9 5.33 16.04 5.33zm0 19.43h-.01c-1.55 0-3.07-.42-4.39-1.2l-.31-.18-3.35.88.89-3.27-.2-.33a8.77 8.77 0 0 1-1.35-4.7c0-4.83 3.94-8.77 8.78-8.77 2.34 0 4.54.91 6.2 2.57a8.72 8.72 0 0 1 2.57 6.21c-.01 4.84-3.94 8.78-8.83 8.79z"/></svg></a>
 
