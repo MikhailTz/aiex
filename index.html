@@ -191,22 +191,45 @@
     .process-card h3 { margin: 28px 0 8px; }
     .process-card p { color: var(--muted); font-size: .89rem; }
 
-    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; align-items: stretch; }
-    .service-card { position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 310px; padding: 28px; border-radius: 26px; box-shadow: 0 16px 40px rgba(0,0,0,.2); transition: .3s; }
-    .service-card > div:last-child { min-width: 0; display: flex; flex: 1; flex-direction: column; }
-    .service-card::before { content: ""; position: absolute; left: 28px; right: 28px; top: 0; height: 2px; background: linear-gradient(90deg,transparent,var(--blue),var(--cyan),transparent); }
-    .service-card::after { content: ""; position: absolute; width: 150px; height: 150px; right: -85px; top: -85px; border-radius: 50%; background: var(--blue); filter: blur(55px); opacity: .1; pointer-events: none; }
-    .service-icon { flex: 0 0 54px; width: 54px; height: 54px; margin-bottom: 32px; display: grid; place-items: center; border: 1px solid rgba(75,169,255,.28); border-radius: 15px; color: var(--blue-light); background: linear-gradient(145deg,rgba(66,165,255,.13),rgba(66,165,255,.035)); box-shadow: inset 0 1px rgba(255,255,255,.07),0 10px 25px rgba(0,0,0,.16); font-size: 1.2rem; font-weight: 900; letter-spacing: -.05em; }
-    .service-number { display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; }
-    .service-card h3 { margin-bottom: 12px; overflow-wrap: anywhere; font-size: 1.24rem; line-height: 1.3; }
-    .service-card p { flex: 1; color: #a3adbb; font-size: .88rem; overflow-wrap: break-word; }
-    .service-card.featured-all { grid-column: span 2; min-height: 310px; padding: 32px; border-color: rgba(66,165,255,.28); background: radial-gradient(circle at 95% 20%,rgba(66,165,255,.13),transparent 32%),linear-gradient(145deg,rgba(17,28,43,.94),rgba(8,12,18,.9)); }
-    .featured-all .service-icon { flex-basis: 58px; width: 58px; height: 58px; font-size: 1.3rem; }
-    .service-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-    .service-chip { padding: 7px 10px; border: 1px solid rgba(80,174,255,.18); border-radius: 9px; color: #a9d7ff; background: rgba(66,165,255,.06); font-size: .67rem; font-weight: 800; }
-    .service-link, .status-label { align-self: flex-start; display: inline-flex; margin-top: 20px; color: var(--blue-light); font-size: .75rem; font-weight: 800; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
+    .services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; align-items: stretch; }
+    .service-card { position: relative; overflow: hidden; min-height: 450px; padding: 14px; border-radius: 24px; box-shadow: 0 20px 55px rgba(0,0,0,.28),inset 0 0 45px rgba(66,165,255,.035); transition: transform .3s, border-color .3s, box-shadow .3s; }
+    .service-card:hover { transform: translateY(-6px); border-color: rgba(112,190,255,.45); box-shadow: 0 28px 75px rgba(0,0,0,.42),0 0 36px rgba(66,165,255,.12),inset 0 0 55px rgba(66,165,255,.06); }
+    .service-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 82% 4%,rgba(66,165,255,.18),transparent 35%),radial-gradient(circle at 8% 95%,rgba(139,92,246,.10),transparent 28%); }
+    .service-preview { position: relative; height: 275px; overflow: hidden; display: grid; place-items: center; border: 1px solid rgba(115,184,255,.16); border-radius: 16px; background: radial-gradient(circle at 50% 35%,rgba(66,165,255,.28),transparent 47%),radial-gradient(circle at 88% 82%,rgba(139,92,246,.15),transparent 34%),linear-gradient(145deg,#101725,#080b12); box-shadow: inset 0 0 50px rgba(66,165,255,.07),0 0 28px rgba(66,165,255,.06); }
+    .service-preview::before { content: ""; position: absolute; inset: 0; opacity: .18; background-image: linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px); background-size: 28px 28px; }
+    .service-preview::after { content: ""; position: absolute; width: 180px; height: 180px; left: 50%; top: 48%; border-radius: 50%; background: rgba(66,165,255,.16); filter: blur(60px); transform: translate(-50%,-50%); pointer-events: none; }
+    .service-card:nth-child(even) .service-preview { background: radial-gradient(circle at 48% 32%,rgba(139,92,246,.27),transparent 48%),radial-gradient(circle at 12% 82%,rgba(50,230,210,.12),transparent 34%),linear-gradient(145deg,#131124,#080b12); }
+    .service-badge { position: absolute; top: 14px; right: 14px; z-index: 3; padding: 7px 10px; border: 1px solid rgba(255,255,255,.13); border-radius: 999px; color: #dbeeff; background: rgba(6,10,17,.75); backdrop-filter: blur(10px); font-size: .58rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .preview-window { position: relative; z-index: 2; width: 82%; height: 72%; overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 12px; background: #0c111a; box-shadow: 0 18px 45px rgba(0,0,0,.42); transform: perspective(700px) rotateX(2deg); }
+    .preview-window::before { content: "•••"; display: block; height: 26px; padding-left: 10px; color: #5d6a7c; background: #141b27; font-size: 12px; letter-spacing: 3px; line-height: 22px; }
+    .preview-ui { display: grid; gap: 9px; padding: 15px; }
+    .preview-ui i { display: block; height: 10px; border-radius: 8px; background: linear-gradient(90deg,rgba(66,165,255,.78),rgba(50,230,210,.35)); }
+    .preview-ui i:nth-child(2) { width: 72%; opacity: .65; }
+    .preview-ui i:nth-child(3) { width: 88%; height: 62px; opacity: .28; }
+    .preview-ui i:nth-child(4) { width: 52%; opacity: .48; }
+    .type-app .preview-window { width: 145px; height: 235px; border-radius: 27px; transform: rotate(4deg); }
+    .type-app .preview-window::before { content: ""; width: 50px; height: 12px; margin: 7px auto 0; border-radius: 10px; background: #05070b; }
+    .type-menu .preview-ui { grid-template-columns: 1fr 1fr; }
+    .type-menu .preview-ui i { width: 100%; height: 54px; opacity: .42; }
+    .type-ai .preview-window { width: 76%; height: 76%; }
+    .type-ai .preview-ui i { height: 34px; width: 78%; border-radius: 14px 14px 14px 4px; }
+    .type-ai .preview-ui i:nth-child(even) { margin-left: auto; background: linear-gradient(90deg,rgba(139,92,246,.7),rgba(66,165,255,.45)); border-radius: 14px 14px 4px 14px; }
+    .type-map .preview-ui i:nth-child(3) { height: 85px; background: radial-gradient(circle at 58% 45%,var(--cyan) 0 5px,transparent 6px),linear-gradient(35deg,transparent 46%,rgba(66,165,255,.35) 47% 51%,transparent 52%),rgba(255,255,255,.05); opacity: 1; }
+    .type-auto .preview-ui i:nth-child(3) { height: 72px; background: linear-gradient(90deg,rgba(66,165,255,.2),rgba(50,230,210,.25)); box-shadow: inset 45px 0 rgba(66,165,255,.15),inset -45px 0 rgba(139,92,246,.12); opacity: 1; }
+    .type-nfc .preview-window { width: 210px; height: 132px; border-radius: 18px; transform: rotate(-5deg); background: linear-gradient(145deg,#18263a,#0a0f18); }
+    .type-nfc .preview-window::before { content: "NFC"; height: auto; padding: 24px 20px 0; color: var(--blue-light); background: transparent; font-size: 1.35rem; font-weight: 900; letter-spacing: .12em; }
+    .type-nfc .preview-ui { padding-top: 10px; }
+    .type-nfc .preview-ui i { height: 6px; opacity: .4; }
+    .type-review .preview-window { width: 78%; height: 70%; }
+    .type-review .preview-window::before { content: "★★★★★"; height: 42px; padding: 10px 14px; color: #ffd35a; background: #141b27; font-size: 1rem; letter-spacing: .14em; }
+    .type-review .preview-ui i:nth-child(3) { height: 54px; }
+    .service-info { position: relative; z-index: 2; display: grid; grid-template-columns: 44px 1fr; gap: 13px; padding: 20px 10px 12px; }
+    .service-mark { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid rgba(75,169,255,.28); border-radius: 13px; color: #06121c; background: linear-gradient(135deg,var(--blue-light),var(--cyan)); box-shadow: 0 10px 24px rgba(66,165,255,.18); font-size: .65rem; font-weight: 900; }
+    .service-copy { min-width: 0; }
+    .service-card h3 { margin-bottom: 5px; font-size: 1.05rem; line-height: 1.3; }
+    .service-card p { color: #929cab; font-size: .8rem; line-height: 1.55; }
+    .service-link { display: inline-flex; margin-top: 12px; color: var(--blue-light); font-size: .67rem; font-weight: 800; letter-spacing: .05em; text-decoration: none; text-transform: uppercase; }
     .service-link:hover { color: #fff; }
-    .status-label { color: #5f6874; }
 
     .app-card { overflow: hidden; display: grid; grid-template-columns: 1fr .92fr; min-height: 400px; border: 1px solid rgba(255,255,255,.1); border-radius: 30px; background: linear-gradient(135deg,#0c121b,#080b10); box-shadow: var(--shadow); }
     .app-copy { padding: clamp(32px,6vw,62px); }
@@ -243,11 +266,12 @@
     .carousel-btn { width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 13px; color: #fff; background: var(--surface); cursor: pointer; transition: .25s; }
     .carousel-btn:hover { border-color: var(--line-blue); background: rgba(66,165,255,.1); }
 
-    .cta { position: relative; overflow: hidden; padding: clamp(36px,7vw,72px); border: 1px solid rgba(37,211,102,.23); border-radius: 32px; text-align: center; background: linear-gradient(145deg,rgba(13,24,24,.92),rgba(8,11,15,.95)); }
-    .cta::before { content: ""; position: absolute; width: 300px; height: 300px; left: 50%; bottom: -240px; border-radius: 50%; background: var(--green); filter: blur(90px); opacity: .2; transform: translateX(-50%); }
+    .cta { position: relative; overflow: hidden; padding: clamp(36px,7vw,72px); border: 1px solid rgba(66,165,255,.28); border-radius: 32px; text-align: center; background: radial-gradient(circle at 50% 110%,rgba(66,165,255,.18),transparent 45%),linear-gradient(145deg,rgba(12,22,38,.95),rgba(8,11,18,.97)); box-shadow: 0 24px 70px rgba(0,0,0,.32),inset 0 0 50px rgba(66,165,255,.045); }
+    .cta::before { content: ""; position: absolute; width: 340px; height: 340px; left: 50%; bottom: -260px; border-radius: 50%; background: var(--blue); filter: blur(90px); opacity: .28; transform: translateX(-50%); }
     .cta h2 { position: relative; font-size: clamp(2rem,5vw,3.5rem); line-height: 1.08; letter-spacing: -.045em; }
     .cta p { position: relative; max-width: 620px; margin: 18px auto 28px; color: var(--muted); }
     .cta .btn { position: relative; }
+    .cta .btn-whatsapp { color: #04111d; background: linear-gradient(120deg,#fff,#9bdcff 72%,#77f4e5); box-shadow: 0 12px 32px rgba(66,165,255,.22); }
 
     .faq-list { display: grid; gap: 13px; }
     .faq-item { border-radius: 17px; overflow: hidden; }
@@ -291,7 +315,6 @@
       .tech-panel { min-height: 500px; }
       .featured-copy { order: -1; }
       .services-grid { grid-template-columns: repeat(2,1fr); }
-      .service-card.featured-all { grid-column: 1 / -1; }
       .feedback-card { flex-basis: calc((100% - 18px)/2); }
       .about { grid-template-columns: 1fr; gap: 30px; }
     }
@@ -310,10 +333,9 @@
       .featured-service { padding: 28px 21px; }
       .feature-visual { min-height: 280px; transform: scale(.9); }
       .check-list, .process-grid { grid-template-columns: 1fr; }
-      .services-grid { display: flex; gap: 14px; margin-inline: -14px; padding: 4px 14px 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-      .services-grid::-webkit-scrollbar { display: none; }
-      .service-card, .service-card.featured-all { flex: 0 0 min(84vw,330px); min-height: 350px; padding: 27px; scroll-snap-align: center; }
-      .service-icon { margin-bottom: 28px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 420px; }
+      .service-preview { height: 245px; }
       .app-visual { min-height: 350px; }
       .feedback-card { flex-basis: 100%; }
       .about { padding: 30px 23px; }
@@ -401,13 +423,40 @@
 
     <section class="section" id="servicos">
       <div class="container">
-        <div class="section-head"><span class="eyebrow">Automação empresarial</span><h2>Processos que trabalham <span class="gradient-text">pela sua empresa.</span></h2><p>Automatizamos rotinas, conectamos ferramentas e criamos soluções digitais para sua equipe produzir mais com menos esforço manual.</p></div>
+        <div class="section-head"><span class="eyebrow">Produtos e soluções</span><h2>Nossos <span class="gradient-text">produtos.</span></h2><p>Soluções digitais adaptadas à realidade de cada empresa, com foco em presença, organização, atendimento e automação.</p></div>
         <div class="services-grid">
-          <article class="service-card featured-all"><div class="service-icon service-number" aria-hidden="true">01</div><div><h3>Automação de processos empresariais</h3><p>Mapeamos tarefas manuais e criamos fluxos automáticos para atendimento, pedidos, organização de dados, comunicação e gestão da operação.</p><div class="service-chips"><span class="service-chip">Atendimento</span><span class="service-chip">Pedidos</span><span class="service-chip">Integrações</span><span class="service-chip">Gestão de dados</span><span class="service-chip">Processos internos</span></div><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20quero%20automatizar%20processos%20da%20minha%20empresa." target="_blank" rel="noopener">Automatizar minha operação →</a></div></article>
-          <article class="service-card"><div class="service-icon service-number" aria-hidden="true">02</div><div><h3>Agente de IA</h3><p>Atendimento inteligente e natural no WhatsApp, configurado com as regras, informações e o tom de voz da sua empresa.</p><span class="status-label">Em evolução</span></div></article>
-          <article class="service-card"><div class="service-icon service-number" aria-hidden="true">03</div><div><h3>Cardápio Digital</h3><p>Uma experiência rápida para o cliente escolher, montar e enviar pedidos completos e organizados direto para o seu WhatsApp.</p><a class="service-link" href="https://wa.me/5521970656726?text=Tenho%20interesse%20em%20saber%20mais%20sobre%20o%20Card%C3%A1pio%20Digital." target="_blank" rel="noopener">Tenho interesse →</a></div></article>
-          <article class="service-card"><div class="service-icon service-number" aria-hidden="true">04</div><div><h3>Cartão de Avaliação NFC</h3><p>Cartão físico com NFC e QR Code que leva o cliente diretamente à avaliação da sua empresa no Google, fortalecendo reputação e visibilidade.</p><a class="service-link" href="https://wa.me/5521970656726?text=Tenho%20interesse%20no%20Cart%C3%A3o%20de%20Avalia%C3%A7%C3%A3o%20NFC." target="_blank" rel="noopener">Tenho interesse →</a></div></article>
-          <article class="service-card"><div class="service-icon service-number" aria-hidden="true">05</div><div><h3>Tag NFC Inteligente</h3><p>Uma solução compacta e personalizável para direcionar clientes ao Instagram, cardápio, Google ou qualquer experiência digital com uma aproximação.</p><a class="service-link" href="https://wa.me/5521970656726?text=Tenho%20interesse%20na%20Tag%20NFC%20Inteligente." target="_blank" rel="noopener">Tenho interesse →</a></div></article>
+          <article class="service-card">
+            <div class="service-preview type-site"><span class="service-badge">Presença digital</span><div class="preview-window"><div class="preview-ui"><i></i><i></i><i></i><i></i></div></div></div>
+            <div class="service-info"><div class="service-mark">WEB</div><div class="service-copy"><h3>Criação de sites</h3><p>Sites profissionais, rápidos e adaptados ao celular para apresentar sua empresa, seus serviços e seus canais de contato.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20cria%C3%A7%C3%A3o%20de%20um%20site." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
+          </article>
+          <article class="service-card">
+            <div class="service-preview type-app"><span class="service-badge">Aplicativos</span><div class="preview-window"><div class="preview-ui"><i></i><i></i><i></i><i></i></div></div></div>
+            <div class="service-info"><div class="service-mark">APP</div><div class="service-copy"><h3>Aplicativos personalizados</h3><p>Aplicativos criados para organizar rotinas, atender clientes ou transformar uma ideia em uma solução prática.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20aplicativo%20personalizado." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
+          </article>
+          <article class="service-card">
+            <div class="service-preview type-auto"><span class="service-badge">Automação</span><div class="preview-window"><div class="preview-ui"><i></i><i></i><i></i><i></i></div></div></div>
+            <div class="service-info"><div class="service-mark">AUTO</div><div class="service-copy"><h3>Automação empresarial</h3><p>Fluxos digitais que conectam tarefas, informações e ferramentas para reduzir trabalho manual e retrabalho.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20quero%20automatizar%20processos%20da%20minha%20empresa." target="_blank" rel="noopener">Automatizar minha empresa →</a></div></div>
+          </article>
+          <article class="service-card">
+            <div class="service-preview type-menu"><span class="service-badge">Pedidos</span><div class="preview-window"><div class="preview-ui"><i></i><i></i><i></i><i></i></div></div></div>
+            <div class="service-info"><div class="service-mark">MENU</div><div class="service-copy"><h3>Cardápio digital</h3><p>Catálogo simples para o cliente escolher produtos e enviar o pedido completo e organizado diretamente no WhatsApp.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Card%C3%A1pio%20Digital." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
+          </article>
+          <article class="service-card">
+            <div class="service-preview type-ai"><span class="service-badge">Inteligência artificial</span><div class="preview-window"><div class="preview-ui"><i></i><i></i><i></i><i></i></div></div></div>
+            <div class="service-info"><div class="service-mark">IA</div><div class="service-copy"><h3>Agente de IA</h3><p>Atendimento inteligente configurado com as informações, regras e o jeito de falar da sua empresa.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20Agente%20de%20IA." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
+          </article>
+          <article class="service-card">
+            <div class="service-preview type-map"><span class="service-badge">Visibilidade local</span><div class="preview-window"><div class="preview-ui"><i></i><i></i><i></i><i></i></div></div></div>
+            <div class="service-info"><div class="service-mark">MAP</div><div class="service-copy"><h3>Presença no Google</h3><p>Organização da presença digital para facilitar que clientes encontrem sua empresa, localização e canais de contato.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20quero%20melhorar%20a%20presen%C3%A7a%20da%20minha%20empresa%20no%20Google." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
+          </article>
+          <article class="service-card">
+            <div class="service-preview type-nfc"><span class="service-badge">Conexão por aproximação</span><div class="preview-window"><div class="preview-ui"><i></i><i></i></div></div></div>
+            <div class="service-info"><div class="service-mark">NFC</div><div class="service-copy"><h3>Tag NFC inteligente</h3><p>Uma tag compacta que direciona clientes ao Instagram, cardápio, site, WhatsApp ou qualquer link com uma aproximação.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Tag%20NFC%20Inteligente." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
+          </article>
+          <article class="service-card">
+            <div class="service-preview type-review"><span class="service-badge">Reputação no Google</span><div class="preview-window"><div class="preview-ui"><i></i><i></i><i></i><i></i></div></div></div>
+            <div class="service-info"><div class="service-mark">5★</div><div class="service-copy"><h3>Cartão de avaliação NFC</h3><p>Cartão físico com NFC e QR Code que leva o cliente diretamente à avaliação da empresa no Google.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Cart%C3%A3o%20de%20Avalia%C3%A7%C3%A3o%20NFC." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
+          </article>
         </div>
       </div>
     </section>
