@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aiexbrasil.com.br/">
   <meta property="og:site_name" content="Aiex">
-  <title>AIEX | Automação Empresarial</title>
+  <title>Aiex | Automação Empresarial</title>
 
   <script type="application/ld+json">
   {
@@ -191,7 +191,9 @@
     .process-card h3 { margin: 28px 0 8px; }
     .process-card p { color: var(--muted); font-size: .89rem; }
 
-    .services-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; align-items: stretch; }
+    .services-grid { display: grid; grid-template-columns: repeat(12,1fr); gap: 14px; align-items: stretch; }
+    .services-grid > .service-card { grid-column: span 4; }
+    .services-grid > .service-card:nth-child(n+4) { grid-column: span 3; }
     .service-card { position: relative; overflow: hidden; min-height: 350px; padding: 11px; border-radius: 21px; box-shadow: 0 18px 45px rgba(0,0,0,.26),inset 0 0 38px rgba(66,165,255,.035); transition: transform .3s, border-color .3s, box-shadow .3s; }
     .service-card:hover { transform: translateY(-6px); border-color: rgba(112,190,255,.45); box-shadow: 0 28px 75px rgba(0,0,0,.42),0 0 36px rgba(66,165,255,.12),inset 0 0 55px rgba(66,165,255,.06); }
     .service-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 82% 4%,rgba(66,165,255,.18),transparent 35%),radial-gradient(circle at 8% 95%,rgba(139,92,246,.10),transparent 28%); }
@@ -207,21 +209,22 @@
     .preview-ui i:nth-child(2) { width: 72%; opacity: .65; }
     .preview-ui i:nth-child(3) { width: 88%; height: 62px; opacity: .28; }
     .preview-ui i:nth-child(4) { width: 52%; opacity: .48; }
-    .type-app .preview-window { width: 105px; height: 165px; border-radius: 21px; transform: rotate(4deg); }
+    .type-app .preview-window { width: 116px; height: 174px; border-radius: 23px; transform: rotate(2deg); }
     .type-app .preview-window::before { content: ""; width: 50px; height: 12px; margin: 7px auto 0; border-radius: 10px; background: #05070b; }
-    .site-url { position: absolute; left: 34px; right: 8px; top: 6px; z-index: 2; overflow: hidden; color: #d5e9fa; font-size: .48rem; font-weight: 700; line-height: 14px; text-overflow: ellipsis; white-space: nowrap; }
+    .site-url { position: absolute; left: 34px; right: 8px; top: 6px; z-index: 2; overflow: hidden; color: #e8f5ff; font-size: .56rem; font-weight: 800; line-height: 14px; text-overflow: ellipsis; white-space: nowrap; }
     .site-url strong { color: var(--cyan); font-weight: 800; }
     .site-layout { display: grid; grid-template-columns: 1.15fr .85fr; gap: 9px; height: calc(100% - 26px); padding: 13px; background: radial-gradient(circle at 85% 15%,rgba(66,165,255,.18),transparent 34%); }
     .site-copy { display: flex; flex-direction: column; justify-content: center; gap: 7px; }
     .site-copy i { display: block; height: 7px; border-radius: 7px; background: linear-gradient(90deg,var(--blue),rgba(50,230,210,.55)); }
     .site-copy i:nth-child(2) { width: 72%; opacity: .5; }
     .site-copy i:nth-child(3) { width: 46%; height: 20px; margin-top: 3px; opacity: .78; }
-    .site-name-demo { align-self: center; color: #eef8ff; font-size: .68rem; font-weight: 900; letter-spacing: .06em; line-height: 1.25; }
-    .site-name-demo span { display: block; margin-top: 5px; color: var(--blue-light); font-size: .43rem; font-weight: 600; letter-spacing: 0; }
-    .site-photo { align-self: center; height: 75%; border: 1px solid rgba(99,181,255,.18); border-radius: 9px; background: linear-gradient(145deg,rgba(66,165,255,.45),rgba(7,12,20,.92)); box-shadow: inset 0 0 24px rgba(139,212,255,.12); }
-    .app-home { padding: 18px 10px 10px; }
+    .site-name-demo { align-self: center; color: #fff; font-size: .82rem; font-weight: 900; letter-spacing: .04em; line-height: 1.18; text-shadow: 0 0 18px rgba(139,212,255,.22); }
+    .site-name-demo span { display: block; margin-top: 6px; color: #b7c9da; font-size: .48rem; font-weight: 600; letter-spacing: 0; }
+    .site-name-demo b { display: inline-flex; margin-top: 9px; padding: 5px 8px; border-radius: 6px; color: #06121c; background: var(--blue-light); font-size: .4rem; letter-spacing: 0; }
+    .site-photo { align-self: center; height: 82%; border: 1px solid rgba(99,181,255,.24); border-radius: 9px; background: linear-gradient(160deg,rgba(66,165,255,.7),rgba(8,16,28,.95)); box-shadow: inset 0 0 24px rgba(139,212,255,.16),0 8px 24px rgba(0,0,0,.3); }
+    .app-home { padding: 15px 11px 10px; }
     .app-logo-demo { width: 34px; height: 34px; margin: 3px auto 15px; display: grid; place-items: center; border-radius: 11px; color: #04111d; background: linear-gradient(135deg,var(--blue-light),var(--cyan)); box-shadow: 0 8px 20px rgba(66,165,255,.24); font-size: .52rem; font-weight: 900; }
-    .app-widget { height: 32px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,.08); border-radius: 9px; background: linear-gradient(135deg,rgba(66,165,255,.18),rgba(50,230,210,.06)); }
+    .app-widget { height: 42px; margin-bottom: 9px; border: 1px solid rgba(255,255,255,.09); border-radius: 10px; background: linear-gradient(135deg,rgba(66,165,255,.28),rgba(50,230,210,.08)); }
     .app-grid-demo { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; }
     .app-grid-demo i { display: block; aspect-ratio: 1; border-radius: 7px; background: rgba(139,203,255,.14); }
     .type-menu .preview-ui { grid-template-columns: 1fr 1fr; }
@@ -233,11 +236,12 @@
     .type-ai .preview-window { width: 76%; height: 76%; }
     .type-ai .preview-ui i { height: 34px; width: 78%; border-radius: 14px 14px 14px 4px; }
     .type-ai .preview-ui i:nth-child(even) { margin-left: auto; background: linear-gradient(90deg,rgba(139,92,246,.7),rgba(66,165,255,.45)); border-radius: 14px 14px 4px 14px; }
-    .chat-demo { position: relative; z-index: 2; width: 88%; display: grid; gap: 7px; }
-    .chat-title { display: flex; align-items: center; gap: 7px; margin-bottom: 2px; color: #cfdfed; font-size: .48rem; font-weight: 800; }
+    .chat-demo { position: relative; z-index: 2; width: 90%; display: grid; gap: 7px; }
+    .chat-title { display: flex; align-items: center; gap: 7px; margin-bottom: 2px; color: #e7f3fc; font-size: .56rem; font-weight: 800; }
     .bot-avatar { position: relative; width: 25px; height: 22px; border: 1px solid rgba(139,212,255,.58); border-radius: 8px; background: #132237; }
     .bot-avatar::before { content: ""; position: absolute; inset: 7px 5px; border-radius: 6px; background: radial-gradient(circle at 25% 50%,var(--cyan) 0 2px,transparent 3px),radial-gradient(circle at 75% 50%,var(--cyan) 0 2px,transparent 3px); }
-    .chat-line { max-width: 82%; padding: 8px 9px; border: 1px solid rgba(255,255,255,.08); color: #dbe7f2; font-size: .48rem; line-height: 1.4; box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+    .chat-line { max-width: 86%; padding: 8px 10px; border: 1px solid rgba(255,255,255,.08); color: #e4edf5; font-size: .55rem; line-height: 1.42; box-shadow: 0 8px 20px rgba(0,0,0,.18); }
+    .chat-line small { display: block; margin-bottom: 2px; color: var(--blue-light); font-size: .42rem; font-weight: 900; }
     .chat-line.client { justify-self: end; border-radius: 11px 11px 3px 11px; background: rgba(66,165,255,.18); }
     .chat-line.bot { justify-self: start; border-radius: 11px 11px 11px 3px; background: rgba(19,34,55,.95); }
     .type-map .preview-ui i:nth-child(3) { height: 85px; background: radial-gradient(circle at 58% 45%,var(--cyan) 0 5px,transparent 6px),linear-gradient(35deg,transparent 46%,rgba(66,165,255,.35) 47% 51%,transparent 52%),rgba(255,255,255,.05); opacity: 1; }
@@ -359,6 +363,7 @@
       .tech-panel { min-height: 500px; }
       .featured-copy { order: -1; }
       .services-grid { grid-template-columns: repeat(2,1fr); }
+      .services-grid > .service-card, .services-grid > .service-card:nth-child(n+4) { grid-column: auto; }
       .feedback-card { flex-basis: calc((100% - 18px)/2); }
       .about { grid-template-columns: 1fr; gap: 30px; }
     }
@@ -376,7 +381,30 @@
       .system-card { left: 20px; right: 20px; bottom: 20px; }
       .featured-service { padding: 28px 21px; }
       .feature-visual { min-height: 280px; transform: scale(.9); }
-      .check-list, .process-grid { grid-template-columns: 1fr; }
+      .check-list {
+        display: flex;
+        gap: 10px;
+        margin-inline: -20px;
+        padding: 2px 20px 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+      .check-list::-webkit-scrollbar { display: none; }
+      .check-list li { flex: 0 0 210px; min-height: 48px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.025); scroll-snap-align: start; }
+      .process-grid {
+        display: flex;
+        gap: 14px;
+        margin-inline: -20px;
+        padding: 4px 20px 18px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        overscroll-behavior-inline: contain;
+      }
+      .process-grid::-webkit-scrollbar { display: none; }
+      .process-card { flex: 0 0 min(78vw,300px); min-height: 260px; scroll-snap-align: center; }
+      .process-card h3 { margin-top: 20px; }
       .services-grid {
         display: flex;
         gap: 14px;
@@ -406,7 +434,19 @@
         scrollbar-width: none;
       }
       .physical-products-grid::-webkit-scrollbar { display: none; }
-      .physical-products-grid .service-card { flex: 0 0 min(78vw,300px); min-height: 330px; scroll-snap-align: center; }
+      .physical-products-grid .service-card { flex: 0 0 min(68vw,240px); min-height: 0; scroll-snap-align: center; }
+      .physical-products-grid .service-preview { height: 145px; }
+      .solution-options {
+        display: flex;
+        gap: 10px;
+        margin-inline: -20px;
+        padding: 2px 20px 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+      .solution-options::-webkit-scrollbar { display: none; }
+      .solution-option { flex: 0 0 min(72vw,260px); scroll-snap-align: center; }
       .app-visual { min-height: 350px; }
       .feedback-card { flex-basis: 100%; }
       .about { padding: 30px 23px; }
@@ -497,7 +537,7 @@
         <div class="section-head"><span class="eyebrow">Produtos e soluções</span><h2>Nossos <span class="gradient-text">produtos.</span></h2><p>Soluções digitais adaptadas à realidade de cada empresa, com foco em presença, organização, atendimento e automação.</p></div>
         <div class="services-grid">
           <article class="service-card">
-            <div class="service-preview type-site"><span class="service-badge">Presença digital</span><div class="preview-window"><div class="site-url"><strong>●</strong> https://suaempresa.com.br</div><div class="site-layout"><div class="site-name-demo">SUA EMPRESA<span>Site profissional</span></div><div class="site-photo"></div></div></div></div>
+            <div class="service-preview type-site"><span class="service-badge">Presença digital</span><div class="preview-window"><div class="site-url"><strong>●</strong> https://suaempresa.com.br</div><div class="site-layout"><div class="site-name-demo">SUA EMPRESA<span>Uma presença profissional para o seu negócio.</span><b>CONHEÇA AGORA</b></div><div class="site-photo"></div></div></div></div>
             <div class="service-info"><div class="service-mark">WEB</div><div class="service-copy"><h3>Criação de sites</h3><p>Sites profissionais, rápidos e adaptados ao celular para apresentar sua empresa, seus serviços e seus canais de contato.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20cria%C3%A7%C3%A3o%20de%20um%20site." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
@@ -509,21 +549,13 @@
             <div class="service-info"><div class="service-mark">MENU</div><div class="service-copy"><h3>Cardápio digital</h3><p>Catálogo simples para o cliente escolher produtos e enviar o pedido completo e organizado diretamente no WhatsApp.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Card%C3%A1pio%20Digital." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
-            <div class="service-preview type-ai"><span class="service-badge">Inteligência artificial</span><div class="chat-demo"><div class="chat-title"><div class="bot-avatar"></div>Assistente AIEX</div><div class="chat-line client">Olá, gostaria de saber mais.</div><div class="chat-line bot">Claro! Posso ajudar no seu atendimento.</div><div class="chat-line client">Quero falar com a equipe.</div></div></div>
+            <div class="service-preview type-ai"><span class="service-badge">Inteligência artificial</span><div class="chat-demo"><div class="chat-title"><div class="bot-avatar"></div>Assistente virtual online</div><div class="chat-line client"><small>CLIENTE</small>Oi! Vocês atendem hoje?</div><div class="chat-line bot"><small>ASSISTENTE</small>Olá! Atendemos sim 😊 Quer que eu encontre o melhor horário para você?</div><div class="chat-line client"><small>CLIENTE</small>Quero para às 15h.</div><div class="chat-line bot"><small>ASSISTENTE</small>Perfeito! Vou verificar agora.</div></div></div>
             <div class="service-info"><div class="service-mark">IA</div><div class="service-copy"><h3>Agente de IA</h3><p>Atendimento inteligente configurado com as informações, regras e o jeito de falar da sua empresa.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20Agente%20de%20IA." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
             <div class="service-preview type-map"><span class="service-badge">Visibilidade local</span><div class="google-scene"><div class="google-g">G</div><div class="google-stars">★★★★★</div><small>Sua empresa no Google</small></div></div>
             <div class="service-info"><div class="service-mark">MAP</div><div class="service-copy"><h3>Presença no Google</h3><p>Organização da presença digital para facilitar que clientes encontrem sua empresa, localização e canais de contato.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20quero%20melhorar%20a%20presen%C3%A7a%20da%20minha%20empresa%20no%20Google." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
-        </div>
-
-        <div class="physical-products">
-          <div class="physical-products-head">
-            <h3>Outros produtos</h3>
-            <p>Soluções físicas para conectar seus clientes rapidamente aos canais digitais da empresa.</p>
-          </div>
-          <div class="physical-products-grid">
           <article class="service-card">
             <div class="service-preview type-nfc"><span class="service-badge">Conexão por aproximação</span><div class="nfc-tags" aria-hidden="true"><div class="nfc-tag">)))</div><div class="nfc-tag">)))</div><div class="nfc-tag">)))</div></div></div>
             <div class="service-info"><div class="service-mark">NFC</div><div class="service-copy"><h3>Tag NFC inteligente</h3><p>Uma tag compacta que direciona clientes ao Instagram, cardápio, site, WhatsApp ou qualquer link com uma aproximação.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Tag%20NFC%20Inteligente." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
@@ -532,7 +564,6 @@
             <div class="service-preview type-review"><span class="service-badge">Reputação no Google</span><div class="review-card-demo" aria-hidden="true"><strong>Avalie sua experiência</strong><div class="review-card-stars">★★★★★</div><div class="review-nfc">NFC )))</div></div></div>
             <div class="service-info"><div class="service-mark">5★</div><div class="service-copy"><h3>Cartão de avaliação NFC</h3><p>Cartão físico com NFC e QR Code que leva o cliente diretamente à avaliação da empresa no Google.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Cart%C3%A3o%20de%20Avalia%C3%A7%C3%A3o%20NFC." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
-          </div>
         </div>
       </div>
     </section>
