@@ -50,15 +50,13 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; background: var(--bg); }
     body {
       min-width: 320px;
       overflow-x: hidden;
       color: var(--text);
-      background:
-        radial-gradient(circle at 8% 5%, rgba(20,112,255,.14), transparent 28rem),
-        radial-gradient(circle at 94% 24%, rgba(36,224,206,.08), transparent 24rem),
-        var(--bg);
+      position: relative;
+      background: transparent;
       font-family: Inter, system-ui, sans-serif;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -69,6 +67,21 @@
       background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
       background-size: 56px 56px;
       mask-image: linear-gradient(to bottom, #000, transparent 72%);
+    }
+    body::after {
+      content: "";
+      position: fixed; inset: -18%; z-index: -2; pointer-events: none;
+      background:
+        radial-gradient(circle at 12% 14%, rgba(20,112,255,.16), transparent 27rem),
+        radial-gradient(circle at 88% 32%, rgba(36,224,206,.10), transparent 24rem),
+        radial-gradient(circle at 55% 82%, rgba(139,92,246,.08), transparent 30rem);
+      will-change: transform;
+      animation: ambientDrift 24s ease-in-out infinite alternate;
+    }
+    @keyframes ambientDrift {
+      0% { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+      50% { transform: translate3d(1.8%, 1.2%, 0) scale(1.035); }
+      100% { transform: translate3d(-.5%, 2%, 0) scale(1.015); }
     }
     a { color: inherit; }
     button { font: inherit; }
@@ -182,6 +195,7 @@
     .check-list { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-bottom: 28px; list-style: none; }
     .check-list li { display: flex; align-items: center; gap: 9px; color: #cad1db; font-size: .83rem; }
     .check-list li::before { content: "✓"; color: var(--cyan); font-weight: 900; }
+    .mobile-play-cta { display: none; }
 
     .process-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
     .process-card, .service-card, .feedback-card, .faq-item { border: 1px solid var(--line); background: linear-gradient(145deg, rgba(15,21,31,.84), rgba(8,11,17,.84)); }
@@ -301,7 +315,7 @@
     .solution-option small { display: block; color: #788497; font-size: .59rem; }
 
     .carousel-shell { position: relative; }
-    .carousel-viewport { overflow: hidden; }
+    .carousel-viewport { overflow: hidden; padding: 10px 0 14px; }
     .carousel-track { display: flex; gap: 18px; transition: transform .5s cubic-bezier(.22,.75,.25,1); touch-action: pan-y; }
     .feedback-card { flex: 0 0 calc((100% - 36px)/3); display: flex; flex-direction: column; min-height: 265px; padding: 27px; border-radius: var(--radius); }
     .feedback-card.is-center { border-color: rgba(66,165,255,.52); background: linear-gradient(145deg, rgba(20,31,47,.96), rgba(10,15,24,.94)); box-shadow: 0 18px 48px rgba(32,126,214,.18); transform: translateY(-5px); }
@@ -354,6 +368,13 @@
     .wpp-float svg { width: 31px; height: 31px; fill: currentColor; }
     .wpp-float:hover { transform: scale(1.08); }
 
+    .reveal-on-scroll { opacity: 0; }
+    .reveal-on-scroll.is-visible { animation: revealUp .72s cubic-bezier(.22,.75,.25,1) both; }
+    @keyframes revealUp {
+      from { opacity: 0; transform: translateY(26px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 900px) {
       .nav-links { position: absolute; top: 76px; left: 20px; right: 20px; display: none; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(8,12,18,.97); box-shadow: var(--shadow); }
       .nav-links.open { display: grid; }
@@ -393,6 +414,8 @@
       .system-card { left: 20px; right: 20px; bottom: 20px; }
       .featured-service { gap: 10px; padding: 18px 14px; border-radius: 20px; }
       .feature-visual { width: 100%; min-height: 230px; overflow: visible; transform: scale(.68); transform-origin: center; margin: -26px 0 -18px; }
+      .featured-copy > .btn-primary { display: none; }
+      .mobile-play-cta { display: inline-flex; justify-self: center; position: relative; z-index: 5; margin: -4px auto 8px; }
       .featured-copy h2 { font-size: 1.65rem; }
       .featured-copy > p { margin: 10px 0 14px; font-size: .75rem; }
       .check-list {
@@ -490,7 +513,7 @@
       .app-copy p { margin: 10px 0 16px; font-size: .75rem; }
       .app-visual { min-height: 245px; overflow: hidden; }
       .phone { bottom: -72px; transform: rotate(2deg) scale(.62); transform-origin: center bottom; }
-      .carousel-viewport { overflow: hidden; padding: 8px 0 12px; }
+      .carousel-viewport { overflow: hidden; padding: 14px 0 14px; }
       .carousel-track { display: flex; gap: 8px; }
       .feedback-card { flex: 0 0 calc((100% - 16px)/3); min-width: 0; min-height: 205px; padding: 12px 9px; transition: transform .35s, border-color .35s, background .35s, box-shadow .35s; }
       .feedback-card.is-center { transform: translateY(-7px) scale(1.025); }
@@ -522,6 +545,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .reveal-on-scroll { opacity: 1 !important; transform: none !important; }
     }
   </style>
 </head>
@@ -573,6 +597,7 @@
             <div class="core"><img src="img/organiza-icon.png" alt="Ícone do Organiza+" onerror="this.style.display='none';this.parentElement.textContent='O+'"></div>
             <span class="orbit-dot web">Finanças</span><span class="orbit-dot app">Despesas</span><span class="orbit-dot api">Controle</span>
           </div>
+          <a class="btn btn-primary mobile-play-cta" href="https://play.google.com/store/apps/details?id=com.fincontrol" target="_blank" rel="noopener">Baixar na Play Store <span aria-hidden="true">↗</span></a>
           <div class="featured-copy">
             <h2>Organiza<span class="gradient-text">+</span></h2>
             <p>Seu aplicativo de controle financeiro pessoal. Organize seu orçamento, acompanhe despesas, contas, compras e gastos do veículo de um jeito simples, tudo na palma da sua mão.</p>
@@ -705,6 +730,7 @@
       return 3;
     }
     function updateCarousel(animate = true) {
+      animate = animate && !reducedMotion;
       const visible = visibleCards();
       const gap = window.innerWidth <= 640 ? 8 : 18;
       const cardWidth = (track.parentElement.clientWidth - gap * (visible - 1)) / visible;
@@ -741,6 +767,7 @@
     document.getElementById('prevBtn').addEventListener('click', previousSlide);
     function startAutoPlay() {
       clearInterval(autoPlay);
+      if (reducedMotion) return;
       autoPlay = setInterval(() => {
         nextSlide();
       }, 3200);
@@ -759,6 +786,29 @@
     });
     document.addEventListener('visibilitychange', () => document.hidden ? stopAutoPlay() : startAutoPlay());
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reducedMotion && 'IntersectionObserver' in window) {
+      const revealTargets = document.querySelectorAll(
+        '.hero-copy, .hero-actions, .hero-metrics, .section-head > *, .featured-service, .process-card, .service-card, .app-card, .carousel-shell, .cta, .faq-item, .about, .quote'
+      );
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const element = entry.target;
+          element.classList.add('is-visible');
+          element.addEventListener('animationend', () => {
+            element.classList.remove('reveal-on-scroll', 'is-visible');
+          }, { once: true });
+          revealObserver.unobserve(element);
+        });
+      }, { threshold: .12, rootMargin: '0px 0px -7% 0px' });
+      revealTargets.forEach((element, position) => {
+        element.classList.add('reveal-on-scroll');
+        element.style.animationDelay = `${Math.min(position % 4, 3) * 70}ms`;
+        revealObserver.observe(element);
+      });
+    }
     updateCarousel(false);
     startAutoPlay();
   </script>
