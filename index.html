@@ -280,6 +280,8 @@
     .service-card p { color: #929cab; font-size: .74rem; line-height: 1.5; }
     .service-link { display: inline-flex; margin-top: 10px; color: var(--blue-light); font-size: .61rem; font-weight: 800; letter-spacing: .04em; text-decoration: none; text-transform: uppercase; }
     .service-link:hover { color: #fff; }
+    .service-card-inner, .service-face--front { display: contents; }
+    .service-face--back { display: none; }
     .physical-products { margin-top: 42px; }
     .physical-products-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 18px; padding-top: 30px; border-top: 1px solid var(--line); }
     .physical-products-head h3 { font-size: 1.35rem; }
@@ -454,10 +456,26 @@
       .services-grid::-webkit-scrollbar { display: none; }
       .service-card {
         min-width: 0;
+        height: 268px;
         min-height: 268px;
-        padding: 7px;
+        padding: 0;
         border-radius: 14px;
+        overflow: visible;
+        background: transparent;
+        box-shadow: none;
+        perspective: 1000px;
       }
+      .service-card:hover { transform: none; }
+      .service-card::before { display: none; }
+      .service-card-inner { position: relative; display: block; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .65s cubic-bezier(.2,.75,.25,1); }
+      .service-card.is-flipped .service-card-inner { transform: rotateY(180deg); }
+      .service-face { position: absolute; inset: 0; display: block; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(145deg,rgba(15,21,31,.98),rgba(8,11,17,.98)); box-shadow: 0 18px 42px rgba(0,0,0,.28); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+      .service-face--front { padding: 7px; }
+      .service-face--back { z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px 13px; text-align: center; transform: rotateY(180deg); }
+      .service-face--back h3 { min-height: 0; margin-bottom: 10px; color: #f6f8fb; font-size: .9rem; }
+      .service-face--back p { display: block; color: #aeb7c5; font-size: .67rem; line-height: 1.55; }
+      .service-face--back .service-link { display: inline-flex; justify-content: center; width: 100%; margin-top: 14px; padding: 9px 7px; border: 1px solid rgba(66,165,255,.28); border-radius: 9px; color: #06121c; background: linear-gradient(120deg,#fff,#9bdcff 72%,#77f4e5); font-size: .55rem; }
+      .service-card:focus-visible { outline: 2px solid var(--blue-light); outline-offset: 3px; }
       .service-preview { height: 145px; border-radius: 10px; }
       .service-card:nth-child(3n+1) { border-color: rgba(66,165,255,.25); }
       .service-card:nth-child(3n+2) { border-color: rgba(139,92,246,.25); }
@@ -470,7 +488,7 @@
       .service-mark { display: none; }
       .service-card h3 { min-height: 2.5em; font-size: .8rem; }
       .service-card p { display: none; }
-      .service-link { margin-top: 7px; font-size: .46rem; }
+      .service-face--front .service-link { display: none; }
       .preview-window { width: 90%; }
       .type-site .preview-window { width: 92%; height: 74%; }
       .type-site .site-url { left: 22px; font-size: .38rem; }
@@ -648,8 +666,8 @@
             <div class="service-info"><div class="service-mark">WEB</div><div class="service-copy"><h3>Criação de sites</h3><p>Sites profissionais, rápidos e adaptados ao celular para apresentar sua empresa, seus serviços e seus canais de contato.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20cria%C3%A7%C3%A3o%20de%20um%20site." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
-            <div class="service-preview type-app"><span class="service-badge">Aplicativos</span><div class="preview-window"><div class="app-home"><div class="app-logo-demo">A</div><div class="app-widget"></div><div class="app-grid-demo"><i></i><i></i><i></i></div></div></div></div>
-            <div class="service-info"><div class="service-mark">APP</div><div class="service-copy"><h3>Aplicativos personalizados</h3><p>Aplicativos criados para organizar rotinas, atender clientes ou transformar uma ideia em uma solução prática.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20aplicativo%20personalizado." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
+            <div class="service-preview type-app"><span class="service-badge">Apps e sistemas</span><div class="preview-window"><div class="app-home"><div class="app-logo-demo">A</div><div class="app-widget"></div><div class="app-grid-demo"><i></i><i></i><i></i></div></div></div></div>
+            <div class="service-info"><div class="service-mark">APP/SYS</div><div class="service-copy"><h3>Aplicativos e sistemas sob demanda</h3><p>Aplicativos e sistemas personalizados, criados do jeito que sua empresa precisa para organizar rotinas, atender clientes e transformar ideias em soluções práticas.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20aplicativo%20ou%20sistema%20personalizado." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
             <div class="service-preview type-menu"><span class="service-badge">Pedidos</span><div class="restaurant-menu"><h4>MENU</h4><div class="restaurant-item"><span>Prato especial</span><b>R$ 28</b></div><div class="restaurant-item"><span>Hambúrguer</span><b>R$ 22</b></div><div class="restaurant-item"><span>Sobremesa</span><b>R$ 14</b></div></div></div>
@@ -721,6 +739,61 @@
       menuBtn.setAttribute('aria-expanded', 'false');
       menuBtn.textContent = '☰';
     }));
+
+    const productCards = Array.from(document.querySelectorAll('.services-grid > .service-card'));
+    productCards.forEach(card => {
+      const preview = card.querySelector('.service-preview');
+      const info = card.querySelector('.service-info');
+      const title = info.querySelector('h3');
+      const description = info.querySelector('p');
+      const link = info.querySelector('.service-link');
+      const inner = document.createElement('div');
+      const front = document.createElement('div');
+      const back = document.createElement('div');
+      inner.className = 'service-card-inner';
+      front.className = 'service-face service-face--front';
+      back.className = 'service-face service-face--back';
+      front.append(preview, info);
+      back.append(title.cloneNode(true), description.cloneNode(true), link.cloneNode(true));
+      inner.append(front, back);
+      card.append(inner);
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-expanded', 'false');
+      card.setAttribute('aria-label', `Ver detalhes de ${title.textContent}`);
+    });
+    function closeProductCards(except = null) {
+      productCards.forEach(card => {
+        if (card === except) return;
+        card.classList.remove('is-flipped');
+        card.setAttribute('aria-expanded', 'false');
+      });
+    }
+    function toggleProductCard(card) {
+      if (window.innerWidth > 640) return;
+      const willOpen = !card.classList.contains('is-flipped');
+      closeProductCards(card);
+      card.classList.toggle('is-flipped', willOpen);
+      card.setAttribute('aria-expanded', String(willOpen));
+    }
+    productCards.forEach(card => {
+      card.addEventListener('click', event => {
+        event.stopPropagation();
+        if (event.target.closest('.service-face--back .service-link')) return;
+        toggleProductCard(card);
+      });
+      card.addEventListener('keydown', event => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        if (window.innerWidth > 640) return;
+        event.preventDefault();
+        toggleProductCard(card);
+      });
+    });
+    document.addEventListener('click', () => closeProductCards());
+    window.addEventListener('scroll', () => closeProductCards(), { passive: true });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 640) closeProductCards();
+    });
 
     const heroDevice = document.querySelector('.hero-device');
     const notificationObserver = new IntersectionObserver(entries => {
