@@ -395,49 +395,44 @@
       .featured-copy h2 { font-size: 1.65rem; }
       .featured-copy > p { margin: 10px 0 14px; font-size: .75rem; }
       .check-list {
-        display: flex;
-        gap: 10px;
-        margin-inline: -20px;
-        padding: 2px 20px 12px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
+        display: grid;
+        grid-template-columns: repeat(3,minmax(0,1fr));
+        gap: 8px;
+        margin-inline: 0;
+        padding: 0;
+        overflow: visible;
       }
       .check-list::-webkit-scrollbar { display: none; }
-      .check-list li { flex: 0 0 calc((100vw - 60px)/3); min-height: 58px; padding: 8px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.025); font-size: .62rem; scroll-snap-align: start; }
+      .check-list li { min-width: 0; min-height: 58px; padding: 8px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.025); font-size: .62rem; }
       .process-grid {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3,minmax(0,1fr));
         gap: 8px;
-        margin-inline: -20px;
-        padding: 4px 20px 18px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
-        overscroll-behavior-inline: contain;
+        margin-inline: 0;
+        padding: 0;
+        overflow: visible;
       }
       .process-grid::-webkit-scrollbar { display: none; }
-      .process-card { flex: 0 0 calc((100vw - 60px)/3); min-height: 205px; padding: 14px 10px; scroll-snap-align: center; }
+      .process-card { min-width: 0; min-height: 205px; padding: 14px 10px; }
       .process-num { font-size: 1.7rem; }
       .process-card h3 { margin: 12px 0 6px; font-size: .76rem; }
       .process-card p { display: -webkit-box; overflow: hidden; font-size: .58rem; line-height: 1.45; -webkit-box-orient: vertical; -webkit-line-clamp: 7; }
       .services-grid {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3,minmax(0,1fr));
         gap: 8px;
-        margin-inline: -20px;
-        padding: 4px 20px 18px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
-        overscroll-behavior-inline: contain;
+        margin-inline: 0;
+        padding: 0;
+        overflow: visible;
       }
       .services-grid::-webkit-scrollbar { display: none; }
       .service-card {
-        flex: 0 0 calc((100vw - 60px)/3);
+        min-width: 0;
         min-height: 220px;
         padding: 6px;
         border-radius: 14px;
-        scroll-snap-align: center;
       }
+      .services-grid > .service-card:last-child { grid-column: 2; }
       .service-preview { height: 105px; border-radius: 10px; }
       .service-badge { top: 5px; right: 5px; max-width: calc(100% - 10px); padding: 3px 5px; overflow: hidden; font-size: .36rem; text-overflow: ellipsis; white-space: nowrap; }
       .service-info { display: block; padding: 10px 3px 5px; }
@@ -477,16 +472,15 @@
       .physical-products-grid .service-card { flex: 0 0 min(68vw,240px); min-height: 0; scroll-snap-align: center; }
       .physical-products-grid .service-preview { height: 145px; }
       .solution-options {
-        display: flex;
-        gap: 10px;
-        margin-inline: -20px;
-        padding: 2px 20px 12px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
+        display: grid;
+        grid-template-columns: repeat(3,minmax(0,1fr));
+        gap: 8px;
+        margin-inline: 0;
+        padding: 0;
+        overflow: visible;
       }
       .solution-options::-webkit-scrollbar { display: none; }
-      .solution-option { flex: 0 0 calc((100vw - 60px)/3); min-height: 72px; padding: 8px; scroll-snap-align: center; }
+      .solution-option { min-width: 0; min-height: 72px; padding: 8px; }
       .solution-option span { width: 24px; height: 24px; flex-basis: 24px; }
       .solution-option strong { font-size: .6rem; }
       .solution-option small { font-size: .48rem; }
@@ -494,9 +488,14 @@
       .app-copy { padding: 20px 16px; }
       .app-copy h2 { font-size: 1.8rem; }
       .app-copy p { margin: 10px 0 16px; font-size: .75rem; }
-      .app-visual { min-height: 230px; }
-      .phone { bottom: -95px; transform: rotate(4deg) scale(.66); transform-origin: center bottom; }
-      .feedback-card { flex-basis: calc((100% - 20px)/3); min-height: 205px; padding: 12px 9px; }
+      .app-visual { min-height: 245px; overflow: hidden; }
+      .phone { bottom: -72px; transform: rotate(2deg) scale(.62); transform-origin: center bottom; }
+      .carousel-viewport { overflow: visible; }
+      .carousel-track { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; transform: none !important; }
+      .carousel-track > [aria-hidden="true"] { display: none; }
+      .feedback-card { min-width: 0; min-height: 205px; padding: 12px 9px; }
+      .feedback-card:nth-child(4) { grid-column: 2; }
+      .carousel-controls { display: none; }
       .client-head { display: grid; gap: 7px; }
       .client-thumb { width: 34px; height: 34px; flex-basis: 34px; border-radius: 9px; }
       .client-head h3 { font-size: .66rem; }
