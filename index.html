@@ -369,8 +369,9 @@
     }
 
     @media (max-width: 640px) {
+      html { font-size: 14px; }
       .container { width: min(100% - 28px,1120px); }
-      .section { padding: 72px 0; }
+      .section { padding: 58px 0; }
       .hero h1 { font-size: clamp(2.85rem,15vw,4.4rem); }
       .hero-actions, .hero-actions .btn { width: 100%; }
       .hero-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -391,10 +392,10 @@
         scrollbar-width: none;
       }
       .check-list::-webkit-scrollbar { display: none; }
-      .check-list li { flex: 0 0 210px; min-height: 48px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.025); scroll-snap-align: start; }
+      .check-list li { flex: 0 0 calc((100vw - 60px)/3); min-height: 58px; padding: 8px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.025); font-size: .62rem; scroll-snap-align: start; }
       .process-grid {
         display: flex;
-        gap: 14px;
+        gap: 8px;
         margin-inline: -20px;
         padding: 4px 20px 18px;
         overflow-x: auto;
@@ -403,11 +404,13 @@
         overscroll-behavior-inline: contain;
       }
       .process-grid::-webkit-scrollbar { display: none; }
-      .process-card { flex: 0 0 min(78vw,300px); min-height: 260px; scroll-snap-align: center; }
-      .process-card h3 { margin-top: 20px; }
+      .process-card { flex: 0 0 calc((100vw - 60px)/3); min-height: 205px; padding: 14px 10px; scroll-snap-align: center; }
+      .process-num { font-size: 1.7rem; }
+      .process-card h3 { margin: 12px 0 6px; font-size: .76rem; }
+      .process-card p { display: -webkit-box; overflow: hidden; font-size: .58rem; line-height: 1.45; -webkit-box-orient: vertical; -webkit-line-clamp: 7; }
       .services-grid {
         display: flex;
-        gap: 14px;
+        gap: 8px;
         margin-inline: -20px;
         padding: 4px 20px 18px;
         overflow-x: auto;
@@ -417,11 +420,36 @@
       }
       .services-grid::-webkit-scrollbar { display: none; }
       .service-card {
-        flex: 0 0 min(78vw, 300px);
-        min-height: 350px;
+        flex: 0 0 calc((100vw - 60px)/3);
+        min-height: 220px;
+        padding: 6px;
+        border-radius: 14px;
         scroll-snap-align: center;
       }
-      .service-preview { height: 185px; }
+      .service-preview { height: 105px; border-radius: 10px; }
+      .service-badge { top: 5px; right: 5px; max-width: calc(100% - 10px); padding: 3px 5px; overflow: hidden; font-size: .36rem; text-overflow: ellipsis; white-space: nowrap; }
+      .service-info { display: block; padding: 10px 3px 5px; }
+      .service-mark { display: none; }
+      .service-card h3 { min-height: 2.5em; font-size: .72rem; }
+      .service-card p { display: none; }
+      .service-link { margin-top: 7px; font-size: .46rem; }
+      .preview-window { width: 90%; }
+      .type-app .preview-window { width: 67px; height: 96px; border-radius: 14px; }
+      .type-app .preview-window::before { width: 30px; height: 7px; margin-top: 4px; }
+      .app-home { padding: 5px 6px; }
+      .app-logo-demo { width: 20px; height: 20px; margin: 2px auto 6px; border-radius: 6px; }
+      .app-widget { height: 20px; margin-bottom: 5px; }
+      .restaurant-menu { width: 88%; height: 85%; padding: 8px; }
+      .restaurant-menu h4 { padding-bottom: 3px; font-size: .48rem; }
+      .restaurant-item { padding: 4px 0; font-size: .34rem; }
+      .chat-demo { width: 94%; gap: 3px; }
+      .chat-title { gap: 3px; font-size: .38rem; }
+      .bot-avatar { width: 17px; height: 15px; }
+      .chat-line { padding: 3px 5px; font-size: .34rem; line-height: 1.25; }
+      .chat-line small { font-size: .28rem; }
+      .google-scene { gap: 3px; transform: scale(.72); }
+      .nfc-tags { transform: scale(.53); }
+      .review-card-demo { transform: rotate(-3deg) scale(.53); }
       .physical-products-head { display: block; }
       .physical-products-head p { margin-top: 7px; text-align: left; }
       .physical-products-grid {
@@ -446,9 +474,17 @@
         scrollbar-width: none;
       }
       .solution-options::-webkit-scrollbar { display: none; }
-      .solution-option { flex: 0 0 min(72vw,260px); scroll-snap-align: center; }
+      .solution-option { flex: 0 0 calc((100vw - 60px)/3); min-height: 72px; padding: 8px; scroll-snap-align: center; }
+      .solution-option span { width: 24px; height: 24px; flex-basis: 24px; }
+      .solution-option strong { font-size: .6rem; }
+      .solution-option small { font-size: .48rem; }
       .app-visual { min-height: 350px; }
-      .feedback-card { flex-basis: 100%; }
+      .feedback-card { flex-basis: calc((100% - 20px)/3); min-height: 205px; padding: 12px 9px; }
+      .client-head { display: grid; gap: 7px; }
+      .client-thumb { width: 34px; height: 34px; flex-basis: 34px; border-radius: 9px; }
+      .client-head h3 { font-size: .66rem; }
+      .stars { font-size: .48rem; }
+      .client-quote { display: -webkit-box; margin-top: 10px; overflow: hidden; font-size: .58rem; line-height: 1.45; -webkit-box-orient: vertical; -webkit-line-clamp: 7; }
       .about { padding: 30px 23px; }
       .footer-grid { grid-template-columns: 1fr; gap: 34px; text-align: center; }
       .footer-logo { margin-inline: auto; }
@@ -640,7 +676,7 @@
     let startX = 0;
     let autoPlay;
     function visibleCards() {
-      if (window.innerWidth <= 640) return 1;
+      if (window.innerWidth <= 640) return 3;
       if (window.innerWidth <= 900) return 2;
       return 3;
     }
