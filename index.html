@@ -371,17 +371,29 @@
     @media (max-width: 640px) {
       html { font-size: 14px; }
       .container { width: min(100% - 28px,1120px); }
-      .section { padding: 58px 0; }
-      .hero h1 { font-size: clamp(2.85rem,15vw,4.4rem); }
-      .hero-actions, .hero-actions .btn { width: 100%; }
-      .hero-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-      .tech-panel { min-height: 520px; padding: 0; overflow: visible; }
-      .hero-device { top: 50%; width: 285px; height: 515px; transform: translate(-50%,-50%) scale(.9); transform-origin: center; }
+      .section { padding: 44px 0; }
+      .section-head { margin-bottom: 22px; }
+      .section-head h2 { font-size: 1.75rem; }
+      .section-head p { margin-top: 10px; font-size: .78rem; line-height: 1.55; }
+      .eyebrow { margin-bottom: 10px; font-size: .58rem; }
+      .hero { padding: 42px 0 38px; }
+      .hero-grid { gap: 22px; }
+      .hero h1 { max-width: 330px; font-size: 2.15rem; line-height: 1.04; }
+      .hero-copy { margin: 14px 0 18px; font-size: .78rem; line-height: 1.55; }
+      .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; }
+      .hero-actions .btn { width: auto; min-height: 42px; padding: 10px 8px; font-size: .62rem; }
+      .hero-metrics { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 22px; }
+      .metric strong { font-size: 1rem; }
+      .metric span { font-size: .52rem; }
+      .tech-panel { min-height: 335px; padding: 0; overflow: hidden; }
+      .hero-device { top: 50%; width: 285px; height: 515px; transform: translate(-50%,-50%) scale(.62); transform-origin: center; }
       .hero-screen { padding: 62px 18px 20px; }
       .creation-notification { min-height: 70px; padding: 13px; }
       .system-card { left: 20px; right: 20px; bottom: 20px; }
-      .featured-service { padding: 28px 21px; }
-      .feature-visual { min-height: 280px; transform: scale(.9); }
+      .featured-service { gap: 10px; padding: 18px 14px; border-radius: 20px; }
+      .feature-visual { min-height: 190px; transform: scale(.62); margin: -42px 0; }
+      .featured-copy h2 { font-size: 1.65rem; }
+      .featured-copy > p { margin: 10px 0 14px; font-size: .75rem; }
       .check-list {
         display: flex;
         gap: 10px;
@@ -478,15 +490,30 @@
       .solution-option span { width: 24px; height: 24px; flex-basis: 24px; }
       .solution-option strong { font-size: .6rem; }
       .solution-option small { font-size: .48rem; }
-      .app-visual { min-height: 350px; }
+      .app-card { min-height: 0; border-radius: 20px; }
+      .app-copy { padding: 20px 16px; }
+      .app-copy h2 { font-size: 1.8rem; }
+      .app-copy p { margin: 10px 0 16px; font-size: .75rem; }
+      .app-visual { min-height: 230px; }
+      .phone { bottom: -95px; transform: rotate(4deg) scale(.66); transform-origin: center bottom; }
       .feedback-card { flex-basis: calc((100% - 20px)/3); min-height: 205px; padding: 12px 9px; }
       .client-head { display: grid; gap: 7px; }
       .client-thumb { width: 34px; height: 34px; flex-basis: 34px; border-radius: 9px; }
       .client-head h3 { font-size: .66rem; }
       .stars { font-size: .48rem; }
       .client-quote { display: -webkit-box; margin-top: 10px; overflow: hidden; font-size: .58rem; line-height: 1.45; -webkit-box-orient: vertical; -webkit-line-clamp: 7; }
-      .about { padding: 30px 23px; }
+      .about { gap: 16px; padding: 20px 16px; border-radius: 20px; }
+      .about h2 { font-size: 1.6rem; }
+      .about p { font-size: .74rem; }
+      .faq-list { gap: 8px; }
+      .faq-item { border-radius: 12px; }
+      .faq-item summary { gap: 10px; padding: 14px 13px; font-size: .72rem; }
+      .faq-answer { padding: 0 13px 14px; font-size: .68rem; }
+      .cta { padding: 25px 15px; border-radius: 20px; }
+      .cta h2 { font-size: 1.65rem; }
+      .cta p { margin: 10px auto 17px; font-size: .74rem; }
       .footer-grid { grid-template-columns: 1fr; gap: 34px; text-align: center; }
+      footer { padding: 42px 0 22px; }
       .footer-logo { margin-inline: auto; }
       .footer-brand p { margin-inline: auto; }
       .wpp-float { right: 17px; bottom: 17px; width: 54px; height: 54px; }
