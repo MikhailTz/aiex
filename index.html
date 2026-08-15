@@ -259,6 +259,7 @@
     .restaurant-item { display: grid; grid-template-columns: 1fr auto; gap: 6px; padding: 7px 0; border-bottom: 1px dotted rgba(255,255,255,.13); color: #d9e4ef; font-size: .48rem; }
     .restaurant-item b { color: var(--cyan); }
     .restaurant-order { width: fit-content; margin: 6px auto 0; padding: 3px 7px; border: 1px solid rgba(50,230,210,.22); border-radius: 5px; color: #bff9f1; background: rgba(50,230,210,.08); font-size: .34rem; font-weight: 800; text-align: center; }
+    .order-cursor { position: absolute; right: -7px; bottom: -7px; color: #fff; filter: drop-shadow(0 2px 3px rgba(0,0,0,.7)); font-size: .7rem; transform: rotate(-35deg); }
     .type-ai .preview-window { width: 76%; height: 76%; }
     .type-ai .preview-ui i { height: 34px; width: 78%; border-radius: 14px 14px 14px 4px; }
     .type-ai .preview-ui i:nth-child(even) { margin-left: auto; background: linear-gradient(90deg,rgba(139,92,246,.7),rgba(66,165,255,.45)); border-radius: 14px 14px 4px 14px; }
@@ -529,7 +530,8 @@
       .app-home { padding: 5px 6px; }
       .app-logo-demo { width: 20px; height: 20px; margin: 2px auto 6px; border-radius: 6px; }
       .type-app .app-logo-demo { width: 25px; height: 25px; color: #06121c; background: linear-gradient(135deg,#fff,var(--blue-light) 48%,var(--cyan)); box-shadow: 0 5px 14px rgba(50,230,210,.25); font-size: .42rem; }
-      .type-app .app-widget { background: linear-gradient(135deg,rgba(66,165,255,.48),rgba(139,92,246,.20)); }
+      .type-app .app-widget { height: 23px; background: linear-gradient(135deg,rgba(66,165,255,.48),rgba(139,92,246,.20)); }
+      .type-app .app-widget::before { padding: 4px 3px; font-size: .27rem; line-height: 1; white-space: nowrap; }
       .type-app .app-grid-demo i:nth-child(1) { background: rgba(50,230,210,.28); }
       .type-app .app-grid-demo i:nth-child(2) { background: rgba(139,92,246,.28); }
       .type-app .app-grid-demo i:nth-child(3) { background: rgba(66,165,255,.28); }
@@ -537,7 +539,8 @@
       .restaurant-menu { width: 88%; height: 85%; padding: 8px; }
       .restaurant-menu h4 { padding-bottom: 3px; font-size: .48rem; }
       .restaurant-item { padding: 4px 0; font-size: .34rem; }
-      .restaurant-order { margin-top: 3px; padding: 2px 5px; font-size: .25rem; }
+      .restaurant-order { position: relative; margin-top: 3px; padding: 2px 4px; font-size: .22rem; white-space: nowrap; }
+      .order-cursor { right: -5px; bottom: -6px; font-size: .48rem; }
       .chat-demo { width: 94%; gap: 3px; }
       .chat-title { gap: 3px; font-size: .38rem; }
       .bot-avatar { width: 17px; height: 15px; }
@@ -704,7 +707,7 @@
             <div class="service-info"><div class="service-mark">A+S</div><div class="service-copy"><h3>Apps e sistemas sob medida</h3><p>Aplicativos e sistemas personalizados, criados do jeito que sua empresa precisa para organizar rotinas, atender clientes e transformar ideias em soluções práticas.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20aplicativo%20ou%20sistema%20personalizado." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
-            <div class="service-preview type-menu"><span class="service-badge">Pedidos</span><div class="restaurant-menu"><h4>MENU</h4><div class="restaurant-item"><span>Prato especial</span><b>R$ 28</b></div><div class="restaurant-item"><span>Hambúrguer</span><b>R$ 22</b></div><div class="restaurant-item"><span>Sobremesa</span><b>R$ 14</b></div><div class="restaurant-order">Enviar pedido</div></div></div>
+            <div class="service-preview type-menu"><span class="service-badge">Pedidos</span><div class="restaurant-menu"><h4>SEU PEDIDO</h4><div class="restaurant-item"><span>✓ Hambúrguer ×1</span><b>R$ 22</b></div><div class="restaurant-item"><span>✓ Batata ×1</span><b>R$ 12</b></div><div class="restaurant-item"><span>✓ Refrigerante ×2</span><b>R$ 10</b></div><div class="restaurant-order">Enviar pedido para a loja<span class="order-cursor" aria-hidden="true">➤</span></div></div></div>
             <div class="service-info"><div class="service-mark">MENU</div><div class="service-copy"><h3>Cardápio digital</h3><p>Catálogo simples para o cliente escolher produtos e enviar o pedido completo e organizado diretamente no WhatsApp.</p><a class="service-link" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Card%C3%A1pio%20Digital." target="_blank" rel="noopener">Quero saber mais →</a></div></div>
           </article>
           <article class="service-card">
