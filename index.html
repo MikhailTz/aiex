@@ -120,13 +120,9 @@
     .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: rgba(5,7,11,.12); }
     .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.12fr .88fr; gap: 68px; align-items: center; }
     .hero h1 { max-width: 650px; padding: .03em 0 .09em; font-size: clamp(2.7rem, 5.4vw, 4.7rem); line-height: 1.09; letter-spacing: -.052em; overflow: visible; }
-    .decrypt-text { display: inline; }
-    .decrypt-text.is-scrambling { color: #8d9aad; text-shadow: 0 0 18px rgba(79,173,255,.18); }
-    .decrypt-char-lock { color: #fff; animation: decryptFlash .42s cubic-bezier(.2,0,0,1); }
-    @keyframes decryptFlash {
-      0% { color: var(--blue-light); text-shadow: 0 0 24px rgba(79,173,255,.8); }
-      100% { color: inherit; text-shadow: 0 0 0 transparent; }
-    }
+    .text-reveal-word { display: inline-block; }
+    .text-reveal-ready .text-reveal-word { opacity: .08; filter: blur(7px); transform: translateY(11px); transition: opacity .46s cubic-bezier(.2,.75,.25,1), filter .46s cubic-bezier(.2,.75,.25,1), transform .46s cubic-bezier(.2,.75,.25,1); transition-delay: var(--word-delay,0ms); }
+    .text-reveal-ready.text-reveal-visible .text-reveal-word { opacity: 1; filter: blur(0); transform: translateY(0); }
     .hero-copy { max-width: 690px; margin: 26px 0 32px; color: #aeb7c5; font-size: clamp(1rem, 2vw, 1.18rem); }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 22px; border: 1px solid transparent; border-radius: 14px; text-decoration: none; font-size: .9rem; font-weight: 800; transition: transform .25s, box-shadow .25s, border-color .25s; }
@@ -225,6 +221,17 @@
     .process-num { color: rgba(119,194,255,.24); font-size: 2.7rem; font-weight: 900; letter-spacing: -.08em; }
     .process-card h3 { margin: 28px 0 8px; }
     .process-card p { color: var(--muted); font-size: .89rem; }
+
+    .sphere-section { overflow: hidden; padding: 40px 0 80px; }
+    .sphere-layout { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 50px; }
+    .sphere-copy h2 { margin: 10px 0 18px; font-size: clamp(2rem,4.6vw,3.7rem); line-height: 1.06; letter-spacing: -.05em; }
+    .sphere-copy p { max-width: 510px; color: var(--muted); }
+    .sphere-hint { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; color: #8da0b7; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .sphere-hint::before { content: "↔"; color: var(--cyan); font-size: 1rem; }
+    .sphere-stage { position: relative; height: min(520px,52vw); min-height: 390px; }
+    .sphere-stage::before { content: ""; position: absolute; left: 50%; top: 50%; width: 62%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle,rgba(66,165,255,.17),rgba(50,230,210,.04) 43%,transparent 70%); filter: blur(25px); transform: translate(-50%,-50%); }
+    .sphere-canvas { position: relative; display: block; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
+    .sphere-canvas:active { cursor: grabbing; }
 
     .services-grid { display: grid; grid-template-columns: repeat(12,1fr); gap: 14px; align-items: stretch; }
     .services-grid > .service-card { grid-column: span 4; }
@@ -420,6 +427,10 @@
     }
 
     @media (max-width: 900px) {
+      .sphere-layout { grid-template-columns: 1fr; gap: 10px; }
+      .sphere-copy { text-align: center; }
+      .sphere-copy p { margin-inline: auto; }
+      .sphere-stage { height: 440px; }
       .nav-links { position: absolute; top: 76px; left: 20px; right: 20px; display: none; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(8,12,18,.97); box-shadow: var(--shadow); }
       .nav-links.open { display: grid; }
       .nav-links a { display: block; padding: 8px; }
@@ -435,6 +446,8 @@
     }
 
     @media (max-width: 640px) {
+      .sphere-section { padding: 20px 0 44px; }
+      .sphere-stage { height: 330px; min-height: 330px; }
       html { font-size: 14px; }
       .container { width: min(100% - 28px,1120px); }
       .section { padding: 44px 0; }
@@ -671,7 +684,7 @@
       <div class="container hero-grid">
         <div>
           <span class="eyebrow">Seu negócio no mundo digital</span>
-          <h1 aria-label="Automação para sua empresa avançar."><span class="decrypt-text" data-decrypt="Automação para sua empresa" aria-hidden="true">Automação para sua empresa</span> <span class="gradient-text" aria-hidden="true">avançar.</span></h1>
+          <h1>Automação para sua empresa <span class="gradient-text">avançar.</span></h1>
           <p class="hero-copy">A Aiex conecta tecnologia à rotina do seu negócio para reduzir trabalho manual, melhorar o atendimento e organizar processos, sempre de acordo com a necessidade de cada empresa.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#servicos">Conhecer nossas automações <span aria-hidden="true">↗</span></a>
@@ -727,6 +740,18 @@
           <article class="process-card"><span class="process-num">02</span><h3>Implementação</h3><p>Desenvolvemos e colocamos a solução em funcionamento. O cliente acompanha na prática como a tecnologia reduz tarefas manuais e simplifica o trabalho da equipe.</p></article>
           <article class="process-card"><span class="process-num">03</span><h3>Suporte</h3><p>Ensinamos o cliente a utilizar e administrar a solução com autonomia. Se surgir alguma dificuldade, nossa equipe continua disponível para oferecer suporte.</p></article>
         </div>
+      </div>
+    </section>
+
+    <section class="sphere-section" aria-labelledby="sphereTitle">
+      <div class="container sphere-layout">
+        <div class="sphere-copy">
+          <span class="eyebrow">Ecossistema Aiex</span>
+          <h2 id="sphereTitle">Soluções que trabalham <span class="gradient-text">juntas.</span></h2>
+          <p>Presença digital, atendimento, automação e gestão conectados em uma experiência criada para a realidade da sua empresa.</p>
+          <span class="sphere-hint">Arraste para explorar</span>
+        </div>
+        <div class="sphere-stage"><canvas class="sphere-canvas" id="solutionSphere" aria-hidden="true"></canvas></div>
       </div>
     </section>
 
@@ -802,6 +827,7 @@
 
   <script src="blue-noise.js" defer></script>
   <script src="logo-carousel.js" defer></script>
+  <script src="sphere-carousel.js" defer></script>
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
@@ -1027,57 +1053,42 @@
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const decryptGlyphs = '#%&@$?!*+=/{}[]<>~^';
-    const decryptElements = document.querySelectorAll('[data-decrypt]');
-    const decryptTimers = new WeakMap();
+    if (!reducedMotion && 'IntersectionObserver' in window) {
+      const revealHeadings = document.querySelectorAll('.hero h1, .section-head h2, .sphere-copy h2');
+      revealHeadings.forEach(heading => {
+        const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+        const textNodes = [];
+        while (walker.nextNode()) textNodes.push(walker.currentNode);
+        let wordIndex = 0;
+        textNodes.forEach(node => {
+          const fragment = document.createDocumentFragment();
+          node.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) {
+              fragment.append(document.createTextNode(part));
+              return;
+            }
+            const word = document.createElement('span');
+            word.className = 'text-reveal-word';
+            word.style.setProperty('--word-delay', `${Math.min(wordIndex, 12) * 32}ms`);
+            word.textContent = part;
+            wordIndex += 1;
+            fragment.append(word);
+          });
+          node.replaceWith(fragment);
+        });
+        heading.classList.add('text-reveal-ready');
+      });
 
-    function playDecrypt(element) {
-      if (reducedMotion || element.dataset.decrypting === 'true') return;
-      const text = element.dataset.decrypt || element.textContent;
-      const characters = Array.from(text);
-      const startedAt = performance.now();
-      const startDelay = 280;
-      const stagger = 42;
-      const speed = 42;
-      element.dataset.decrypting = 'true';
-      element.classList.add('is-scrambling');
-
-      const frame = now => {
-        const elapsed = now - startedAt;
-        let resolved = 0;
-        element.innerHTML = characters.map((character, index) => {
-          if (character === ' ') return ' ';
-          if (elapsed >= startDelay + index * stagger) {
-            resolved += 1;
-            return `<span class="decrypt-char-lock">${character}</span>`;
-          }
-          const glyph = decryptGlyphs[Math.floor((elapsed / speed + index * 7) % decryptGlyphs.length)];
-          return glyph;
-        }).join('');
-
-        const totalLetters = characters.filter(character => character !== ' ').length;
-        if (resolved < totalLetters) {
-          requestAnimationFrame(frame);
-          return;
-        }
-        element.textContent = text;
-        element.classList.remove('is-scrambling');
-        element.dataset.decrypting = 'false';
-      };
-      requestAnimationFrame(frame);
+      const textRevealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('text-reveal-visible');
+          textRevealObserver.unobserve(entry.target);
+        });
+      }, { threshold: .22, rootMargin: '0px 0px -4% 0px' });
+      revealHeadings.forEach(heading => textRevealObserver.observe(heading));
     }
-
-    decryptElements.forEach(element => {
-      if (reducedMotion) return;
-      playDecrypt(element);
-      element.addEventListener('pointerenter', () => playDecrypt(element));
-      const timer = window.setInterval(() => {
-        if (!document.hidden && element.getBoundingClientRect().bottom > 0 && element.getBoundingClientRect().top < innerHeight) {
-          playDecrypt(element);
-        }
-      }, 7000);
-      decryptTimers.set(element, timer);
-    });
 
     let carouselWasOutside = false;
     const carouselVisibilityObserver = new IntersectionObserver(entries => {
@@ -1094,7 +1105,7 @@
     carouselVisibilityObserver.observe(carousel);
     if (!reducedMotion && 'IntersectionObserver' in window) {
       const revealTargets = document.querySelectorAll(
-        '.hero-copy, .hero-actions, .hero-metrics, .section-head > *, .featured-service, .process-card, .service-card, .app-card, .carousel-shell, .cta, .faq-item, .about, .quote'
+        '.hero-copy, .hero-actions, .hero-metrics, .section-head > :not(h2), .featured-service, .process-card, .service-card, .app-card, .carousel-shell, .cta, .faq-item, .about, .quote'
       );
       const revealObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
