@@ -117,7 +117,7 @@
 
     .hero { position: relative; isolation: isolate; overflow: hidden; padding: 96px 0 78px; }
     .site-noise { position: fixed; inset: 0; z-index: -3; width: 100vw; height: 100vh; opacity: .3; pointer-events: none; }
-    .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(90deg, rgba(5,7,11,.28), rgba(5,7,11,.62) 58%, rgba(5,7,11,.2)), linear-gradient(180deg, transparent 55%, rgba(5,7,11,.3)); }
+    .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: rgba(5,7,11,.12); }
     .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.12fr .88fr; gap: 68px; align-items: center; }
     .hero h1 { max-width: 650px; padding: .03em 0 .09em; font-size: clamp(2.7rem, 5.4vw, 4.7rem); line-height: 1.09; letter-spacing: -.052em; overflow: visible; }
     .decrypt-text { display: inline; }
@@ -138,6 +138,17 @@
     .hero-metrics { display: flex; gap: 34px; margin-top: 48px; }
     .metric strong { display: block; font-size: 1.2rem; }
     .metric span { color: #727c8a; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; }
+
+    .tech-logos { padding: 22px 0 62px; overflow: hidden; }
+    .tech-logos-head { margin-bottom: 20px; text-align: center; }
+    .tech-logos-head .eyebrow { justify-content: center; }
+    .tech-logos-head p { margin-top: 8px; color: #8490a0; font-size: .88rem; }
+    .logo-carousel-wrap { position: relative; width: 100%; height: 135px; overflow: hidden; }
+    .logo-carousel-wrap::before, .logo-carousel-wrap::after { content: ""; position: absolute; top: 0; bottom: 0; z-index: 2; width: min(14vw,150px); pointer-events: none; }
+    .logo-carousel-wrap::before { left: 0; background: linear-gradient(90deg,var(--bg),transparent); }
+    .logo-carousel-wrap::after { right: 0; background: linear-gradient(-90deg,var(--bg),transparent); }
+    .logo-carousel { display: block; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
+    .logo-carousel:active { cursor: grabbing; }
 
     .tech-panel {
       position: relative; min-height: 540px; padding: 25px; overflow: hidden;
@@ -219,9 +230,11 @@
     .services-grid > .service-card { grid-column: span 4; }
     .services-grid > .service-card:nth-child(n+4) { grid-column: span 4; }
     .services-grid > .service-card:nth-child(2) { order: -1; }
-    .service-card { position: relative; overflow: hidden; min-height: 350px; padding: 11px; border-radius: 21px; box-shadow: 0 18px 45px rgba(0,0,0,.26),inset 0 0 38px rgba(66,165,255,.035); transition: transform .3s, border-color .3s, box-shadow .3s; }
-    .service-card:hover { transform: translateY(-6px); border-color: rgba(112,190,255,.45); box-shadow: 0 28px 75px rgba(0,0,0,.42),0 0 36px rgba(66,165,255,.12),inset 0 0 55px rgba(66,165,255,.06); }
+    .service-card { --tilt-x: 0deg; --tilt-y: 0deg; --glare-x: 50%; --glare-y: 50%; position: relative; overflow: hidden; min-height: 350px; padding: 11px; border-radius: 21px; box-shadow: 0 18px 45px rgba(0,0,0,.26),inset 0 0 38px rgba(66,165,255,.035); transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)); transform-style: preserve-3d; will-change: transform; transition: transform .18s ease-out, border-color .3s, box-shadow .3s; }
+    .service-card:hover { border-color: rgba(112,190,255,.45); box-shadow: 0 30px 72px rgba(0,0,0,.4),0 0 34px rgba(66,165,255,.1),inset 0 0 55px rgba(66,165,255,.06); }
     .service-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 82% 4%,rgba(66,165,255,.18),transparent 35%),radial-gradient(circle at 8% 95%,rgba(139,92,246,.10),transparent 28%); }
+    .service-card::after { content: ""; position: absolute; inset: 0; z-index: 5; opacity: 0; pointer-events: none; border-radius: inherit; background: radial-gradient(circle at var(--glare-x) var(--glare-y),rgba(255,255,255,.2),rgba(102,190,255,.08) 18%,transparent 46%); mix-blend-mode: screen; transition: opacity .25s; }
+    .service-card.parallax-active::after { opacity: 1; }
     .service-preview { position: relative; height: 185px; overflow: hidden; display: grid; place-items: center; border: 1px solid rgba(115,184,255,.16); border-radius: 14px; background: radial-gradient(circle at 50% 35%,rgba(66,165,255,.28),transparent 47%),radial-gradient(circle at 88% 82%,rgba(139,92,246,.15),transparent 34%),linear-gradient(145deg,#101725,#080b12); box-shadow: inset 0 0 42px rgba(66,165,255,.07),0 0 24px rgba(66,165,255,.06); }
     .service-preview::before { content: ""; position: absolute; inset: 0; opacity: .18; background-image: linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px); background-size: 28px 28px; }
     .service-preview::after { content: ""; position: absolute; width: 180px; height: 180px; left: 50%; top: 48%; border-radius: 50%; background: rgba(66,165,255,.16); filter: blur(60px); transform: translate(-50%,-50%); pointer-events: none; }
@@ -345,7 +358,7 @@
     .carousel-track { display: flex; gap: 18px; transition: transform .5s cubic-bezier(.22,.75,.25,1); touch-action: pan-y; }
     .feedback-card { flex: 0 0 calc((100% - 36px)/3); display: flex; flex-direction: column; min-height: 265px; padding: 27px; border-radius: var(--radius); cursor: pointer; }
     .feedback-card:focus-visible { outline: 2px solid var(--blue-light); outline-offset: -2px; }
-    .feedback-card.is-center { border-color: rgba(66,165,255,.52); background: linear-gradient(145deg, rgba(20,31,47,.96), rgba(10,15,24,.94)); box-shadow: 0 18px 48px rgba(32,126,214,.18); transform: translateY(-5px); }
+    .feedback-card.is-center { border-color: rgba(66,165,255,.52); background: linear-gradient(145deg, rgba(20,31,47,.9), rgba(10,15,24,.88)); box-shadow: none; transform: translateY(-5px); }
     .client-head { display: flex; align-items: center; gap: 13px; }
     .client-thumb { width: 54px; height: 54px; flex: 0 0 54px; display: grid; place-items: center; overflow: hidden; border-radius: 14px; color: #0a0c10; background: #fff; font-size: .75rem; font-weight: 900; }
     .client-thumb img { width: 100%; height: 100%; object-fit: contain; }
@@ -494,6 +507,7 @@
         background: transparent;
         box-shadow: none;
         perspective: 1000px;
+        transform: none;
       }
       .service-card:hover { transform: none; }
       .service-card::before { display: none; }
@@ -670,6 +684,16 @@
       </div>
     </section>
 
+    <section class="tech-logos" aria-labelledby="techLogosTitle">
+      <div class="container tech-logos-head">
+        <span class="eyebrow">Tecnologias que utilizamos</span>
+        <p id="techLogosTitle">Plataformas e ferramentas presentes nas soluções desenvolvidas pela Aiex.</p>
+      </div>
+      <div class="logo-carousel-wrap">
+        <canvas class="logo-carousel" id="logoCarousel" aria-hidden="true"></canvas>
+      </div>
+    </section>
+
     <section class="section" id="destaque">
       <div class="container">
         <div class="section-head">
@@ -777,6 +801,7 @@
   <a class="wpp-float" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" aria-label="Falar com a Aiex pelo WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.21c-.26-.13-1.54-.76-1.78-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.82 1.02-.15.17-.3.2-.56.07-.26-.13-1.09-.4-2.08-1.28-.77-.69-1.29-1.53-1.44-1.79-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.33-.02-.46-.07-.13-.59-1.41-.8-1.93-.21-.51-.43-.44-.59-.45h-.5c-.17 0-.46.07-.69.33-.24.26-.91.89-.91 2.17s.93 2.52 1.06 2.69c.13.17 1.83 2.8 4.44 3.93.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3zM16.04 5.33c-5.85 0-10.61 4.75-10.61 10.6 0 1.87.49 3.7 1.42 5.31l-1.51 5.51 5.64-1.48a10.57 10.57 0 0 0 5.06 1.29h.01c5.85 0 10.61-4.76 10.61-10.61S21.9 5.33 16.04 5.33zm0 19.43h-.01c-1.55 0-3.07-.42-4.39-1.2l-.31-.18-3.35.88.89-3.27-.2-.33a8.77 8.77 0 0 1-1.35-4.7c0-4.83 3.94-8.77 8.78-8.77 2.34 0 4.54.91 6.2 2.57a8.72 8.72 0 0 1 2.57 6.21c-.01 4.84-3.94 8.78-8.83 8.79z"/></svg></a>
 
   <script src="blue-noise.js" defer></script>
+  <script src="logo-carousel.js" defer></script>
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
