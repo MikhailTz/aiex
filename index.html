@@ -871,6 +871,53 @@
       if (window.innerWidth > 640) closeProductCards();
     });
 
+    const supportsCardParallax = matchMedia('(hover: hover) and (pointer: fine)').matches
+      && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (supportsCardParallax) {
+      productCards.forEach(card => {
+        let parallaxFrame = 0;
+        let targetX = 0;
+        let targetY = 0;
+        let currentX = 0;
+        let currentY = 0;
+
+        const animateTilt = () => {
+          currentX += (targetX - currentX) * .18;
+          currentY += (targetY - currentY) * .18;
+          card.style.setProperty('--tilt-x', `${currentX.toFixed(2)}deg`);
+          card.style.setProperty('--tilt-y', `${currentY.toFixed(2)}deg`);
+          if (Math.abs(targetX - currentX) > .02 || Math.abs(targetY - currentY) > .02) {
+            parallaxFrame = requestAnimationFrame(animateTilt);
+          } else {
+            parallaxFrame = 0;
+          }
+        };
+
+        const requestTilt = () => {
+          if (!parallaxFrame) parallaxFrame = requestAnimationFrame(animateTilt);
+        };
+
+        card.addEventListener('pointermove', event => {
+          const rect = card.getBoundingClientRect();
+          const x = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+          const y = Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height));
+          targetX = (0.5 - y) * 8;
+          targetY = (x - 0.5) * 10;
+          card.style.setProperty('--glare-x', `${(x * 100).toFixed(1)}%`);
+          card.style.setProperty('--glare-y', `${(y * 100).toFixed(1)}%`);
+          card.classList.add('parallax-active');
+          requestTilt();
+        });
+
+        card.addEventListener('pointerleave', () => {
+          targetX = 0;
+          targetY = 0;
+          card.classList.remove('parallax-active');
+          requestTilt();
+        });
+      });
+    }
+
     const heroDevice = document.querySelector('.hero-device');
     const notificationObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
