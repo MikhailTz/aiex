@@ -117,6 +117,13 @@
     .hero { position: relative; padding: 96px 0 78px; }
     .hero-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 68px; align-items: center; }
     .hero h1 { max-width: 650px; padding: .03em 0 .09em; font-size: clamp(2.7rem, 5.4vw, 4.7rem); line-height: 1.09; letter-spacing: -.052em; overflow: visible; }
+    .decrypt-text { display: inline; }
+    .decrypt-text.is-scrambling { color: #8d9aad; text-shadow: 0 0 18px rgba(79,173,255,.18); }
+    .decrypt-char-lock { color: #fff; animation: decryptFlash .42s cubic-bezier(.2,0,0,1); }
+    @keyframes decryptFlash {
+      0% { color: var(--blue-light); text-shadow: 0 0 24px rgba(79,173,255,.8); }
+      100% { color: inherit; text-shadow: 0 0 0 transparent; }
+    }
     .hero-copy { max-width: 690px; margin: 26px 0 32px; color: #aeb7c5; font-size: clamp(1rem, 2vw, 1.18rem); }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 22px; border: 1px solid transparent; border-radius: 14px; text-decoration: none; font-size: .9rem; font-weight: 800; transition: transform .25s, box-shadow .25s, border-color .25s; }
@@ -646,7 +653,7 @@
       <div class="container hero-grid">
         <div>
           <span class="eyebrow">Seu negócio no mundo digital</span>
-          <h1>Automação para sua empresa <span class="gradient-text">avançar.</span></h1>
+          <h1 aria-label="Automação para sua empresa avançar."><span class="decrypt-text" data-decrypt="Automação para sua empresa" aria-hidden="true">Automação para sua empresa</span> <span class="gradient-text" aria-hidden="true">avançar.</span></h1>
           <p class="hero-copy">A Aiex conecta tecnologia à rotina do seu negócio para reduzir trabalho manual, melhorar o atendimento e organizar processos, sempre de acordo com a necessidade de cada empresa.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#servicos">Conhecer nossas automações <span aria-hidden="true">↗</span></a>
@@ -942,6 +949,59 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const decryptGlyphs = '#%&@$?!*+=/{}[]<>~^';
+    const decryptElements = document.querySelectorAll('[data-decrypt]');
+    const decryptTimers = new WeakMap();
+
+    function playDecrypt(element) {
+      if (reducedMotion || element.dataset.decrypting === 'true') return;
+      const text = element.dataset.decrypt || element.textContent;
+      const characters = Array.from(text);
+      const startedAt = performance.now();
+      const startDelay = 280;
+      const stagger = 42;
+      const speed = 42;
+      element.dataset.decrypting = 'true';
+      element.classList.add('is-scrambling');
+
+      const frame = now => {
+        const elapsed = now - startedAt;
+        let resolved = 0;
+        element.innerHTML = characters.map((character, index) => {
+          if (character === ' ') return ' ';
+          if (elapsed >= startDelay + index * stagger) {
+            resolved += 1;
+            return `<span class="decrypt-char-lock">${character}</span>`;
+          }
+          const glyph = decryptGlyphs[Math.floor((elapsed / speed + index * 7) % decryptGlyphs.length)];
+          return glyph;
+        }).join('');
+
+        const totalLetters = characters.filter(character => character !== ' ').length;
+        if (resolved < totalLetters) {
+          requestAnimationFrame(frame);
+          return;
+        }
+        element.textContent = text;
+        element.classList.remove('is-scrambling');
+        element.dataset.decrypting = 'false';
+      };
+      requestAnimationFrame(frame);
+    }
+
+    decryptElements.forEach(element => {
+      if (reducedMotion) return;
+      playDecrypt(element);
+      element.addEventListener('pointerenter', () => playDecrypt(element));
+      const timer = window.setInterval(() => {
+        if (!document.hidden && element.getBoundingClientRect().bottom > 0 && element.getBoundingClientRect().top < innerHeight) {
+          playDecrypt(element);
+        }
+      }, 7000);
+      decryptTimers.set(element, timer);
+    });
+
     let carouselWasOutside = false;
     const carouselVisibilityObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
