@@ -1,5 +1,5 @@
 (() => {
-  const canvas = document.getElementById('solutionSphere');
+  const canvas = document.getElementById('techOrbit');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
@@ -9,76 +9,54 @@
   const whatsappPath2D = new Path2D(WHATSAPP_PATH);
   const instagramPath2D = new Path2D(INSTAGRAM_PATH);
 
-  // Each icon draws itself centered inside a `size`x`size` box at (x, y),
-  // using its real brand shape (or a close geometric approximation).
+  // Each icon draws itself centered inside a `size`x`size` box at (x, y).
   const icons = {
     whatsapp(ctx, x, y, size) {
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.scale(size / 32, size / 32);
-      ctx.fillStyle = '#25D366';
-      ctx.fill(whatsappPath2D);
-      ctx.restore();
+      ctx.save(); ctx.translate(x, y); ctx.scale(size / 32, size / 32);
+      ctx.fillStyle = '#25D366'; ctx.fill(whatsappPath2D); ctx.restore();
     },
     instagram(ctx, x, y, size) {
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.scale(size / 448, size / 512);
-      ctx.fillStyle = '#E1306C';
-      ctx.fill(instagramPath2D);
-      ctx.restore();
+      ctx.save(); ctx.translate(x, y); ctx.scale(size / 448, size / 512);
+      ctx.fillStyle = '#E1306C'; ctx.fill(instagramPath2D); ctx.restore();
     },
     meta(ctx, x, y, size) {
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.lineCap = 'round';
+      ctx.save(); ctx.translate(x, y); ctx.lineCap = 'round';
       const r = size * 0.28;
       ctx.lineWidth = size * 0.15;
       ctx.strokeStyle = '#0081FB';
-      ctx.beginPath();
-      ctx.arc(size * 0.37, size * 0.5, r, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.beginPath();
+      ctx.beginPath(); ctx.arc(size * 0.37, size * 0.5, r, 0, Math.PI * 2); ctx.stroke();
       ctx.strokeStyle = '#00B2FF';
-      ctx.arc(size * 0.63, size * 0.5, r, 0, Math.PI * 2);
-      ctx.stroke();
+      ctx.beginPath(); ctx.arc(size * 0.63, size * 0.5, r, 0, Math.PI * 2); ctx.stroke();
       ctx.restore();
     },
     google(ctx, x, y, size) {
-      ctx.save();
-      ctx.translate(x + size / 2, y + size / 2);
+      ctx.save(); ctx.translate(x + size / 2, y + size / 2);
       ctx.fillStyle = '#4285F4';
       ctx.font = `800 ${size * 0.78}px Inter,Arial,sans-serif`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.fillText('G', 0, size * 0.04);
       ctx.restore();
     },
     openai(ctx, x, y, size) {
-      ctx.save();
-      ctx.translate(x + size / 2, y + size / 2);
+      ctx.save(); ctx.translate(x + size / 2, y + size / 2);
       ctx.fillStyle = '#fff';
       ctx.font = `800 ${size * 0.42}px Inter,Arial,sans-serif`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.fillText('AI', 0, size * 0.04);
       ctx.restore();
     },
     cloudflare(ctx, x, y, size) {
-      ctx.save();
-      ctx.translate(x, y);
+      ctx.save(); ctx.translate(x, y);
       ctx.fillStyle = '#F38020';
       ctx.beginPath();
       ctx.arc(size * 0.3, size * 0.58, size * 0.22, 0, Math.PI * 2);
       ctx.arc(size * 0.56, size * 0.42, size * 0.28, 0, Math.PI * 2);
       ctx.arc(size * 0.8, size * 0.58, size * 0.19, 0, Math.PI * 2);
       ctx.rect(size * 0.22, size * 0.54, size * 0.6, size * 0.24);
-      ctx.fill();
-      ctx.restore();
+      ctx.fill(); ctx.restore();
     },
     supabase(ctx, x, y, size) {
-      ctx.save();
-      ctx.translate(x, y);
+      ctx.save(); ctx.translate(x, y);
       ctx.fillStyle = '#3ECF8E';
       ctx.beginPath();
       ctx.moveTo(size * 0.58, 0);
@@ -87,52 +65,38 @@
       ctx.lineTo(size * 0.32, size);
       ctx.lineTo(size * 0.86, size * 0.4);
       ctx.lineTo(size * 0.56, size * 0.4);
-      ctx.closePath();
-      ctx.fill();
-      ctx.restore();
+      ctx.closePath(); ctx.fill(); ctx.restore();
     },
     nextjs(ctx, x, y, size) {
-      ctx.save();
-      ctx.translate(x + size / 2, y + size / 2);
-      ctx.strokeStyle = '#fff';
-      ctx.lineWidth = size * 0.06;
-      ctx.beginPath();
-      ctx.arc(0, 0, size * 0.44, 0, Math.PI * 2);
-      ctx.stroke();
+      ctx.save(); ctx.translate(x + size / 2, y + size / 2);
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = size * 0.06;
+      ctx.beginPath(); ctx.arc(0, 0, size * 0.44, 0, Math.PI * 2); ctx.stroke();
       ctx.fillStyle = '#fff';
       ctx.font = `800 ${size * 0.5}px Inter,Arial,sans-serif`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.fillText('N', 0, size * 0.03);
       ctx.restore();
     },
     vercel(ctx, x, y, size) {
-      ctx.save();
-      ctx.translate(x, y);
+      ctx.save(); ctx.translate(x, y);
       ctx.fillStyle = '#fff';
       ctx.beginPath();
       ctx.moveTo(size * 0.5, size * 0.08);
       ctx.lineTo(size * 0.92, size * 0.86);
       ctx.lineTo(size * 0.08, size * 0.86);
-      ctx.closePath();
-      ctx.fill();
-      ctx.restore();
+      ctx.closePath(); ctx.fill(); ctx.restore();
     },
     nodejs(ctx, x, y, size) {
-      ctx.save();
-      ctx.translate(x + size / 2, y + size / 2);
+      ctx.save(); ctx.translate(x + size / 2, y + size / 2);
       const r = size * 0.46;
       ctx.fillStyle = '#3C873A';
       ctx.beginPath();
       for (let i = 0; i < 6; i += 1) {
         const angle = (Math.PI / 3) * i - Math.PI / 6;
-        const px = r * Math.cos(angle);
-        const py = r * Math.sin(angle);
+        const px = r * Math.cos(angle), py = r * Math.sin(angle);
         i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
       }
-      ctx.closePath();
-      ctx.fill();
-      ctx.restore();
+      ctx.closePath(); ctx.fill(); ctx.restore();
     },
   };
 
@@ -149,18 +113,14 @@
     { name: 'Node.js', icon: 'nodejs' },
   ];
 
-  const items = Array.from({ length: 18 }, (_, index) => {
-    const y = 1 - (index / 17) * 2;
-    const radius = Math.sqrt(1 - y * y);
-    const theta = Math.PI * (3 - Math.sqrt(5)) * index;
-    const brand = brands[index % brands.length];
-    return { name: brand.name, icon: brand.icon, x: Math.cos(theta) * radius, y, z: Math.sin(theta) * radius };
-  });
-
+  // A single evenly-spaced ring of tech-icon nodes orbiting a glowing hub,
+  // linked by pulsing data lines — reads as "network/circuit" rather than a
+  // crowded 3D ball, and every node keeps a fixed, non-overlapping slot no
+  // matter how small the container gets on mobile.
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let width = 0, height = 0, dpr = 1, frame = 0, last = performance.now();
-  let angleX = -.18, angleY = .35, velocityX = 0, velocityY = reduced ? 0 : .18;
-  let dragging = false, lastPointerX = 0, lastPointerY = 0, visible = true;
+  let rotation = -Math.PI / 2, velocity = reduced ? 0 : .22;
+  let dragging = false, lastPointerX = 0, hovering = false, visible = true;
 
   function resize() {
     const rect = canvas.getBoundingClientRect();
@@ -170,56 +130,85 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
-  function rotate(point) {
-    const cy = Math.cos(angleY), sy = Math.sin(angleY);
-    const cx = Math.cos(angleX), sx = Math.sin(angleX);
-    const x1 = point.x * cy - point.z * sy;
-    const z1 = point.x * sy + point.z * cy;
-    return { x: x1, y: point.y * cx - z1 * sx, z: point.y * sx + z1 * cx };
-  }
-
-  function draw() {
+  function draw(now) {
     ctx.clearRect(0, 0, width, height);
-    const sphereRadius = Math.min(width, height) * .34;
-    const projected = items.map(item => ({ ...item, rotated: rotate(item) }))
-      .sort((a, b) => a.rotated.z - b.rotated.z);
+    const cx = width / 2, cy = height / 2;
+    const base = Math.min(width, height);
+    const ringRadius = base * .4;
+    const hubRadius = Math.max(20, base * .13);
+    const nodeRadius = Math.max(19, Math.min(30, base * .1));
+    const t = now / 1000;
 
-    projected.forEach(item => {
-      const depth = (item.rotated.z + 1) / 2;
-      const perspective = .72 + depth * .42;
-      const x = width / 2 + item.rotated.x * sphereRadius;
-      const y = height / 2 + item.rotated.y * sphereRadius;
-      const w = Math.max(98, Math.min(144, width * .2)) * perspective;
-      const h = 46 * perspective;
-      const alpha = .2 + depth * .8;
+    // Hub glow.
+    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, hubRadius * 1.9);
+    glow.addColorStop(0, 'rgba(66,165,255,.35)');
+    glow.addColorStop(1, 'rgba(66,165,255,0)');
+    ctx.fillStyle = glow;
+    ctx.beginPath(); ctx.arc(cx, cy, hubRadius * 1.9, 0, Math.PI * 2); ctx.fill();
 
+    const hubGradient = ctx.createLinearGradient(cx - hubRadius, cy - hubRadius, cx + hubRadius, cy + hubRadius);
+    hubGradient.addColorStop(0, '#8bd4ff');
+    hubGradient.addColorStop(1, '#32e6d2');
+    ctx.beginPath(); ctx.arc(cx, cy, hubRadius, 0, Math.PI * 2);
+    ctx.fillStyle = hubGradient; ctx.fill();
+    ctx.fillStyle = '#06121c';
+    ctx.font = `900 ${hubRadius * .62}px Inter,Arial,sans-serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('AX', cx, cy + hubRadius * .04);
+
+    const nodes = brands.map((brand, index) => {
+      const angle = rotation + (Math.PI * 2 * index) / brands.length;
+      return {
+        brand,
+        angle,
+        x: cx + Math.cos(angle) * ringRadius,
+        y: cy + Math.sin(angle) * ringRadius,
+      };
+    });
+
+    nodes.forEach((node, index) => {
+      const dx = node.x - cx, dy = node.y - cy;
+      const dist = Math.hypot(dx, dy) || 1;
+      const ux = dx / dist, uy = dy / dist;
+      const lineStartX = cx + ux * hubRadius, lineStartY = cy + uy * hubRadius;
+      const lineEndX = node.x - ux * nodeRadius, lineEndY = node.y - uy * nodeRadius;
+
+      const lineGradient = ctx.createLinearGradient(lineStartX, lineStartY, lineEndX, lineEndY);
+      lineGradient.addColorStop(0, 'rgba(139,212,255,.5)');
+      lineGradient.addColorStop(1, 'rgba(139,212,255,.08)');
+      ctx.strokeStyle = lineGradient;
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      ctx.moveTo(lineStartX, lineStartY);
+      ctx.lineTo(lineEndX, lineEndY);
+      ctx.stroke();
+
+      if (!reduced) {
+        const pulseT = (t * .35 + index / brands.length) % 1;
+        const px = lineStartX + (lineEndX - lineStartX) * pulseT;
+        const py = lineStartY + (lineEndY - lineStartY) * pulseT;
+        ctx.beginPath();
+        ctx.arc(px, py, 2.4, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(139,212,255,.9)';
+        ctx.shadowColor = 'rgba(139,212,255,.9)';
+        ctx.shadowBlur = 6;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    });
+
+    nodes.forEach(node => {
       ctx.save();
-      ctx.globalAlpha = alpha;
-      ctx.filter = `blur(${(1 - depth) * 1.8}px)`;
-      const gradient = ctx.createLinearGradient(x - w/2, y - h/2, x + w/2, y + h/2);
-      gradient.addColorStop(0, `rgba(27,44,66,${.78 + depth*.18})`);
-      gradient.addColorStop(1, `rgba(7,13,22,${.82 + depth*.14})`);
-      ctx.beginPath(); ctx.roundRect(x - w/2, y - h/2, w, h, 12 * perspective);
-      ctx.fillStyle = gradient; ctx.fill();
-      ctx.strokeStyle = depth > .65 ? 'rgba(91,194,255,.66)' : 'rgba(113,157,199,.24)';
-      ctx.lineWidth = 1; ctx.stroke();
-
-      const fontSize = Math.max(9, 12 * perspective);
-      ctx.font = `800 ${fontSize}px Inter,Arial,sans-serif`;
-      const textWidth = ctx.measureText(item.name).width;
-      const iconSize = Math.max(16, 22 * perspective);
-      const iconGap = 7 * perspective;
-      const groupWidth = iconSize + iconGap + textWidth;
-      const iconX = x - groupWidth / 2;
-      const iconY = y - iconSize / 2;
-
-      const draw = icons[item.icon];
-      if (draw) draw(ctx, iconX, iconY, iconSize);
-
-      ctx.fillStyle = depth > .6 ? '#edf8ff' : '#9aabbc';
-      ctx.font = `800 ${fontSize}px Inter,Arial,sans-serif`;
-      ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-      ctx.fillText(item.name, iconX + iconSize + iconGap, y + 1);
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, nodeRadius, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(11,16,25,.92)';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(139,212,255,.4)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      const draw = icons[node.brand.icon];
+      const iconSize = nodeRadius * 1.15;
+      if (draw) draw(ctx, node.x - iconSize / 2, node.y - iconSize / 2, iconSize);
       ctx.restore();
     });
   }
@@ -227,27 +216,32 @@
   function render(now) {
     frame = 0;
     if (!visible || document.hidden) return;
-    const dt = Math.min((now - last) / 1000, .05); last = now;
+    const dt = Math.min((now - last) / 1000, .05);
+    last = now;
     if (!dragging && !reduced) {
-      angleY += (.16 + velocityY) * dt;
-      angleX += velocityX * dt;
-      velocityX *= .97; velocityY *= .97;
+      const target = hovering ? .06 : .22;
+      rotation += velocity * dt;
+      velocity += (target - velocity) * Math.min(1, dt * 1.5);
     }
-    draw();
+    draw(now);
     if (!reduced || dragging) frame = requestAnimationFrame(render);
   }
 
   function start() { if (!frame) { last = performance.now(); frame = requestAnimationFrame(render); } }
+
+  canvas.addEventListener('pointerenter', () => { hovering = true; });
+  canvas.addEventListener('pointerleave', () => { hovering = false; });
   canvas.addEventListener('pointerdown', event => {
-    dragging = true; lastPointerX = event.clientX; lastPointerY = event.clientY;
+    dragging = true; lastPointerX = event.clientX;
     canvas.setPointerCapture(event.pointerId); start();
   });
   canvas.addEventListener('pointermove', event => {
     if (!dragging) return;
-    const dx = event.clientX - lastPointerX, dy = event.clientY - lastPointerY;
-    angleY += dx * .008; angleX += dy * .006;
-    velocityY = dx * .018; velocityX = dy * .014;
-    lastPointerX = event.clientX; lastPointerY = event.clientY; draw();
+    const dx = event.clientX - lastPointerX;
+    rotation += dx * .008;
+    velocity = dx * .03;
+    lastPointerX = event.clientX;
+    draw(performance.now());
   });
   const release = event => {
     if (!dragging) return;
@@ -257,10 +251,10 @@
   };
   canvas.addEventListener('pointerup', release);
   canvas.addEventListener('pointercancel', release);
-  window.addEventListener('resize', () => { resize(); draw(); }, { passive: true });
+  window.addEventListener('resize', () => { resize(); draw(performance.now()); }, { passive: true });
   new IntersectionObserver(([entry]) => {
     visible = entry ? entry.isIntersecting : true;
     if (visible) start(); else if (frame) { cancelAnimationFrame(frame); frame = 0; }
   }, { threshold: .05 }).observe(canvas);
-  resize(); draw(); start();
+  resize(); draw(performance.now()); start();
 })();
