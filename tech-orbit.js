@@ -113,13 +113,31 @@
     { name: 'Node.js', icon: 'nodejs' },
   ];
 
-  // A single evenly-spaced ring of tech-icon nodes orbiting a glowing hub,
-  // linked by pulsing data lines — reads as "network/circuit" rather than a
-  // crowded 3D ball, and every node keeps a fixed, non-overlapping slot no
-  // matter how small the container gets on mobile.
+  // A 3D-ish solar system: a glowing "sun" (the Aiex mark) at the center,
+  // with tech-icon "planets" travelling on tilted elliptical orbits at
+  // different distances/speeds — inner orbits move faster, like real
+  // orbital mechanics — and each planet passes visibly behind or in front
+  // of the sun as it goes around.
+  const RINGS = [
+    { count: 3, speed: .5, tilt: .34 },
+    { count: 3, speed: .32, tilt: .38 },
+    { count: 4, speed: .2, tilt: .42 },
+  ];
+  let brandIndex = 0;
+  const ringStates = RINGS.map((ring, ringIndex) => ({
+    ...ring,
+    angle: ringIndex * 1.1,
+    velocity: ring.speed,
+    planets: Array.from({ length: ring.count }, (_, i) => {
+      const brand = brands[brandIndex % brands.length];
+      brandIndex += 1;
+      return { brand, offset: (Math.PI * 2 * i) / ring.count };
+    }),
+  }));
+
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) ringStates.forEach(r => { r.velocity = 0; });
   let width = 0, height = 0, dpr = 1, frame = 0, last = performance.now();
-  let rotation = -Math.PI / 2, velocity = reduced ? 0 : .22;
   let dragging = false, lastPointerX = 0, hovering = false, visible = true;
 
   const axLogo = new Image();
@@ -135,26 +153,15 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
-  function draw(now) {
-    ctx.clearRect(0, 0, width, height);
-    const cx = width / 2, cy = height / 2;
-    const base = Math.min(width, height);
-    const ringRadius = base * .4;
-    const hubRadius = Math.max(20, base * .13);
-    const nodeRadius = Math.max(19, Math.min(30, base * .1));
-    const t = now / 1000;
-
-    // Minimal hub: a plain dark glass disc, same visual language as the
-    // orbiting node chips, with a soft outer glow and the real Aiex "AX"
-    // mark centered on top.
-    const outerGlow = ctx.createRadialGradient(cx, cy, hubRadius * .5, cx, cy, hubRadius * 1.7);
+  function drawSun(cx, cy, radius) {
+    const outerGlow = ctx.createRadialGradient(cx, cy, radius * .5, cx, cy, radius * 1.7);
     outerGlow.addColorStop(0, 'rgba(66,165,255,.22)');
     outerGlow.addColorStop(1, 'rgba(66,165,255,0)');
     ctx.fillStyle = outerGlow;
-    ctx.beginPath(); ctx.arc(cx, cy, hubRadius * 1.7, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(cx, cy, radius * 1.7, 0, Math.PI * 2); ctx.fill();
 
     ctx.beginPath();
-    ctx.arc(cx, cy, hubRadius, 0, Math.PI * 2);
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
     ctx.fillStyle = 'rgba(11,16,25,.92)';
     ctx.fill();
     ctx.strokeStyle = 'rgba(139,212,255,.4)';
@@ -162,65 +169,72 @@
     ctx.stroke();
 
     if (axLogoReady) {
-      const logoSize = hubRadius * 1.3;
+      const logoSize = radius * 1.3;
       ctx.drawImage(axLogo, cx - logoSize / 2, cy - logoSize / 2, logoSize, logoSize);
     }
+  }
 
-    const nodes = brands.map((brand, index) => {
-      const angle = rotation + (Math.PI * 2 * index) / brands.length;
-      return {
-        brand,
-        angle,
-        x: cx + Math.cos(angle) * ringRadius,
-        y: cy + Math.sin(angle) * ringRadius,
-      };
-    });
+  function drawPlanet(x, y, radius, depth, brand) {
+    const scale = .78 + depth * .34;
+    const r = radius * scale;
+    ctx.save();
+    ctx.globalAlpha = .45 + depth * .55;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(11,16,25,.92)';
+    ctx.fill();
+    ctx.strokeStyle = depth > .6 ? 'rgba(139,212,255,.55)' : 'rgba(139,212,255,.25)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    const draw = icons[brand.icon];
+    const iconSize = r * 1.15;
+    if (draw) draw(ctx, x - iconSize / 2, y - iconSize / 2, iconSize);
+    ctx.restore();
+  }
 
-    nodes.forEach((node, index) => {
-      const dx = node.x - cx, dy = node.y - cy;
-      const dist = Math.hypot(dx, dy) || 1;
-      const ux = dx / dist, uy = dy / dist;
-      const lineStartX = cx + ux * hubRadius, lineStartY = cy + uy * hubRadius;
-      const lineEndX = node.x - ux * nodeRadius, lineEndY = node.y - uy * nodeRadius;
+  function draw(now) {
+    ctx.clearRect(0, 0, width, height);
+    const cx = width / 2, cy = height / 2;
+    const base = Math.min(width, height);
+    const sunRadius = base * .11;
+    const planetRadius = Math.max(14, Math.min(24, base * .075));
+    // Orbit radii as fractions of the container's smaller dimension, so the
+    // outermost ring always stays comfortably inside the canvas at any size.
+    const ringRadiusFactors = [.25, .36, .46];
 
-      const lineGradient = ctx.createLinearGradient(lineStartX, lineStartY, lineEndX, lineEndY);
-      lineGradient.addColorStop(0, 'rgba(139,212,255,.5)');
-      lineGradient.addColorStop(1, 'rgba(139,212,255,.08)');
-      ctx.strokeStyle = lineGradient;
-      ctx.lineWidth = 1.4;
+    // Faint orbit guide ellipses, drawn first so everything else layers on top.
+    ringStates.forEach((ring, index) => {
+      const rx = base * ringRadiusFactors[index];
+      const ry = rx * ring.tilt;
       ctx.beginPath();
-      ctx.moveTo(lineStartX, lineStartY);
-      ctx.lineTo(lineEndX, lineEndY);
-      ctx.stroke();
-
-      if (!reduced) {
-        const pulseT = (t * .35 + index / brands.length) % 1;
-        const px = lineStartX + (lineEndX - lineStartX) * pulseT;
-        const py = lineStartY + (lineEndY - lineStartY) * pulseT;
-        ctx.beginPath();
-        ctx.arc(px, py, 2.4, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(139,212,255,.9)';
-        ctx.shadowColor = 'rgba(139,212,255,.9)';
-        ctx.shadowBlur = 6;
-        ctx.fill();
-        ctx.shadowBlur = 0;
-      }
-    });
-
-    nodes.forEach(node => {
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(node.x, node.y, nodeRadius, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(11,16,25,.92)';
-      ctx.fill();
-      ctx.strokeStyle = 'rgba(139,212,255,.4)';
+      ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(139,212,255,.14)';
       ctx.lineWidth = 1;
       ctx.stroke();
-      const draw = icons[node.brand.icon];
-      const iconSize = nodeRadius * 1.15;
-      if (draw) draw(ctx, node.x - iconSize / 2, node.y - iconSize / 2, iconSize);
-      ctx.restore();
     });
+
+    const planets = [];
+    ringStates.forEach((ring, index) => {
+      const rx = base * ringRadiusFactors[index];
+      const ry = rx * ring.tilt;
+      ring.planets.forEach(planet => {
+        const angle = ring.angle + planet.offset;
+        const depth = (Math.sin(angle) + 1) / 2;
+        planets.push({
+          brand: planet.brand,
+          x: cx + Math.cos(angle) * rx,
+          y: cy + Math.sin(angle) * ry,
+          depth,
+        });
+      });
+    });
+
+    const behind = planets.filter(p => p.depth < .5).sort((a, b) => a.depth - b.depth);
+    const front = planets.filter(p => p.depth >= .5).sort((a, b) => a.depth - b.depth);
+
+    behind.forEach(p => drawPlanet(p.x, p.y, planetRadius, p.depth, p.brand));
+    drawSun(cx, cy, sunRadius);
+    front.forEach(p => drawPlanet(p.x, p.y, planetRadius, p.depth, p.brand));
   }
 
   function render(now) {
@@ -229,9 +243,11 @@
     const dt = Math.min((now - last) / 1000, .05);
     last = now;
     if (!dragging && !reduced) {
-      const target = hovering ? .06 : .22;
-      rotation += velocity * dt;
-      velocity += (target - velocity) * Math.min(1, dt * 1.5);
+      ringStates.forEach(ring => {
+        const target = hovering ? ring.speed * .25 : ring.speed;
+        ring.velocity += (target - ring.velocity) * Math.min(1, dt * 1.5);
+        ring.angle += ring.velocity * dt;
+      });
     }
     draw(now);
     if (!reduced || dragging) frame = requestAnimationFrame(render);
@@ -248,8 +264,8 @@
   canvas.addEventListener('pointermove', event => {
     if (!dragging) return;
     const dx = event.clientX - lastPointerX;
-    rotation += dx * .008;
-    velocity = dx * .03;
+    const delta = dx * .008;
+    ringStates.forEach(ring => { ring.angle += delta; ring.velocity = dx * .03; });
     lastPointerX = event.clientX;
     draw(performance.now());
   });
