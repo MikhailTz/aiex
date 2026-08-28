@@ -127,19 +127,6 @@
   axLogo.src = 'img/favicon.png';
   axLogo.onload = () => { axLogoReady = true; draw(performance.now()); };
 
-  function liquidPath(cx, cy, radius, time) {
-    ctx.beginPath();
-    const points = 28;
-    for (let i = 0; i <= points; i += 1) {
-      const a = (i / points) * Math.PI * 2;
-      const wobble = 1 + 0.06 * Math.sin(a * 3 + time * .6) + 0.035 * Math.sin(a * 5 - time * .9);
-      const r = radius * wobble;
-      const x = cx + Math.cos(a) * r, y = cy + Math.sin(a) * r;
-      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-    }
-    ctx.closePath();
-  }
-
   function resize() {
     const rect = canvas.getBoundingClientRect();
     width = rect.width; height = rect.height; dpr = Math.min(devicePixelRatio || 1, 2);
@@ -157,35 +144,22 @@
     const nodeRadius = Math.max(19, Math.min(30, base * .1));
     const t = now / 1000;
 
-    // Liquid-glass hub: a soft wobbling blob (not a flat circle) with a
-    // translucent glassy fill, a rim highlight and a specular sheen, with
-    // the real Aiex "AX" mark floating on top instead of drawn text.
-    ctx.save();
-    ctx.filter = `blur(${hubRadius * .4}px)`;
-    liquidPath(cx, cy, hubRadius * 1.2, t * .5);
-    ctx.fillStyle = 'rgba(102,197,255,.32)';
-    ctx.fill();
-    ctx.restore();
+    // Minimal hub: a plain dark glass disc, same visual language as the
+    // orbiting node chips, with a soft outer glow and the real Aiex "AX"
+    // mark centered on top.
+    const outerGlow = ctx.createRadialGradient(cx, cy, hubRadius * .5, cx, cy, hubRadius * 1.7);
+    outerGlow.addColorStop(0, 'rgba(66,165,255,.22)');
+    outerGlow.addColorStop(1, 'rgba(66,165,255,0)');
+    ctx.fillStyle = outerGlow;
+    ctx.beginPath(); ctx.arc(cx, cy, hubRadius * 1.7, 0, Math.PI * 2); ctx.fill();
 
-    liquidPath(cx, cy, hubRadius, t * .7);
-    const glass = ctx.createRadialGradient(cx - hubRadius * .3, cy - hubRadius * .35, hubRadius * .1, cx, cy, hubRadius * 1.1);
-    glass.addColorStop(0, 'rgba(255,255,255,.22)');
-    glass.addColorStop(.55, 'rgba(139,212,255,.13)');
-    glass.addColorStop(1, 'rgba(50,230,210,.07)');
-    ctx.fillStyle = glass;
+    ctx.beginPath();
+    ctx.arc(cx, cy, hubRadius, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(11,16,25,.92)';
     ctx.fill();
-    ctx.strokeStyle = 'rgba(255,255,255,.32)';
+    ctx.strokeStyle = 'rgba(139,212,255,.4)';
     ctx.lineWidth = 1.2;
     ctx.stroke();
-
-    ctx.save();
-    liquidPath(cx, cy, hubRadius, t * .7);
-    ctx.clip();
-    ctx.beginPath();
-    ctx.ellipse(cx - hubRadius * .32, cy - hubRadius * .4, hubRadius * .55, hubRadius * .3, -.5, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(255,255,255,.28)';
-    ctx.fill();
-    ctx.restore();
 
     if (axLogoReady) {
       const logoSize = hubRadius * 1.3;
