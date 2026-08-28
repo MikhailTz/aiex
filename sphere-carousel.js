@@ -5,11 +5,18 @@
   if (!ctx) return;
 
   const labels = ['Sites','Apps','Automação IA','Sistemas','NFC','Cardápio','Organiza+','Google'];
+  const badges = ['WEB','APP','IA','SYS','NFC','MENU','O+','G'];
+  const palettes = [['#8bd4ff','#32e6d2'], ['#d8b4fe','#8b5cf6'], ['#6ee7d8','#22c55e'], ['#fde68a','#f59e0b']];
   const items = Array.from({ length: 18 }, (_, index) => {
     const y = 1 - (index / 17) * 2;
     const radius = Math.sqrt(1 - y * y);
     const theta = Math.PI * (3 - Math.sqrt(5)) * index;
-    return { label: labels[index % labels.length], x: Math.cos(theta) * radius, y, z: Math.sin(theta) * radius };
+    return {
+      label: labels[index % labels.length],
+      badge: badges[index % badges.length],
+      palette: palettes[index % palettes.length],
+      x: Math.cos(theta) * radius, y, z: Math.sin(theta) * radius,
+    };
   });
 
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -44,7 +51,7 @@
       const perspective = .72 + depth * .42;
       const x = width / 2 + item.rotated.x * sphereRadius;
       const y = height / 2 + item.rotated.y * sphereRadius;
-      const w = Math.max(72, Math.min(116, width * .17)) * perspective;
+      const w = Math.max(98, Math.min(144, width * .2)) * perspective;
       const h = 46 * perspective;
       const alpha = .2 + depth * .8;
 
@@ -58,10 +65,33 @@
       ctx.fillStyle = gradient; ctx.fill();
       ctx.strokeStyle = depth > .65 ? 'rgba(91,194,255,.66)' : 'rgba(113,157,199,.24)';
       ctx.lineWidth = 1; ctx.stroke();
-      ctx.fillStyle = depth > .6 ? '#edf8ff' : '#9aabbc';
-      ctx.font = `800 ${Math.max(9, 12 * perspective)}px Inter,Arial,sans-serif`;
+
+      const fontSize = Math.max(9, 12 * perspective);
+      ctx.font = `800 ${fontSize}px Inter,Arial,sans-serif`;
+      const textWidth = ctx.measureText(item.label).width;
+      const badgeSize = Math.max(16, 22 * perspective);
+      const badgeGap = 7 * perspective;
+      const groupWidth = badgeSize + badgeGap + textWidth;
+      const startX = x - groupWidth / 2;
+      const badgeX = startX;
+      const badgeY = y - badgeSize / 2;
+
+      ctx.beginPath();
+      ctx.roundRect(badgeX, badgeY, badgeSize, badgeSize, 6 * perspective);
+      const badgeGradient = ctx.createLinearGradient(badgeX, badgeY, badgeX + badgeSize, badgeY + badgeSize);
+      badgeGradient.addColorStop(0, item.palette[0]);
+      badgeGradient.addColorStop(1, item.palette[1]);
+      ctx.fillStyle = badgeGradient;
+      ctx.fill();
+      ctx.fillStyle = '#06121c';
+      ctx.font = `900 ${Math.max(6, badgeSize * .34)}px Inter,Arial,sans-serif`;
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillText(item.label, x, y + 1);
+      ctx.fillText(item.badge, badgeX + badgeSize / 2, badgeY + badgeSize / 2 + .5);
+
+      ctx.fillStyle = depth > .6 ? '#edf8ff' : '#9aabbc';
+      ctx.font = `800 ${fontSize}px Inter,Arial,sans-serif`;
+      ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+      ctx.fillText(item.label, badgeX + badgeSize + badgeGap, y + 1);
       ctx.restore();
     });
   }
