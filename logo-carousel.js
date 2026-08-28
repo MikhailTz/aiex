@@ -33,48 +33,37 @@
       ctx.save();
       ctx.translate(x, y);
       ctx.lineCap = 'round';
-      ctx.lineWidth = size * 0.2;
-      ctx.strokeStyle = '#0866FF';
+      // Two overlapping rings read as the linked-loop "infinity" mark at a glance.
+      const r = size * 0.28;
+      ctx.lineWidth = size * 0.15;
+      ctx.strokeStyle = '#0081FB';
       ctx.beginPath();
-      ctx.moveTo(size * 0.12, size * 0.78);
-      ctx.bezierCurveTo(size * 0.12, size * 0.22, size * 0.42, size * 0.22, size * 0.5, size * 0.5);
-      ctx.bezierCurveTo(size * 0.58, size * 0.78, size * 0.88, size * 0.78, size * 0.88, size * 0.22);
+      ctx.arc(size * 0.37, size * 0.5, r, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.strokeStyle = '#00B2FF';
+      ctx.arc(size * 0.63, size * 0.5, r, 0, Math.PI * 2);
       ctx.stroke();
       ctx.restore();
     },
     google(ctx, x, y, size) {
       ctx.save();
       ctx.translate(x + size / 2, y + size / 2);
-      const r = size * 0.36;
-      ctx.lineWidth = size * 0.2;
-      ctx.lineCap = 'butt';
-      const arc = (from, to, color) => {
-        ctx.beginPath();
-        ctx.strokeStyle = color;
-        ctx.arc(0, 0, r, from, to);
-        ctx.stroke();
-      };
-      const q = Math.PI / 2;
-      arc(-q * 1.05, q * 0.05, '#4285F4');
-      arc(q * 0.05, q * 1.05, '#34A853');
-      arc(q * 1.05, q * 2.05, '#FBBC05');
-      arc(q * 2.05, q * 3.05, '#EA4335');
       ctx.fillStyle = '#4285F4';
-      ctx.fillRect(0, -size * 0.1, size * 0.42, size * 0.2);
+      ctx.font = `800 ${size * 0.78}px Inter,Arial,sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('G', 0, size * 0.04);
       ctx.restore();
     },
     openai(ctx, x, y, size) {
       ctx.save();
       ctx.translate(x + size / 2, y + size / 2);
-      ctx.fillStyle = '#10A37F';
-      for (let i = 0; i < 6; i += 1) {
-        ctx.save();
-        ctx.rotate((Math.PI / 3) * i);
-        ctx.beginPath();
-        ctx.ellipse(size * 0.24, 0, size * 0.22, size * 0.09, 0, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      }
+      ctx.fillStyle = '#fff';
+      ctx.font = `800 ${size * 0.42}px Inter,Arial,sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('AI', 0, size * 0.04);
       ctx.restore();
     },
     cloudflare(ctx, x, y, size) {
@@ -180,8 +169,11 @@
   }
 
   function drawCard(x, brand) {
+    // Design height is 135px; on a thinner mobile strip everything shrinks
+    // proportionally so cards never get clipped by the shorter container.
+    const heightScale = Math.min(1, height / 135);
     const centerDistance = Math.min(1, Math.abs(x + cardWidth / 2 - width / 2) / (width * .52));
-    const scale = 1 - centerDistance * .28;
+    const scale = (1 - centerDistance * .28) * heightScale;
     const alpha = 1 - centerDistance * .54;
     const blur = centerDistance * 2.4;
     const w = cardWidth * scale;
