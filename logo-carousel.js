@@ -151,12 +151,23 @@
     { name: 'Node.js', icon: 'nodejs' },
   ];
 
+  // Two thin rows scrolling in opposite directions: each one cycles through
+  // the full brand list, so more logos are on screen at once and nothing
+  // takes long to pass by, even on a narrow phone screen.
+  const ROWS = [
+    { direction: 1, speed: 46 },
+    { direction: -1, speed: 40 },
+  ];
+  const ROW_DESIGN_HEIGHT = 56;
+  const MARK_DESIGN = 25;
+  const FONT_DESIGN = 14;
+
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let width = 0, height = 0, dpr = 1;
-  let offset = 0, speed = 42, frame = 0, previous = performance.now();
-  let visible = true, hovering = false, dragging = false, lastX = 0;
-  const gap = 34;
-  const cardWidth = 178;
+  let frame = 0, previous = performance.now();
+  let visible = true, hovering = false;
+  let cardWidth = 150, gap = 26;
+  const offsets = ROWS.map(() => Math.random() * 400);
 
   function resize() {
     const rect = canvas.getBoundingClientRect();
@@ -166,36 +177,48 @@
     canvas.width = Math.max(1, Math.round(width * dpr));
     canvas.height = Math.max(1, Math.round(height * dpr));
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // Fit ~2.4 cards across the visible width so nothing sits on screen too
+    // long, whether the strip is a wide desktop bar or a narrow phone one.
+    cardWidth = Math.max(112, Math.min(168, width * 0.42));
+    gap = cardWidth * 0.22;
   }
 
-  function drawCard(x, brand) {
-    // Design height is 135px; on a thinner mobile strip everything shrinks
-    // proportionally so cards never get clipped by the shorter container.
-    const heightScale = Math.min(1, height / 135);
+  function drawCard(x, rowY, rowHeight, brand) {
+    const scale = rowHeight / ROW_DESIGN_HEIGHT;
     const centerDistance = Math.min(1, Math.abs(x + cardWidth / 2 - width / 2) / (width * .52));
-    const scale = (1 - centerDistance * .28) * heightScale;
-    const alpha = 1 - centerDistance * .54;
-    const blur = centerDistance * 2.4;
-    const w = cardWidth * scale;
-    const h = 72 * scale;
-    const drawX = x + (cardWidth - w) / 2;
-    const drawY = (height - h) / 2;
+    const fade = 1 - centerDistance * .3;
+    const alpha = 1 - centerDistance * .5;
+    const blur = centerDistance * 2;
+    const h = ROW_DESIGN_HEIGHT * scale * fade;
+    const drawY = rowY + (rowHeight - h) / 2;
 
     ctx.save();
     ctx.globalAlpha = alpha;
     ctx.filter = `blur(${blur}px)`;
-    const markSize = 34 * scale;
-    const markX = drawX + 10 * scale;
+    const markSize = MARK_DESIGN * scale * fade;
+    const markX = x + 8 * scale * fade;
     const markY = drawY + (h - markSize) / 2;
     const draw = icons[brand.icon];
     if (draw) draw(ctx, markX, markY, markSize);
 
     ctx.fillStyle = centerDistance < .3 ? '#d7dbe0' : '#92979e';
-    ctx.font = `600 ${18 * scale}px Inter,Arial,sans-serif`;
+    ctx.font = `600 ${FONT_DESIGN * scale * fade}px Inter,Arial,sans-serif`;
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
-    ctx.fillText(brand.name, markX + markSize + 10 * scale, drawY + h / 2 + 1);
+    ctx.fillText(brand.name, markX + markSize + 8 * scale * fade, drawY + h / 2 + 1);
     ctx.restore();
+  }
+
+  function drawRow(rowIndex, offset) {
+    const rowHeight = height / ROWS.length;
+    const rowY = rowIndex * rowHeight;
+    const stride = cardWidth + gap;
+    const total = brands.length * stride;
+    const normalized = ((offset % total) + total) % total;
+    const first = -total + normalized - stride;
+    for (let loop = 0; loop < 3; loop += 1) {
+      brands.forEach((brand, index) => drawCard(first + loop * total + index * stride, rowY, rowHeight, brand));
+    }
   }
 
   function render(now) {
@@ -203,16 +226,15 @@
     if (!visible || document.hidden) return;
     const dt = Math.min((now - previous) / 1000, .05);
     previous = now;
-    if (!reducedMotion && !dragging) offset -= speed * dt * (hovering ? .16 : 1);
-    const stride = cardWidth + gap;
-    const total = brands.length * stride;
-    offset = ((offset % total) + total) % total;
     ctx.clearRect(0, 0, width, height);
-    const first = -total + offset - stride;
-    for (let loop = 0; loop < 3; loop += 1) {
-      brands.forEach((brand, index) => drawCard(first + loop * total + index * stride, brand));
-    }
-    if (!reducedMotion || dragging) frame = requestAnimationFrame(render);
+    ROWS.forEach((row, index) => {
+      if (!reducedMotion) {
+        const slow = hovering ? .16 : 1;
+        offsets[index] -= row.direction * row.speed * dt * slow;
+      }
+      drawRow(index, offsets[index]);
+    });
+    if (!reducedMotion) frame = requestAnimationFrame(render);
   }
 
   function start() {
@@ -223,17 +245,7 @@
   }
 
   canvas.addEventListener('pointerenter', () => { hovering = true; start(); });
-  canvas.addEventListener('pointerleave', () => { hovering = false; dragging = false; start(); });
-  canvas.addEventListener('pointerdown', event => {
-    dragging = true; lastX = event.clientX; canvas.setPointerCapture(event.pointerId); start();
-  });
-  canvas.addEventListener('pointermove', event => {
-    if (!dragging) return;
-    offset += event.clientX - lastX; lastX = event.clientX; start();
-  });
-  canvas.addEventListener('pointerup', event => {
-    dragging = false; canvas.releasePointerCapture(event.pointerId); start();
-  });
+  canvas.addEventListener('pointerleave', () => { hovering = false; start(); });
   window.addEventListener('resize', () => { resize(); start(); }, { passive: true });
   new IntersectionObserver(([entry]) => {
     visible = entry ? entry.isIntersecting : true;
