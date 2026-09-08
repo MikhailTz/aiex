@@ -126,18 +126,18 @@
       background: transparent; box-shadow: none;
     }
     .tech-panel::after { display: none; }
-    .hero-device { position: absolute; left: 50%; top: 50%; width: 285px; height: 515px; padding: 12px; border: 2px solid #394454; border-radius: 47px; background: #06080c; box-shadow: 0 30px 60px rgba(20,21,26,.22); transform: translate(-50%,-50%); }
+    .hero-device { position: absolute; left: 50%; top: 50%; width: 285px; height: 515px; padding: 12px; border: 2px solid #3a3d44; border-radius: 47px; background: #1a1b1f; box-shadow: 0 30px 60px rgba(20,21,26,.22); transform: translate(-50%,-50%); }
     .hero-device::before { content: ""; position: absolute; top: 10px; left: 50%; z-index: 3; width: 76px; height: 20px; border-radius: 20px; background: #05070a; transform: translateX(-50%); }
-    .hero-screen { position: relative; height: 100%; overflow: hidden; padding: 62px 18px 20px; border-radius: 34px; background: radial-gradient(circle at 50% 15%, rgba(68,164,255,.22), transparent 35%), linear-gradient(160deg,#15253a,#080d14); }
+    .hero-screen { position: relative; height: 100%; overflow: hidden; padding: 62px 18px 20px; border-radius: 34px; background: radial-gradient(circle at 50% 15%, rgba(255,255,255,.08), transparent 35%), linear-gradient(160deg,#2a2c31,#0e0f12); }
     .hero-screen small { color: #8290a3; font-size: .65rem; }
     .hero-screen h3 { margin: 5px 0 24px; font-size: 1.25rem; }
     .notification-list { display: grid; gap: 10px; }
-    .creation-notification { position: relative; display: flex; align-items: center; gap: 12px; min-height: 70px; padding: 13px; opacity: 0; border: 1px solid rgba(255,255,255,.16); border-radius: 16px; background: rgba(8,13,21,.96); box-shadow: 0 12px 28px rgba(0,0,0,.32); }
+    .creation-notification { position: relative; display: flex; align-items: center; gap: 12px; min-height: 70px; padding: 13px; opacity: 0; border: 1px solid rgba(255,255,255,.14); border-radius: 16px; background: rgba(26,27,31,.96); box-shadow: 0 12px 28px rgba(0,0,0,.32); }
     .hero-device.notifications-active .creation-notification { animation: notificationStackIn .7s cubic-bezier(.22,.75,.25,1) forwards; }
     .creation-notification::after { content: ""; position: absolute; top: 11px; right: 11px; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
-    .creation-notification:nth-child(2) { animation-delay: .55s !important; background: rgba(17,13,30,.96); }
-    .creation-notification:nth-child(3) { animation-delay: 1.1s !important; background: rgba(8,21,23,.96); }
-    .creation-notification:nth-child(4) { animation-delay: 1.65s !important; background: rgba(12,18,28,.96); }
+    .creation-notification:nth-child(2) { animation-delay: .55s !important; background: rgba(31,32,36,.96); }
+    .creation-notification:nth-child(3) { animation-delay: 1.1s !important; background: rgba(22,23,26,.96); }
+    .creation-notification:nth-child(4) { animation-delay: 1.65s !important; background: rgba(28,29,33,.96); }
     .creation-notification i { position: relative; min-width: 48px; width: 48px; height: 48px; flex: 0 0 auto; padding: 6px; display: grid; place-items: center; border-radius: 13px; color: #07101b; background: linear-gradient(135deg,var(--blue-light),var(--cyan)); font-size: .56rem; font-style: normal; font-weight: 900; white-space: nowrap; overflow: hidden; }
     .creation-notification i img { width: 100%; height: 100%; object-fit: contain; }
     .creation-notification i .mark-fallback { display: none; place-items: center; width: 100%; height: 100%; color: #07101b; font-size: .5rem; font-weight: 900; }
@@ -173,8 +173,8 @@
 
     .tech-marquee { position: relative; margin-top: 48px; display: grid; gap: 22px; overflow: hidden; padding: 8px 0; }
     .tech-track { display: flex; gap: 22px; width: max-content; }
-    .tech-track:first-child { animation: techScrollLeft 36s linear infinite; }
-    .tech-track:last-child { animation: techScrollRight 36s linear infinite; }
+    .tech-track#techRowA { animation: techScrollLeft 36s linear infinite; }
+    .tech-track#techRowB { animation: techScrollRight 36s linear infinite; }
     .tech-chip { flex: 0 0 auto; display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface-strong); box-shadow: var(--shadow); }
     .tech-chip svg { width: 30px; height: 30px; }
     .tech-fade { position: absolute; top: 0; bottom: 0; z-index: 1; width: 90px; pointer-events: none; }
@@ -205,6 +205,10 @@
     .carousel-shell { position: relative; }
     .carousel-viewport { overflow: hidden; padding: 10px 0 14px; }
     .carousel-track { display: flex; gap: 18px; transition: transform .5s cubic-bezier(.22,.75,.25,1); touch-action: pan-y; }
+    .carousel-controls { display: flex; justify-content: center; gap: 12px; margin-top: 18px; }
+    .carousel-btn { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; color: var(--text); background: var(--surface-strong); box-shadow: var(--shadow); font-size: 1.3rem; line-height: 1; cursor: pointer; transition: border-color .25s, transform .2s; }
+    .carousel-btn:hover { border-color: var(--line-blue); transform: translateY(-2px); }
+    .carousel-btn:active { transform: translateY(0); }
     .feedback-card { flex: 0 0 calc((100% - 36px)/3); display: flex; flex-direction: column; min-height: 265px; padding: 27px; border-radius: var(--radius); cursor: pointer; }
     .feedback-card:focus-visible { outline: 2px solid var(--blue-light); outline-offset: -2px; }
     .feedback-card.is-center { border-color: var(--line-blue); background: var(--surface-strong); box-shadow: var(--shadow); transform: translateY(-5px); }
@@ -482,7 +486,10 @@
             <article class="feedback-card"><div class="client-head"><div class="client-thumb"><img src="img/logo-sabor-radical.png" alt="Sabor Radical" onerror="this.remove();this.parentElement.textContent='SR'"></div><div><h3>Sabor Radical</h3><div class="stars" aria-label="5 estrelas">★★★★★</div></div></div><p class="client-quote">“Atendimento, pedidos e gestão ficaram conectados. A automação trouxe mais organização para a empresa e liberou tempo da nossa equipe.”</p></article>
             <article class="feedback-card"><div class="client-head"><div class="client-thumb"><img src="img/jl-personalziados.png" alt="JL Personalizados" onerror="this.remove();this.parentElement.textContent='JL'"></div><div><h3>JL Personalizados</h3><div class="stars" aria-label="5 estrelas">★★★★★</div></div></div><p class="client-quote">“O site ficou lindo, organizado e com a identidade da nossa empresa. Ficamos muito satisfeitos com o resultado e com todo o atendimento!”</p></article>
           </div></div>
-          <span class="sphere-hint sphere-hint--center" id="casesHint">Clique em um card para pausar</span>
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="carouselPrev" type="button" aria-label="Depoimento anterior">‹</button>
+            <button class="carousel-btn" id="carouselNext" type="button" aria-label="Próximo depoimento">›</button>
+          </div>
         </div>
       </div>
     </section>
@@ -546,15 +553,6 @@
       }, { passive: true });
     }
 
-    const casesHint = document.getElementById('casesHint');
-    if (casesHint) {
-      const casesHintMessages = ['Clique em um card para pausar', 'Clique em outro card para navegar'];
-      let casesHintIndex = 0;
-      setInterval(() => {
-        casesHintIndex = (casesHintIndex + 1) % casesHintMessages.length;
-        casesHint.textContent = casesHintMessages[casesHintIndex];
-      }, 3000);
-    }
 
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
@@ -669,6 +667,18 @@
       stopAutoPlay();
       delta < 0 ? nextSlide() : previousSlide();
     }, { passive: true });
+    const carouselPrev = document.getElementById('carouselPrev');
+    const carouselNext = document.getElementById('carouselNext');
+    if (carouselPrev) carouselPrev.addEventListener('click', () => {
+      carouselPaused = true;
+      stopAutoPlay();
+      previousSlide();
+    });
+    if (carouselNext) carouselNext.addEventListener('click', () => {
+      carouselPaused = true;
+      stopAutoPlay();
+      nextSlide();
+    });
     window.addEventListener('resize', () => {
       index %= originalCount;
       updateCarousel(false);
