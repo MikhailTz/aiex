@@ -61,6 +61,15 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
+    body::before {
+      content: "";
+      position: fixed; inset: -4%; z-index: -1; pointer-events: none;
+      background-image: linear-gradient(rgba(20,21,26,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(20,21,26,.05) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, #000, transparent 78%);
+      transform: translate3d(calc(var(--mx, 0) * 14px), calc(var(--my, 0) * 14px), 0);
+      transition: transform .5s cubic-bezier(.2,.6,.2,1);
+    }
     a { color: inherit; }
     button { font: inherit; }
     img { max-width: 100%; display: block; }
@@ -132,23 +141,27 @@
     .creation-notification i { position: relative; min-width: 48px; width: 48px; height: 48px; flex: 0 0 auto; padding: 6px; display: grid; place-items: center; border-radius: 13px; color: #07101b; background: linear-gradient(135deg,var(--blue-light),var(--cyan)); font-size: .56rem; font-style: normal; font-weight: 900; white-space: nowrap; overflow: hidden; }
     .creation-notification i img { width: 100%; height: 100%; object-fit: contain; }
     .creation-notification i .mark-fallback { display: none; place-items: center; width: 100%; height: 100%; color: #07101b; font-size: .5rem; font-weight: 900; }
-    .creation-notification:nth-child(1) i, .creation-notification:nth-child(2) i, .creation-notification:nth-child(3) i { background: #fff; padding: 7px; }
-    .creation-notification:nth-child(4) i { color: #1d4ed8; background: #fff; font-size: 1.3rem; }
+    .creation-notification:nth-child(1) i, .creation-notification:nth-child(2) i, .creation-notification:nth-child(3) i { background: #eceef1; padding: 7px; }
+    .creation-notification:nth-child(4) i { color: #d7dbe1; background: #1c1e24; border: 1px solid #454955; font-size: 1.3rem; }
     .creation-notification strong { display: block; padding-right: 8px; color: #f7faff; font-size: .79rem; line-height: 1.3; }
     .creation-notification span { display: block; margin-top: 3px; color: #98a5b6; font-size: .61rem; line-height: 1.35; }
     @keyframes notificationStackIn { from { opacity: 0; transform: translateY(-16px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-    /* Produtos Aiex, neutral black/gray accent, the logo art provides the color. */
-    .product-card { position: relative; padding: 28px 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface-strong); box-shadow: var(--shadow); transition: transform .3s, border-color .3s; }
-    .product-card:hover { transform: translateY(-4px); border-color: var(--line-blue); }
+    /* Produtos Aiex, each product carries its own accent color around the card and on the link. */
+    .product-card[data-product="foods"] { --accent: #fb923c; }
+    .product-card[data-product="agenda"] { --accent: #42a5ff; }
+    .product-card[data-product="ai"] { --accent: #25d366; }
+    .products-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .product-card { position: relative; padding: 28px 24px; border: 1.5px solid var(--accent, var(--line)); border-radius: var(--radius); background: var(--surface-strong); box-shadow: var(--shadow); transition: transform .3s, box-shadow .3s; }
+    .product-card:hover { transform: translateY(-4px); box-shadow: 0 30px 60px rgba(20,21,26,.14); }
     .product-mark { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 84px; height: 84px; margin-bottom: 22px; padding: 10px; border-radius: 18px; background: var(--bg-soft); border: 1px solid var(--line); overflow: hidden; }
     .product-mark img { width: 100%; height: 100%; object-fit: contain; }
     .product-mark-fallback { display: none; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 4px; border-radius: 6px; color: #fff; background: var(--text); font-size: .58rem; font-weight: 900; letter-spacing: .04em; text-align: center; }
     .product-card h3 { position: relative; z-index: 1; margin-bottom: 9px; font-size: 1.18rem; }
     .product-card p { position: relative; z-index: 1; color: var(--muted); font-size: .84rem; line-height: 1.55; }
     .product-card p strong { color: var(--text); }
-    .product-link { position: relative; z-index: 1; display: inline-flex; margin-top: 16px; color: var(--text); font-size: .78rem; font-weight: 800; text-decoration: none; border-bottom: 1px solid var(--line-blue); }
-    .product-link:hover { border-color: var(--text); }
+    .product-link { position: relative; z-index: 1; display: inline-flex; margin-top: 16px; color: var(--accent, var(--text)); font-size: .78rem; font-weight: 800; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .product-link:hover { opacity: .8; }
 
     .feedback-card, .faq-item { border: 1px solid var(--line); background: var(--surface-strong); }
 
@@ -166,7 +179,7 @@
     .physical-products-head h3 { font-size: 1.35rem; }
     .physical-products-head p { max-width: 520px; color: var(--muted); font-size: .82rem; text-align: right; }
     .released-app-card { display: flex; align-items: center; gap: 24px; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface-strong); box-shadow: var(--shadow); }
-    .released-app-card--organiza { border-color: var(--line-blue); }
+    .released-app-card--organiza { border-color: #8b5cf6; }
     .released-app-icon { flex: 0 0 72px; width: 72px; height: 72px; display: grid; place-items: center; color: #fff; font-weight: 900; font-size: 1.8rem; }
     .released-app-icon img { width: 100%; height: 100%; object-fit: contain; border-radius: 18px; }
     .released-app-info { flex: 1; min-width: 0; }
@@ -239,7 +252,7 @@
     .wpp-float { position: fixed; right: 24px; bottom: 24px; z-index: 90; width: 58px; height: 58px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; color: #fff; background: var(--green); box-shadow: 0 14px 32px rgba(20,21,26,.24); text-decoration: none; font-size: 1.35rem; transition: transform .25s, box-shadow .25s; }
     .wpp-float::before { content: ""; position: absolute; inset: -6px; z-index: -1; border-radius: 50%; border: 1.5px solid rgba(37,211,102,.55); animation: wppPulse 2.6s ease-out infinite; }
     @keyframes wppPulse { 0% { transform: scale(.86); opacity: .9; } 100% { transform: scale(1.55); opacity: 0; } }
-    .wpp-float svg { width: 31px; height: 31px; fill: currentColor; }
+    .wpp-float svg { width: 27px; height: 31px; fill: currentColor; }
     .wpp-float:hover { transform: scale(1.08); box-shadow: 0 14px 36px rgba(37,211,102,.42); }
     .wpp-float:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 
@@ -447,7 +460,7 @@
 
     <section class="section" id="cases">
       <div class="container">
-        <div class="section-head"><span class="eyebrow">Clientes que já atendemos</span><h2>Veja o que dizem sobre a <span class="gradient-text">experiência com a Aiex.</span></h2><p>Relatos reais de empresas que já contaram com nossas soluções para modernizar suas operações.</p></div>
+        <div class="section-head"><span class="eyebrow">Clientes que já atendemos</span><h2>Veja o que dizem sobre a <span class="gradient-text">experiência com a Aiex.</span></h2><p>Relatos reais de empresas que já contaram com nossas soluções para modernizar suas operações.</p><span class="sphere-hint" id="casesHint">Arraste para navegar</span></div>
         <div class="carousel-shell">
           <div class="carousel-viewport"><div class="carousel-track" id="track">
             <article class="feedback-card"><div class="client-head"><div class="client-thumb"><img src="img/logo-fera-lanche.png" alt="O Fera do Lanche" onerror="this.remove();this.parentElement.textContent='FL'"></div><div><h3>O Fera do Lanche</h3><div class="stars" aria-label="5 estrelas">★★★★★</div></div></div><p class="client-quote">“Nossos pedidos agora chegam totalmente limpos e organizados no WhatsApp. Melhorou muito a operação.”</p></article>
@@ -460,7 +473,7 @@
       </div>
     </section>
 
-    <section class="section-sm"><div class="container"><div class="cta"><h2>Pronto para sair na frente da <span class="gradient-text">concorrência?</span></h2><p>Transforme processos lentos em operações inteligentes, atenda melhor e ganhe velocidade para aproveitar oportunidades antes dos seus concorrentes.</p><a class="btn btn-whatsapp" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20quero%20automatizar%20processos%20da%20minha%20empresa." target="_blank" rel="noopener">✦ Falar com a Aiex</a></div></div></section>
+    <section class="section-sm"><div class="container"><div class="cta"><h2>Pronto para sair na frente da <span class="gradient-text">concorrência?</span></h2><p>Transforme processos lentos em operações inteligentes, atenda melhor e ganhe velocidade para aproveitar oportunidades antes dos seus concorrentes.</p><a class="btn btn-whatsapp" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20quero%20automatizar%20processos%20da%20minha%20empresa." target="_blank" rel="noopener"><svg viewBox="0 0 448 512" aria-hidden="true" width="17" height="17"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg> Falar com a Aiex</a></div></div></section>
 
     <section class="section" id="faq">
       <div class="container"><div class="section-head"><span class="eyebrow">Central de informações</span><h2>Dúvidas <span class="gradient-text">frequentes.</span></h2></div>
@@ -479,10 +492,29 @@
 
   <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><img class="footer-logo" src="img/logo-aiex.png" alt="Aiex" onerror="this.style.display='none'"><p>Automatizando processos para empresas mais eficientes, integradas e preparadas para crescer.</p></div><div><h3>Links</h3><ul><li><a href="#inicio">Início</a></li><li><a href="#produtos">Produtos</a></li><li><a href="#apps">Aplicativos</a></li><li><a href="#cases">Cases</a></li></ul></div><div><h3>Contato</h3><ul><li><a href="https://wa.me/5521970656726" target="_blank" rel="noopener">(21) 97065-6726</a></li><li><a href="https://www.instagram.com/aiexbr/" target="_blank" rel="noopener">Instagram</a></li><li>Rio de Janeiro, RJ</li><li>Atendimento online em todo o Brasil</li></ul></div><div><h3>Legal</h3><ul><li><a href="legal/termos-de-uso-aiex.html">Termos de Uso</a></li><li><a href="legal/politica-privacidade-aiex.html">Política de Privacidade</a></li></ul></div></div><p class="copyright"><span>© <span id="year"></span> Aiex. Todos os direitos reservados.</span></p></div></footer>
 
-  <a class="wpp-float" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" aria-label="Falar com a Aiex pelo WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.21c-.26-.13-1.54-.76-1.78-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.82 1.02-.15.17-.3.2-.56.07-.26-.13-1.09-.4-2.08-1.28-.77-.69-1.29-1.53-1.44-1.79-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.33-.02-.46-.07-.13-.59-1.41-.8-1.93-.21-.51-.43-.44-.59-.45h-.5c-.17 0-.46.07-.69.33-.24.26-.91.89-.91 2.17s.93 2.52 1.06 2.69c.13.17 1.83 2.8 4.44 3.93.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3zM16.04 5.33c-5.85 0-10.61 4.75-10.61 10.6 0 1.87.49 3.7 1.42 5.31l-1.51 5.51 5.64-1.48a10.57 10.57 0 0 0 5.06 1.29h.01c5.85 0 10.61-4.76 10.61-10.61S21.9 5.33 16.04 5.33zm0 19.43h-.01c-1.55 0-3.07-.42-4.39-1.2l-.31-.18-3.35.88.89-3.27-.2-.33a8.77 8.77 0 0 1-1.35-4.7c0-4.83 3.94-8.77 8.78-8.77 2.34 0 4.54.91 6.2 2.57a8.72 8.72 0 0 1 2.57 6.21c-.01 4.84-3.94 8.78-8.83 8.79z"/></svg></a>
+  <a class="wpp-float" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" aria-label="Falar com a Aiex pelo WhatsApp"><svg viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
 
   <script src="tech-orbit.js" defer></script>
   <script>
+    if (matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      window.addEventListener('pointermove', event => {
+        const mx = (event.clientX / window.innerWidth - .5) * 2;
+        const my = (event.clientY / window.innerHeight - .5) * 2;
+        document.documentElement.style.setProperty('--mx', mx.toFixed(3));
+        document.documentElement.style.setProperty('--my', my.toFixed(3));
+      }, { passive: true });
+    }
+
+    const casesHint = document.getElementById('casesHint');
+    if (casesHint) {
+      const casesHintMessages = ['Arraste para navegar', 'Clique para pausar'];
+      let casesHintIndex = 0;
+      setInterval(() => {
+        casesHintIndex = (casesHintIndex + 1) % casesHintMessages.length;
+        casesHint.textContent = casesHintMessages[casesHintIndex];
+      }, 3000);
+    }
+
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
     menuBtn.addEventListener('click', () => {
