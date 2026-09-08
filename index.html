@@ -171,6 +171,8 @@
     .sphere-copy p { max-width: 510px; color: var(--muted); }
     .sphere-hint { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; color: var(--muted); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .sphere-hint::before { content: "↔"; color: var(--text); font-size: 1rem; }
+    .sphere-hint--center { display: flex; justify-content: center; margin: 22px auto 0; }
+    .sphere-hint--center::before { content: "☝"; }
     .sphere-stage { position: relative; height: min(520px,52vw); min-height: 390px; }
     .sphere-canvas { position: relative; display: block; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; }
     .sphere-canvas:active { cursor: grabbing; }
@@ -460,7 +462,7 @@
 
     <section class="section" id="cases">
       <div class="container">
-        <div class="section-head"><span class="eyebrow">Clientes que já atendemos</span><h2>Veja o que dizem sobre a <span class="gradient-text">experiência com a Aiex.</span></h2><p>Relatos reais de empresas que já contaram com nossas soluções para modernizar suas operações.</p><span class="sphere-hint" id="casesHint">Arraste para navegar</span></div>
+        <div class="section-head"><span class="eyebrow">Clientes que já atendemos</span><h2>Veja o que dizem sobre a <span class="gradient-text">experiência com a Aiex.</span></h2><p>Relatos reais de empresas que já contaram com nossas soluções para modernizar suas operações.</p></div>
         <div class="carousel-shell">
           <div class="carousel-viewport"><div class="carousel-track" id="track">
             <article class="feedback-card"><div class="client-head"><div class="client-thumb"><img src="img/logo-fera-lanche.png" alt="O Fera do Lanche" onerror="this.remove();this.parentElement.textContent='FL'"></div><div><h3>O Fera do Lanche</h3><div class="stars" aria-label="5 estrelas">★★★★★</div></div></div><p class="client-quote">“Nossos pedidos agora chegam totalmente limpos e organizados no WhatsApp. Melhorou muito a operação.”</p></article>
@@ -469,6 +471,7 @@
             <article class="feedback-card"><div class="client-head"><div class="client-thumb"><img src="img/logo-sabor-radical.png" alt="Sabor Radical" onerror="this.remove();this.parentElement.textContent='SR'"></div><div><h3>Sabor Radical</h3><div class="stars" aria-label="5 estrelas">★★★★★</div></div></div><p class="client-quote">“Atendimento, pedidos e gestão ficaram conectados. A automação trouxe mais organização para a empresa e liberou tempo da nossa equipe.”</p></article>
             <article class="feedback-card"><div class="client-head"><div class="client-thumb"><img src="img/jl-personalziados.png" alt="JL Personalizados" onerror="this.remove();this.parentElement.textContent='JL'"></div><div><h3>JL Personalizados</h3><div class="stars" aria-label="5 estrelas">★★★★★</div></div></div><p class="client-quote">“O site ficou lindo, organizado e com a identidade da nossa empresa. Ficamos muito satisfeitos com o resultado e com todo o atendimento!”</p></article>
           </div></div>
+          <span class="sphere-hint sphere-hint--center" id="casesHint">Clique em um card para pausar</span>
         </div>
       </div>
     </section>
@@ -478,10 +481,10 @@
     <section class="section" id="faq">
       <div class="container"><div class="section-head"><span class="eyebrow">Central de informações</span><h2>Dúvidas <span class="gradient-text">frequentes.</span></h2></div>
         <div class="faq-list">
-          <details class="faq-item"><summary>Que processos a Aiex pode automatizar?</summary><div class="faq-answer">Automatizamos atendimento, pedidos, cadastros, organização de dados, comunicação, relatórios, integrações entre ferramentas e outras rotinas repetitivas. Cada projeto começa pelo mapeamento da operação para identificar onde a automação gera mais economia e produtividade.</div></details>
-          <details class="faq-item"><summary>Como começa um projeto sob medida?</summary><div class="faq-answer">A primeira etapa é uma conversa de diagnóstico. Entendemos o problema, os usuários, os processos envolvidos e o objetivo do negócio. Depois, estruturamos a melhor proposta de solução, com etapas e prioridades claras.</div></details>
+          <details class="faq-item"><summary>Qual a diferença entre Aiex Foods, Aiex Agenda e Aiex Agentes?</summary><div class="faq-answer">Aiex Foods gerencia cardápio, pedidos e delivery/retirada para negócios de alimentação. Aiex Agenda organiza agendamentos, profissionais e clientes de qualquer serviço. Já o Aiex Agentes é a inteligência artificial que pode ser conectada a qualquer um dos dois produtos, ao WhatsApp, ao site ou a outro sistema que a empresa já utilize.</div></details>
+          <details class="faq-item"><summary>Ainda não tenho site, dá para começar pela Aiex mesmo assim?</summary><div class="faq-answer">Sim. Criamos um site simples como ponto de partida, com a base pronta para depois evoluir para os produtos com painel próprio conforme o seu negócio for crescendo.</div></details>
           <details class="faq-item"><summary>Como o Aiex Agentes conversa com os clientes?</summary><div class="faq-answer">A IA é configurada com as regras, preços, informações e tom de voz da empresa. Ela interpreta o contexto da conversa e responde de forma natural, com foco em agilidade e conversão.</div></details>
-          <details class="faq-item"><summary>Preciso de conhecimento técnico para usar as soluções?</summary><div class="faq-answer">Não. A tecnologia complexa fica nos bastidores. As soluções são construídas para serem práticas, intuitivas e integradas à rotina da sua equipe.</div></details>
+          <details class="faq-item"><summary>O Organiza+ tem relação com os outros produtos Aiex?</summary><div class="faq-answer">Não. O Organiza+ é um aplicativo independente para controle financeiro pessoal, disponível na Play Store. Aiex Foods, Aiex Agenda e Aiex Agentes já são plataformas com painel próprio, construídas para operar o negócio dos nossos clientes.</div></details>
           <details class="faq-item"><summary>Os dados financeiros no Organiza+ estão seguros?</summary><div class="faq-answer">Sim. Segurança e privacidade são pilares do aplicativo. O Organiza+ foi desenvolvido para oferecer controle financeiro com proteção dos dados e uma experiência simples no dispositivo.</div></details>
         </div>
       </div>
@@ -507,7 +510,7 @@
 
     const casesHint = document.getElementById('casesHint');
     if (casesHint) {
-      const casesHintMessages = ['Arraste para navegar', 'Clique para pausar'];
+      const casesHintMessages = ['Clique em um card para pausar', 'Clique em outro card para navegar'];
       let casesHintIndex = 0;
       setInterval(() => {
         casesHintIndex = (casesHintIndex + 1) % casesHintMessages.length;
