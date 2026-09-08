@@ -155,8 +155,8 @@
 
   function drawSun(cx, cy, radius) {
     const outerGlow = ctx.createRadialGradient(cx, cy, radius * .5, cx, cy, radius * 1.7);
-    outerGlow.addColorStop(0, 'rgba(66,165,255,.22)');
-    outerGlow.addColorStop(1, 'rgba(66,165,255,0)');
+    outerGlow.addColorStop(0, 'rgba(20,21,26,.08)');
+    outerGlow.addColorStop(1, 'rgba(20,21,26,0)');
     ctx.fillStyle = outerGlow;
     ctx.beginPath(); ctx.arc(cx, cy, radius * 1.7, 0, Math.PI * 2); ctx.fill();
 
@@ -164,7 +164,7 @@
     ctx.arc(cx, cy, radius, 0, Math.PI * 2);
     ctx.fillStyle = 'rgba(11,16,25,.92)';
     ctx.fill();
-    ctx.strokeStyle = 'rgba(139,212,255,.4)';
+    ctx.strokeStyle = 'rgba(20,21,26,.5)';
     ctx.lineWidth = 1.2;
     ctx.stroke();
 
@@ -183,7 +183,7 @@
     ctx.arc(x, y, r, 0, Math.PI * 2);
     ctx.fillStyle = 'rgba(11,16,25,.92)';
     ctx.fill();
-    ctx.strokeStyle = depth > .6 ? 'rgba(139,212,255,.55)' : 'rgba(139,212,255,.25)';
+    ctx.strokeStyle = depth > .6 ? 'rgba(20,21,26,.6)' : 'rgba(20,21,26,.32)';
     ctx.lineWidth = 1;
     ctx.stroke();
     const draw = icons[brand.icon];
@@ -208,7 +208,7 @@
       const ry = rx * ring.tilt;
       ctx.beginPath();
       ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(139,212,255,.14)';
+      ctx.strokeStyle = 'rgba(20,21,26,.18)';
       ctx.lineWidth = 1;
       ctx.stroke();
     });
