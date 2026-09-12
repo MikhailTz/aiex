@@ -140,7 +140,7 @@
 
     .news-ticker { border-bottom: 1px solid var(--line); background: var(--bg-soft); overflow: hidden; }
     .news-ticker-inner { display: flex; align-items: center; gap: 18px; height: 44px; }
-    .news-ticker-label { flex: 0 0 auto; padding-right: 16px; border-right: 1px solid var(--line-blue); color: var(--text); font-size: .66rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
+    .news-ticker-label { flex: 0 0 auto; padding-right: 16px; border-right: 1px solid var(--line-blue); color: var(--text); font-size: .66rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
     .news-ticker-label:hover { color: var(--muted); }
     .news-ticker-track-wrap { flex: 1; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
     .news-ticker-track { display: flex; align-items: center; gap: 40px; width: max-content; animation: newsScroll 42s linear infinite; }
@@ -351,15 +351,6 @@
       </div>
     </section>
 
-    <div class="news-ticker" aria-label="Últimas do blog da Aiex">
-      <div class="container news-ticker-inner">
-        <a class="news-ticker-label" href="blog/">Blog</a>
-        <div class="news-ticker-track-wrap">
-          <div class="news-ticker-track" id="newsTicker"></div>
-        </div>
-      </div>
-    </div>
-
     <section class="section" id="produtos">
       <div class="container">
         <div class="section-head"><h2>Alguns dos sistemas do nosso <span class="gradient-text">portfólio.</span></h2><p>Cada sistema tem identidade própria, painel e estrutura definida, construído para operar o negócio do cliente, não apenas resolver uma tarefa isolada.</p></div>
@@ -457,6 +448,15 @@
     </section>
 
     <section class="section" id="sobre"><div class="container"><div class="section-head"><span class="eyebrow">Sobre a Aiex</span></div><article class="about"><div class="about-brand"><h2>Automação guiada pela realidade dos negócios.</h2><img src="img/favicon.png" alt="Ícone Aiex" onerror="this.style.display='none'"></div><div class="about-copy"><p>A Aiex surgiu para resolver problemas reais, eliminar tarefas repetitivas e reduzir custos operacionais. Antes de chegar ao mercado, automatizamos nossas próprias operações em busca de mais eficiência, controle e economia.</p><p>Entendemos quem empreende porque vivemos as dores da gestão no dia a dia. É essa experiência que orienta cada automação e solução que implementamos: <strong>tecnologia útil, acessível e conectada a resultados.</strong></p><a class="product-link" href="sobre/">Ler a história completa <span aria-hidden="true">→</span></a></div></article><blockquote class="quote"><p>“Não é que temos pouco tempo, mas que o desperdiçamos muito com aquilo que não importa.”</p><span>Sêneca</span></blockquote></div></section>
+
+    <div class="news-ticker" aria-label="Últimas notícias do blog da Aiex">
+      <div class="container news-ticker-inner">
+        <a class="news-ticker-label" href="blog/">Últimas notícias</a>
+        <div class="news-ticker-track-wrap">
+          <div class="news-ticker-track" id="newsTicker"></div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><img class="footer-logo" src="img/logo-aiex.png" alt="Aiex" onerror="this.style.display='none'"><p>Automatizando processos para empresas mais eficientes, integradas e preparadas para crescer.</p></div><div><h3>Empresa</h3><ul><li><a href="#inicio">Início</a></li><li><a href="sobre/">Sobre</a></li><li><a href="blog/">Blog</a></li></ul></div><div><h3>Produtos</h3><ul><li><a href="#produtos">Soluções</a></li><li><a href="#apps">Aplicativos</a></li><li><a href="#cases">Cases</a></li></ul></div><div><h3>Contato</h3><ul><li><a href="https://wa.me/5521970656726" target="_blank" rel="noopener">(21) 97065-6726</a></li><li><a href="https://www.instagram.com/aiexbr/" target="_blank" rel="noopener">Instagram</a></li><li>Rio de Janeiro, RJ</li></ul></div><div><h3>Legal</h3><ul><li><a href="legal/termos-de-uso-aiex.html">Termos de Uso</a></li><li><a href="legal/politica-privacidade-aiex.html">Política de Privacidade</a></li></ul></div></div><p class="copyright"><span>© <span id="year"></span> Aiex. Todos os direitos reservados.</span></p></div></footer>
