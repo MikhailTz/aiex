@@ -3,110 +3,279 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#05070b">
+  <meta name="theme-color" content="#f7f6f2">
   <meta name="robots" content="noindex">
+  <meta name="description" content="Termos de Uso da Aiex: condições de uso do site e dos sistemas SimSim, Tot e Organiza+.">
   <title>Termos de Uso | Aiex</title>
   <link rel="icon" type="image/png" href="../img/favicon.png?v=4">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #05070b; --surface: rgba(13,18,27,.82); --line: rgba(255,255,255,.09);
-      --text: #f6f8fb; --muted: #a1abbb; --blue-light: #8bd4ff; --cyan: #32e6d2;
+      --bg: #f7f6f2; --bg-soft: #edeae2; --surface: #ffffff;
+      --line: rgba(23,22,18,.15); --line-blue: rgba(23,22,18,.32);
+      --text: #1b1a17; --muted: #6b6a62; --green: #25d366;
+      --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; min-width: 320px; background: var(--bg); color: var(--text);
-      font-family: Inter, system-ui, sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); }
+    body { color: var(--text); background: var(--bg); font-family: Inter, system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .narrow { width: min(760px, calc(100% - 40px)); margin-inline: auto; }
+
+    .topbar { position: sticky; top: 0; z-index: 100; background: rgba(247,246,242,.9); border-bottom: 1px solid var(--line); }
+    .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 26px; }
+    .brand img { width: 112px; filter: brightness(0); }
+    .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .83rem; font-weight: 600; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { padding: 10px 18px; border-radius: 6px; color: var(--text) !important; border: 1px solid var(--text); background: transparent; }
+    .nav-cta:hover { color: #fff !important; background: var(--text); }
+    .menu-btn { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 6px; color: var(--text); background: var(--surface); font-size: 1.05rem; line-height: 1; cursor: pointer; appearance: none; -webkit-appearance: none; }
+
+    .back { display: inline-flex; align-items: center; gap: 6px; margin-top: 32px; color: var(--muted); font-size: .82rem; font-weight: 600; text-decoration: none; }
+    .back:hover { color: var(--text); }
+
+    .eyebrow { display: inline-flex; align-items: center; margin-bottom: 20px; padding-left: 12px; border-left: 2px solid var(--text); color: var(--muted); font-size: .74rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+
+    .doc-head { margin-top: 24px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+    .doc-head h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2rem, 4.6vw, 3rem); line-height: 1.14; letter-spacing: -.01em; }
+    .updated { margin-top: 16px; color: var(--muted); font-size: .86rem; }
+
+    article { padding: 48px 0 64px; }
+    section { margin-top: 40px; }
+    section:first-of-type { margin-top: 0; }
+    h2 { font-family: var(--serif); font-weight: 600; font-size: 1.35rem; margin-bottom: 14px; letter-spacing: -.005em; }
+    h3 { font-family: var(--serif); font-weight: 600; font-size: 1.05rem; margin: 20px 0 8px; }
+    p { color: var(--text); font-size: .98rem; line-height: 1.75; }
+    p + p { margin-top: 14px; }
+    ul { margin-top: 10px; padding-left: 20px; color: var(--text); display: grid; gap: 8px; }
+    li { font-size: .96rem; line-height: 1.65; }
+    a.inline { color: var(--text); text-decoration: underline; text-decoration-color: var(--line-blue); text-underline-offset: 2px; }
+    a.inline:hover { text-decoration-color: var(--text); }
+
+    .summary-box { margin-bottom: 44px; padding: 26px 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+    .summary-box h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; }
+    .summary-box ul { margin-top: 0; }
+    .summary-box li { color: var(--muted); }
+    .summary-box li strong { color: var(--text); font-weight: 700; }
+
+    .system-table { margin-top: 18px; display: grid; gap: 14px; }
+    .system-card { padding: 18px 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+    .system-card h3 { margin-top: 0; margin-bottom: 6px; }
+    .system-card p { font-size: .92rem; color: var(--muted); }
+
+    footer { position: relative; padding: 66px 0 28px; border-top: 1px solid var(--line); background: var(--bg-soft); overflow: hidden; }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr .75fr .75fr .8fr .75fr; gap: 32px; }
+    .footer-logo { width: 110px; margin-bottom: 17px; filter: brightness(0); }
+    .footer-brand p { max-width: 330px; color: var(--muted); font-size: .84rem; }
+    footer h3 { margin-bottom: 17px; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text); }
+    footer ul { display: grid; gap: 10px; list-style: none; padding-left: 0; }
+    footer li, footer a { color: var(--muted); font-size: .82rem; text-decoration: none; transition: color .2s; }
+    footer a:hover { color: var(--text); }
+    .copyright { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 16px; margin-top: 48px; padding-top: 23px; border-top: 1px solid var(--line); color: var(--muted); font-size: .72rem; text-align: center; }
+    .copyright a { color: var(--muted); }
+    .copyright a:hover { color: var(--text); }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px 40px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .nav-links { position: absolute; top: 76px; left: 20px; right: 20px; display: none; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); backdrop-filter: blur(18px); animation: navLinksIn .25s cubic-bezier(.22,.75,.25,1); }
+      @keyframes navLinksIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+      .nav-links.open { display: grid; }
+      .nav-links a { display: block; padding: 8px; border-radius: 8px; transition: background .2s, color .2s; }
+      .nav-links a:hover { background: var(--bg-soft); }
+      .menu-btn { display: block; }
     }
-    body::before {
-      content: ""; position: fixed; inset: -18%; z-index: -1; pointer-events: none;
-      background: radial-gradient(circle at 12% 10%, rgba(20,112,255,.14), transparent 27rem),
-                  radial-gradient(circle at 90% 25%, rgba(36,224,206,.08), transparent 24rem);
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 32px,1120px); }
+      article { padding: 36px 0 48px; }
+      h2 { font-size: 1.15rem; }
+      p, li { font-size: .92rem; }
+      .summary-box { padding: 20px; }
+      footer { padding: 50px 0 26px; }
+      .footer-grid { grid-template-columns: repeat(2,1fr); gap: 34px 20px; align-items: start; text-align: left; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-logo { width: 88px; margin: 0 0 12px; }
+      .footer-brand p { margin: 0; font-size: .78rem; line-height: 1.55; }
+      footer h3 { margin-bottom: 12px; font-size: .68rem; }
+      footer ul { gap: 10px; }
+      footer li, footer a { font-size: .8rem; overflow-wrap: anywhere; }
+      .copyright { gap: 6px 14px; margin-top: 36px; font-size: .74rem; }
     }
-    .wrap { width: min(760px, calc(100% - 40px)); margin: 0 auto; padding: 48px 0 90px; }
-    .back { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 34px; color: #8da0b7; font-size: .82rem; font-weight: 700; text-decoration: none; }
-    .back:hover { color: #fff; }
-    header.doc-head { margin-bottom: 40px; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
-    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 14px; color: var(--blue-light); font-size: .72rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
-    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
-    h1 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.5rem); letter-spacing: -.03em; }
-    .updated { margin-top: 12px; color: var(--muted); font-size: .84rem; }
-    section { margin-bottom: 30px; }
-    h2 { font-size: 1.12rem; margin: 0 0 12px; letter-spacing: -.01em; }
-    p, li { color: var(--muted); font-size: .94rem; }
-    ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
-    a.inline { color: var(--blue-light); text-decoration: none; }
-    a.inline:hover { text-decoration: underline; }
-    footer { margin-top: 60px; padding-top: 22px; border-top: 1px solid var(--line); color: #4e5865; font-size: .74rem; text-align: center; }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <a class="back" href="../index.html#inicio">← Voltar ao site da Aiex</a>
-    <header class="doc-head">
-      <span class="eyebrow">Documento legal</span>
-      <h1>Termos de Uso</h1>
-      <p class="updated"><strong>Última atualização:</strong> 27 de agosto de 2026</p>
-    </header>
-
-    <section>
-      <h2>1. Aceitação dos termos</h2>
-      <p>Este documento estabelece as condições gerais de uso do site <strong>aiexbrasil.com.br</strong> e dos serviços de automação, desenvolvimento de sites, aplicativos, sistemas, agentes de inteligência artificial e produtos físicos (como tags NFC e cartões de avaliação) oferecidos pela <strong>Aiex</strong>. Ao navegar neste site ou contratar qualquer um de nossos serviços, você concorda integralmente com estes Termos de Uso.</p>
-    </section>
-
-    <section>
-      <h2>2. Quem somos</h2>
-      <p>A Aiex é uma empresa brasileira especializada em automação de processos, desenvolvimento de software sob medida e soluções de presença digital, com atendimento realizado majoritariamente pelo WhatsApp e redes sociais indicadas neste site.</p>
-    </section>
-
-    <section>
-      <h2>3. Descrição dos serviços</h2>
-      <p>Os serviços oferecidos incluem, entre outros: criação de sites institucionais, cardápios digitais, aplicativos e sistemas personalizados, agentes de atendimento com inteligência artificial, tags NFC inteligentes, cartões de avaliação e o aplicativo Organiza+. O escopo, prazo e valor de cada projeto sob medida são definidos individualmente em proposta comercial enviada ao cliente antes do início do desenvolvimento.</p>
-    </section>
-
-    <section>
-      <h2>4. Contratação e pagamento</h2>
-      <ul>
-        <li>Orçamentos e condições comerciais são apresentados por WhatsApp ou outro canal informado neste site;</li>
-        <li>O início do desenvolvimento está condicionado à confirmação da proposta e, quando aplicável, ao pagamento de sinal ou valor integral combinado;</li>
-        <li>Alterações de escopo após o início do projeto podem gerar ajuste de prazo e valor, sempre comunicados previamente ao cliente.</li>
+  <header class="topbar">
+    <nav class="nav container" aria-label="Navegação principal">
+      <a class="brand" href="../#inicio" aria-label="Aiex, início">
+        <img src="../img/logo-aiex.png" alt="Aiex">
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../#produtos">Soluções</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../sobre/">Sobre</a></li>
+        <li><a class="nav-cta" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20os%20termos%20de%20uso%20da%20Aiex." target="_blank" rel="noopener">Falar conosco</a></li>
       </ul>
-    </section>
+    </nav>
+  </header>
 
-    <section>
-      <h2>5. Responsabilidades do cliente</h2>
-      <p>O cliente é responsável por fornecer informações verdadeiras, completas e atualizadas necessárias à execução do serviço (como conteúdo, imagens, dados de cardápio, regras de atendimento e credenciais de acesso, quando aplicável), bem como por revisar e validar as entregas dentro dos prazos combinados.</p>
-    </section>
+  <main>
+    <div class="container narrow">
+      <a class="back" href="../#inicio">← Voltar ao site da Aiex</a>
+      <header class="doc-head">
+        <span class="eyebrow">Documento legal</span>
+        <h1>Termos de Uso</h1>
+        <p class="updated"><strong>Última atualização:</strong> 12 de setembro de 2026</p>
+      </header>
 
-    <section>
-      <h2>6. Propriedade intelectual</h2>
-      <p>Salvo acordo em contrário por escrito, o código-fonte, layouts e materiais desenvolvidos pela Aiex são licenciados ao cliente para uso do serviço contratado. Marcas, logotipos e conteúdos de terceiros permanecem de propriedade de seus respectivos titulares.</p>
-    </section>
+      <article>
+        <div class="summary-box">
+          <h2>Resumo rápido</h2>
+          <ul>
+            <li><strong>O que é:</strong> as regras de uso do site aiexbrasil.com.br e dos sistemas SimSim, Tot e Organiza+.</li>
+            <li><strong>Contratação:</strong> orçamentos e escopo são combinados individualmente, geralmente pelo WhatsApp.</li>
+            <li><strong>Propriedade:</strong> o código e o layout desenvolvidos ficam licenciados ao cliente para uso do serviço contratado.</li>
+            <li><strong>Responsabilidade:</strong> buscamos qualidade e disponibilidade, mas não garantimos operação livre de falhas externas.</li>
+          </ul>
+        </div>
 
-    <section>
-      <h2>7. Links e serviços de terceiros</h2>
-      <p>Este site pode conter links para plataformas de terceiros, como WhatsApp, Instagram e Google Play. A Aiex não se responsabiliza pelo conteúdo, disponibilidade ou políticas dessas plataformas externas.</p>
-    </section>
+        <section>
+          <h2>1. Aceitação dos termos</h2>
+          <p>Este documento estabelece as condições gerais de uso do site <strong>aiexbrasil.com.br</strong> e dos sistemas, aplicativos e serviços de automação desenvolvidos pela <strong>Aiex</strong>, incluindo o SimSim, o Tot e o Organiza+. Ao navegar neste site ou utilizar qualquer um desses sistemas, você concorda integralmente com estes Termos de Uso.</p>
+        </section>
 
-    <section>
-      <h2>8. Limitação de responsabilidade</h2>
-      <p>A Aiex empenha esforços razoáveis para garantir a qualidade, segurança e disponibilidade das soluções desenvolvidas, mas não garante operação ininterrupta ou livre de falhas, especialmente quando decorrentes de fatores externos (como quedas de conexão, instabilidade de serviços de terceiros ou uso indevido do sistema pelo cliente).</p>
-    </section>
+        <section>
+          <h2>2. Quem somos</h2>
+          <p>A Aiex é uma empresa brasileira especializada em automação de processos e desenvolvimento de sistemas sob medida, com atendimento realizado majoritariamente pelo WhatsApp e pelos canais indicados neste site.</p>
+        </section>
 
-    <section>
-      <h2>9. Alterações destes termos</h2>
-      <p>Estes Termos de Uso podem ser atualizados periodicamente para refletir mudanças nos serviços oferecidos ou na legislação aplicável. A versão vigente é sempre a publicada nesta página.</p>
-    </section>
+        <section>
+          <h2>3. Nossos sistemas</h2>
+          <p>Além do site institucional, a Aiex desenvolve e mantém sistemas próprios, cada um com uma finalidade específica. O uso de cada sistema está sujeito também às regras próprias definidas na proposta comercial ou no contrato de prestação de serviço, quando existentes.</p>
+          <div class="system-table">
+            <div class="system-card">
+              <h3>SimSim</h3>
+              <p>Sistema de pedidos e delivery. Usado por estabelecimentos para gerenciar cardápio digital, pedidos e atendimento a clientes.</p>
+            </div>
+            <div class="system-card">
+              <h3>Tot</h3>
+              <p>Sistema de atendimento por inteligência artificial e agendamentos. Usado por negócios para organizar clientes, horários e conversas automatizadas.</p>
+            </div>
+            <div class="system-card">
+              <h3>Organiza+</h3>
+              <p>Aplicativo independente de controle financeiro pessoal, disponível na Play Store, sem relação direta com os sistemas para empresas.</p>
+            </div>
+          </div>
+        </section>
 
-    <section>
-      <h2>10. Contato</h2>
-      <p>Dúvidas sobre estes Termos de Uso podem ser enviadas para <a class="inline" href="mailto:contato.aiexapps@gmail.com">contato.aiexapps@gmail.com</a>.</p>
-    </section>
+        <section>
+          <h2>4. Contratação e pagamento</h2>
+          <ul>
+            <li>Orçamentos e condições comerciais são apresentados por WhatsApp ou outro canal informado neste site;</li>
+            <li>O início do desenvolvimento está condicionado à confirmação da proposta e, quando aplicável, ao pagamento de sinal ou valor integral combinado;</li>
+            <li>Alterações de escopo após o início do projeto podem gerar ajuste de prazo e valor, sempre comunicados previamente ao cliente.</li>
+          </ul>
+        </section>
 
-    <footer>© <span id="year"></span> Aiex. Todos os direitos reservados.</footer>
-  </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+        <section>
+          <h2>5. Responsabilidades do cliente</h2>
+          <p>O cliente é responsável por fornecer informações verdadeiras, completas e atualizadas necessárias à execução do serviço (como conteúdo, imagens, dados de cardápio, regras de atendimento e credenciais de acesso, quando aplicável), bem como por revisar e validar as entregas dentro dos prazos combinados.</p>
+        </section>
+
+        <section>
+          <h2>6. Propriedade intelectual</h2>
+          <p>Salvo acordo em contrário por escrito, o código-fonte, layouts e materiais desenvolvidos pela Aiex são licenciados ao cliente para uso do serviço contratado. Marcas, logotipos e conteúdos de terceiros permanecem de propriedade de seus respectivos titulares.</p>
+        </section>
+
+        <section>
+          <h2>7. Links e serviços de terceiros</h2>
+          <p>Este site pode conter links para plataformas de terceiros, como WhatsApp, Instagram e Google Play. A Aiex não se responsabiliza pelo conteúdo, disponibilidade ou políticas dessas plataformas externas.</p>
+        </section>
+
+        <section>
+          <h2>8. Limitação de responsabilidade</h2>
+          <p>A Aiex empenha esforços razoáveis para garantir a qualidade, segurança e disponibilidade das soluções desenvolvidas, mas não garante operação ininterrupta ou livre de falhas, especialmente quando decorrentes de fatores externos (como quedas de conexão, instabilidade de serviços de terceiros ou uso indevido do sistema pelo cliente).</p>
+        </section>
+
+        <section>
+          <h2>9. Alterações destes termos</h2>
+          <p>Estes Termos de Uso podem ser atualizados periodicamente para refletir mudanças nos serviços oferecidos ou na legislação aplicável. A versão vigente é sempre a publicada nesta página.</p>
+        </section>
+
+        <section>
+          <h2>10. Contato</h2>
+          <p>Dúvidas sobre estes Termos de Uso podem ser enviadas para <a class="inline" href="mailto:contato.aiexapps@gmail.com">contato.aiexapps@gmail.com</a>.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img class="footer-logo" src="../img/logo-aiex.png" alt="Aiex" onerror="this.style.display='none'">
+          <p>Automatizando processos para empresas mais eficientes, integradas e preparadas para crescer.</p>
+        </div>
+        <div>
+          <h3>Empresa</h3>
+          <ul>
+            <li><a href="../#inicio">Início</a></li>
+            <li><a href="../sobre/">Sobre</a></li>
+            <li><a href="../blog/">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Produtos</h3>
+          <ul>
+            <li><a href="../#produtos">Soluções</a></li>
+            <li><a href="../#apps">Aplicativos</a></li>
+            <li><a href="../#cases">Cases</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contato</h3>
+          <ul>
+            <li><a href="https://wa.me/5521970656726" target="_blank" rel="noopener">(21) 97065-6726</a></li>
+            <li><a href="https://www.instagram.com/aiexbr/" target="_blank" rel="noopener">Instagram</a></li>
+            <li>Rio de Janeiro, RJ</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="termos-de-uso-aiex.html">Termos de Uso</a></li>
+            <li><a href="politica-privacidade-aiex.html">Política de Privacidade</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright"><span>© <span id="year"></span> Aiex. Todos os direitos reservados.</span></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = '☰';
+    }));
+  </script>
 </body>
 </html>
