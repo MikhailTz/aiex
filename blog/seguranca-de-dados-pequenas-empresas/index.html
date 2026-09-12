@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="Por que pequenas empresas são o principal alvo de ataques e o que isso muda na hora de escolher um sistema.">
+  <title>Segurança de dados para pequenas empresas | Blog Aiex</title>
+  <link rel="icon" type="image/png" href="../../img/favicon.png?v=3">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f6f2; --bg-soft: #edeae2; --surface: #ffffff;
+      --line: rgba(23,22,18,.15); --line-blue: rgba(23,22,18,.32);
+      --text: #1b1a17; --muted: #6b6a62; --green: #25d366;
+      --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); }
+    body { color: var(--text); background: var(--bg); font-family: Inter, system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(760px, calc(100% - 40px)); margin-inline: auto; }
+    .topbar { position: sticky; top: 0; z-index: 100; background: rgba(247,246,242,.9); border-bottom: 1px solid var(--line); }
+    .nav { width: min(1120px, calc(100% - 40px)); margin-inline: auto; height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    .brand img { width: 112px; filter: brightness(0); }
+    .nav-cta { padding: 10px 18px; border-radius: 6px; color: var(--text); border: 1px solid var(--text); background: transparent; text-decoration: none; font-size: .83rem; font-weight: 600; }
+    .nav-cta:hover { color: #fff; background: var(--text); }
+
+    article { padding: 64px 0 40px; }
+    .back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 32px; color: var(--muted); font-size: .82rem; font-weight: 600; text-decoration: none; }
+    .back:hover { color: var(--text); }
+    .post-tag { display: inline-block; margin-bottom: 18px; padding: 5px 12px; border-radius: 999px; background: var(--bg-soft); color: var(--muted); font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.9rem, 4.6vw, 2.7rem); line-height: 1.2; letter-spacing: -.01em; }
+    .meta { margin-top: 16px; color: var(--muted); font-size: .82rem; }
+    .lead { margin-top: 26px; font-size: 1.1rem; color: var(--text); }
+    p { margin-top: 20px; color: var(--text); font-size: 1rem; }
+    h2 { font-family: var(--serif); font-weight: 600; font-size: 1.4rem; margin-top: 42px; letter-spacing: -.005em; }
+    blockquote { margin: 32px 0; padding: 24px 28px; border-left: 2px solid var(--text); font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--text); }
+    ul { margin-top: 18px; padding-left: 20px; color: var(--text); }
+    li { margin-top: 8px; }
+    .sources { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
+    .sources a { color: var(--muted); text-decoration: underline; }
+    .cta { margin-top: 56px; padding: 36px; border: 1px solid var(--line); border-radius: 10px; text-align: center; }
+    .cta h3 { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; }
+    .cta p { max-width: 460px; margin: 12px auto 22px; color: var(--muted); }
+    .btn { display: inline-flex; align-items: center; gap: 9px; min-height: 48px; padding: 0 24px; border-radius: 6px; text-decoration: none; font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #fff; background: var(--green); }
+  </style>
+</head>
+<body>
+  <header class="topbar"><nav class="nav">
+    <a class="brand" href="../../#inicio"><img src="../../img/logo-aiex.png" alt="Aiex"></a>
+    <a class="nav-cta" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Aiex." target="_blank" rel="noopener">Falar conosco</a>
+  </nav></header>
+
+  <main class="container">
+    <article>
+      <a class="back" href="../">← Voltar para o blog</a>
+      <span class="post-tag">Segurança de dados</span>
+      <h1>Pequenas empresas são o principal alvo de ataques, não a exceção</h1>
+      <p class="meta">Aiex · Segurança de dados</p>
+
+      <p class="lead">Existe uma ideia comum de que ataques e vazamentos são problema de empresa grande. Os números mostram o oposto: negócios pequenos são justamente os mais visados, porque costumam ter menos proteção e ainda assim guardam dados valiosos de clientes.</p>
+
+      <h2>O tamanho do problema</h2>
+      <p>Levantamentos internacionais de segurança apontam que cerca de 43% de todos os ataques cibernéticos têm como alvo pequenas e médias empresas, uma proporção desproporcional ao seu tamanho. Entre as violações que afetam esse porte de negócio, a grande maioria já envolve ransomware, o tipo de ataque que sequestra dados e cobra resgate para devolvê-los.</p>
+      <p>O custo também surpreende: o valor médio de uma violação de dados em organizações menores já ultrapassa a casa dos milhões de dólares em mercados desenvolvidos, e o tempo médio para identificar e conter um ataque passa de 200 dias, quanto mais tempo um problema fica sem ser detectado, maior o prejuízo final.</p>
+
+      <blockquote>Guardar nome, telefone, endereço ou histórico de pedidos de um cliente já é motivo suficiente para levar segurança a sério, independentemente do tamanho do negócio.</blockquote>
+
+      <h2>Onde a maioria das pequenas empresas erra</h2>
+      <ul>
+        <li>Usar planilhas ou grupos de mensagens comuns para guardar dados de clientes, sem controle de quem acessa o quê.</li>
+        <li>Depender de um único responsável técnico, sem processo definido para o caso de essa pessoa sair da empresa.</li>
+        <li>Adotar sistemas prontos sem entender onde e como os dados dos clientes ficam armazenados.</li>
+      </ul>
+
+      <h2>O que muda com um sistema bem construído</h2>
+      <p>Um sistema desenvolvido com segurança como parte do projeto, e não como um adicional de última hora, define desde o início quem acessa cada informação, mantém registros de atividade e separa dados sensíveis do restante da operação. Isso não elimina o risco, mas reduz o tamanho do problema quando algo sai do previsto.</p>
+
+      <div class="cta">
+        <h3>Quer um sistema pensado com segurança desde o início?</h3>
+        <p>Desenvolvemos sistemas sob medida para negócios que precisam de controle real sobre os próprios dados.</p>
+        <a class="btn" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20li%20o%20artigo%20do%20blog%20e%20quero%20entender%20mais%20sobre%20seguran%C3%A7a%20nos%20sistemas%20da%20Aiex." target="_blank" rel="noopener">Falar com a Aiex</a>
+      </div>
+
+      <p class="sources">Fontes: <a href="https://spacelift.io/blog/small-business-cybersecurity-statistics" target="_blank" rel="noopener">Spacelift, Small Business Cybersecurity Statistics</a>, <a href="https://deepstrike.io/blog/data-breach-statistics-2025" target="_blank" rel="noopener">DeepStrike, Data Breach Statistics</a> (dados do IBM Cost of a Data Breach Report).</p>
+    </article>
+  </main>
+</body>
+</html>

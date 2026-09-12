@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="Conteúdos da Aiex sobre automação, atendimento com IA, delivery, agendamentos, segurança e inteligência artificial para empresas.">
+  <title>Blog | Aiex</title>
+  <link rel="icon" type="image/png" href="../img/favicon.png?v=3">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --bg-soft: #edeae2;
+      --surface: #ffffff;
+      --line: rgba(23,22,18,.15);
+      --line-blue: rgba(23,22,18,.32);
+      --text: #1b1a17;
+      --muted: #6b6a62;
+      --green: #25d366;
+      --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); }
+    body { color: var(--text); background: var(--bg); font-family: Inter, system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a, button { color: inherit; }
+    button { font: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .section { padding: 72px 0; }
+
+    .topbar { position: sticky; top: 0; z-index: 100; background: rgba(247,246,242,.9); border-bottom: 1px solid var(--line); }
+    .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 26px; }
+    .brand { display: inline-flex; align-items: center; text-decoration: none; }
+    .brand img { width: 112px; filter: brightness(0); }
+    .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .83rem; font-weight: 600; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { padding: 10px 18px; border-radius: 6px; color: var(--text) !important; border: 1px solid var(--text); background: transparent; }
+    .nav-cta:hover { color: #fff !important; background: var(--text); }
+
+    .eyebrow { display: inline-flex; align-items: center; margin-bottom: 20px; padding-left: 12px; border-left: 2px solid var(--text); color: var(--muted); font-size: .74rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .page-head h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.14; letter-spacing: -.01em; }
+    .page-head p { margin-top: 18px; max-width: 600px; color: var(--muted); font-size: 1.02rem; }
+
+    .category-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 16px; margin-top: 48px; }
+    .category-card { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 22px 20px; min-height: 90px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); text-align: left; cursor: pointer; transition: border-color .2s, background .2s; }
+    .category-card:hover { border-color: var(--line-blue); }
+    .category-card.is-active { border-color: var(--text); background: var(--text); color: #fff; }
+    .category-card h3 { font-family: var(--serif); font-weight: 600; font-size: 1.02rem; line-height: 1.25; }
+    .category-card::after { content: "→"; flex: 0 0 auto; font-size: .9rem; opacity: .5; }
+
+    .filter-status { display: none; align-items: center; gap: 12px; margin-top: 28px; color: var(--muted); font-size: .82rem; }
+    .filter-status.is-visible { display: flex; }
+    .filter-status button { border: none; background: none; padding: 0; color: var(--text); font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+    .post-list { display: grid; border-top: 1px solid var(--line); margin-top: 20px; }
+    .post-row { display: grid; grid-template-columns: 260px 1fr; gap: 36px; padding: 44px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit; }
+    .post-row[hidden] { display: none; }
+    .post-cover { width: 100%; aspect-ratio: 4/3; border-radius: 10px; background: var(--text); display: grid; place-items: center; overflow: hidden; }
+    .post-cover svg { width: 46%; height: 46%; }
+    .post-tag { display: inline-block; margin-bottom: 14px; padding: 5px 12px; border-radius: 999px; background: var(--bg-soft); color: var(--muted); font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .post-row h2 { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; line-height: 1.3; max-width: 620px; }
+    .post-row p { margin-top: 14px; max-width: 620px; color: var(--muted); font-size: .96rem; line-height: 1.65; }
+    .post-more { display: inline-flex; margin-top: 18px; color: var(--text); font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; border-bottom: 1px solid var(--line-blue); }
+    .post-row:hover .post-more { border-color: var(--text); }
+
+    footer { padding: 48px 0; border-top: 1px solid var(--line); text-align: center; color: var(--muted); font-size: .82rem; }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 900px) {
+      .category-grid { grid-template-columns: repeat(3,1fr); }
+    }
+    @media (max-width: 780px) {
+      .post-row { grid-template-columns: 1fr; }
+      .post-cover { aspect-ratio: 16/9; }
+    }
+    @media (max-width: 520px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .category-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav container" aria-label="Navegação principal">
+      <a class="brand" href="../#inicio" aria-label="Aiex, início">
+        <img src="../img/logo-aiex.png" alt="Aiex">
+      </a>
+      <ul class="nav-links">
+        <li><a href="../#produtos">Soluções</a></li>
+        <li><a href="../#tecnologias">Tecnologias</a></li>
+        <li><a href="../#cases">Cases</a></li>
+        <li><a href="./">Blog</a></li>
+        <li><a class="nav-cta" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Aiex%20e%20gostaria%20de%20conversar%20sobre%20uma%20solu%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar conosco</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="page-head">
+          <span class="eyebrow">Blog da Aiex</span>
+          <h1>Conteúdos sobre automação para o seu negócio.</h1>
+          <p>Ideias e tendências sobre atendimento, delivery, agendamentos, segurança e inteligência artificial para empresas que querem operar melhor.</p>
+        </div>
+
+        <div class="category-grid" id="categoryGrid">
+          <button class="category-card" type="button" data-filter="atendimento-ia"><h3>Atendimento com IA</h3></button>
+          <button class="category-card" type="button" data-filter="delivery"><h3>Delivery e cardápio digital</h3></button>
+          <button class="category-card" type="button" data-filter="agendamentos"><h3>Agendamentos</h3></button>
+          <button class="category-card" type="button" data-filter="seguranca"><h3>Segurança de dados</h3></button>
+          <button class="category-card" type="button" data-filter="ia"><h3>Inteligência artificial</h3></button>
+        </div>
+
+        <div class="filter-status" id="filterStatus">
+          <span id="filterStatusText"></span>
+          <button type="button" id="clearFilter">Ver todos os posts</button>
+        </div>
+
+        <div class="post-list" id="postList">
+          <a class="post-row" data-category="atendimento-ia" href="atendimento-whatsapp-resposta-rapida/">
+            <div class="post-cover">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><path fill="#fff" d="M50 12C28.5 12 11 27.4 11 46.4c0 10.8 5.6 20.4 14.4 26.7L21 88l16.9-8.9c3.9 1 8 1.5 12.1 1.5 21.5 0 39-15.4 39-34.4S71.5 12 50 12Z"/><circle cx="34" cy="46" r="5" fill="#1b1a17"/><circle cx="50" cy="46" r="5" fill="#1b1a17"/><circle cx="66" cy="46" r="5" fill="#1b1a17"/></svg>
+            </div>
+            <div>
+              <span class="post-tag">Atendimento com IA</span>
+              <h2>Por que responder rápido no WhatsApp decide se você vende ou perde o cliente</h2>
+              <p>Pesquisas internacionais mostram que responder em até 5 minutos pode deixar um cliente até 21 vezes mais propenso a fechar negócio. Entenda por que a velocidade do primeiro contato virou o principal motivo para automatizar o atendimento.</p>
+              <span class="post-more">Continuar lendo →</span>
+            </div>
+          </a>
+
+          <a class="post-row" data-category="delivery" href="cardapio-digital-delivery/">
+            <div class="post-cover">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="26" y="16" width="48" height="68" rx="4" fill="#fff"/><rect x="34" y="28" width="32" height="4" fill="#1b1a17"/><rect x="34" y="38" width="32" height="4" fill="#1b1a17"/><rect x="34" y="48" width="20" height="4" fill="#1b1a17"/><path d="M34 62h32v4H34z" fill="#1b1a17" opacity=".4"/></svg>
+            </div>
+            <div>
+              <span class="post-tag">Delivery e cardápio digital</span>
+              <h2>Cardápio digital: o novo básico para quem vende delivery</h2>
+              <p>Mais da metade dos restaurantes de serviço completo em mercados desenvolvidos já usa cardápio digital por QR code. Veja por que ter um canal próprio, integrado ao WhatsApp, deixou de ser diferencial e virou pré-requisito.</p>
+              <span class="post-more">Continuar lendo →</span>
+            </div>
+          </a>
+
+          <a class="post-row" data-category="agendamentos" href="lembretes-automaticos-agendamento/">
+            <div class="post-cover">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="20" y="24" width="60" height="56" rx="4" fill="#fff"/><rect x="20" y="24" width="60" height="14" fill="#1b1a17"/><circle cx="34" cy="31" r="2.4" fill="#fff"/><circle cx="66" cy="31" r="2.4" fill="#fff"/><rect x="30" y="48" width="10" height="10" fill="#1b1a17" opacity=".7"/><rect x="45" y="48" width="10" height="10" fill="#1b1a17" opacity=".3"/><rect x="60" y="48" width="10" height="10" fill="#1b1a17" opacity=".3"/><rect x="30" y="63" width="10" height="10" fill="#1b1a17" opacity=".3"/><rect x="45" y="63" width="10" height="10" fill="#1b1a17" opacity=".7"/></svg>
+            </div>
+            <div>
+              <span class="post-tag">Agendamentos</span>
+              <h2>Como lembretes automáticos podem reduzir o no-show da sua agenda</h2>
+              <p>Uma revisão da Cochrane encontrou reduções de até 39% nas faltas com lembrete por mensagem de texto. Entenda por que o canal certo, no momento certo, muda o resultado da sua agenda.</p>
+              <span class="post-more">Continuar lendo →</span>
+            </div>
+          </a>
+
+          <a class="post-row" data-category="seguranca" href="seguranca-de-dados-pequenas-empresas/">
+            <div class="post-cover">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><path fill="#fff" d="M50 10 82 24v24c0 24-14 38-32 42-18-4-32-18-32-42V24Z"/><path d="M38 50l8 8 16-18" stroke="#1b1a17" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <span class="post-tag">Segurança de dados</span>
+              <h2>Pequenas empresas são o principal alvo de ataques, não a exceção</h2>
+              <p>Cerca de 43% dos ataques cibernéticos têm como alvo pequenas e médias empresas. Veja por que segurança não é um problema exclusivo de empresa grande e o que muda com um sistema bem construído.</p>
+              <span class="post-more">Continuar lendo →</span>
+            </div>
+          </a>
+
+          <a class="post-row" data-category="ia" href="inteligencia-artificial-pequenas-empresas/">
+            <div class="post-cover">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="14" fill="#fff"/><circle cx="50" cy="20" r="7" fill="#fff"/><circle cx="76" cy="35" r="7" fill="#fff"/><circle cx="76" cy="65" r="7" fill="#fff"/><circle cx="50" cy="80" r="7" fill="#fff"/><circle cx="24" cy="65" r="7" fill="#fff"/><circle cx="24" cy="35" r="7" fill="#fff"/><g stroke="#fff" stroke-width="2.5"><line x1="50" y1="50" x2="50" y2="20"/><line x1="50" y1="50" x2="76" y2="35"/><line x1="50" y1="50" x2="76" y2="65"/><line x1="50" y1="50" x2="50" y2="80"/><line x1="50" y1="50" x2="24" y2="65"/><line x1="50" y1="50" x2="24" y2="35"/></g></svg>
+            </div>
+            <div>
+              <span class="post-tag">Inteligência artificial</span>
+              <h2>A inteligência artificial já não é exclusividade de empresa grande</h2>
+              <p>A adoção de IA em pequenas empresas saltou de 23% para 47% em dois anos. Veja onde ela realmente ajuda e por que dados organizados importam mais do que a ferramenta em si.</p>
+              <span class="post-more">Continuar lendo →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><a href="../">← Voltar para o site da Aiex</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const categoryLabels = {
+      'atendimento-ia': 'Atendimento com IA',
+      'delivery': 'Delivery e cardápio digital',
+      'agendamentos': 'Agendamentos',
+      'seguranca': 'Segurança de dados',
+      'ia': 'Inteligência artificial',
+    };
+    const cards = Array.from(document.querySelectorAll('.category-card'));
+    const posts = Array.from(document.querySelectorAll('.post-row'));
+    const filterStatus = document.getElementById('filterStatus');
+    const filterStatusText = document.getElementById('filterStatusText');
+    const clearFilter = document.getElementById('clearFilter');
+
+    function applyFilter(category) {
+      posts.forEach(post => {
+        post.hidden = category ? post.dataset.category !== category : false;
+      });
+      cards.forEach(card => card.classList.toggle('is-active', card.dataset.filter === category));
+      if (category) {
+        filterStatus.classList.add('is-visible');
+        filterStatusText.textContent = `Mostrando posts de: ${categoryLabels[category]}`;
+      } else {
+        filterStatus.classList.remove('is-visible');
+      }
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const isActive = card.classList.contains('is-active');
+        applyFilter(isActive ? null : card.dataset.filter);
+      });
+    });
+    clearFilter.addEventListener('click', () => applyFilter(null));
+  </script>
+</body>
+</html>
