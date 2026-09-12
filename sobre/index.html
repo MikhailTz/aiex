@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="A história da Aiex: como uma necessidade real dentro da própria operação virou uma empresa de sistemas para negócios.">
+  <title>Sobre | Aiex</title>
+  <link rel="icon" type="image/png" href="../img/favicon.png?v=3">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f6f2; --bg-soft: #edeae2; --surface: #ffffff;
+      --line: rgba(23,22,18,.15); --line-blue: rgba(23,22,18,.32);
+      --text: #1b1a17; --muted: #6b6a62; --green: #25d366;
+      --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); }
+    body { color: var(--text); background: var(--bg); font-family: Inter, system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .narrow { width: min(760px, calc(100% - 40px)); margin-inline: auto; }
+
+    .topbar { position: sticky; top: 0; z-index: 100; background: rgba(247,246,242,.9); border-bottom: 1px solid var(--line); }
+    .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 26px; }
+    .brand img { width: 112px; filter: brightness(0); }
+    .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .83rem; font-weight: 600; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { padding: 10px 18px; border-radius: 6px; color: var(--text) !important; border: 1px solid var(--text); background: transparent; }
+    .nav-cta:hover { color: #fff !important; background: var(--text); }
+
+    .eyebrow { display: inline-flex; align-items: center; margin-bottom: 20px; padding-left: 12px; border-left: 2px solid var(--text); color: var(--muted); font-size: .74rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+
+    .hero { padding: 64px 0 48px; border-bottom: 1px solid var(--line); }
+    .hero h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2.2rem, 5.4vw, 3.6rem); line-height: 1.14; letter-spacing: -.01em; }
+    .hero p { margin-top: 22px; max-width: 620px; color: var(--muted); font-size: 1.05rem; }
+
+    .hero-photo { width: 100%; aspect-ratio: 16/8; object-fit: cover; border-radius: 12px; margin-top: 40px; }
+
+    article { padding: 56px 0 40px; }
+    h2 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; margin-top: 52px; letter-spacing: -.005em; }
+    h2:first-child { margin-top: 0; }
+    p { margin-top: 20px; color: var(--text); font-size: 1.02rem; line-height: 1.75; }
+    .lead { font-size: 1.12rem; }
+    .inline-photo { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 10px; margin-top: 36px; }
+    .photo-caption { margin-top: 10px; color: var(--muted); font-size: .78rem; text-align: center; }
+    blockquote { margin: 48px 0; padding: 30px 32px; border: 1px solid var(--line); border-radius: 10px; text-align: center; }
+    blockquote p { margin: 0; font-family: var(--serif); font-style: italic; font-size: 1.3rem; color: var(--text); }
+    blockquote span { display: block; margin-top: 16px; color: var(--muted); font-size: .72rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+
+    .values { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 36px; }
+    .value-card { padding: 24px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+    .value-card h3 { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; }
+    .value-card p { margin-top: 10px; font-size: .9rem; color: var(--muted); }
+
+    .cta { margin-top: 56px; padding: 36px; border: 1px solid var(--line); border-radius: 10px; text-align: center; }
+    .cta h3 { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; }
+    .cta p { max-width: 460px; margin: 12px auto 22px; color: var(--muted); }
+    .btn { display: inline-flex; align-items: center; gap: 9px; min-height: 48px; padding: 0 24px; border-radius: 6px; text-decoration: none; font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text); border: 1px solid var(--text); background: transparent; }
+    .btn:hover { color: #fff; background: var(--text); }
+
+    footer { padding: 48px 0; border-top: 1px solid var(--line); text-align: center; color: var(--muted); font-size: .82rem; }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      .values { grid-template-columns: 1fr; }
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav container" aria-label="Navegação principal">
+      <a class="brand" href="../#inicio" aria-label="Aiex, início">
+        <img src="../img/logo-aiex.png" alt="Aiex">
+      </a>
+      <ul class="nav-links">
+        <li><a href="../#produtos">Soluções</a></li>
+        <li><a href="../#tecnologias">Tecnologias</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="./">Sobre</a></li>
+        <li><a class="nav-cta" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20vim%20da%20p%C3%A1gina%20sobre%20a%20Aiex." target="_blank" rel="noopener">Falar conosco</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">Sobre a Aiex</span>
+        <h1>Uma empresa que nasceu resolvendo o próprio problema.</h1>
+        <p>Antes de existir para os clientes, a Aiex existiu para dentro. Cada sistema que desenvolvemos hoje carrega um pouco dessa origem.</p>
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1400&q=80&auto=format&fit=crop" alt="Equipe trabalhando em conjunto">
+      </div>
+    </section>
+
+    <article class="narrow">
+      <h2>Como tudo começou</h2>
+      <p class="lead">A Aiex não nasceu de um plano de negócios pronto, nasceu de uma frustração comum a quem administra qualquer operação: tarefas repetitivas, planilhas espalhadas, informação que se perde entre uma conversa e outra.</p>
+      <p>Antes de vender qualquer sistema, automatizamos as nossas próprias rotinas. Precisávamos de mais controle, menos retrabalho e uma forma de acompanhar a operação sem depender da memória de alguém. O que começou como uma solução interna foi, aos poucos, revelando um padrão: os mesmos problemas apareciam em negócios completamente diferentes.</p>
+
+      <h2>O que aprendemos no caminho</h2>
+      <p>Entendemos quem empreende porque vivemos as dores da gestão no dia a dia, não como observadores de fora, mas como quem também precisou organizar pedidos, lembrar clientes de um horário e tentar responder tudo a tempo sem perder a qualidade do atendimento.</p>
+      <p>Essa experiência mudou a forma como desenvolvemos sistemas. Em vez de partir de um modelo genérico e adaptar o negócio a ele, passamos a partir da operação real: entender o processo primeiro, para só depois desenhar a solução.</p>
+
+      <img class="inline-photo" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&q=80&auto=format&fit=crop" alt="Reunião de equipe discutindo um projeto">
+      <p class="photo-caption">Cada sistema começa entendendo a operação antes de desenhar a solução.</p>
+
+      <h2>Como trabalhamos hoje</h2>
+      <p>Hoje, essa forma de pensar já toma a forma de mais de um sistema. O SimSim nasceu para quem vive a correria de um delivery e precisa de pedidos organizados sem depender de várias ferramentas soltas. O Tot nasceu para quem perde tempo confirmando horário por horário e responde a mesma pergunta dezenas de vezes por dia.</p>
+      <p>E essa lista continuará crescendo. Cada sistema novo parte do mesmo princípio: tecnologia útil, acessível e conectada a resultados, não tecnologia pela tecnologia.</p>
+
+      <div class="values">
+        <div class="value-card">
+          <h3>Útil</h3>
+          <p>Cada sistema resolve um problema real da operação, não uma funcionalidade genérica.</p>
+        </div>
+        <div class="value-card">
+          <h3>Acessível</h3>
+          <p>Tecnologia complexa por trás, experiência simples para quem usa no dia a dia.</p>
+        </div>
+        <div class="value-card">
+          <h3>Conectada a resultados</h3>
+          <p>Menos tempo perdido, mais controle sobre o que realmente importa no negócio.</p>
+        </div>
+      </div>
+
+      <blockquote>
+        <p>"Não é que temos pouco tempo, mas que o desperdiçamos muito com aquilo que não importa."</p>
+        <span>Sêneca</span>
+      </blockquote>
+
+      <div class="cta">
+        <h3>Quer contar sua operação para a gente?</h3>
+        <p>Entendemos o problema antes de propor a solução. Comece uma conversa com a Aiex.</p>
+        <a class="btn" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20li%20a%20p%C3%A1gina%20sobre%20a%20Aiex%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener">Falar com a Aiex</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><a href="../">← Voltar para o site da Aiex</a></p>
+    </div>
+  </footer>
+</body>
+</html>

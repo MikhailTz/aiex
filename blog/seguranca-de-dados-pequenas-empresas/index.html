@@ -45,10 +45,9 @@
     li { margin-top: 8px; }
     .sources { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
     .sources a { color: var(--muted); text-decoration: underline; }
-    .cta { margin-top: 56px; padding: 36px; border: 1px solid var(--line); border-radius: 10px; text-align: center; }
-    .cta h3 { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; }
-    .cta p { max-width: 460px; margin: 12px auto 22px; color: var(--muted); }
-    .btn { display: inline-flex; align-items: center; gap: 9px; min-height: 48px; padding: 0 24px; border-radius: 6px; text-decoration: none; font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #fff; background: var(--green); }
+    .banner { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 10px; margin-top: 32px; }
+    .inline-photo { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 10px; margin-top: 36px; }
+    .photo-caption { margin-top: 10px; color: var(--muted); font-size: .78rem; text-align: center; }
   </style>
 </head>
 <body>
@@ -63,6 +62,7 @@
       <span class="post-tag">Segurança de dados</span>
       <h1>Pequenas empresas são o principal alvo de ataques, não a exceção</h1>
       <p class="meta">Aiex · Segurança de dados</p>
+      <img class="banner" src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1400&q=80&auto=format&fit=crop" alt="Cadeado digital representando segurança de dados">
 
       <p class="lead">Existe uma ideia comum de que ataques e vazamentos são problema de empresa grande. Os números mostram o oposto: negócios pequenos são justamente os mais visados, porque costumam ter menos proteção e ainda assim guardam dados valiosos de clientes.</p>
 
@@ -79,14 +79,11 @@
         <li>Adotar sistemas prontos sem entender onde e como os dados dos clientes ficam armazenados.</li>
       </ul>
 
+      <img class="inline-photo" src="https://images.unsplash.com/photo-1633265486064-086b219458ec?w=1200&q=80&auto=format&fit=crop" alt="Tela de código representando proteção de sistemas">
+      <p class="photo-caption">Segurança bem pensada começa no desenho do sistema, não como um adicional de última hora.</p>
+
       <h2>O que muda com um sistema bem construído</h2>
       <p>Um sistema desenvolvido com segurança como parte do projeto, e não como um adicional de última hora, define desde o início quem acessa cada informação, mantém registros de atividade e separa dados sensíveis do restante da operação. Isso não elimina o risco, mas reduz o tamanho do problema quando algo sai do previsto.</p>
-
-      <div class="cta">
-        <h3>Quer um sistema pensado com segurança desde o início?</h3>
-        <p>Desenvolvemos sistemas sob medida para negócios que precisam de controle real sobre os próprios dados.</p>
-        <a class="btn" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20li%20o%20artigo%20do%20blog%20e%20quero%20entender%20mais%20sobre%20seguran%C3%A7a%20nos%20sistemas%20da%20Aiex." target="_blank" rel="noopener">Falar com a Aiex</a>
-      </div>
 
       <p class="sources">Fontes: <a href="https://spacelift.io/blog/small-business-cybersecurity-statistics" target="_blank" rel="noopener">Spacelift, Small Business Cybersecurity Statistics</a>, <a href="https://deepstrike.io/blog/data-breach-statistics-2025" target="_blank" rel="noopener">DeepStrike, Data Breach Statistics</a> (dados do IBM Cost of a Data Breach Report).</p>
     </article>
