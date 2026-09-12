@@ -91,7 +91,7 @@
     .nav-links a:hover { color: var(--text); }
     .nav-cta { padding: 10px 18px; border-radius: 6px; color: var(--text) !important; border: 1px solid var(--text); background: transparent; }
     .nav-cta:hover { color: #fff !important; background: var(--text); }
-    .menu-btn { display: none; width: 42px; height: 42px; border: 1px solid var(--line); color: var(--text); background: var(--surface); cursor: pointer; }
+    .menu-btn { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 6px; color: var(--text); background: var(--surface); font-size: 1.05rem; line-height: 1; cursor: pointer; appearance: none; -webkit-appearance: none; }
 
     .hero { position: relative; padding: 120px 0 100px; border-bottom: 1px solid var(--line); }
     .hero-stack { position: relative; z-index: 1; max-width: 740px; }
@@ -215,12 +215,13 @@
       to { opacity: 1; transform: translateY(0); }
     }
     /* touch phones scroll faster than these reveal animations can finish, leaving content
-       blurred/cut off right after it enters view; disable them regardless of the forced
-       desktop-width viewport used to keep the mobile layout identical to desktop. */
+       blurred/cut off right after it enters view. The hero heading is already on screen
+       the moment the site opens (no scroll race), so it keeps its word-reveal animation;
+       everything further down the page (revealed on scroll) is disabled on touch. */
     @media (hover: none) and (pointer: coarse) {
-      .text-reveal-word { opacity: 1 !important; filter: none !important; transform: none !important; transition: none !important; }
-      .reveal-on-scroll { opacity: 1 !important; }
-      .reveal-on-scroll.is-visible { animation: none !important; }
+      .section-head .text-reveal-word { opacity: 1 !important; filter: none !important; transform: none !important; transition: none !important; }
+      .reveal-on-scroll:not(.hero-copy):not(.hero-actions) { opacity: 1 !important; }
+      .reveal-on-scroll.is-visible:not(.hero-copy):not(.hero-actions) { animation: none !important; }
     }
 
     @media (max-width: 900px) {
@@ -239,9 +240,9 @@
     }
 
     @media (max-width: 640px) {
-      .text-reveal-word { opacity: 1 !important; filter: none !important; transform: none !important; transition: none !important; }
-      .reveal-on-scroll { opacity: 1 !important; }
-      .reveal-on-scroll.is-visible { animation: none !important; }
+      .section-head .text-reveal-word { opacity: 1 !important; filter: none !important; transform: none !important; transition: none !important; }
+      .reveal-on-scroll:not(.hero-copy):not(.hero-actions) { opacity: 1 !important; }
+      .reveal-on-scroll.is-visible:not(.hero-copy):not(.hero-actions) { animation: none !important; }
       .sphere-section { padding: 16px 0 40px; }
       .tech-chip { width: 52px; height: 52px; }
       .tech-chip svg { width: 24px; height: 24px; }
@@ -266,9 +267,15 @@
       .system-body h3 { font-size: 1.25rem; margin-bottom: 8px; }
       .system-body p { font-size: .88rem; line-height: 1.6; }
       .product-link { grid-column: 2; grid-row: 2; justify-self: start; font-size: .74rem; }
-      .testimonial-columns-mask { max-height: 480px; margin-top: 34px; }
-      .testimonial-card { padding: 24px; border-radius: 14px; }
-      .client-quote { font-size: .94rem; line-height: 1.65; }
+      .testimonial-columns-mask { max-height: 480px; margin-top: 34px; gap: 12px; }
+      .testimonial-column--tablet { display: flex; }
+      .testimonial-column { gap: 12px; }
+      .testimonial-card { padding: 16px; border-radius: 12px; }
+      .testimonial-card .stars { font-size: .68rem; margin-bottom: 10px; }
+      .client-quote { font-size: .78rem; line-height: 1.5; }
+      .client-head { gap: 8px; margin-top: 14px; padding-top: 12px; }
+      .client-head img { max-width: 24px; max-height: 24px; }
+      .client-head span { font-size: .64rem; }
       .about { gap: 16px; padding: 26px 22px; border-radius: 24px; }
       .about-brand { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px 14px; }
       .about-brand .eyebrow { grid-column: 1 / -1; margin-bottom: 4px; }
