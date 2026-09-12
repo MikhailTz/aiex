@@ -138,6 +138,17 @@
     @keyframes techScrollLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     @keyframes techScrollRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 
+    .news-ticker { border-bottom: 1px solid var(--line); background: var(--bg-soft); overflow: hidden; }
+    .news-ticker-inner { display: flex; align-items: center; gap: 18px; height: 44px; }
+    .news-ticker-label { flex: 0 0 auto; padding-right: 16px; border-right: 1px solid var(--line-blue); color: var(--text); font-size: .66rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
+    .news-ticker-label:hover { color: var(--muted); }
+    .news-ticker-track-wrap { flex: 1; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+    .news-ticker-track { display: flex; align-items: center; gap: 40px; width: max-content; animation: newsScroll 42s linear infinite; }
+    .news-ticker-track a { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); font-size: .78rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
+    .news-ticker-track a:hover { color: var(--text); }
+    .news-ticker-track a::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--line-blue); }
+    @keyframes newsScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
 
     .testimonial-columns-mask { position: relative; display: flex; justify-content: center; gap: 24px; margin-top: 48px; max-height: 640px; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent); }
     .testimonial-column { display: flex; flex-direction: column; gap: 22px; flex: 1 1 0; max-width: 340px; animation: testScroll linear infinite; }
@@ -215,13 +226,16 @@
       to { opacity: 1; transform: translateY(0); }
     }
     /* touch phones scroll faster than these reveal animations can finish, leaving content
-       blurred/cut off right after it enters view. The hero heading is already on screen
-       the moment the site opens (no scroll race), so it keeps its word-reveal animation;
-       everything further down the page (revealed on scroll) is disabled on touch. */
+       blurred/cut off right after it enters view. Keep the animations on touch (triggered
+       earlier via JS rootMargin), but drop the blur and shorten them so they always finish
+       well before a fast scroll carries the element past the viewport. */
     @media (hover: none) and (pointer: coarse) {
-      .section-head .text-reveal-word { opacity: 1 !important; filter: none !important; transform: none !important; transition: none !important; }
-      .reveal-on-scroll:not(.hero-copy):not(.hero-actions) { opacity: 1 !important; }
-      .reveal-on-scroll.is-visible:not(.hero-copy):not(.hero-actions) { animation: none !important; }
+      .text-reveal-ready .text-reveal-word { filter: none; transform: translateY(6px); transition-duration: .3s; }
+      .reveal-on-scroll.is-visible { animation-duration: .34s; animation-name: revealUpFast; }
+      @keyframes revealUpFast {
+        from { opacity: 0; transform: translateY(14px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
     }
 
     @media (max-width: 900px) {
@@ -240,13 +254,14 @@
     }
 
     @media (max-width: 640px) {
-      .section-head .text-reveal-word { opacity: 1 !important; filter: none !important; transform: none !important; transition: none !important; }
-      .reveal-on-scroll:not(.hero-copy):not(.hero-actions) { opacity: 1 !important; }
-      .reveal-on-scroll.is-visible:not(.hero-copy):not(.hero-actions) { animation: none !important; }
       .sphere-section { padding: 16px 0 40px; }
       .tech-chip { width: 52px; height: 52px; }
       .tech-chip svg { width: 24px; height: 24px; }
       .tech-fade { width: 48px; }
+      .news-ticker-inner { height: 38px; gap: 12px; }
+      .news-ticker-label { padding-right: 12px; font-size: .6rem; }
+      .news-ticker-track { gap: 28px; }
+      .news-ticker-track a { font-size: .72rem; }
       html { font-size: 15.5px; }
       .container { width: min(100% - 32px,1120px); }
       .section { padding: 56px 0; }
@@ -335,6 +350,15 @@
         </div>
       </div>
     </section>
+
+    <div class="news-ticker" aria-label="Últimas do blog da Aiex">
+      <div class="container news-ticker-inner">
+        <a class="news-ticker-label" href="blog/">Blog</a>
+        <div class="news-ticker-track-wrap">
+          <div class="news-ticker-track" id="newsTicker"></div>
+        </div>
+      </div>
+    </div>
 
     <section class="section" id="produtos">
       <div class="container">
@@ -468,6 +492,21 @@
       buildRow(document.getElementById('techRowA'), ICONS_ROW_A, 6);
       buildRow(document.getElementById('techRowB'), ICONS_ROW_B, 6);
 
+      const NEWS_ITEMS = [
+        { title: 'Por que responder rápido no WhatsApp decide se você vende ou perde o cliente', href: 'blog/atendimento-whatsapp-resposta-rapida/' },
+        { title: 'Cardápio digital: o novo básico para quem vende delivery', href: 'blog/cardapio-digital-delivery/' },
+        { title: 'Como lembretes automáticos podem reduzir o no-show da sua agenda', href: 'blog/lembretes-automaticos-agendamento/' },
+        { title: 'Pequenas empresas são o principal alvo de ataques, não a exceção', href: 'blog/seguranca-de-dados-pequenas-empresas/' },
+        { title: 'A inteligência artificial já não é exclusividade de empresa grande', href: 'blog/inteligencia-artificial-pequenas-empresas/' },
+        { title: 'O que a pesquisa do Sebrae revela sobre pequenos negócios digitais no Brasil', href: 'blog/pesquisa-sebrae-pequenos-negocios-digitais/' },
+      ];
+      const newsTrack = document.getElementById('newsTicker');
+      if (newsTrack) {
+        newsTrack.innerHTML = Array.from({ length: 2 }).flatMap(() => NEWS_ITEMS).map(item =>
+          `<a href="${item.href}">${item.title}</a>`
+        ).join('');
+      }
+
       const TESTIMONIALS = [
         { quote: 'Nossos pedidos agora chegam totalmente limpos e organizados no WhatsApp. Melhorou muito a operação.', name: 'O Fera do Lanche', src: 'img/logo-fera-lanche.png' },
         { quote: 'Estou ganhando muitas avaliações todos os dias. A visibilidade no Google aumentou demais com esse cartão!', name: 'Lucão du Corte', src: 'img/logo-lucao-corte.png' },
@@ -492,7 +531,7 @@
       });
 
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.querySelectorAll('.tech-track, .testimonial-column').forEach(track => { track.style.animation = 'none'; });
+        document.querySelectorAll('.tech-track, .testimonial-column, .news-ticker-track').forEach(track => { track.style.animation = 'none'; });
       }
     })();
 
@@ -543,13 +582,15 @@
     }
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 
     if (!reducedMotion && 'IntersectionObserver' in window) {
       const revealHeadings = document.querySelectorAll('.hero h1, .section-head h2');
+      const wordDelayStep = isTouchDevice ? 16 : 32;
       revealHeadings.forEach(heading => {
         let wordIndex = 0;
         const setDelay = el => {
-          el.style.setProperty('--word-delay', `${Math.min(wordIndex, 12) * 32}ms`);
+          el.style.setProperty('--word-delay', `${Math.min(wordIndex, 12) * wordDelayStep}ms`);
           wordIndex += 1;
         };
         // Split each direct child into reveal words. Element children (e.g. the
@@ -587,7 +628,9 @@
           entry.target.classList.add('text-reveal-visible');
           textRevealObserver.unobserve(entry.target);
         });
-      }, { threshold: .22, rootMargin: '0px 0px -4% 0px' });
+      }, isTouchDevice
+        ? { threshold: .01, rootMargin: '0px 0px 20% 0px' }
+        : { threshold: .22, rootMargin: '0px 0px -4% 0px' });
       revealHeadings.forEach(heading => textRevealObserver.observe(heading));
     }
 
@@ -605,13 +648,25 @@
           }, { once: true });
           revealObserver.unobserve(element);
         });
-      }, { threshold: .12, rootMargin: '0px 0px -7% 0px' });
+      }, isTouchDevice
+        ? { threshold: .01, rootMargin: '0px 0px 20% 0px' }
+        : { threshold: .12, rootMargin: '0px 0px -7% 0px' });
+      const delayStep = isTouchDevice ? 40 : 70;
       revealTargets.forEach((element, position) => {
         element.classList.add('reveal-on-scroll');
-        element.style.animationDelay = `${Math.min(position % 4, 3) * 70}ms`;
+        element.style.animationDelay = `${Math.min(position % 4, 3) * delayStep}ms`;
         revealObserver.observe(element);
       });
     }
+
+    // Safety net: the hero is always visible the instant the page opens, so it should
+    // never stay stuck mid-animation (e.g. if the tab was backgrounded during load).
+    // Force it fully visible shortly after load if the observers haven't done it yet.
+    setTimeout(() => {
+      const heroHeading = document.querySelector('.hero h1.text-reveal-ready');
+      if (heroHeading) heroHeading.classList.add('text-reveal-visible');
+      document.querySelectorAll('.hero-copy, .hero-actions').forEach(el => el.classList.add('is-visible'));
+    }, 900);
   </script>
 </body>
 </html>
