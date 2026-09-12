@@ -107,6 +107,10 @@
     .btn-primary:hover { color: var(--text); background: transparent; }
     .btn-secondary { color: var(--text); background: transparent; }
     .btn-secondary:hover { color: #fff; background: var(--text); }
+    .hero-hint { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; color: var(--muted); font-size: .82rem; font-weight: 600; text-decoration: none; }
+    .hero-hint:hover { color: var(--text); }
+    .hero-hint span { display: inline-block; transition: transform .2s; }
+    .hero-hint:hover span { transform: translateY(3px); }
     .btn-whatsapp { color: #fff; background: var(--green); border-color: var(--green); }
     .btn-whatsapp:hover { color: var(--green); background: transparent; }
 
@@ -343,11 +347,11 @@
     <section class="hero">
       <div class="container hero-stack">
         <h1>Desenvolvendo sistemas para <span class="gradient-text">estruturar negócios.</span></h1>
-        <p class="hero-copy">Sistemas próprios para empresas que precisam de mais controle, organização e eficiência na operação. Hoje, isso já toma a forma de mais de um sistema, e continuará crescendo.</p>
+        <p class="hero-copy">Sistemas próprios para empresas que precisam de mais controle, organização e eficiência na operação.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#produtos">Conhecer nossos sistemas <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-secondary" href="https://wa.me/5521970656726?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20os%20sistemas%20da%20Aiex." target="_blank" rel="noopener">Falar conosco</a>
         </div>
+        <a class="hero-hint" href="#produtos">SimSim e Tot, os sistemas por trás dessa ideia <span aria-hidden="true">↓</span></a>
       </div>
     </section>
 
@@ -636,7 +640,7 @@
 
     if (!reducedMotion && 'IntersectionObserver' in window) {
       const revealTargets = document.querySelectorAll(
-        '.hero-copy, .hero-actions, .section-head > :not(h2), .system-row, .testimonial-columns-mask, .contact-form, .faq-item, .about, .quote'
+        '.hero-copy, .hero-actions, .hero-hint, .section-head > :not(h2), .system-row, .testimonial-columns-mask, .contact-form, .faq-item, .about, .quote'
       );
       const revealObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -665,7 +669,7 @@
     setTimeout(() => {
       const heroHeading = document.querySelector('.hero h1.text-reveal-ready');
       if (heroHeading) heroHeading.classList.add('text-reveal-visible');
-      document.querySelectorAll('.hero-copy, .hero-actions').forEach(el => el.classList.add('is-visible'));
+      document.querySelectorAll('.hero-copy, .hero-actions, .hero-hint').forEach(el => el.classList.add('is-visible'));
     }, 900);
   </script>
 </body>
