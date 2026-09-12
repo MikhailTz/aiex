@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1200">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f7f6f2">
   <meta name="description" content="Conteúdos da Aiex sobre automação, atendimento com IA, delivery, agendamentos, segurança, inteligência artificial e tendências de mercado para empresas.">
   <title>Blog | Aiex</title>
@@ -85,11 +85,19 @@
       .menu-btn { display: block; }
     }
     @media (max-width: 780px) {
-      .post-row { grid-template-columns: 1fr; }
-      .post-cover { aspect-ratio: 16/9; }
+      .post-row { grid-template-columns: 1fr; gap: 20px; padding: 32px 0; }
+      .post-cover { aspect-ratio: 16/9; border-radius: 12px; }
     }
     @media (max-width: 520px) {
-      .category-grid { grid-template-columns: 1fr 1fr; }
+      .container { width: min(100% - 32px,1120px); }
+      .page-top { margin-top: 24px; }
+      .page-head h1 { line-height: 1.16; }
+      .page-head p { font-size: .92rem; }
+      .category-grid { grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 36px; }
+      .category-card { padding: 16px 14px; min-height: 74px; }
+      .category-card h3 { font-size: .84rem; }
+      .post-row h2 { font-size: 1.3rem; }
+      .post-row p { font-size: .9rem; }
     }
   </style>
 </head>

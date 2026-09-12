@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1200">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f7f6f2">
   <meta name="description" content="A história da Aiex: como uma necessidade real dentro da própria operação virou uma empresa de sistemas para negócios.">
   <title>Sobre | Aiex</title>
@@ -87,16 +87,26 @@
     }
 
     @media (max-width: 640px) {
-      .values { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: repeat(2,1fr); gap: 26px 16px; align-items: start; text-align: left; }
+      .container { width: min(100% - 32px,1120px); }
+      .hero { padding: 52px 0 40px; }
+      .hero p { font-size: .95rem; margin-top: 18px; }
+      .hero-photo { margin-top: 32px; border-radius: 14px; }
+      article { padding: 44px 0 32px; }
+      h2 { font-size: 1.4rem; margin-top: 42px; }
+      p { font-size: .95rem; line-height: 1.7; }
+      .lead { font-size: 1.02rem; }
+      .values { grid-template-columns: 1fr; gap: 14px; }
+      .value-card { padding: 22px 20px; }
+      .cta { padding: 30px 24px; }
+      .footer-grid { grid-template-columns: repeat(2,1fr); gap: 34px 20px; align-items: start; text-align: left; }
       .footer-brand { grid-column: 1 / -1; }
-      footer { padding: 42px 0 22px; }
-      .footer-logo { width: 76px; margin: 0 0 10px; }
-      .footer-brand p { margin: 0; font-size: .62rem; line-height: 1.45; }
-      footer h3 { margin-bottom: 9px; font-size: .62rem; }
-      footer ul { gap: 7px; }
-      footer li, footer a { font-size: .6rem; overflow-wrap: anywhere; }
-      .copyright { gap: 4px 10px; font-size: .62rem; }
+      footer { padding: 50px 0 26px; }
+      .footer-logo { width: 88px; margin: 0 0 12px; }
+      .footer-brand p { margin: 0; font-size: .78rem; line-height: 1.55; }
+      footer h3 { margin-bottom: 12px; font-size: .68rem; }
+      footer ul { gap: 10px; }
+      footer li, footer a { font-size: .8rem; overflow-wrap: anywhere; }
+      .copyright { gap: 6px 14px; margin-top: 36px; font-size: .74rem; }
     }
   </style>
 </head>
