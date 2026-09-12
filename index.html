@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1200">
   <meta name="theme-color" content="#fafafa">
   <meta name="description" content="A Aiex desenvolve sistemas próprios para empresas: o SimSim, para pedidos e delivery, e o Tot, para atendimento por IA e agendamentos.">
   <meta property="og:title" content="Aiex | Sistemas para empresas">
@@ -213,6 +213,14 @@
     @keyframes revealUp {
       from { opacity: 0; transform: translateY(26px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+    /* touch phones scroll faster than these reveal animations can finish, leaving content
+       blurred/cut off right after it enters view; disable them regardless of the forced
+       desktop-width viewport used to keep the mobile layout identical to desktop. */
+    @media (hover: none) and (pointer: coarse) {
+      .text-reveal-word { opacity: 1 !important; filter: none !important; transform: none !important; transition: none !important; }
+      .reveal-on-scroll { opacity: 1 !important; }
+      .reveal-on-scroll.is-visible { animation: none !important; }
     }
 
     @media (max-width: 900px) {
