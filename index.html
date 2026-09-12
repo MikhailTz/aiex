@@ -249,11 +249,13 @@
       .hero { padding: 42px 0 38px; }
       .hero h1 { font-size: 1.75rem; line-height: 1.15; }
       .hero-copy { margin: 11px auto 16px; font-size: .78rem; line-height: 1.5; }
-      .hero-actions { display: grid; grid-template-columns: 1fr; gap: 8px; width: 100%; }
-      .hero-actions .btn { width: 100%; min-height: 44px; font-size: .74rem; }
-      .system-row { grid-template-columns: 1fr; gap: 14px; padding: 26px 0; }
-      .system-logo img { max-height: 36px; }
-      .product-link { justify-self: start; }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; }
+      .hero-actions .btn { flex: 1 1 auto; min-height: 44px; font-size: .7rem; padding: 0 14px; }
+      .system-row { grid-template-columns: 64px 1fr; align-items: start; column-gap: 16px; row-gap: 8px; padding: 24px 0; }
+      .system-logo { grid-column: 1; grid-row: 1; justify-content: flex-start; }
+      .system-logo img { max-height: 32px; max-width: 64px; }
+      .system-body { grid-column: 2; grid-row: 1; }
+      .product-link { grid-column: 2; grid-row: 2; justify-self: start; }
       .testimonial-columns-mask { max-height: 440px; }
       .testimonial-card { padding: 20px; }
       .client-quote { font-size: .86rem; }
